@@ -106,13 +106,13 @@ void() HUD_AmmoString =
 
 void(float width, float height) HUD_Points =
 {
-	local float points, pointlength = 0, increm = 10;
+	local float points, pointlength = 0, increm = 20;
 	
 	points = getstatf(STAT_POINTS);
 	pointlength = strlen(ftos(points));
 		
 	drawpic([0.8*width,0.70*height,0], "gfx/hud/moneyback.tga", [0.2*width, 0.07*height, 0], [1,1,1], 1);
-	drawstring([.9414*width - pointlength*20*width/1024, 0.715*height, 0], ftos(points), [0.022*width, 0.022*width, 0], [1, 1, 1], 1, 1);   // naievil (FIXME) real offset needed (pointlength)
+	drawstring([.9414*width - pointlength*25*width/1024, 0.715*height, 0], ftos(points), [0.022*width, 0.022*width, 0], [1, 1, 1], 1, 1);   // naievil (FIXME) real offset needed (pointlength)
 }
 
 /*******************
