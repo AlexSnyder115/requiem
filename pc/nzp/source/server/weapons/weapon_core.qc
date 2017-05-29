@@ -1137,6 +1137,10 @@ void () Impulse_Functions =
 		case 24:
 			W_SprintStop();
 			break;
+		case 25:
+			W_PutOut();
+			self.semiswitch = true;
+			break;
 	}
 	
 	self.impulse = 0;

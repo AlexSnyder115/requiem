@@ -1,0 +1,14 @@
+map KinoDerToten
+map farm
+map nuketown
+map nuketown
+map
+map example_01
+map wahnsinn
+map wahnsinn
+map example_01
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
