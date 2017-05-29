@@ -23,6 +23,9 @@ void GivePerk(float perk) {
 		case P_DOUBLE:
 			self.perks = self.perks | 2;
 			break;
+		case P_CHERRY:
+			self.perks = self.perks | 64;
+			break;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -43,6 +46,7 @@ void() give_doubletap = { GivePerk(P_DOUBLE); }
 void() give_speedcola = { GivePerk(P_SPEED); }
 void() give_flopper = { GivePerk(P_FLOP); }
 void() give_staminup = { GivePerk(P_STAMIN); }
+void() give_electric = { GivePerk(P_CHERRY); }
 
 
 void DrinkPerk(float perk) {
@@ -73,6 +77,10 @@ void DrinkPerk(float perk) {
 		case P_DOUBLE:
 			other.weaponskin = 0;	
 			func = give_doubletap;
+			break;
+		case P_CHERRY:
+			other.weaponskin = 3;
+			func = give_electric;
 			break;
 		default:
 			print("Unknown perk type, wtf?\n");
@@ -204,6 +212,19 @@ void() touch_perk =
 			centerprint (other, "Not enough points\n");
 		}
 	}
+	if (self.classname == "perk_cherry" && !(other.perks & P_CHERRY) && self.fire_delay < time)
+	{
+		useprint (other, 9, 2000, 7);
+		if (other.points >= 2000 && other.button7)
+		{
+			addmoney (other, -2000, 0);
+			DrinkPerk(P_FLOP);
+		}
+		else if (other.button7)
+		{
+			centerprint (other, "Not enough points\n");
+		}
+	}
 }
 
 void() setup_perk =
@@ -264,7 +285,21 @@ void() perk_flopper =
 	self.think = setup_perk;
 	self.nextthink = time + 0.1;
 };
+void() perk_cherry =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/cherry.mdl");
+	precache_model ("models/machines/v_perk.mdl");
+	precache_sound ("sounds/machines/perk_drink.wav");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/cherry.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "perk_cherry";
+	self.touch = touch_perk;
 
+	self.think = setup_perk;
+	self.nextthink = time + 0.1;
+};
 void() perk_juggernog =
 {
 	self.solid = SOLID_TRIGGER;

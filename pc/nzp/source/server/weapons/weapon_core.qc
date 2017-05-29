@@ -1202,6 +1202,10 @@ void () Weapon_Logic =
 	if (self.button5 && !self.semireload)
 	{
 		W_Reload(S_BOTH);
+		if (self.perks & P_CHERRY)
+		{
+			DamgageExplode (self, self.owner, 225, 75, 32);
+		}
 		self.semireload = TRUE;
 	}
 	else if (!self.button5) {
