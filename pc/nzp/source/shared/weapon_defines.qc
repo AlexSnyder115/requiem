@@ -217,6 +217,104 @@ float(float wep) GetFiretype =
     return 0;
 }
 
+float(float wep) getMaxMag =
+{
+
+	switch (wep)
+	{
+		case W_COLT:
+			return 8;
+		case W_BIATCH:
+			return 6;
+		case W_KAR:
+			return 5;
+    	case W_ARMAGEDDON:
+			return 8;
+		case W_THOMPSON:
+			return 20;
+		case W_GIBS:
+			return 40;
+		case W_357:
+		case W_KILLU:
+			return 6;
+		case W_BAR:
+			return 20;
+		case W_WIDOW:
+			return 30;
+		case W_BROWNING:
+			return 125;
+		case W_ACCELERATOR:
+			return 125;
+		case W_DB:
+		case W_BORE:
+			return 2;
+		case W_FG:
+			return 32;
+		case W_IMPELLER:
+			return 64;
+		case W_GEWEHR:
+			return 12;
+		case W_COMPRESSOR:
+			return 10;
+		case W_KAR_SCOPE:
+			return 5;
+		case W_HEADCRACKER:
+			return 10;
+		case W_M1:
+			return 8;
+		case W_M1000:
+			return 12;
+		case W_M1A1:
+			return 15;
+		case W_WIDDER:
+			return 15;
+		case W_M2:
+			return 200;
+		case W_FIW:
+			return 200;
+		case W_MP40:
+			return 32;
+		case W_AFTERBURNER:
+			return 64;
+		case W_MG:
+			return 125;
+		case W_BARRACUDA:
+			return 125;
+		case W_PANZER:
+			return 1;
+		case W_LONGINUS:
+			return 3;
+		case W_PPSH:
+			return 71;
+		case W_REAPER:
+			return 115;
+		case W_PTRS:
+			return 5;
+		case W_PENETRATOR:
+			return 8;
+		case W_RAY:
+			return 20;
+		case W_PORTER:
+			return 20;
+		case W_SAWNOFF:
+		case W_SNUFF:
+			return 2;
+		case W_STG:
+			return 30;
+		case W_SPATZ:
+			return 60;
+		case W_TRENCH:
+			return 6;
+		case W_GUT:
+			return 10;
+		case W_TYPE:
+			return 30;
+		case W_SAMURAI:
+			return 60;
+	}
+	return 0;
+}
+
 float(float wep) getWeaponMag =
 {
 

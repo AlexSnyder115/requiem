@@ -1,5 +1,14 @@
 void() W_PutOut;
 
+void() CherryBoom =
+{
+	if ((self.perks & P_CHERRY) && self.currentmag != getMaxMag(self.weapon))
+	{
+		DamgageExplode (self, self.owner, 225, 75, 64);
+		sound (self, CHAN_WEAPON, "sounds/misc/shock.wav", 1, ATTN_NORM);
+	}
+}
+
 void() ReturnWeaponModel =
 {
 	self.weaponmodel = GetWeaponModel(self.weapon, 0);
@@ -368,6 +377,7 @@ void () W_LoadAmmo =
 	if (!self.currentmag)
 	{
 		W_Reload(S_BOTH);
+		CherryBoom();
 		return;
 	}
 
@@ -1206,10 +1216,7 @@ void () Weapon_Logic =
 	if (self.button5 && !self.semireload)
 	{
 		W_Reload(S_BOTH);
-		if (self.perks & P_CHERRY && self.currentmag == 0)
-		{
-			DamgageExplode (self, self.owner, 225, 75, 32);
-		}
+		CherryBoom();
 		self.semireload = TRUE;
 	}
 	else if (!self.button5) {
