@@ -709,7 +709,7 @@ void(float width, float height) HUD_Perks =
 
 	//drawstring([0.01*width, 0.10*height, 0], ftos(perks), [0.03*width, 0.03*width, 0], [1, 1, 1], 1, 1);
 			
-	for (i = 0; i < 8; i = i + 1)
+	for (i = 0; i < 9; i = i + 1)
 	{
 		if (perk_order[i])
 		{
@@ -741,6 +741,11 @@ void(float width, float height) HUD_Perks =
 			else if (perk_order[i] == P_STAMIN)
 			{
 				drawpic([2,y,0], "gfx/hud/stamin.tga", [20, 20, 1], [1,1,1], 1);
+				y = y - 22;
+			}
+			else if (perk_order[i] == P_CHERRY)
+			{
+				drawpic([2,y,0], "gfx/hud/cherry.tga", [20, 20, 1], [1,1,1], 1);
 				y = y - 22;
 			}
 		}
@@ -953,9 +958,14 @@ void UpdatePerks (float newperks) {
 		perk_order[current_perk_order] = P_STAMIN;
 		current_perk_order = current_perk_order + 1;
 	}
+	if (newperks & P_CHERRY && !(perks & P_CHERRY))
+	{
+		perk_order[current_perk_order] = P_CHERRY;
+		current_perk_order = current_perk_order + 1;
+	}
 	if (perks & P_JUG && !(newperks & P_JUG))
 	{
-		for (s = 0; s < 8; s++)
+		for (s = 0; s < 9; s++)
 		{
 			if (perk_order[s] == P_JUG)
 			{
@@ -972,7 +982,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_DOUBLE && !(newperks & P_DOUBLE))
 	{
-		for (s = 0; s < 8; s++)
+		for (s = 0; s < 9; s++)
 		{
 			if (perk_order[s] == P_DOUBLE)
 			{
@@ -989,7 +999,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_SPEED && !(newperks & P_SPEED))
 	{
-		for (s = 0; s < 8; s++)
+		for (s = 0; s < 9; s++)
 		{
 			if (perk_order[s] == P_SPEED)
 			{
@@ -1006,7 +1016,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_REVIVE && !(newperks & P_REVIVE))
 	{
-		for (s = 0; s < 8; s++)
+		for (s = 0; s < 9; s++)
 		{
 			if (perk_order[s] == P_REVIVE)
 			{
@@ -1023,7 +1033,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_FLOP && !(newperks & P_FLOP))
 	{
-		for (s = 0; s < 8; s++)
+		for (s = 0; s < 9; s++)
 		{
 			if (perk_order[s] == P_FLOP)
 			{
@@ -1040,9 +1050,26 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_STAMIN && !(newperks & P_STAMIN))
 	{
-		for (s = 0; s < 8; s++)
+		for (s = 0; s < 9; s++)
 		{
 			if (perk_order[s] == P_STAMIN)
+			{
+				perk_order[s] = 0;
+				while (perk_order[s+1])
+				{
+					perk_order[s] = perk_order[s+1];
+					perk_order[s+1] = 0;
+				}
+				break;
+			}
+		}
+		current_perk_order = current_perk_order - 1;
+	}
+	if (perks & P_CHERRY && !(newperks & P_CHERRY))
+	{
+		for (s = 0; s < 9; s++)
+		{
+			if (perk_order[s] == P_CHERRY)
 			{
 				perk_order[s] = 0;
 				while (perk_order[s+1])
