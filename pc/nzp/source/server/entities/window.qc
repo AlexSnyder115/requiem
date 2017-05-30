@@ -36,7 +36,7 @@ void() Window_repaired =
 		addmoney(self.enemy, 10, 1);
 		totalreward = totalreward + 10;
 	}
-	screen_shake();
+	//screen_shake();
 	self.enemy = world;
 };
 
