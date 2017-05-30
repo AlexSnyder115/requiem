@@ -115,6 +115,27 @@ void(float width, float height) HUD_Points =
 	drawstring([.9414*width - pointlength*25*width/1024, 0.715*height, 0], ftos(points), [0.022*width, 0.022*width, 0], [1, 1, 1], 1, 1);   // naievil (FIXME) real offset needed (pointlength)
 }
 
+/***********************
+*    HUD_PlayerName    *
+************************/
+
+void(float width, float height) HUD_PlayerName =
+{
+	int playernum;
+	local string pname = "";
+	playernum = getstatf(STAT_PLAYERNAME);
+	if (playernum < 0.125)
+		pname = "Dempsey";
+	else if (playernum < 0.25)
+		pname = "Nikolai";
+	else if (playernum < 0.375)
+		pname = "Takeo";
+	else
+		pname = "Richtofen";
+	drawstring([.65*width, 0.715*height, 0], pname, [0.022*width, 0.022*width, 0], [1, 1, 1], 1, 1);
+
+}
+
 /*******************
 *    HUD_Grenades  *
 *******************/
@@ -906,6 +927,7 @@ void(float width, float height) HUD_Draw =
 	HUD_Rounds(width, height);
 	HUD_Perks(width, height);
 	HUD_Progressbar(width, height);
+	HUD_PlayerName(width, height);
 	
 	if (HUD_Change_time > time)
 	{

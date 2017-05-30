@@ -174,7 +174,9 @@ void() PlayerSpawn =
 {
 	local entity spawnpoint;
 	spawnpoint = find(world, classname, "info_player_start");
-	
+
+	self.playernumber = random();
+
 	self.isspec = FALSE;
 	self.classname = "player";
 	self.solid = SOLID_SLIDEBOX;

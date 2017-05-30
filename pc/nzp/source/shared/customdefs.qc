@@ -134,3 +134,4 @@ const float EVENT_UPDATE = 23;
 #define STAT_WEAPONDURATION   	58
 #define STAT_WEAPON2DURATION   	59
 #define STAT_WEAPONZOOM        	60
+#define STAT_PLAYERNAME			61

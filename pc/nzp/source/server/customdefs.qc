@@ -276,6 +276,8 @@ float rounds;
 float rounds_change;
 
 
+.float playernumber;
+
 //Waypoints
 void () Waypoint_Logic;
 entity current_way;
