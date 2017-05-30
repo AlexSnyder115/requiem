@@ -56,3 +56,12 @@ restart
 restart
 restart
 restart
+fov
+fov 70
+fov
+fov 70
+fov 75
+fov 80
+gamma
+gamma 0.5
+gamma 1
