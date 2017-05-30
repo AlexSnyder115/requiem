@@ -1,7 +1,6 @@
-Oh hey, how are you?
+The following is the source code for the work in progress mod for Nazi Zombies Portable titled 'Requiem'
 
-I'm fine, thanks for asking.
-
-What is this, you ask?
-
-I am not sure.
+req·ui·em
+/ˈrekwēəm/
+noun
+   - an act or token of remembrance.
