@@ -252,7 +252,7 @@ void() ContinueReload = //Special reloads
 
 	if (delay) {
 		if (self.perks & P_SPEED) {
-			delay *= 0.75;
+			delay *= 0.25;
 		}
 		self.reload_delay = time + delay;
 		Set_W_Frame (startframe, endframe, delay, 0, RELOAD, endanimfunc, modelname, false, S_RIGHT);
@@ -349,7 +349,7 @@ void(float side) W_Reload =
 		}
 
 		if (self.perks & P_SPEED)
-			delay = delay*0.75;
+			delay = delay*0.25;
 		
 		if (side == S_RIGHT) {
 			self.reload_delay = delay + time;
@@ -466,7 +466,7 @@ void Parse_Damage () = // DO NOT TOUCH
 void() LungeKnifeHit =
 {		
 	vector	source,org;
-	float	f_damage;
+	float	final_damage;
 	entity	hit_ent;
 
 	makevectors (self.v_angle);
@@ -493,18 +493,18 @@ void() LungeKnifeHit =
 		sound (self, CHAN_WEAPON, "sounds/weapons/knife/knife_hitbod.wav", 1, ATTN_NORM);
 		
 		if (self.bowie && self.weapon == W_BK)
-			f_damage = 1200;
+			final_damage = 1200;
 		else if (self.bowie)
-			f_damage = 1000;
+			final_damage = 1000;
 		else if (self.weapon == W_BK)
-			f_damage = 500;
+			final_damage = 500;
 		else
-			f_damage = 150;
+			final_damage = 150;
 		
 		if (trace_ent.classname == "ai_zombie_head")
 		{
 			hit_ent = trace_ent.owner;
-			f_damage = f_damage*1.5;
+			final_damage = final_damage*1.5;
 		}
 		else if (trace_ent.classname == "ai_zombie_larm")
 		{
@@ -525,14 +525,14 @@ void() LungeKnifeHit =
 			//hit = 1;
 		}*/
 		
-		DamageHandler (hit_ent, self, f_damage, S_KNIFE);
+		DamageHandler (hit_ent, self, final_damage, S_KNIFE);
 	}
 }
 
 void(float damage, vector dir, vector org, vector plane, entity hit_ent) TraceAttack =
 {
 	vector  vel;
-	float f_damage;
+	float final_damage;
   
 	vel = normalize(dir);
 	vel = vel + 2*plane;
@@ -552,10 +552,10 @@ void(float damage, vector dir, vector org, vector plane, entity hit_ent) TraceAt
 			return;
 		}
 
-		f_damage = damage;
+		final_damage = damage;
 
 		hit_ent.washit = 1;
-		hit_ent.hitamount = hit_ent.hitamount + f_damage;
+		hit_ent.hitamount = hit_ent.hitamount + final_damage;
 		
 		SetUpdate(self, UT_HM, 0, 0, 0);
 	}
@@ -744,7 +744,7 @@ void(float side) W_Fire =
 	endframe = GetFrame(self.weapon,FIRE_END);
 
 	if (self.perks & P_DOUBLE) {
-		delay *=0.5;
+		delay *=0.25;
 	}
 
 	if (self.weapon == W_GUT || self.weapon == W_KAR_SCOPE || self.weapon == W_TRENCH || self.weapon == W_KAR || self.weapon == W_ARMAGEDDON || self.weapon == W_HEADCRACKER)

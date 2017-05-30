@@ -74,3 +74,17 @@ restart
 restart
 map warehouse
 restart
+settings
+record test ndu
+notarget
+stop
+demos
+demos
+demos
+demos test1
+playdemo test1
+playdemo test
+record t1 warehouse
+stop
+playdemo t1
+pause
