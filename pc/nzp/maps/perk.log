@@ -199,29 +199,29 @@ rgb transfers        [               off ] [               off ]
 [Reading texlights from 'Z:\home\moto\Downloads\zhlt34x86final\lights.rad']
 [59 texlights parsed from 'Z:\home\moto\Downloads\zhlt34x86final\lights.rad']
 
-16 faces
-Create Patches : 208 base patches
+22 faces
+Create Patches : 248 base patches
 0 opaque faces
-3310 square feet [476781.50 square inches]
+3623 square feet [521782.44 square inches]
 1 direct lights
 
 BuildFacelights:
- (0.02 seconds)
+ (0.03 seconds)
 visibility matrix   :   0.0 megs
 BuildVisLeafs:
  (0.00 seconds)
 MakeScales:
- (0.00 seconds)
+ (0.01 seconds)
 SwapTransfers:
  (0.00 seconds)
-Transfer Lists :       35456 :   35.46k transfers
-       Indices :        1344 :    1.31k bytes
-          Data :      141824 :  138.50k bytes
+Transfer Lists :       49952 :   49.95k transfers
+       Indices :        1584 :    1.55k bytes
+          Data :      199808 :  195.12k bytes
 GatherLight:
  (0.00 seconds)
 FinalLightFace:
  (0.01 seconds)
-0.06 seconds elapsed
+0.08 seconds elapsed
 
 -----   END   hlrad -----
 
