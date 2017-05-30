@@ -769,17 +769,17 @@ void(float width, float height) HUD_Perks =
 			}
 			else if (perk_order[i] == P_FLOP)
 			{
-				drawpic([y,yyy,0], "gfx/hud/flopper.tga", [20, 20, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], "gfx/hud/flopper.tga", [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_STAMIN)
 			{
-				drawpic([y,yyy,0], "gfx/hud/stamin.tga", [20, 20, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], "gfx/hud/stamin.tga", [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_CHERRY)
 			{
-				drawpic([y,yyy,0], "gfx/hud/cherry.tga", [20, 20, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], "gfx/hud/cherry.tga", [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 		}

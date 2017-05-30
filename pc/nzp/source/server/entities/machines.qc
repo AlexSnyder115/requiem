@@ -212,13 +212,13 @@ void() touch_perk =
 			centerprint (other, "Not enough points\n");
 		}
 	}
-	if (self.classname == "perk_cherry" && !(other.perks & P_CHERRY) && self.fire_delay < time)
+	if (self.classname == "perk_electric" && !(other.perks & P_CHERRY) && self.fire_delay < time)
 	{
 		useprint (other, 9, 2000, 7);
 		if (other.points >= 2000 && other.button7)
 		{
 			addmoney (other, -2000, 0);
-			DrinkPerk(P_FLOP);
+			DrinkPerk(P_CHERRY);
 		}
 		else if (other.button7)
 		{
@@ -285,7 +285,7 @@ void() perk_flopper =
 	self.think = setup_perk;
 	self.nextthink = time + 0.1;
 };
-void() perk_cherry =
+void() perk_electric =
 {
 	self.solid = SOLID_TRIGGER;
 	precache_model ("models/machines/cherry.mdl");
@@ -294,7 +294,7 @@ void() perk_cherry =
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/cherry.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
-	self.classname = "perk_cherry";
+	self.classname = "perk_electric";
 	self.touch = touch_perk;
 
 	self.think = setup_perk;

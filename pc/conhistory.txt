@@ -88,3 +88,9 @@ record t1 warehouse
 stop
 playdemo t1
 pause
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
