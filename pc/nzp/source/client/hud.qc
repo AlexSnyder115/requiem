@@ -121,18 +121,30 @@ void(float width, float height) HUD_Points =
 
 void(float width, float height) HUD_PlayerName =
 {
-	int playernum;
+	float playernum, plroffset;
 	local string pname = "";
 	playernum = getstatf(STAT_PLAYERNAME);
 	if (playernum < 0.125)
+	{
 		pname = "Dempsey";
+		plroffset = .65;
+	}
 	else if (playernum < 0.25)
+	{
 		pname = "Nikolai";
+		plroffset = .645;
+	}
 	else if (playernum < 0.375)
+	{
 		pname = "Takeo";
+		plroffset = .7;
+	}
 	else
+	{
 		pname = "Richtofen";
-	drawstring([.65*width, 0.715*height, 0], pname, [0.022*width, 0.022*width, 0], [1, 1, 1], 1, 1);
+		plroffset = .62;
+	}
+	drawstring([plroffset*width, 0.715*height, 0], pname, [0.022*width, 0.022*width, 0], [1, 1, 1], 1, 1);
 
 }
 
