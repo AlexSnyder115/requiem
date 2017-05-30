@@ -72,3 +72,5 @@ restart
 restart
 restart
 restart
+map warehouse
+restart

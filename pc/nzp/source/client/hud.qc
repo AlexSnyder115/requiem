@@ -738,7 +738,8 @@ void(float width, float height) HUD_Perks =
 {
 	
 	int i, s;
-	int y = height - 100 - 22/*sb_round[1]->height - 22 //(round height minus perk icon height)*/;	
+	int y = 2/*sb_round[1]->height - 22 //(round height minus perk icon height)*/;
+	int yyy = height - 100 - 22;	
 
 	//drawstring([0.01*width, 0.10*height, 0], ftos(perks), [0.03*width, 0.03*width, 0], [1, 1, 1], 1, 1);
 			
@@ -748,38 +749,38 @@ void(float width, float height) HUD_Perks =
 		{
 			if (perk_order[i] == P_JUG)
 			{
-				drawpic([2,y,0], "gfx/hud/jug.tga", [20, 20, 1], [1,1,1], 1);
-				y = y - 22;
+				drawpic([y,yyy,0], "gfx/hud/jug.tga", [28, 28, 1], [1,1,1], 1);
+				y = y + 30;
 			}
 			else if (perk_order[i] == P_DOUBLE)
 			{
-				drawpic([2,y,0], "gfx/hud/double.tga", [20, 20, 1], [1,1,1], 1);
-				y = y - 22;
+				drawpic([y,yyy,0], "gfx/hud/double.tga", [28, 28, 1], [1,1,1], 1);
+				y = y + 30;
 			}
 			else if (perk_order[i] == P_SPEED)
 			{
-				drawpic([2,y,0], "gfx/hud/speed.tga", [20, 20, 1], [1,1,1], 1);
-				y = y - 22;
+				drawpic([y,yyy,0], "gfx/hud/speed.tga", [28, 28, 1], [1,1,1], 1);
+				y = y + 30;
 			}
 			else if (perk_order[i] == P_REVIVE)
 			{
-				drawpic([2,y,0], "gfx/hud/revive.tga", [20, 20, 1], [1,1,1], 1);
-				y = y - 22;
+				drawpic([y,yyy,0], "gfx/hud/revive.tga", [28, 28, 1], [1,1,1], 1);
+				y = y + 30;
 			}
 			else if (perk_order[i] == P_FLOP)
 			{
-				drawpic([2,y,0], "gfx/hud/flopper.tga", [20, 20, 1], [1,1,1], 1);
-				y = y - 22;
+				drawpic([y,yyy,0], "gfx/hud/flopper.tga", [20, 20, 1], [1,1,1], 1);
+				y = y + 30;
 			}
 			else if (perk_order[i] == P_STAMIN)
 			{
-				drawpic([2,y,0], "gfx/hud/stamin.tga", [20, 20, 1], [1,1,1], 1);
-				y = y - 22;
+				drawpic([y,yyy,0], "gfx/hud/stamin.tga", [20, 20, 1], [1,1,1], 1);
+				y = y + 30;
 			}
 			else if (perk_order[i] == P_CHERRY)
 			{
-				drawpic([2,y,0], "gfx/hud/cherry.tga", [20, 20, 1], [1,1,1], 1);
-				y = y - 22;
+				drawpic([y,yyy,0], "gfx/hud/cherry.tga", [20, 20, 1], [1,1,1], 1);
+				y = y + 30;
 			}
 		}
 	}
