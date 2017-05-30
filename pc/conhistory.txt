@@ -65,3 +65,5 @@ fov 80
 gamma
 gamma 0.5
 gamma 1
+fov
+fov 70
