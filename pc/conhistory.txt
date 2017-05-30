@@ -68,3 +68,7 @@ gamma 1
 fov
 fov 70
 map warehouse
+restart
+restart
+restart
+restart

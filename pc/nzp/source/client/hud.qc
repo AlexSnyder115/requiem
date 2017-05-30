@@ -127,24 +127,24 @@ void(float width, float height) HUD_PlayerName =
 	if (playernum < 0.125)
 	{
 		pname = "Dempsey";
-		plroffset = .65;
+		plroffset = .69;
 	}
 	else if (playernum < 0.25)
 	{
 		pname = "Nikolai";
-		plroffset = .645;
+		plroffset = .685;
 	}
 	else if (playernum < 0.375)
 	{
 		pname = "Takeo";
-		plroffset = .7;
+		plroffset = .74;
 	}
 	else
 	{
 		pname = "Richtofen";
-		plroffset = .62;
+		plroffset = .66;
 	}
-	drawstring([plroffset*width, 0.715*height, 0], pname, [0.022*width, 0.022*width, 0], [1, 1, 1], 1, 1);
+	drawstring([plroffset*width, 0.715*height, 0], pname, [0.015*width, 0.015*width, 0], [1, 1, 1], 1, 1);
 
 }
 
