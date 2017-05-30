@@ -159,6 +159,15 @@
 		2 : "Switch location" : 0
 	]
 ]
+@PointClass size(-24 -24 -32, 24 24 56) base(Item, Appearflags) color(0 117 58) studio("models/machines/candolier.mdl") = 
+	perk_candolier : "Candolier Cola" 
+[
+	spawnflags(Flags) =
+	[
+		1 : "Random location" : 0
+		2 : "Switch location" : 0
+	]
+]
 @PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/quick_revive.mdl") = 
 	perk_revive : "quick revive" 
 [
