@@ -731,7 +731,7 @@ void(float width, float height) HUD_Useprint =
 *    HUD_Perks     *
 *******************/
 
-int perk_order[9];
+int perk_order[10];
 int current_perk_order;
 	
 void(float width, float height) HUD_Perks =
@@ -743,7 +743,7 @@ void(float width, float height) HUD_Perks =
 
 	//drawstring([0.01*width, 0.10*height, 0], ftos(perks), [0.03*width, 0.03*width, 0], [1, 1, 1], 1, 1);
 			
-	for (i = 0; i < 9; i = i + 1)
+	for (i = 0; i < 10; i = i + 1)
 	{
 		if (perk_order[i])
 		{
@@ -1003,9 +1003,14 @@ void UpdatePerks (float newperks) {
 		perk_order[current_perk_order] = P_CHERRY;
 		current_perk_order = current_perk_order + 1;
 	}
+	if (newperks & P_CANDO && !(perks & P_CANDO))
+	{
+		perk_order[current_perk_order] = P_CANDO;
+		current_perk_order = current_perk_order + 1;
+	}
 	if (perks & P_JUG && !(newperks & P_JUG))
 	{
-		for (s = 0; s < 9; s++)
+		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_JUG)
 			{
@@ -1022,7 +1027,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_DOUBLE && !(newperks & P_DOUBLE))
 	{
-		for (s = 0; s < 9; s++)
+		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_DOUBLE)
 			{
@@ -1039,7 +1044,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_SPEED && !(newperks & P_SPEED))
 	{
-		for (s = 0; s < 9; s++)
+		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_SPEED)
 			{
@@ -1056,7 +1061,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_REVIVE && !(newperks & P_REVIVE))
 	{
-		for (s = 0; s < 9; s++)
+		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_REVIVE)
 			{
@@ -1073,7 +1078,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_FLOP && !(newperks & P_FLOP))
 	{
-		for (s = 0; s < 9; s++)
+		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_FLOP)
 			{
@@ -1090,7 +1095,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_STAMIN && !(newperks & P_STAMIN))
 	{
-		for (s = 0; s < 9; s++)
+		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_STAMIN)
 			{
@@ -1107,7 +1112,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_CHERRY && !(newperks & P_CHERRY))
 	{
-		for (s = 0; s < 9; s++)
+		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_CHERRY)
 			{
@@ -1124,7 +1129,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_CANDO && !(newperks & P_CANDO))
 	{
-		for (s = 0; s < 9; s++)
+		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_CANDO)
 			{
