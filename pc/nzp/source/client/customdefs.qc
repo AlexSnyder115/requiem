@@ -78,3 +78,4 @@ float K_LEFTDOWN, K_RIGHTDOWN, K_BACKDOWN, K_FORWARDDOWN;
 #define 	P_FLOP		16
 #define 	P_STAMIN	32
 #define 	P_CHERRY    64
+#define 	P_CANDO 	128

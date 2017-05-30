@@ -26,6 +26,9 @@ void GivePerk(float perk) {
 		case P_CHERRY:
 			self.perks = self.perks | 64;
 			break;
+		case P_CANDO:
+			self.perks = self.perks | 128;
+			break;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -47,6 +50,7 @@ void() give_speedcola = { GivePerk(P_SPEED); }
 void() give_flopper = { GivePerk(P_FLOP); }
 void() give_staminup = { GivePerk(P_STAMIN); }
 void() give_electric = { GivePerk(P_CHERRY); }
+void() give_candolier = { GivePerk(P_CANDO); }
 
 
 void DrinkPerk(float perk) {
@@ -81,6 +85,10 @@ void DrinkPerk(float perk) {
 		case P_CHERRY:
 			other.weaponskin = 3;
 			func = give_electric;
+			break;
+		case P_CANDO:
+			other.weaponskin = 1;
+			func = give_candolier;
 			break;
 		default:
 			print("Unknown perk type, wtf?\n");
@@ -193,6 +201,19 @@ void() touch_perk =
 		{
 			addmoney (other, -3000, 0);
 			DrinkPerk(P_SPEED);
+		}
+		else if (other.button7)
+		{
+			centerprint (other, "Not enough points\n");
+		}
+	}
+	if (self.classname == "perk_candolier" && !(other.perks & P_CANDO) && self.fire_delay < time)
+	{
+		useprint (other, 9, 3500, 8);
+		if (other.points >= 3500 && other.button7)
+		{
+			addmoney (other, -3500, 0);
+			DrinkPerk(P_CANDO);
 		}
 		else if (other.button7)
 		{
@@ -343,6 +364,22 @@ void() perk_speed =
 	setmodel (self, "models/machines/speed_cola.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
 	self.classname = "perk_speed";
+	self.touch = touch_perk;
+
+	self.think = setup_perk;
+	self.nextthink = time + 0.1;
+};
+
+void() perk_candolier =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/candolier.mdl");
+	precache_model ("models/machines/v_perk.mdl");
+	precache_sound ("sounds/machines/perk_drink.wav");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/candolier.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "perk_candolier";
 	self.touch = touch_perk;
 
 	self.think = setup_perk;
