@@ -101,3 +101,16 @@ map perk
 map perk
 map perk
 map perk
+map perk
+pause
+map warehouse
+cl_bob
+cl_bobup
+cl_bobup 0.3
+cl_bob 0.1
+cl_bob 0.01
+map wahnsinn
+map wahnsinn
+map wahnsinn
+map wahnsinn
+map wahnsinn

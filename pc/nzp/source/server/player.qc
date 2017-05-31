@@ -173,6 +173,7 @@ void() ClientConnect =
 void() PlayerSpawn =
 {
 	local entity spawnpoint;
+	//local float udm;
 	spawnpoint = find(world, classname, "info_player_start");
 
 	self.playernumber = random();
@@ -217,6 +218,10 @@ void() PlayerSpawn =
 	if (rounds < 1) {
 		sound (self, CHAN_AUTO, "sounds/rounds/splash.wav", 1, ATTN_NONE);//temporarily here.
 	}
+	/*dm();
+	udm = time + 30;
+	if (udm < time)
+		undm();*/
 };
 
 void() SpectatorSpawn =

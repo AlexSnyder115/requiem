@@ -34,6 +34,26 @@ void() maxammo =
 	}
 }
 
+void() dm =
+{
+	self.weaponbk = self.weapon;
+	self.currentammobk = self.currentammo;
+	self.currentmagbk = self.currentmag;
+	self.currentmagbk2 = self.currentmag2;
+	
+	self.weapon = W_BARRACUDA;
+	self.currentammo = 0;
+	self.currentmag = 999;
+}
+
+void() undm =
+{
+	self.weapon = self.weaponbk;
+	self.currentammo = self.currentammobk;
+	self.currentmag = self.currentmagbk;
+	self.currentmag2 = self.currentmagbk2;
+}
+
 
 void() nuke =
 {

@@ -6,7 +6,6 @@ server/customdefs.qc
 
 server/rounds.qc
 server/main.qc
-server/player.qc
 server/damage.qc
 
 
@@ -18,10 +17,12 @@ server/entities/doors.qc
 server/entities/window.qc
 server/entities/machines.qc
 
+
 server/weapons/frames_core.qc
 server/weapons/weapon_core.qc
 
 server/entities/powerups.qc
+server/player.qc
 
 server/ai/pathfind_code.qc
 server/ai/ai_core.qc
