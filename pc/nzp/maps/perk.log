@@ -211,7 +211,7 @@ visibility matrix   :   0.0 megs
 BuildVisLeafs:
  (0.00 seconds)
 MakeScales:
- (0.01 seconds)
+ (0.00 seconds)
 SwapTransfers:
  (0.00 seconds)
 Transfer Lists :       49952 :   49.95k transfers
@@ -221,7 +221,7 @@ GatherLight:
  (0.00 seconds)
 FinalLightFace:
  (0.01 seconds)
-0.08 seconds elapsed
+0.07 seconds elapsed
 
 -----   END   hlrad -----
 

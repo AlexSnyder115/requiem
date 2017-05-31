@@ -103,7 +103,6 @@ void DrinkPerk(float perk) {
 	Set_W_Frame (0, 22, 0, 0, PERK, func, "models/machines/v_perk.mdl", true, S_RIGHT);
 	self = tempe;
 	sound (other, CHAN_ITEM, "sounds/machines/perk_drink.wav", 1, ATTN_NORM);
-
 }
 
 void() touch_perk =
@@ -244,6 +243,35 @@ void() touch_perk =
 		else if (other.button7)
 		{
 			centerprint (other, "Not enough points\n");
+		}
+	}
+}
+
+void DispenseGum() =
+{
+
+	gumuses = gumuses + 1;
+	gumprice = 500 + ((gumuses * 1000) * 2);
+
+	self.isBuying = true;
+	entity tempe = self;
+	self = other;
+	if (self.sprinting) {
+		W_SprintStop();
+	}
+	self.knife_delay = self.reload_delay2 = self.fire_delay2 = self.fire_delay = self.reload_delay = 4.5 + time;		
+	self = tempe;
+	sound (other, CHAN_ITEM, "sounds/machines/perk_drink.wav", 1, ATTN_NORM);
+}
+
+void() touch_gum =
+{
+	if (other.classname == "player")								
+	{
+		useprint (other, 13, gumprice, 0);
+		if (other.points >= 500 && other.button7)
+		{
+			DispenseGum();
 		}
 	}
 }
@@ -401,6 +429,22 @@ void() perk_double =
 	self.think = setup_perk;
 	self.nextthink = time + 0.1;
 };
+
+void() perk_gobblegum =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/double_tap.mdl");
+	precache_model ("models/machines/v_perk.mdl");
+	precache_sound ("sounds/machines/perk_drink.wav");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/double_tap.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "perk_gobblegum";
+	self.touch = touch_gum;
+
+	self.think = setup_perk;
+	self.nextthink = time + 0.1;
+}
 
 void()	turnpower1	=[	1,		turnpower2	] {self.frame = 1;};
 void()	turnpower2	=[	2,		turnpower3	] {self.frame = 2;};
