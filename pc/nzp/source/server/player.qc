@@ -174,10 +174,11 @@ void() PlayerSpawn =
 {
 	local entity spawnpoint;
 	//local float udm;
+
 	spawnpoint = find(world, classname, "info_player_start");
 
 	self.playernumber = random();
-
+	sound (self, CHAN_AUTO, "sounds/weapons/colt/slide.wav", 1, ATTN_NONE);
 	self.isspec = FALSE;
 	self.classname = "player";
 	self.solid = SOLID_SLIDEBOX;

@@ -143,3 +143,15 @@ map perk
 map perk
 map perk
 map perk
+map ndu
+restart
+map wahnsinn
+map wahnsinn
+map wahnsinn
+map wahnsinn
+give 24
+map wahnsinn
+give w 24
+map wahnsinn
+map perk
+map perk
