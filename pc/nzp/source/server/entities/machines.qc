@@ -1022,7 +1022,7 @@ void() Load_Mbox_Data =
 	file = fopen (h, FILE_READ);
 	
 	if (file == -1) {
-		colt = kar = db =bar = mg = ray = thomp = flame = ppsh = sawn = tesla = m1a1 = ptrs = panz = stg = mp40 = revolver = gewehr = fg = browning = kars = bknife = trench = m1 = type100 = 1;
+		colt = kar = db =bar = mg = ray = thomp = flame = ppsh = sawn  = m1a1 = ptrs = panz = stg = mp40 = revolver = gewehr = fg = browning = kars = bknife = trench = m1 = type100 = 1;
 	} else {
 		h = (fgets(file));
 		colt = stof(h);
@@ -1042,8 +1042,6 @@ void() Load_Mbox_Data =
 		ppsh = stof(h);
 		h = (fgets(file));
 		sawn = stof(h);
-		h = (fgets(file));
-		tesla = stof(h);
 		h = (fgets(file));
 		m1a1 = stof(h);
 		h = (fgets(file));
@@ -1148,14 +1146,6 @@ void() Load_Mbox_Data =
 		temps = GetWeaponModel(W_SAWNOFF, 0);
 		precache_model (temps);
 		precache_extra(W_SAWNOFF);
-	}
-	if (tesla)
-	{
-		temps = GetWeaponModel(W_TESLA, 1);
-		precache_model (temps);
-		temps = GetWeaponModel(W_TESLA, 0);
-		precache_model (temps);
-		precache_extra(W_TESLA);
 	}
 	if (m1a1)
 	{

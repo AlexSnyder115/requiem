@@ -155,3 +155,4 @@ give w 24
 map wahnsinn
 map perk
 map perk
+map perk
