@@ -4,8 +4,8 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlcsg -----
-Command line: Z:/home/moto/Downloads/zhlt34x86final/hlcsg.exe Z:\home\moto\GitHub\requiem\pc\nzp\maps\perk 
-Entering Z:\home\moto\GitHub\requiem\pc\nzp\maps\perk.map
+Command line: Z:/home/moto/Downloads/zhlt34x86final/hlcsg.exe Z:\home\moto\Requiem\requiem\pc\nzp\maps\perk 
+Entering Z:\home\moto\Requiem\requiem\pc\nzp\maps\perk.map
 
 Current hlcsg Settings
 Name                 |  Setting  |  Default
@@ -44,11 +44,71 @@ SetModelCenters:
 CSGBrush:
  (0.01 seconds)
 
-Using Wadfile: \home\moto\NZP-Reboot\pc\nzp\textures\Example_01.wad
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\bo2.wad
+ - Contains 0 used textures, 0.00 percent of map (57 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\Example_01.wad
  - Contains 1 used texture, 100.00 percent of map (15 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\Hospital.wad
+ - Contains 0 used textures, 0.00 percent of map (412 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\Mario.wad
+ - Contains 0 used textures, 0.00 percent of map (112 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\ZombieIsland.wad
+ - Contains 0 used textures, 0.00 percent of map (24 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\benis.wad
+ - Contains 0 used textures, 0.00 percent of map (1 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\chronic.wad
+ - Contains 0 used textures, 0.00 percent of map (83 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\de_bikinibottom.wad
+ - Warning: Larger than expected texture (348972 bytes): 'SB_METWALL'
+ - Warning: Larger than expected texture (348972 bytes): 'SB_METWALL2'
+ - Contains 0 used textures, 0.00 percent of map (55 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\der_riese.wad
+ - Contains 0 used textures, 0.00 percent of map (24 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\doop.wad
+ - Contains 0 used textures, 0.00 percent of map (1 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\jp_dev.wad
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_OR_000X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_GR_000X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_OR_512X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_GR_256X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_OR_128X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_GR_128X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_OR_064X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_GR_064X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_OR_032X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_GR_032X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_GR_512X'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_512_OR_256X'
+ - Warning: Larger than expected texture (348972 bytes): '!DEV_L_WATER3'
+ - Warning: Larger than expected texture (348972 bytes): '!DEV_L_LAVA3'
+ - Warning: Larger than expected texture (348972 bytes): '!DEV_L_SLIME3'
+ - Warning: Larger than expected texture (348972 bytes): '!DEV_L_SLUDGE3'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_L_LAVA3'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_L_SLIME3'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_L_SLUDGE3'
+ - Warning: Larger than expected texture (348972 bytes): 'DEV_L_WATER3'
+ - Contains 0 used textures, 0.00 percent of map (113 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\kurok.wad
+ - Contains 0 used textures, 0.00 percent of map (112 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\nuketown.wad
+ - Contains 0 used textures, 0.00 percent of map (32 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\waw_HLBSP.wad
+ - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
+Including Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\zhlt.wad
+ - Contains 0 used textures, 0.00 percent of map (19 textures in wad)
+Using Wadfile: \home\moto\GitHub\requiem\pc\nzp\textures\zm_ilc_silent_hill.wad
+ - Contains 0 used textures, 0.00 percent of map (129 textures in wad)
+Using Wadfile: \home\moto\Downloads\Fabrik der Untoten.wad
+ - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
+
+Warning: More than 8 wadfiles are in use. (17)
+This may be harmless, and if no strange side effects are occurring, then
+it can safely be ignored. However, if your map starts exhibiting strange
+or obscure errors, consider this as suspect.
+
 
 Texture usage is at 0.01 mb (of 4.00 mb MAX)
-0.02 seconds elapsed
+0.03 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -60,7 +120,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlbsp -----
-Command line: Z:/home/moto/Downloads/zhlt34x86final/hlbsp.exe Z:\home\moto\GitHub\requiem\pc\nzp\maps\perk 
+Command line: Z:/home/moto/Downloads/zhlt34x86final/hlbsp.exe Z:\home\moto\Requiem\requiem\pc\nzp\maps\perk 
 
 Current hlbsp Settings
 Name               |  Setting  |  Default
@@ -84,7 +144,7 @@ max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
 SolidBSP [hull 0] 13 (0.00 seconds)
-BSP generation successful, writing portal file 'Z:\home\moto\GitHub\requiem\pc\nzp\maps\perk.prt'
+BSP generation successful, writing portal file 'Z:\home\moto\Requiem\requiem\pc\nzp\maps\perk.prt'
 SolidBSP [hull 1] 13 (0.00 seconds)
 SolidBSP [hull 2] 13 (0.00 seconds)
 SolidBSP [hull 3] 13 (0.00 seconds)
@@ -100,7 +160,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
-Command line: Z:/home/moto/Downloads/zhlt34x86final/hlvis.exe Z:\home\moto\GitHub\requiem\pc\nzp\maps\perk 
+Command line: Z:/home/moto/Downloads/zhlt34x86final/hlvis.exe Z:\home\moto\Requiem\requiem\pc\nzp\maps\perk 
    1 portalleafs
    0 numportals
 
@@ -139,7 +199,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlrad -----
-Command line: Z:/home/moto/Downloads/zhlt34x86final/hlrad.exe Z:\home\moto\GitHub\requiem\pc\nzp\maps\perk 
+Command line: Z:/home/moto/Downloads/zhlt34x86final/hlrad.exe Z:\home\moto\Requiem\requiem\pc\nzp\maps\perk 
 
 -= Current hlrad Settings =-
 Name                | Setting             | Default
@@ -202,7 +262,7 @@ rgb transfers        [               off ] [               off ]
 22 faces
 Create Patches : 248 base patches
 0 opaque faces
-3623 square feet [521782.44 square inches]
+4159 square feet [598913.62 square inches]
 1 direct lights
 
 BuildFacelights:
@@ -221,7 +281,7 @@ GatherLight:
  (0.00 seconds)
 FinalLightFace:
  (0.01 seconds)
-0.07 seconds elapsed
+0.08 seconds elapsed
 
 -----   END   hlrad -----
 

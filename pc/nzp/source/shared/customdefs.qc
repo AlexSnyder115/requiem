@@ -123,6 +123,7 @@ const float EVENT_UPDATE = 23;
 #define 	P_STAMIN	32
 #define 	P_CHERRY    64
 #define 	P_CANDO 	128
+#define 	P_AMMO 		256
 
 #define STAT_CURRENTMAG         50
 #define STAT_CURRENTMAG2        51

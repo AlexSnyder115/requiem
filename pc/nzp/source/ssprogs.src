@@ -9,19 +9,18 @@ server/main.qc
 server/damage.qc
 
 
+server/weapons/frames_core.qc
+server/weapons/weapon_core.qc
+
 server/entities/sub_functions.qc
 server/entities/triggers.qc
 server/entities/map_entities.qc
 server/entities/lights.qc
 server/entities/doors.qc
 server/entities/window.qc
+server/entities/powerups.qc
 server/entities/machines.qc
 
-
-server/weapons/frames_core.qc
-server/weapons/weapon_core.qc
-
-server/entities/powerups.qc
 server/player.qc
 
 server/ai/pathfind_code.qc
