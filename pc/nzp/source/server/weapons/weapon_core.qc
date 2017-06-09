@@ -776,8 +776,8 @@ void(float side) W_Fire =
 
 /* ================
    Dolphin Dive Code
-   ================*/
-void() Dolphin_dive =										//Ryan did this, not me.
+   ================*/			//Created by Naievil, used from Unofficial Patch.
+void() Dolphin_dive =
 {    
  if (self.flags & FL_WATERJUMP)
 		return;
@@ -795,6 +795,12 @@ void() Dolphin_dive =										//Ryan did this, not me.
 		
 	if ( !(self.flags & FL_JUMPRELEASED) )
 		return;		// don't pogo stick
+
+	if (self.perks & P_FLOP)
+	{
+		DamgageExplode (self, self.owner, 225, 75, 64);
+		sound(self, CHAN_VOICE, "sounds/player/jump.wav", 1, 1.75);
+	}
 		
   
 	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
@@ -805,9 +811,15 @@ void() Dolphin_dive =										//Ryan did this, not me.
 	
 	self.view_ofs = '0 0 -15';
 	self.button2 = 0;
-	centerprint(self, "Sorry, Ryan.");
 }
 
+/* +++++++++++++++++
+    STANCE CHANGING
+   +++++++++++++++++*/
+void () Stance_Crouch =
+{
+	
+}
 
 /******************************
 * W_Knife                  *
