@@ -775,58 +775,6 @@ void(float side) W_Fire =
 	SetUpdate(self, UT_HUD, 6, 0, 0);
 }
 
-/* ================
-   Dolphin Dive Code
-   ================*/			//Created by Naievil, used from Unofficial Patch.
-void() Dolphin_dive =
-{    
- if (self.flags & FL_WATERJUMP)
-		return;
-	if (self.waterlevel >= 2)
-	{
-		if (self.watertype == CONTENT_WATER)
-			self.velocity_z = 100;
-		else if (self.watertype == CONTENT_SLIME)
-			self.velocity_z = 80;
-		else
-			self.velocity_z = 50;
-	}
-	if (!(self.flags & FL_ONGROUND))
-		return;
-		
-	if ( !(self.flags & FL_JUMPRELEASED) )
-		return;		// don't pogo stick
-
-	if (self.perks & P_FLOP)
-	{
-		DamgageExplode (self, self.owner, 225, 75, 64);
-		sound(self, CHAN_VOICE, "sounds/player/jump.wav", 1, 1.75);
-	}
-		
-  
-	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
-	self.flags = self.flags - FL_ONGROUND;	// don't stairwalk
-	makevectors (self.v_angle);
-  self.velocity = self.velocity * 1.2;		
-	self.velocity_z = self.velocity_z + 270;
-	
-	self.view_ofs = '0 0 -15';
-	self.button2 = 0;
-}
-
-/* +++++++++++++++++
-    STANCE CHANGING
-   +++++++++++++++++*/
-void () Stance_Crouch =
-{
-	self.view_ofs = '0 0 -15';
-}
-
-void () Stance_Prone =
-{
-
-}
-
 /******************************
 * W_Knife                  *
 ******************************/
@@ -1282,12 +1230,8 @@ void () Weapon_Logic =
 		W_Knife();
 		self.semiknife = true;
 	}
-	if (self.button6 && self.sprinting)
-		Dolphin_dive();
 	else if (!self.button6)
 		self.semiknife = false;
-	if (self.button9)
-		Stance_Crouch();
 	
 	CheckImpulses();
 }

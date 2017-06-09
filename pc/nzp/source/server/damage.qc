@@ -57,8 +57,6 @@ void() GetDown =
 		self.perks = 0;
 		SetPerk(self, self.perks);
 		SwitchWeapon(0);
-
-		centerprint(self, "YOU DON DEDED\n");
 		
       	return;
 	} else {

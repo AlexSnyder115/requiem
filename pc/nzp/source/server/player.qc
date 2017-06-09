@@ -2,6 +2,35 @@
 //	Player.qc - Various stuff done for the player, including per-frame functions like PlayerPreThink and PlayerPostThink, also client specific stuff like PutClientInServer etc.
 //
 
+//Created by Naievil, used from Unofficial Patch.
+void() Dolphin_dive =
+{ 
+	if (!(self.flags & FL_ONGROUND))
+		return;
+		
+	if ( !(self.flags & FL_JUMPRELEASED) )
+		return;		// don't pogo stick
+
+	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
+	self.flags = self.flags - FL_ONGROUND;	// don't stairwalk
+	makevectors (self.v_angle);
+    self.velocity = self.velocity * 1.2;		
+	self.velocity_z = self.velocity_z + 270;
+	
+	self.view_ofs = '0 0 -15';
+	self.button2 = 0;
+}
+
+void () Stance_Crouch =
+{
+	self.view_ofs = '0 0 -5';
+}
+
+void () Stance_Prone =
+{
+
+}
+
 void() PlayerJump =
 {
 	if (!(self.flags & FL_ONGROUND))
@@ -77,6 +106,8 @@ void() PlayerPreThink =
 	}
 	else
 		self.flags = self.flags | FL_JUMPRELEASED;
+	if (self.button6 && self.sprinting)
+		Dolphin_dive();
 };
 
 void() PlayerPostThink =
