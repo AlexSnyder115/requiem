@@ -774,6 +774,40 @@ void(float side) W_Fire =
 	SetUpdate(self, UT_HUD, 6, 0, 0);
 }
 
+/* ================
+   Dolphin Dive Code
+   ================*/
+void() Dolphin_dive =
+{    
+ if (self.flags & FL_WATERJUMP)
+		return;
+	if (self.waterlevel >= 2)
+	{
+		if (self.watertype == CONTENT_WATER)
+			self.velocity_z = 100;
+		else if (self.watertype == CONTENT_SLIME)
+			self.velocity_z = 80;
+		else
+			self.velocity_z = 50;
+	}
+	if (!(self.flags & FL_ONGROUND))
+		return;
+		
+	if ( !(self.flags & FL_JUMPRELEASED) )
+		return;		// don't pogo stick
+		
+  
+	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
+	self.flags = self.flags - FL_ONGROUND;	// don't stairwalk
+	makevectors (self.v_angle);
+  self.velocity = self.velocity * 1.2;		
+	self.velocity_z = self.velocity_z + 270;
+	
+	self.view_ofs = '0 0 -15';
+	self.button2 = 0;
+	centerprint(self, "Sorry, Ryan.");
+}
+
 
 /******************************
 * W_Knife                  *
@@ -785,7 +819,7 @@ void () W_Knife =
 		return;
 	
 	if (self.zoom == 2 || self.zoom == 3)//dolphin dive here when its time has come
-		return; // naievil -- there are better times to activate this
+		return;
 
 	if (self.downed)
 		return;
@@ -1132,6 +1166,8 @@ void() W_Grenade =
    }    
 }
 
+
+
 void () Impulse_Functions =
 {
 	switch (self.impulse)
@@ -1188,6 +1224,7 @@ void () Weapon_Logic =
 
 		if (self.button8 && !self.zoom) {
 			W_AimIn();
+			self.view_ofs = VEC_VIEW_OFS;
 		} else if (!self.button8 && self.zoom) {
 			W_AimOut();
 		}
@@ -1228,6 +1265,8 @@ void () Weapon_Logic =
 		W_Knife();
 		self.semiknife = true;
 	}
+	if (self.button6 && self.sprinting)
+		Dolphin_dive();
 	else if (!self.button6)
 		self.semiknife = false;
 	
