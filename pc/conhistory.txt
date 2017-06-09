@@ -172,3 +172,9 @@ map SNN
 map SNN
 map SNN
 map SNN
+map SNN
+map perk
+restart
+restart
+map SNN
+map SNN

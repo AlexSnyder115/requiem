@@ -873,8 +873,8 @@ void () W_Knife =
 		}
 		else
 		{
-			self.punchangle_x = -5;
-			self.punchangle_y = -10;
+			//self.punchangle_x = -5;
+			//self.punchangle_y = -10;
 			//self.punchangle_z = 5;
 			Set_W_Frame (0, 3, 0.3, 0, KNIFE, ReturnWeaponModel, "progs/VModels/v_knife.mdl", false, S_RIGHT);
 			self.fire_delay = time + 0.4;
