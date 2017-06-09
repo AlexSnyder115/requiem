@@ -38,11 +38,11 @@ Wadinclude list :
 
 0 brushes (totalling 0 sides) discarded from clipping hulls
 CreateBrush:
- (0.20 seconds)
+ (0.19 seconds)
 SetModelCenters:
  (0.00 seconds)
 CSGBrush:
- (1.00 seconds)
+ (0.99 seconds)
 
 Using Wadfile: \home\moto\Requiem\requiem\pc\nzp\textures\Example_01.wad
  - Contains 3 used textures, 18.75 percent of map (15 textures in wad)
@@ -58,7 +58,7 @@ Using Wadfile: \home\moto\Requiem\requiem\pc\nzp\textures\waw_HLBSP.wad
  - Contains 5 used textures, 31.25 percent of map (157 textures in wad)
 
 Texture usage is at 0.29 mb (of 4.00 mb MAX)
-1.23 seconds elapsed
+1.22 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -93,12 +93,12 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 500...1000...1090 (0.08 seconds)
+SolidBSP [hull 0] 500...1000...1085 (0.08 seconds)
 BSP generation successful, writing portal file 'Z:\home\moto\Requiem\requiem\pc\nzp\maps\SNN.prt'
-SolidBSP [hull 1] 500...980 (0.06 seconds)
-SolidBSP [hull 2] 500...819 (0.04 seconds)
-SolidBSP [hull 3] 500...1000...1070 (0.08 seconds)
-0.87 seconds elapsed
+SolidBSP [hull 1] 500...978 (0.07 seconds)
+SolidBSP [hull 2] 500...816 (0.05 seconds)
+SolidBSP [hull 3] 500...1000...1064 (0.08 seconds)
+0.91 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -111,8 +111,8 @@ Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
 Command line: Z:/home/moto/Downloads/zhlt34x86final/hlvis.exe -fast Z:\home\moto\Requiem\requiem\pc\nzp\maps\SNN 
- 633 portalleafs
-2007 numportals
+ 627 portalleafs
+1995 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -133,8 +133,8 @@ full vis            [     off ] [     off ]
 
 BasePortalVis:
  (0.23 seconds)
-average leafs visible: 330
-g_visdatasize:40689  compressed from 50640
+average leafs visible: 321
+g_visdatasize:38715  compressed from 49533
 0.26 seconds elapsed
 
 -----   END   hlvis -----
@@ -207,29 +207,29 @@ rgb transfers        [               off ] [               off ]
 [Reading texlights from 'Z:\home\moto\Downloads\zhlt34x86final\lights.rad']
 [59 texlights parsed from 'Z:\home\moto\Downloads\zhlt34x86final\lights.rad']
 
-2659 faces
-Create Patches : 13771 base patches
+2643 faces
+Create Patches : 13743 base patches
 0 opaque faces
-85933 square feet [12374367.00 square inches]
-10 direct lights
+86067 square feet [12393664.00 square inches]
+11 direct lights
 
 BuildFacelights:
- (1.36 seconds)
+ (4.06 seconds)
 visibility matrix   :  11.3 megs
 BuildVisLeafs:
- (5.83 seconds)
+ (5.78 seconds)
 MakeScales:
- (1.60 seconds)
+ (1.61 seconds)
 SwapTransfers:
- (0.19 seconds)
-Transfer Lists :     5928876 :    5.93M transfers
-       Indices :     3612596 :    3.45M bytes
-          Data :    23715504 :   22.62M bytes
+ (0.18 seconds)
+Transfer Lists :     5918266 :    5.92M transfers
+       Indices :     3570852 :    3.41M bytes
+          Data :    23673064 :   22.58M bytes
 GatherLight:
  (0.12 seconds)
 FinalLightFace:
  (0.38 seconds)
-9.65 seconds elapsed
+12.30 seconds elapsed
 
 -----   END   hlrad -----
 
