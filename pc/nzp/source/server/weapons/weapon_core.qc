@@ -92,6 +92,7 @@ void W_SprintStart () {
 	}
 
 	self.sprinting = true;
+	self.view_ofs = VEC_VIEW_OFS;
 	self.reload_delay2 = self.fire_delay2 = self.reload_delay = self.fire_delay = 0;
 }
 
@@ -818,7 +819,12 @@ void() Dolphin_dive =
    +++++++++++++++++*/
 void () Stance_Crouch =
 {
-	
+	self.view_ofs = '0 0 -5';
+}
+
+void () Stance_Prone =
+{
+
 }
 
 /******************************
@@ -1236,7 +1242,6 @@ void () Weapon_Logic =
 
 		if (self.button8 && !self.zoom) {
 			W_AimIn();
-			self.view_ofs = VEC_VIEW_OFS;
 		} else if (!self.button8 && self.zoom) {
 			W_AimOut();
 		}
@@ -1281,6 +1286,8 @@ void () Weapon_Logic =
 		Dolphin_dive();
 	else if (!self.button6)
 		self.semiknife = false;
+	if (self.button9)
+		Stance_Crouch();
 	
 	CheckImpulses();
 }

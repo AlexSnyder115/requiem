@@ -430,6 +430,7 @@ int serverid;	/* The unique id of this server within the server cluster. */
 .float button6;
 .float button7;
 .float button8;
+.float button9;
 .float glow_size;
 .float glow_color;
 .float glow_trail;
