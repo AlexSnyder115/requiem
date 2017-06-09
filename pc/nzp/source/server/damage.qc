@@ -84,7 +84,7 @@ void() GetDown =
 	startframe = GetFrame(self.weapon,TAKE_OUT_START);
 	endframe = GetFrame(self.weapon,TAKE_OUT_END);
 	Set_W_Frame (startframe, endframe, 0, 0, 0, SUB_Null, modelname, false, S_BOTH);//FIXME
-	
+ 
 	self.progress_bar = 10 + time;     
 	self.progress_bar_time = 10;
 	self.progress_bar_percent = 1;

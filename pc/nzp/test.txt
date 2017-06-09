@@ -1,6 +1,0 @@
-date Tue May 30, 11:34:55 2017
-map ndu
-teamplay 0
-deathmatch 0
-timelimit 0
-
