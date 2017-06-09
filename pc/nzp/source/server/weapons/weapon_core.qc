@@ -777,7 +777,7 @@ void(float side) W_Fire =
 /* ================
    Dolphin Dive Code
    ================*/
-void() Dolphin_dive =
+void() Dolphin_dive =										//Ryan did this, not me.
 {    
  if (self.flags & FL_WATERJUMP)
 		return;
