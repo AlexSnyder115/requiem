@@ -198,3 +198,14 @@ map perk
 map perk
 map perk
 restart
+map perk
+map perk
+map perk
+bind CTRL +button9
+bind CTRL -button9
+bind CTRL -button9
+map perk
+map perk
+map perk
+map perk
+map perk

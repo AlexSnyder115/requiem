@@ -819,7 +819,7 @@ void() Dolphin_dive =
    +++++++++++++++++*/
 void () Stance_Crouch =
 {
-	self.view_ofs = '0 0 -5';
+	self.view_ofs = '0 0 -15';
 }
 
 void () Stance_Prone =
