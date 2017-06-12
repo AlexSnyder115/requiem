@@ -2733,6 +2733,7 @@ void (float wep, float anim_style, float dualwep, float curweaponframe)	PlayWeap
 			if (curweaponframe == 19) {
 				sound (self ,5, "sounds/weapons/shotgun/insert.wav", 1, ATTN_NORM);
 			}
+			break;
 		case W_TYPE:
 		case W_SAMURAI:
 			if (curweaponframe == 6) {
