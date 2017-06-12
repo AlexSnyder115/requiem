@@ -865,6 +865,8 @@ void () W_Knife =
 			self.knife_delay = time + 1;
 		}
 		self.velocity = v_forward * 200;
+
+		LungeKnifeHit();
 	}
 	else
 	{
