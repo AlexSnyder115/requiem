@@ -28,7 +28,19 @@ void() EndRound =
 {
 	rounds_change = 4;
 	SetUpdate(self, UT_ROUNDS_CHANGE, rounds_change, 0, 0);
-	playSoundAtPlayers("sounds/rounds/eround.wav");
+	switch (mapname)
+	{
+		case "ndu":
+		{
+			playSoundAtPlayers("sounds/rounds/nzp/eround.wav");
+			break;
+		}
+		case "facility":
+		{
+			playSoundAtPlayers("sounds/rounds/ds/eround.wav");
+			break;
+		}
+	}
 	round_changetime = time + 5;
 }
 void() NewRound =
@@ -45,7 +57,19 @@ void() NewRound =
 	}
 	if (rounds != 0)
 	{
-		playSoundAtPlayers("sounds/rounds/nround.wav");
+		switch (mapname)
+		{
+			case "ndu":
+			{
+				playSoundAtPlayers("sounds/rounds/nzp/nround.wav");
+				break;
+			}
+			case "facility":
+			{
+				playSoundAtPlayers("sounds/rounds/ds/nround.wav");
+				break;
+			}
+		}
 		rounds_change = 6;
 		SetUpdate(self, UT_ROUNDS_CHANGE, rounds_change, 0, 0);
 		blink_return = time + 2;

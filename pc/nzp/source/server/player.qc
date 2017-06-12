@@ -247,8 +247,22 @@ void() PlayerSpawn =
 
 	self.stamina = 3;
 
+	//rounds = 999;
+
 	if (rounds < 1) {
-		sound (self, CHAN_AUTO, "sounds/rounds/splash.wav", 1, ATTN_NONE);//temporarily here.
+		switch (mapname)
+		{
+			case "ndu":
+			{
+				sound (self, CHAN_AUTO, "sounds/rounds/nzp/splash.wav", 1, ATTN_NONE);//temporarily here.
+				break;
+			}
+			case "facility":
+			{
+				sound (self, CHAN_AUTO, "sounds/rounds/ds/splash.wav", 1, ATTN_NONE);//temporarily here.
+				break;
+			}
+		}
 	}
 	/*dm();
 	udm = time + 30;
