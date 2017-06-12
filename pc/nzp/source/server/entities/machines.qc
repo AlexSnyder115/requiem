@@ -259,7 +259,6 @@ void() touch_perk =
 		if (other.points >= 5000 && other.button7)
 		{
 			addmoney (other, -5000, 0);
-			maxammo();
 			DrinkPerk(P_AMMO);
 		}
 		else if (other.button7)
