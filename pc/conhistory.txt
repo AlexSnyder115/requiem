@@ -16,3 +16,10 @@ map ndu
 map facility
 map ndu
 map facility
+map facility
+fog 0
+fog
+fog
+map facility
+map ndu
+map facility

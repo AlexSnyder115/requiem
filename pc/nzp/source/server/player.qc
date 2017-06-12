@@ -195,7 +195,7 @@ void() ClientKill =
 //called when a client connects to the server
 void() ClientConnect =
 {
-	stuffcmd(self, "fog 0.075\n"); // naievil -- temp reliable fog
+	stuffcmd(self, "fog 0.1\n"); // naievil -- temp reliable fog
 
 	bprint(PRINT_HIGH, self.netname); //print player name
 	bprint(PRINT_HIGH, " connected.\n");
@@ -209,6 +209,8 @@ void() PlayerSpawn =
 	spawnpoint = find(world, classname, "info_player_start");
 
 	self.playernumber = random();
+	if (mapname == "facility")
+		self.playernumber = 420;
 	sound (self, CHAN_AUTO, "sounds/weapons/colt/slide.wav", 1, ATTN_NONE);
 	self.isspec = FALSE;
 	self.classname = "player";
