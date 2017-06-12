@@ -141,8 +141,8 @@ void(float width, float height) HUD_PlayerName =
 	}
 	else if (playernum == 420)
 	{
-		pname = "Unknown Soldier";
-		plroffset = .59;
+		pname = "Marine";
+		plroffset = .73;
 	}
 	else
 	{
