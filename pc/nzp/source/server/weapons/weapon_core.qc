@@ -273,12 +273,14 @@ void(float side) W_Reload =
 	if (side == S_RIGHT &&
 		(self.reload_delay > time ||
 		self.new_anim_stop ||
+		!self.currentammo ||
 		self.currentmag >= getWeaponMag(self.weapon))){
 		return;
 	}
 	if (side == S_LEFT &&
 		(self.reload_delay2 > time ||
 		self.new_anim2_stop ||
+		!self.secondaryammo ||
 		self.currentmag2 >= getWeaponMag(self.weapon))) {
 		return;
 	}
@@ -810,7 +812,7 @@ void () W_Knife =
 	sound (self, CHAN_WEAPON, "sounds/weapons/knife/knife.wav", 1, ATTN_NORM);
 
 	vector	source;
-	entity	hit_ent;
+	entity	hit_ent = world;
 	//entity	oldself;
 	float	r;
 	vector	org;
@@ -846,6 +848,17 @@ void () W_Knife =
 		sound (self, CHAN_WEAPON, "sounds/weapons/knife/knife_hit.wav", 1, ATTN_NORM);			
 		
 		/* naievil (FIXME) add weapon decal here */
+		WriteByte(MSG_MULTICAST, SVC_CGAMEPACKET);
+	WriteByte(MSG_MULTICAST, EVENT_PISTOLFIRE);
+	WriteEntity(MSG_MULTICAST, self);
+	WriteCoord(MSG_MULTICAST, org_x);
+	WriteCoord(MSG_MULTICAST, org_y);
+	WriteCoord(MSG_MULTICAST, org_z);
+	WriteCoord(MSG_MULTICAST, trace_plane_normal_x);
+	WriteCoord(MSG_MULTICAST, trace_plane_normal_y);
+	WriteCoord(MSG_MULTICAST, trace_plane_normal_z);
+	WriteEntity(MSG_MULTICAST, hit_ent);
+	multicast(trace_endpos, MULTICAST_PHS);
 	}
 
 	if (r > 40 && hit)//lunge
