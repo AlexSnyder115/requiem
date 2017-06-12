@@ -262,6 +262,7 @@ void() ContinueReload = //Special reloads
 
 void(float side) W_Reload =
 {
+	self.viewzoom = 1;
 	if (side == S_BOTH) {
 		W_Reload(S_RIGHT);
 		if (IsDualWeapon(self.weapon)) {

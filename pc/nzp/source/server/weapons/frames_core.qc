@@ -99,6 +99,9 @@ void () W_Frame_Update =
 			self.weapon2frame = self.weaponframe;
 			//self.weapon2skin = self.weaponskin;
 		}
+		else if (self.weaponmodel == "progs/VModels/v_knife.mdl") {
+			self.weapon2model = "";
+		}
 
 		if (self.callfuncat)
 		{
