@@ -101,7 +101,7 @@ void DrinkPerk(float perk) {
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
-	self.isBuying = true;
+	other.isBuying = true;
 	entity tempe = self;
 	self = other;
 	if (self.sprinting) {
@@ -115,12 +115,9 @@ void DrinkPerk(float perk) {
 
 void() touch_perk =
 {  
-	if (other.classname != "player" || other.downed)
+	if (other.classname != "player" || other.downed || other.isBuying == true)
 		return;
 
-	if (self.isBuying == true)
-    return;
-  
 	if (self.requirespower == true && !isPowerOn)
 	{
 		useprint (other, 8, 0, 0);
@@ -132,7 +129,7 @@ void() touch_perk =
       backupWepSkin = 1;
 
 	
-	if (self.classname == "perk_revive" && !(other.perks & P_REVIVE) && self.fire_delay < time)
+	if (self.classname == "perk_revive" && !(other.perks & P_REVIVE) && other.fire_delay < time)
 	{
 		if (!deathmatch && !coop)
 		{
@@ -148,8 +145,8 @@ void() touch_perk =
 			addmoney (other, -500, 0);
 			DrinkPerk(P_REVIVE);
 
-			self.revivesoda++;
-			if (self.revivesoda == 3)
+			other.revivesoda++;
+			if (other.revivesoda == 3)
 				remove (self);
 		}
 		else if ((coop || deathmatch) && other.points >= 1500 && other.button7)

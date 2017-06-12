@@ -802,6 +802,10 @@ void () W_Knife =
 	if (!(self.flags & FL_ONGROUND))
 		return;
 
+	if (self.sprinting) {
+		W_SprintStop();
+	}
+
 	sound (self, CHAN_WEAPON, "sounds/weapons/knife/knife.wav", 1, ATTN_NORM);
 
 	vector	source;
