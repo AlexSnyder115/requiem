@@ -30,7 +30,9 @@ void() StartFrame =
 	
 	if (SpawnedIn)
 		InitRounds();
+		
 	}
+	
 }
 
 //called when map loaded
@@ -243,7 +245,8 @@ void() worldspawn =
 	clientstat(STAT_WEAPON2DURATION, EV_FLOAT, weapon2_animduration);
 	clientstat(STAT_WEAPONZOOM, EV_FLOAT, zoom);
 	clientstat(STAT_PLAYERNAME, EV_FLOAT, playernumber);
-
+	clientstat(STAT_INSTA, EV_FLOAT, insta_icon);
+	clientstat(STAT_X2, EV_FLOAT, x2_icon);
 	mappath = strcat("maps/", mapname);
 	mappath = strzone(mappath);
 
