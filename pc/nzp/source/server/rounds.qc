@@ -28,18 +28,13 @@ void() EndRound =
 {
 	rounds_change = 4;
 	SetUpdate(self, UT_ROUNDS_CHANGE, rounds_change, 0, 0);
-	switch (mapname)
+	if (mapname == "facility")
 	{
-		case "ndu":
-		{
-			playSoundAtPlayers("sounds/rounds/nzp/eround.wav");
-			break;
-		}
-		case "facility":
-		{
-			playSoundAtPlayers("sounds/rounds/ds/eround.wav");
-			break;
-		}
+		playSoundAtPlayers("sounds/rounds/ds/eround.wav");
+	}
+	if (!(mapname == "facility"))
+	{
+		playSoundAtPlayers("sounds/rounds/nzp/eround.wav");
 	}
 	round_changetime = time + 5;
 }
@@ -57,18 +52,13 @@ void() NewRound =
 	}
 	if (rounds != 0)
 	{
-		switch (mapname)
+		if (mapname == "facility")
 		{
-			case "ndu":
-			{
-				playSoundAtPlayers("sounds/rounds/nzp/nround.wav");
-				break;
-			}
-			case "facility":
-			{
-				playSoundAtPlayers("sounds/rounds/ds/nround.wav");
-				break;
-			}
+			playSoundAtPlayers("sounds/rounds/ds/nround.wav");
+		}
+		if (!(mapname == "facility"))
+		{
+			playSoundAtPlayers("sounds/rounds/nzp/nround.wav");
 		}
 		rounds_change = 6;
 		SetUpdate(self, UT_ROUNDS_CHANGE, rounds_change, 0, 0);

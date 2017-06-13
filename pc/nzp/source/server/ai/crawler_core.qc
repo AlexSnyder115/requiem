@@ -13,12 +13,18 @@ void() crawler_footstep
 	if(self.laststep == 1)
 	{
 		self.laststep = 0;
-		sound(self,CHAN_VOICE,"sounds/zombie/sc0.wav",1,ATTN_NORM);
+		if (mapname == "facility")
+			sound(self,CHAN_VOICE,"sounds/zombie/ds/sc0.wav",1,ATTN_NORM);
+		if (!(mapname == "facility"))
+			sound(self,CHAN_VOICE,"sounds/zombie/nzp/sc0.wav",1,ATTN_NORM);
 	}
 	else
 	{
 		self.laststep = 1;
-		sound(self,CHAN_VOICE,"sounds/zombie/sc1.wav",1,ATTN_NORM);
+		if (mapname == "facility")
+			sound(self,CHAN_VOICE,"sounds/zombie/ds/sc1.wav",1,ATTN_NORM);
+		if (!(mapname == "facility"))
+			sound(self,CHAN_VOICE,"sounds/zombie/nzp/sc1.wav",1,ATTN_NORM);
 	}
 }
 

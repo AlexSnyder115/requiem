@@ -119,56 +119,106 @@ void() worldspawn =
 	
 	//Walk
 	
-	precache_sound ("sounds/zombie/w0.wav");
-	precache_sound ("sounds/zombie/w1.wav");
-	precache_sound ("sounds/zombie/w2.wav");
-	precache_sound ("sounds/zombie/w3.wav");
-	precache_sound ("sounds/zombie/w4.wav");
-	precache_sound ("sounds/zombie/w5.wav");
-	precache_sound ("sounds/zombie/w6.wav");
-	precache_sound ("sounds/zombie/w7.wav");
-	precache_sound ("sounds/zombie/w8.wav");
-	precache_sound ("sounds/zombie/w9.wav");
+	precache_sound ("sounds/zombie/ds/w0.wav");
+	precache_sound ("sounds/zombie/ds/w1.wav");
+	precache_sound ("sounds/zombie/ds/w2.wav");
+	precache_sound ("sounds/zombie/ds/w3.wav");
+	precache_sound ("sounds/zombie/ds/w4.wav");
+	precache_sound ("sounds/zombie/ds/w5.wav");
+	precache_sound ("sounds/zombie/ds/w6.wav");
+	precache_sound ("sounds/zombie/ds/w7.wav");
+	precache_sound ("sounds/zombie/ds/w8.wav");
+	precache_sound ("sounds/zombie/ds/w9.wav");
 	//Run
-	precache_sound ("sounds/zombie/r0.wav");
-	precache_sound ("sounds/zombie/r1.wav");
-	precache_sound ("sounds/zombie/r2.wav");
-	precache_sound ("sounds/zombie/r3.wav");
-	precache_sound ("sounds/zombie/r4.wav");
-	precache_sound ("sounds/zombie/r5.wav");
-	precache_sound ("sounds/zombie/r6.wav");
-	precache_sound ("sounds/zombie/r7.wav");
-	precache_sound ("sounds/zombie/r8.wav");
-	precache_sound ("sounds/zombie/r9.wav");
+	precache_sound ("sounds/zombie/ds/r0.wav");
+	precache_sound ("sounds/zombie/ds/r1.wav");
+	precache_sound ("sounds/zombie/ds/r2.wav");
+	precache_sound ("sounds/zombie/ds/r3.wav");
+	precache_sound ("sounds/zombie/ds/r4.wav");
+	precache_sound ("sounds/zombie/ds/r5.wav");
+	precache_sound ("sounds/zombie/ds/r6.wav");
+	precache_sound ("sounds/zombie/ds/r7.wav");
+	precache_sound ("sounds/zombie/ds/r8.wav");
+	precache_sound ("sounds/zombie/ds/r9.wav");
 	//Attack
-	precache_sound ("sounds/zombie/a0.wav");
-	precache_sound ("sounds/zombie/a1.wav");
-	precache_sound ("sounds/zombie/a2.wav");
-	precache_sound ("sounds/zombie/a3.wav");
-	precache_sound ("sounds/zombie/a4.wav");
-	precache_sound ("sounds/zombie/a5.wav");
-	precache_sound ("sounds/zombie/a6.wav");
-	precache_sound ("sounds/zombie/a7.wav");
+	precache_sound ("sounds/zombie/ds/a0.wav");
+	precache_sound ("sounds/zombie/ds/a1.wav");
+	precache_sound ("sounds/zombie/ds/a2.wav");
+	precache_sound ("sounds/zombie/ds/a3.wav");
+	precache_sound ("sounds/zombie/ds/a4.wav");
+	precache_sound ("sounds/zombie/ds/a5.wav");
+	precache_sound ("sounds/zombie/ds/a6.wav");
+	precache_sound ("sounds/zombie/ds/a7.wav");
 	//Death
-	precache_sound ("sounds/zombie/d0.wav");
-	precache_sound ("sounds/zombie/d1.wav");
-	precache_sound ("sounds/zombie/d2.wav");
-	precache_sound ("sounds/zombie/d3.wav");
-	precache_sound ("sounds/zombie/d4.wav");
-	precache_sound ("sounds/zombie/d5.wav");
-	precache_sound ("sounds/zombie/d6.wav");
-	precache_sound ("sounds/zombie/d7.wav");
+	precache_sound ("sounds/zombie/ds/d0.wav");
+	precache_sound ("sounds/zombie/ds/d1.wav");
+	precache_sound ("sounds/zombie/ds/d2.wav");
+	precache_sound ("sounds/zombie/ds/d3.wav");
+	precache_sound ("sounds/zombie/ds/d4.wav");
+	precache_sound ("sounds/zombie/ds/d5.wav");
+	precache_sound ("sounds/zombie/ds/d6.wav");
+	precache_sound ("sounds/zombie/ds/d7.wav");
 	//Taunt
-	precache_sound ("sounds/zombie/t0.wav");
-	precache_sound ("sounds/zombie/t1.wav");
-	precache_sound ("sounds/zombie/t2.wav");
-	precache_sound ("sounds/zombie/t3.wav");
-	precache_sound ("sounds/zombie/t4.wav");
+	precache_sound ("sounds/zombie/ds/t0.wav");
+	precache_sound ("sounds/zombie/ds/t1.wav");
+	precache_sound ("sounds/zombie/ds/t2.wav");
+	precache_sound ("sounds/zombie/ds/t3.wav");
+	precache_sound ("sounds/zombie/ds/t4.wav");
 	//Footsteps
-	precache_sound ("sounds/zombie/s0.wav");
-	precache_sound ("sounds/zombie/s1.wav");
-	precache_sound ("sounds/zombie/sc0.wav");
-	precache_sound ("sounds/zombie/sc1.wav");
+	precache_sound ("sounds/zombie/ds/s0.wav");
+	precache_sound ("sounds/zombie/ds/s1.wav");
+	precache_sound ("sounds/zombie/ds/sc0.wav");
+	precache_sound ("sounds/zombie/ds/sc1.wav");
+	precache_sound ("sounds/zombie/nzp/w0.wav");
+	precache_sound ("sounds/zombie/nzp/w1.wav");
+	precache_sound ("sounds/zombie/nzp/w2.wav");
+	precache_sound ("sounds/zombie/nzp/w3.wav");
+	precache_sound ("sounds/zombie/nzp/w4.wav");
+	precache_sound ("sounds/zombie/nzp/w5.wav");
+	precache_sound ("sounds/zombie/nzp/w6.wav");
+	precache_sound ("sounds/zombie/nzp/w7.wav");
+	precache_sound ("sounds/zombie/nzp/w8.wav");
+	precache_sound ("sounds/zombie/nzp/w9.wav");
+	//Run
+	precache_sound ("sounds/zombie/nzp/r0.wav");
+	precache_sound ("sounds/zombie/nzp/r1.wav");
+	precache_sound ("sounds/zombie/nzp/r2.wav");
+	precache_sound ("sounds/zombie/nzp/r3.wav");
+	precache_sound ("sounds/zombie/nzp/r4.wav");
+	precache_sound ("sounds/zombie/nzp/r5.wav");
+	precache_sound ("sounds/zombie/nzp/r6.wav");
+	precache_sound ("sounds/zombie/nzp/r7.wav");
+	precache_sound ("sounds/zombie/nzp/r8.wav");
+	precache_sound ("sounds/zombie/nzp/r9.wav");
+	//Attack
+	precache_sound ("sounds/zombie/nzp/a0.wav");
+	precache_sound ("sounds/zombie/nzp/a1.wav");
+	precache_sound ("sounds/zombie/nzp/a2.wav");
+	precache_sound ("sounds/zombie/nzp/a3.wav");
+	precache_sound ("sounds/zombie/nzp/a4.wav");
+	precache_sound ("sounds/zombie/nzp/a5.wav");
+	precache_sound ("sounds/zombie/nzp/a6.wav");
+	precache_sound ("sounds/zombie/nzp/a7.wav");
+	//Death
+	precache_sound ("sounds/zombie/nzp/d0.wav");
+	precache_sound ("sounds/zombie/nzp/d1.wav");
+	precache_sound ("sounds/zombie/nzp/d2.wav");
+	precache_sound ("sounds/zombie/nzp/d3.wav");
+	precache_sound ("sounds/zombie/nzp/d4.wav");
+	precache_sound ("sounds/zombie/nzp/d5.wav");
+	precache_sound ("sounds/zombie/nzp/d6.wav");
+	precache_sound ("sounds/zombie/nzp/d7.wav");
+	//Taunt
+	precache_sound ("sounds/zombie/nzp/t0.wav");
+	precache_sound ("sounds/zombie/nzp/t1.wav");
+	precache_sound ("sounds/zombie/nzp/t2.wav");
+	precache_sound ("sounds/zombie/nzp/t3.wav");
+	precache_sound ("sounds/zombie/nzp/t4.wav");
+	//Footsteps
+	precache_sound ("sounds/zombie/nzp/s0.wav");
+	precache_sound ("sounds/zombie/nzp/s1.wav");
+	precache_sound ("sounds/zombie/nzp/sc0.wav");
+	precache_sound ("sounds/zombie/nzp/sc1.wav");
 	//Announce
 	precache_sound ("sounds/pu/pickup.wav");
 	precache_sound ("sounds/pu/maxammo.wav");

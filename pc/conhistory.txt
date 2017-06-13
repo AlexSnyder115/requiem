@@ -30,3 +30,12 @@ map facility
 map facility
 map ndu
 map ndu
+god
+map ndu
+map facility
+map warehouse
+map warehouse
+map warehouse
+map warehouse
+restart
+map facility

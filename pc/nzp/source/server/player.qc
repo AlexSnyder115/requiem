@@ -206,6 +206,10 @@ void() PlayerSpawn =
 	local entity spawnpoint;
 	//local float udm;
 
+	if (mapname == "facility")
+		soundstyle = "ds";
+	else
+		soundstyle = "nzp";
 	spawnpoint = find(world, classname, "info_player_start");
 
 	self.playernumber = random();
@@ -252,19 +256,10 @@ void() PlayerSpawn =
 	//rounds = 999;
 
 	if (rounds < 1) {
-		switch (mapname)
-		{
-			case "ndu":
-			{
-				sound (self, CHAN_AUTO, "sounds/rounds/nzp/splash.wav", 1, ATTN_NONE);//temporarily here.
-				break;
-			}
-			case "facility":
-			{
-				sound (self, CHAN_AUTO, "sounds/rounds/ds/splash.wav", 1, ATTN_NONE);//temporarily here.
-				break;
-			}
-		}
+		if (mapname == "facility")
+			playSoundAtPlayers("sounds/rounds/ds/splash.wav");
+		else
+			playSoundAtPlayers("sounds/rounds/nzp/splash.wav");
 	}
 	/*dm();
 	udm = time + 30;

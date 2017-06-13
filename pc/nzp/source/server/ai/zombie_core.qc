@@ -11,23 +11,46 @@ void(float what) play_sound_z =
 		
 		if(what == 1)//attack
 		{
-			if (e < 0.125)
-				sound(self,CHAN_WEAPON,"sounds/zombie/a0.wav",1,ATTN_NORM);
-			else if (e < 0.25)
-				sound(self,CHAN_WEAPON,"sounds/zombie/a1.wav",1,ATTN_NORM);
-			else if (e < 0.375)
-				sound(self,CHAN_WEAPON,"sounds/zombie/a2.wav",1,ATTN_NORM);   
-			else if( e < 0.5)
-				sound(self,CHAN_WEAPON,"sounds/zombie/a3.wav",1,ATTN_NORM);   
-			else if( e < 0.625)
-				sound(self,CHAN_WEAPON,"sounds/zombie/a4.wav",1,ATTN_NORM);   
-			else if( e < 0.75)
-				sound(self,CHAN_WEAPON,"sounds/zombie/a5.wav",1,ATTN_NORM);   
-			else if( e < 0.875)
-				sound(self,CHAN_WEAPON,"sounds/zombie/a6.wav",1,ATTN_NORM);  
-			else
-				sound(self,CHAN_WEAPON,"sounds/zombie/a7.wav",1,ATTN_NORM);   
-			return;
+			if (mapname == "facility")
+			{
+				if (e < 0.125)
+					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a0.wav",1,ATTN_NORM);
+				else if (e < 0.25)
+					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a1.wav",1,ATTN_NORM);
+				else if (e < 0.375)
+					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a2.wav",1,ATTN_NORM);   
+				else if( e < 0.5)
+					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a3.wav",1,ATTN_NORM);   
+				else if( e < 0.625)
+					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a4.wav",1,ATTN_NORM);   
+				else if( e < 0.75)
+					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a5.wav",1,ATTN_NORM);   
+				else if( e < 0.875)
+					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a6.wav",1,ATTN_NORM);  
+				else
+					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a7.wav",1,ATTN_NORM);   
+				return;
+			}
+			if (!(mapname == "facility"))
+			{
+				if (e < 0.125)
+					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a0.wav",1,ATTN_NORM);
+				else if (e < 0.25)
+					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a1.wav",1,ATTN_NORM);
+				else if (e < 0.375)
+					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a2.wav",1,ATTN_NORM);   
+				else if( e < 0.5)
+					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a3.wav",1,ATTN_NORM);   
+				else if( e < 0.625)
+					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a4.wav",1,ATTN_NORM);   
+				else if( e < 0.75)
+					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a5.wav",1,ATTN_NORM);   
+				else if( e < 0.875)
+					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a6.wav",1,ATTN_NORM);  
+				else
+					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a7.wav",1,ATTN_NORM);   
+				return;
+			}
 		}
 		if(what == 2)//walking!
 		{
@@ -52,108 +75,218 @@ void(float what) play_sound_z =
 				if(self.crawling == TRUE)
 				{
 					self.sound_time = time + 3 + random()*2;
-					if(e < 0.2)
-						sound(self,CHAN_VOICE,"sounds/zombie/t0.wav",1,ATTN_NORM);   
-					else if (e < 0.4)
-						sound(self,CHAN_VOICE,"sounds/zombie/t1.wav",1,ATTN_NORM);  
-					else if (e < 0.6)
-						sound(self,CHAN_VOICE,"sounds/zombie/t2.wav",1,ATTN_NORM);  
-					else if (e < 0.8)
-						sound(self,CHAN_VOICE,"sounds/zombie/t3.wav",1,ATTN_NORM);  
-					else
-						sound(self,CHAN_VOICE,"sounds/zombie/t4.wav",1,ATTN_NORM);  
-					return;
+					if (mapname == "facility")
+					{
+						if(e < 0.2)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/t0.wav",1,ATTN_NORM);   
+						else if (e < 0.4)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/t1.wav",1,ATTN_NORM);  
+						else if (e < 0.6)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/t2.wav",1,ATTN_NORM);  
+						else if (e < 0.8)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/t3.wav",1,ATTN_NORM);  
+						else
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/t4.wav",1,ATTN_NORM);  
+						return;
+					}
+					if (!(mapname == "facility"))
+					{
+						if(e < 0.2)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/t0.wav",1,ATTN_NORM);   
+						else if (e < 0.4)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/t1.wav",1,ATTN_NORM);  
+						else if (e < 0.6)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/t2.wav",1,ATTN_NORM);  
+						else if (e < 0.8)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/t3.wav",1,ATTN_NORM);  
+						else
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/t4.wav",1,ATTN_NORM);  
+						return;
+					}
 				}					
 				if(self.walktype == 1 || self.walktype == 2 || self.walktype == 3)
 				{
 					self.sound_time = time + 3 + random();
-					if (e < 0.1)
-						sound(self,CHAN_VOICE,"sounds/zombie/w0.wav",1,ATTN_NORM);   
-					else if (e < 0.2)
-						sound(self,CHAN_VOICE,"sounds/zombie/w1.wav",1,ATTN_NORM);   
-					else if (e < 0.3)
-						sound(self,CHAN_VOICE,"sounds/zombie/w2.wav",1,ATTN_NORM);   
-					else if( e < 0.4)
-						sound(self,CHAN_VOICE,"sounds/zombie/w3.wav",1,ATTN_NORM);   
-					else if( e < 0.5)
-						sound(self,CHAN_VOICE,"sounds/zombie/w4.wav",1,ATTN_NORM);   
-					else if( e < 0.6)
-						sound(self,CHAN_VOICE,"sounds/zombie/w5.wav",1,ATTN_NORM);
-					else if( e < 0.7)
-						sound(self,CHAN_VOICE,"sounds/zombie/w6.wav",1,ATTN_NORM);
-					else if( e < 0.8)
-						sound(self,CHAN_VOICE,"sounds/zombie/w7.wav",1,ATTN_NORM);
-					else if( e < 0.9)
-						sound(self,CHAN_VOICE,"sounds/zombie/w8.wav",1,ATTN_NORM);
-					else
-						sound(self,CHAN_VOICE,"sounds/zombie/w9.wav",1,ATTN_NORM);
-					return;
+					if (mapname == "facility")
+					{
+						if (e < 0.1)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w0.wav",1,ATTN_NORM);   
+						else if (e < 0.2)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w1.wav",1,ATTN_NORM);   
+						else if (e < 0.3)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w2.wav",1,ATTN_NORM);   
+						else if( e < 0.4)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w3.wav",1,ATTN_NORM);   
+						else if( e < 0.5)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w4.wav",1,ATTN_NORM);   
+						else if( e < 0.6)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w5.wav",1,ATTN_NORM);
+						else if( e < 0.7)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w6.wav",1,ATTN_NORM);
+						else if( e < 0.8)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w7.wav",1,ATTN_NORM);
+						else if( e < 0.9)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w8.wav",1,ATTN_NORM);
+						else
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/w9.wav",1,ATTN_NORM);
+						return;
+					}
+					if (!(mapname == "facility"))
+					{
+						if (e < 0.1)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w0.wav",1,ATTN_NORM);   
+						else if (e < 0.2)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w1.wav",1,ATTN_NORM);   
+						else if (e < 0.3)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w2.wav",1,ATTN_NORM);   
+						else if( e < 0.4)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w3.wav",1,ATTN_NORM);   
+						else if( e < 0.5)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w4.wav",1,ATTN_NORM);   
+						else if( e < 0.6)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w5.wav",1,ATTN_NORM);
+						else if( e < 0.7)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w6.wav",1,ATTN_NORM);
+						else if( e < 0.8)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w7.wav",1,ATTN_NORM);
+						else if( e < 0.9)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w8.wav",1,ATTN_NORM);
+						else
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w9.wav",1,ATTN_NORM);
+						return;
+					}
 				}
 				else if(self.walktype == 4 || self.walktype == 5)
 				{
 					self.sound_time = time + 4 + random()*2;
-					if (e < 0.1)
-						sound(self,CHAN_VOICE,"sounds/zombie/r0.wav",1,ATTN_NORM);   
-					else if (e < 0.2)
-						sound(self,CHAN_VOICE,"sounds/zombie/r1.wav",1,ATTN_NORM);   
-					else if (e < 0.3)
-						sound(self,CHAN_VOICE,"sounds/zombie/r2.wav",1,ATTN_NORM);   
-					else if( e < 0.4)
-						sound(self,CHAN_VOICE,"sounds/zombie/r3.wav",1,ATTN_NORM);   
-					else if( e < 0.5)
-						sound(self,CHAN_VOICE,"sounds/zombie/r4.wav",1,ATTN_NORM);   
-					else if( e < 0.6)
-						sound(self,CHAN_VOICE,"sounds/zombie/r5.wav",1,ATTN_NORM);
-					else if( e < 0.7)
-						sound(self,CHAN_VOICE,"sounds/zombie/r6.wav",1,ATTN_NORM);
-					else if( e < 0.8)
-						sound(self,CHAN_VOICE,"sounds/zombie/r7.wav",1,ATTN_NORM);
-					else if( e < 0.9)
-						sound(self,CHAN_VOICE,"sounds/zombie/r8.wav",1,ATTN_NORM);
-					else
-						sound(self,CHAN_VOICE,"sounds/zombie/r9.wav",1,ATTN_NORM);
-					return;
+					if (mapname == "facility")
+					{
+						if (e < 0.1)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r0.wav",1,ATTN_NORM);   
+						else if (e < 0.2)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r1.wav",1,ATTN_NORM);   
+						else if (e < 0.3)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r2.wav",1,ATTN_NORM);   
+						else if( e < 0.4)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r3.wav",1,ATTN_NORM);   
+						else if( e < 0.5)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r4.wav",1,ATTN_NORM);   
+						else if( e < 0.6)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r5.wav",1,ATTN_NORM);
+						else if( e < 0.7)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r6.wav",1,ATTN_NORM);
+						else if( e < 0.8)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r7.wav",1,ATTN_NORM);
+						else if( e < 0.9)
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r8.wav",1,ATTN_NORM);
+						else
+							sound(self,CHAN_VOICE,"sounds/zombie/ds/r9.wav",1,ATTN_NORM);
+						return;
+					}
+					if (!(mapname == "facility"))
+					{
+						if (e < 0.1)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r0.wav",1,ATTN_NORM);   
+						else if (e < 0.2)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r1.wav",1,ATTN_NORM);   
+						else if (e < 0.3)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r2.wav",1,ATTN_NORM);   
+						else if( e < 0.4)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r3.wav",1,ATTN_NORM);   
+						else if( e < 0.5)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r4.wav",1,ATTN_NORM);   
+						else if( e < 0.6)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r5.wav",1,ATTN_NORM);
+						else if( e < 0.7)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r6.wav",1,ATTN_NORM);
+						else if( e < 0.8)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r7.wav",1,ATTN_NORM);
+						else if( e < 0.9)
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r8.wav",1,ATTN_NORM);
+						else
+							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r9.wav",1,ATTN_NORM);
+						return;
+					}
 				}
 				
 			}
 		}
 		if(what == 3)//death!
 		{
-			if (e < 0.125)
-				sound(self,CHAN_BODY,"sounds/zombie/d0.wav",1,ATTN_NORM);
-			else if (e < 0.25)
-				sound(self,CHAN_BODY,"sounds/zombie/d1.wav",1,ATTN_NORM);
-			else if (e < 0.375)
-				sound(self,CHAN_BODY,"sounds/zombie/d2.wav",1,ATTN_NORM);   
-			else if( e < 0.5)
-				sound(self,CHAN_BODY,"sounds/zombie/d3.wav",1,ATTN_NORM);   
-			else if( e < 0.625)
-				sound(self,CHAN_BODY,"sounds/zombie/d4.wav",1,ATTN_NORM);   
-			else if( e < 0.75)
-				sound(self,CHAN_BODY,"sounds/zombie/d5.wav",1,ATTN_NORM);   
-			else if( e < 0.875)
-				sound(self,CHAN_BODY,"sounds/zombie/d6.wav",1,ATTN_NORM);  
-			else
-				sound(self,CHAN_BODY,"sounds/zombie/d7.wav",1,ATTN_NORM);   
-			return;
+			if (mapname == "facility")
+			{
+				if (e < 0.125)
+					sound(self,CHAN_BODY,"sounds/zombie/ds/d0.wav",1,ATTN_NORM);
+				else if (e < 0.25)
+					sound(self,CHAN_BODY,"sounds/zombie/ds/d1.wav",1,ATTN_NORM);
+				else if (e < 0.375)
+					sound(self,CHAN_BODY,"sounds/zombie/ds/d2.wav",1,ATTN_NORM);   
+				else if( e < 0.5)
+					sound(self,CHAN_BODY,"sounds/zombie/ds/d3.wav",1,ATTN_NORM);   
+				else if( e < 0.625)
+					sound(self,CHAN_BODY,"sounds/zombie/ds/d4.wav",1,ATTN_NORM);   
+				else if( e < 0.75)
+					sound(self,CHAN_BODY,"sounds/zombie/ds/d5.wav",1,ATTN_NORM);   
+				else if( e < 0.875)
+					sound(self,CHAN_BODY,"sounds/zombie/ds/d6.wav",1,ATTN_NORM);  
+				else
+					sound(self,CHAN_BODY,"sounds/zombie/ds/d7.wav",1,ATTN_NORM);   
+				return;
+			}
+			if (!(mapname == "facility"))
+			{
+				if (e < 0.125)
+					sound(self,CHAN_BODY,"sounds/zombie/nzp/d0.wav",1,ATTN_NORM);
+				else if (e < 0.25)
+					sound(self,CHAN_BODY,"sounds/zombie/nzp/d1.wav",1,ATTN_NORM);
+				else if (e < 0.375)
+					sound(self,CHAN_BODY,"sounds/zombie/nzp/d2.wav",1,ATTN_NORM);   
+				else if( e < 0.5)
+					sound(self,CHAN_BODY,"sounds/zombie/nzp/d3.wav",1,ATTN_NORM);   
+				else if( e < 0.625)
+					sound(self,CHAN_BODY,"sounds/zombie/nzp/d4.wav",1,ATTN_NORM);   
+				else if( e < 0.75)
+					sound(self,CHAN_BODY,"sounds/zombie/nzp/d5.wav",1,ATTN_NORM);   
+				else if( e < 0.875)
+					sound(self,CHAN_BODY,"sounds/zombie/nzp/d6.wav",1,ATTN_NORM);  
+				else
+					sound(self,CHAN_BODY,"sounds/zombie/nzp/d7.wav",1,ATTN_NORM);   
+				return;
+			}
 			
 		}
 		if(what == 4)//Taunt!
 		{
 			if(random() < 0.83)
 				return;
-			
-			if(e < 0.2)
-				sound(self,CHAN_ITEM,"sounds/zombie/t0.wav",1,ATTN_NORM);   
-			else if (e < 0.4)
-				sound(self,CHAN_ITEM,"sounds/zombie/t1.wav",1,ATTN_NORM);  
-			else if (e < 0.6)
-				sound(self,CHAN_ITEM,"sounds/zombie/t2.wav",1,ATTN_NORM);  
-			else if (e < 0.8)
-				sound(self,CHAN_ITEM,"sounds/zombie/t3.wav",1,ATTN_NORM);  
-			else
-				sound(self,CHAN_ITEM,"sounds/zombie/t4.wav",1,ATTN_NORM);  
-			return;
+			if (mapname == "facility")
+			{
+				if(e < 0.2)
+					sound(self,CHAN_ITEM,"sounds/zombie/ds/t0.wav",1,ATTN_NORM);   
+				else if (e < 0.4)
+					sound(self,CHAN_ITEM,"sounds/zombie/ds/t1.wav",1,ATTN_NORM);  
+				else if (e < 0.6)
+					sound(self,CHAN_ITEM,"sounds/zombie/ds/t2.wav",1,ATTN_NORM);  
+				else if (e < 0.8)
+					sound(self,CHAN_ITEM,"sounds/zombie/ds/t3.wav",1,ATTN_NORM);  
+				else
+					sound(self,CHAN_ITEM,"sounds/zombie/ds/t4.wav",1,ATTN_NORM);  
+				return;
+			}
+			if (!(mapname == "facility"))
+			{
+				if(e < 0.2)
+					sound(self,CHAN_ITEM,"sounds/zombie/nzp/t0.wav",1,ATTN_NORM);   
+				else if (e < 0.4)
+					sound(self,CHAN_ITEM,"sounds/zombie/nzp/t1.wav",1,ATTN_NORM);  
+				else if (e < 0.6)
+					sound(self,CHAN_ITEM,"sounds/zombie/nzp/t2.wav",1,ATTN_NORM);  
+				else if (e < 0.8)
+					sound(self,CHAN_ITEM,"sounds/zombie/nzp/t3.wav",1,ATTN_NORM);  
+				else
+					sound(self,CHAN_ITEM,"sounds/zombie/nzp/t4.wav",1,ATTN_NORM);  
+				return;
+			}
 		}
 	}
 };
@@ -219,12 +352,18 @@ void() zombie_footstep
 	if(self.laststep == 1)
 	{
 		self.laststep = 0;
-		sound(self,5,"sounds/zombie/s0.wav",1,ATTN_NORM);
+		if (mapname == "facility")
+			sound(self,CHAN_VOICE,"sounds/zombie/ds/s0.wav",1,ATTN_NORM);
+		if (!(mapname == "facility"))
+			sound(self,CHAN_VOICE,"sounds/zombie/nzp/s0.wav",1,ATTN_NORM);
 	}
 	else
 	{
 		self.laststep = 1;
-		sound(self,5,"sounds/zombie/s1.wav",1,ATTN_NORM);
+		if (mapname == "facility")
+			sound(self,CHAN_VOICE,"sounds/zombie/ds/s1.wav",1,ATTN_NORM);
+		if (!(mapname == "facility"))
+			sound(self,CHAN_VOICE,"sounds/zombie/nzp/s1.wav",1,ATTN_NORM);
 	}
 }
 
