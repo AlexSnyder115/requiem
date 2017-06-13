@@ -1028,7 +1028,14 @@ void() mystery_touch =
 					other.currentmag = getWeaponMag(self.boxweapon.weapon);
 					other.weaponskin = GetWepSkin(self.boxweapon.weapon);
 				}
-				sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+				if (mapname == "facility")
+				{
+					sound(self, 0,"sounds/misc/ds/ching.wav", 1, 1);
+				}
+				if (!(mapname == "facility"))
+				{
+					sound(self, 0,"sounds/misc/nzp/ching.wav", 1, 1);
+				}
 				tempe = self;
 				self = other;
 				startframe = GetFrame(self.weapon,TAKE_OUT_START);

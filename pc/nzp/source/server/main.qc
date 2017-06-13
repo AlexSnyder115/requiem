@@ -94,6 +94,8 @@ void() worldspawn =
 	precache_sound("sounds/misc/buy.wav");
 	precache_sound("sounds/misc/wood_door.wav");
 	precache_sound("sounds/misc/debris.wav");
+	precache_sound("sounds/misc/ds/ching.wav");
+	precache_sound("sounds/misc/nzp/ching.wav");
 
 	
 	precache_model ("models/weapons/m1911/v_colt.mdl");

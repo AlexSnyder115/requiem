@@ -242,7 +242,14 @@ void () buy_weapon_touch =
 			other.secondaryammo = getWeaponAmmo(self.weapon);
 		}
 
-		sound(other, 0,"sounds/misc/ching.wav", 1, 1);
+		if (mapname == "facility")
+		{
+			sound(self, 0,"sounds/misc/ds/ching.wav", 1, 1);
+		}
+		if (!(mapname == "facility"))
+		{
+			sound(self, 0,"sounds/misc/nzp/ching.wav", 1, 1);
+		}
 		other.reload_delay = 0;
 		addmoney(other, -1*self.cost2, 0);
 		if (self.enemy) {
@@ -290,7 +297,14 @@ void () buy_weapon_touch =
 		}
 		
 		/* insert here mule kick thingy*/
-		sound(other, 0,"sounds/misc/ching.wav", 1, 1);
+		if (mapname == "facility")
+		{
+			sound(self, 0,"sounds/misc/ds/ching.wav", 1, 1);
+		}
+		if (!(mapname == "facility"))
+		{
+			sound(self, 0,"sounds/misc/nzp/ching.wav", 1, 1);
+		}
 		other.reload_delay = 0;
 		addmoney(other, -1*self.cost, 0);
 		if (self.enemy) {

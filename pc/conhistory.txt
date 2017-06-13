@@ -39,3 +39,7 @@ map warehouse
 map warehouse
 restart
 map facility
+map facility
+pause
+restart
+map facility

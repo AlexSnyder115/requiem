@@ -32,7 +32,14 @@ void() Window_repaired =
 {
 	if (maxreward > totalreward)
 	{
-		sound(self, 0,"sounds/misc/ching.wav", 1, 0);
+		if (mapname == "facility")
+		{
+			sound(self, 0,"sounds/misc/ds/ching.wav", 1, 1);
+		}
+		if (!(mapname == "facility"))
+		{
+			sound(self, 0,"sounds/misc/nzp/ching.wav", 1, 1);
+		}
 		addmoney(self.enemy, 10, 1);
 		totalreward = totalreward + 10;
 	}
