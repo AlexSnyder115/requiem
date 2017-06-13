@@ -43,3 +43,14 @@ map facility
 pause
 restart
 map facility
+map facility
+restart
+map ndu
+fog 1
+fog 1.0
+map facility
+map facility
+map facility
+map facility
+map facility
+map facility

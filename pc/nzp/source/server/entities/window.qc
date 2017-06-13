@@ -49,7 +49,10 @@ void() Window_repaired =
 
 void() Barricade_hit_window =
 {
-	sound(self, 0,"sounds/misc/barricade.wav", 1, 0);
+	if (mapname == "facility")
+			sound(self, 0,"sounds/misc/ds/barricade.wav", 1, 1);
+	if (!(mapname == "facility"))
+			sound(self, 0,"sounds/misc/ds/barricade.wav", 1, 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////  ANIMATIONS
@@ -161,17 +164,17 @@ void()	window_repair6_6	=[	6,		window_repair6_7 ]	{self.frame = 46;};
 void()	window_repair6_7	=[	7,		window_repair6_8 ]	{self.frame = 47;Barricade_hit_window();};
 void()	window_repair6_8	=[	8,		SUB_Null		 ]	{self.frame = 48; Window_repaired();};
 
-void()	window_carpenter_1	=[	1,		window_carpenter_2 	]	{self.frame = 47;sound(self, 0,"sounds/misc/barricade.wav", 1, 1);};
+void()	window_carpenter_1	=[	1,		window_carpenter_2 	]	{self.frame = 47;sound(self, 0,"sounds/misc/nzp/barricade.wav", 1, 1);};
 void()	window_carpenter_2	=[	2,		window_carpenter_3 	]	{self.frame = 48;};
-void()	window_carpenter_3	=[	3,		window_carpenter_4 	]	{self.frame = 55;sound(self, 1,"sounds/misc/barricade.wav", 1, 1);};
+void()	window_carpenter_3	=[	3,		window_carpenter_4 	]	{self.frame = 55;sound(self, 1,"sounds/misc/nzp/barricade.wav", 1, 1);};
 void()	window_carpenter_4	=[	4,		window_carpenter_5 	]	{self.frame = 56;};
-void()	window_carpenter_5	=[	5,		window_carpenter_6 	]	{self.frame = 63;sound(self, 2,"sounds/misc/barricade.wav", 1, 1);};
+void()	window_carpenter_5	=[	5,		window_carpenter_6 	]	{self.frame = 63;sound(self, 2,"sounds/misc/nzp/barricade.wav", 1, 1);};
 void()	window_carpenter_6	=[	6,		window_carpenter_7 	]	{self.frame = 64;};
-void()	window_carpenter_7	=[	7,		window_carpenter_8 	]	{self.frame = 71;sound(self, 0,"sounds/misc/barricade.wav", 1, 1);};
+void()	window_carpenter_7	=[	7,		window_carpenter_8 	]	{self.frame = 71;sound(self, 0,"sounds/misc/nzp/barricade.wav", 1, 1);};
 void()	window_carpenter_8	=[	8,		window_carpenter_9 	]	{self.frame = 72;};
-void()	window_carpenter_9	=[	7,		window_carpenter_10 ]		{self.frame = 79;sound(self, 1,"sounds/misc/barricade.wav", 1, 1);};
+void()	window_carpenter_9	=[	7,		window_carpenter_10 ]		{self.frame = 79;sound(self, 1,"sounds/misc/nzp/barricade.wav", 1, 1);};
 void()	window_carpenter_10	=[	8,		window_carpenter_11	]	{self.frame = 80;};
-void()	window_carpenter_11	=[	7,		window_carpenter_12 ]		{self.frame = 87;sound(self, 2,"sounds/misc/barricade.wav", 1, 1);};
+void()	window_carpenter_11	=[	7,		window_carpenter_12 ]		{self.frame = 87;sound(self, 2,"sounds/misc/nzp/barricade.wav", 1, 1);};
 void()	window_carpenter_12	=[	8,		SUB_Null		 	]	{self.frame = 88;};
 
 
@@ -179,7 +182,10 @@ void() Window_Damage =
 {
 	if(self.health == 0)
 		return;
-	sound(self,CHAN_VOICE,"sounds/misc/barricade_destroy.wav",1,0);
+	if (mapname == "facility")
+		sound(self,CHAN_VOICE,"sounds/misc/ds/barricade_destroy.wav",1,0);
+	if (!(mapname == "facility"))
+		sound(self,CHAN_VOICE,"sounds/misc/nzp/barricade_destroy.wav",1,0);
 	
 	self.health = self.health - 1;
 	
@@ -260,9 +266,18 @@ void() item_barricade =
 	}
 	else
 	{
-		precache_model("models/Misc/window.mdl");
-		precache_sound("sounds/misc/barricade.wav");
-		precache_sound("sounds/misc/barricade_destroy.wav");
+		if (mapname == "facility")
+		{
+			precache_model("models/Misc/ds/window.mdl");
+			precache_sound("sounds/misc/ds/barricade.wav");
+			precache_sound("sounds/misc/ds/barricade_destroy.wav");
+		}
+		if (!(mapname == "facility"))
+		{
+			precache_model("models/Misc/nzp/window.mdl");
+			precache_sound("sounds/misc/nzp/barricade.wav");
+			precache_sound("sounds/misc/nzp/barricade_destroy.wav");
+		}
 	}
 	self.classname = "window";
 	self.touch = window_touch;
@@ -270,7 +285,10 @@ void() item_barricade =
 	if(self.health != -10)
 	{
 		self.health = 6;
-		setmodel(self, "models/Misc/window.mdl");
+		if (mapname == "facility")
+			setmodel(self, "models/Misc/ds/window.mdl");
+		if (!(mapname == "facility"))
+			setmodel(self, "models/Misc/ds/window.mdl");
 	}
 	setsize(self,'-20 -20 -64', '20 20 16');
 	setorigin(self,self.origin);
@@ -284,9 +302,18 @@ void() item_cover =
 	}
 	else
 	{
-		precache_model("models/Misc/window.mdl");
-		precache_sound("sounds/misc/barricade.wav");
-		precache_sound("sounds/misc/barricade_destroy.wav");
+		if (mapname == "facility")
+		{
+			precache_model("models/Misc/ds/window.mdl");
+			precache_sound("sounds/misc/ds/barricade.wav");
+			precache_sound("sounds/misc/ds/barricade_destroy.wav");
+		}
+		if (!(mapname == "facility"))
+		{
+			precache_model("models/Misc/nzp/window.mdl");
+			precache_sound("sounds/misc/nzp/barricade.wav");
+			precache_sound("sounds/misc/nzp/barricade_destroy.wav");
+		}
 	}
 	self.classname = "window";
 	self.touch = window_touch;
@@ -294,7 +321,10 @@ void() item_cover =
 	if(self.health != -10)
 	{
 		self.health = 6;
-		setmodel(self, "models/Misc/window.mdl");
+		if (mapname == "facility")
+			setmodel(self, "models/Misc/ds/window.mdl");
+		if (!(mapname == "facility"))
+			setmodel(self, "models/Misc/ds/window.mdl");
 	}
 	setsize(self,'-20 -20 -64', '20 20 16');
 	setorigin(self,self.origin + '0 0 32');
