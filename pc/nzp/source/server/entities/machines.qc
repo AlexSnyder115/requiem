@@ -265,11 +265,57 @@ void() touch_perk =
 	}
 }
 
-void DispenseGum() =
+void() GetGumPrice =
+{
+	switch(gumuses)
+	{
+		case 0:
+			gumprice = 0; break;
+		case 1:
+			gumprice = 500; break;
+		case 2:
+			gumprice = 1500; break;
+		case 3:
+			gumprice = 4500; break;
+		case 4:
+			gumprice = 8500; break;
+		case 5:
+			gumprice = 10500; break;
+	}
+}
+
+void() GetGum =
+{
+	local float e;
+
+	e = random();
+
+	if (e < 0.125)
+	{
+		centerprint(other, "Stock Option");
+	}
+	else if (e < 0.25)
+	{
+		centerprint(other, "In Plain Sight");
+	}
+	else if (e < 0.375)
+	{
+		centerprint(other, "Sword Play");
+	}
+	else if (e < 0.5)
+	{
+		centerprint(other, "Lucky Crit");
+	}
+	else
+	{
+		centerprint(other, "Alchemical Antithesis");
+	}
+}
+
+void() DispenseGum =
 {
 
-	gumuses = gumuses + 1;
-	gumprice = 500 + ((gumuses * 1000) * 2);
+	GetGumPrice();
 
 	self.isBuying = true;
 	entity tempe = self;
@@ -277,20 +323,27 @@ void DispenseGum() =
 	if (self.sprinting) {
 		W_SprintStop();
 	}
-	self.knife_delay = self.reload_delay2 = self.fire_delay2 = self.fire_delay = self.reload_delay = 4.5 + time;		
+	other.knife_delay = other.reload_delay2 = other.fire_delay2 = other.fire_delay = other.reload_delay = 2.5 + time;		
 	self = tempe;
-	sound (other, CHAN_ITEM, "sounds/machines/perk_drink.wav", 1, ATTN_NORM);
+	GetGum();
+	//sound (other, CHAN_ITEM, "sounds/machines/perk_drink.wav", 1, ATTN_NORM);
 }
 
 void() touch_gum =
 {
-	if (other.classname == "player")								
+	if (other.classname == "player" && other.fire_delay < time && gumuses < 6)								
 	{
 		useprint (other, 13, gumprice, 0);
-		if (other.points >= 500 && other.button7)
+		if (other.points >= gumprice && other.button7)
 		{
+			gumuses++;
+			addmoney(other, -gumprice, 0);
 			DispenseGum();
 		}
+	}
+	else if (other.classname == "player" && other.fire_delay < time  && gumuses >= 6)
+	{
+		useprint (other, 14, 0, 0);
 	}
 }
 
