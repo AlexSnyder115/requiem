@@ -68,3 +68,11 @@ restart
 restart
 map facility
 map facility
+map facility
+map warehouse
+r_shadow_realtime_world
+r_shadow_realtime_world 1
+r_shadow_realtime_world 0
+map warehouse
+map ndu
+map mc

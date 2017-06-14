@@ -288,7 +288,7 @@ void() item_barricade =
 		if (mapname == "facility")
 			setmodel(self, "models/Misc/ds/window.mdl");
 		if (!(mapname == "facility"))
-			setmodel(self, "models/Misc/ds/window.mdl");
+			setmodel(self, "models/Misc/nzp/window.mdl");
 	}
 	setsize(self,'-20 -20 -64', '20 20 16');
 	setorigin(self,self.origin);
@@ -324,7 +324,7 @@ void() item_cover =
 		if (mapname == "facility")
 			setmodel(self, "models/Misc/ds/window.mdl");
 		if (!(mapname == "facility"))
-			setmodel(self, "models/Misc/ds/window.mdl");
+			setmodel(self, "models/Misc/nzp/window.mdl");
 	}
 	setsize(self,'-20 -20 -64', '20 20 16');
 	setorigin(self,self.origin + '0 0 32');
