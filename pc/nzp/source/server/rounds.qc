@@ -41,6 +41,7 @@ void() EndRound =
 void() NewRound =
 {
 	entity tempe;
+	gumuses = 0;
 	round_changetime = 0;
 	spawn_time = time + 5;
 	sounds_playing = 0;//just in case it ever somehow glitches

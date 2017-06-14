@@ -287,12 +287,14 @@ void() GetGumPrice =
 void() GetGum =
 {
 	local float e;
+	//local float time;
 
 	e = random();
 
 	if (e < 0.125)
 	{
 		centerprint(other, "Stock Option");
+		StockOption();
 	}
 	else if (e < 0.25)
 	{

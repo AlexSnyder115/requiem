@@ -265,6 +265,7 @@ void() PlayerSpawn =
 	udm = time + 30;
 	if (udm < time)
 		undm();*/
+	//Spawn_Powerup(self.origin);
 };
 
 void() SpectatorSpawn =

@@ -12,6 +12,7 @@ float deathmatch;
 float coop;
 float gumprice;
 float gumuses;
+float gum_stock;
 string soundstyle;
 .vector oldvelocity;
 .float lastsound_time;

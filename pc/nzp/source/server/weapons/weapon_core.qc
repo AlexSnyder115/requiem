@@ -773,7 +773,10 @@ void(float side) W_Fire =
 	sound (self, CHAN_WEAPON, soundname, 1, ATTN_NORM);
 
 	if (side == S_RIGHT) {
-		self.currentmag = self.currentmag - 1;
+		if (gum_stock == 1)
+			self.currentammo = self.currentammo - 1;
+		if (gum_stock == 0)
+			self.currentmag = self.currentmag - 1;
 		self.fire_delay = getWeaponDelay(self.weapon, FIRE) + time;
 	} else {
 		self.currentmag2 = self.currentmag2 - 1;

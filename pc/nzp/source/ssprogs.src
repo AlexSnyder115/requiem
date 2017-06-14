@@ -8,6 +8,7 @@ server/rounds.qc
 server/main.qc
 server/damage.qc
 
+server/entities/gums.qc
 server/entities/sub_functions.qc
 server/entities/triggers.qc
 server/entities/map_entities.qc
