@@ -774,7 +774,14 @@ void(float side) W_Fire =
 
 	if (side == S_RIGHT) {
 		if (gum_stock == 1)
+		{
 			self.currentammo = self.currentammo - 1;
+			if (self.currentammo <= 0)
+			{
+				self.currentammo = 0;
+				self.currentmag = self.currentmag - 1;
+			}
+		}
 		if (gum_stock == 0)
 			self.currentmag = self.currentmag - 1;
 		self.fire_delay = getWeaponDelay(self.weapon, FIRE) + time;

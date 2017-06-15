@@ -293,8 +293,7 @@ void() GetGum =
 
 	if (e < 0.125)
 	{
-		centerprint(other, "Stock Option");
-		StockOption();
+		centerprint(other, "Alchemical Antithesis");
 	}
 	else if (e < 0.25)
 	{
@@ -310,7 +309,8 @@ void() GetGum =
 	}
 	else
 	{
-		centerprint(other, "Alchemical Antithesis");
+		centerprint(other, "Stock Option");
+		StockOption();
 	}
 }
 

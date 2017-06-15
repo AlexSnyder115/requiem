@@ -3,10 +3,20 @@ void() StockOption =
 	local float revert;
 	gum_stock = 1;
 	revert = 60 + time;
-	if (revert > time)
+	if (revert < time)
 	{
 		gum_stock = 0;
 		return;
 	}
-
+}
+void() SwordPlay =
+{
+	local float revert;
+	gum_sword = 1;
+	revert = 210 + time;
+	if (revert > time)
+	{
+		gum_sword = 0;
+		return;
+	}
 }
