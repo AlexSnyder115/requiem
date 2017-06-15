@@ -1172,7 +1172,16 @@ void() W_Grenade =
    }    
 }
 
+void () Stance_Crouch =
+{
+	centerprint(self, "test");
+	self.view_ofs = '0 0 0';
+}
 
+void () Stance_Prone =
+{
+
+}
 
 void () Impulse_Functions =
 {
@@ -1193,6 +1202,9 @@ void () Impulse_Functions =
 		case 25:
 			W_PutOut();
 			self.semiswitch = true;
+			break;
+		case 69:
+			Stance_Crouch();
 			break;
 	}
 	
@@ -1272,6 +1284,8 @@ void() CheckImpulses =
 {
 	self.impulse = 0;
 }
+
+
 
 void () Weapon_Logic =
 {

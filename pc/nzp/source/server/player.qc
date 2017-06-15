@@ -21,16 +21,6 @@ void() Dolphin_dive =
 	self.button2 = 0;
 }
 
-void () Stance_Crouch =
-{
-	self.view_ofs = '0 0 -5';
-}
-
-void () Stance_Prone =
-{
-
-}
-
 void() PlayerJump =
 {
 	if (!(self.flags & FL_ONGROUND))
@@ -226,7 +216,7 @@ void() PlayerSpawn =
 	self.angles = spawnpoint.angles;
 	self.fixangle = TRUE;
 	setsize(self, [-16, -16, -24], [16, 16, 32]);
-	self.view_ofs = VEC_VIEW_OFS; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
+	self.view_ofs = '0 0 40'; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
 
 	self.currentammo = 32;
 	self.currentmag = 8;

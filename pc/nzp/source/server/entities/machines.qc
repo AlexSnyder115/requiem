@@ -305,7 +305,8 @@ void() GetGum =
 	}
 	else if (e < 0.5)
 	{
-		centerprint(other, "Lucky Crit");
+		centerprint(other, "Round Robbin'");
+		RoundRobbin();
 	}
 	else
 	{

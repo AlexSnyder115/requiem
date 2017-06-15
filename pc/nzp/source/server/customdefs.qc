@@ -13,7 +13,6 @@ float coop;
 float gumprice;
 float gumuses;
 float gum_stock;
-float gum_sword;
 string soundstyle;
 .vector oldvelocity;
 .float lastsound_time;

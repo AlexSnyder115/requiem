@@ -9,14 +9,7 @@ void() StockOption =
 		return;
 	}
 }
-void() SwordPlay =
+void() RoundRobbin =
 {
-	local float revert;
-	gum_sword = 1;
-	revert = 210 + time;
-	if (revert > time)
-	{
-		gum_sword = 0;
-		return;
-	}
+	NewRound();
 }

@@ -128,3 +128,32 @@ map perk
 map perk
 map perk
 map perk
+map perk
+map facility
+god
+cl_bob
+cl_bob 0
+cl_bob 0.01
+map perk
+map perk
+bind CTRL impulse 420
+map perk
+impulse 420
+impulse 420
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map ndu
+map mc
+map perk
+map perk
+restart
+map perk
+restart
+restart
+map perk
