@@ -259,6 +259,10 @@ float total_windows_down;
 float total_powerup_points;
 float powerup_activate;
 
+//gums
+.float gumname;
+.float gumdesc;
+
 //rounds
 float roundinit;
 float roundtype;

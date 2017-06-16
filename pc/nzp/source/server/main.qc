@@ -247,6 +247,8 @@ void() worldspawn =
 	clientstat(STAT_PLAYERNAME, EV_FLOAT, playernumber);
 	clientstat(STAT_INSTA, EV_FLOAT, insta_icon);
 	clientstat(STAT_X2, EV_FLOAT, x2_icon);
+	clientstat(STAT_GUMNAME, EV_FLOAT, gumname);
+	clientstat(STAT_GUMDESC, EV_FLOAT, gumdesc);
 	mappath = strcat("maps/", mapname);
 	mappath = strzone(mappath);
 

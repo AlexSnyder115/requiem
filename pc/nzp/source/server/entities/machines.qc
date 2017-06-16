@@ -305,7 +305,8 @@ void() GetGum =
 	}
 	else if (e < 0.5)
 	{
-		centerprint(other, "Round Robbin'");
+		other.gumname = 1; //Round Robbin'
+		other.gumdesc = 1; //Ends the current round. All players gain 1600 points
 		RoundRobbin();
 	}
 	else

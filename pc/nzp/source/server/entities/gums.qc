@@ -12,4 +12,5 @@ void() StockOption =
 void() RoundRobbin =
 {
 	NewRound();
+	addmoney(other, 1600, 0);
 }

@@ -139,3 +139,5 @@ const float EVENT_UPDATE = 23;
 #define STAT_PLAYERNAME			61
 #define STAT_INSTA	        	62
 #define STAT_X2		       		63
+#define STAT_GUMNAME			64
+#define STAT_GUMDESC 			65

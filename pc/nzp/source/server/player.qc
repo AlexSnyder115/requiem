@@ -244,6 +244,8 @@ void() PlayerSpawn =
 	self.stamina = 3;
 
 	//rounds = 999;
+	self.gumname = 1;
+	self.gumdesc = 0;
 
 	if (rounds < 1) {
 		if (mapname == "facility")

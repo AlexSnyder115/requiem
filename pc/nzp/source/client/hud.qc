@@ -955,6 +955,27 @@ void() HUD_Powerups = {
 //	drawstring([0.01*g_width, 0.14*g_height, 0], ftos(getstatf(STAT_X2)), [0.03*g_width, 0.03*g_width, 0], [1, 1, 1], 1, 1);
 }
 
+void(float width, float height) HUD_Gum = {
+	local string gname, gdesc;
+	switch (STAT_GUMNAME)
+	{
+		case 0:
+			gname = " ";
+		case 1:
+			gname = "Round Robbin'";
+	}
+	switch (STAT_GUMDESC)
+	{
+		case 0:
+			gdesc = " ";
+		case 1:
+			gdesc = "Ends the current round. All players gain 1600 points";
+	}
+	/*drawstring([0.415*width, 0.2*height, 0], "Round Robbin'", [0.015*width, 0.015*width, 0], [1, 1, 1], 1, 1);
+	drawstring([0.25*width, 0.23*height, 0], "Ends the current round. All players gain 1600 points", [0.01*width, 0.01*width, 0], [1, 1, 1], 1, 1);
+	//drawstring([width - (42/480)*width - (benis*20*width/1024), 0.96*height, 0], gname, [0.02*width, 0.02*width, 0], [1,1,1], 1, 1);*/
+}
+
 
 
 /*******************
@@ -971,6 +992,7 @@ void(float width, float height) HUD_Draw =
 	HUD_Progressbar(width, height);
 	HUD_Powerups();
 	HUD_PlayerName(width, height);
+	HUD_Gum(width, height);
 	
 	if (HUD_Change_time > time)
 	{
