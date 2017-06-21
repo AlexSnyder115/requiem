@@ -258,6 +258,7 @@ void() PlayerSpawn =
 	if (udm < time)
 		undm();*/
 	//Spawn_Powerup(self.origin);
+	other.perkcount = 0;
 };
 
 void() SpectatorSpawn =

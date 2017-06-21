@@ -1204,7 +1204,8 @@ void () Impulse_Functions =
 			self.semiswitch = true;
 			break;
 		case 69:
-			Stance_Crouch();
+			if (self.gumname == 1)
+				RoundRobbin();
 			break;
 	}
 	

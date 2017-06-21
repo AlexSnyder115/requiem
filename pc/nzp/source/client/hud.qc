@@ -162,7 +162,7 @@ void(float width, float height) HUD_Grenades =
 	local float grenades;
 
 	grenades = getstatf(STAT_GRENADES);
-	drawpic([0.9*width,0.825*height,0], "gfx/hud/frag.tga", [50, 50, 0], [1,1,1], 1);
+	//drawpic([0.9*width,0.825*height,0], "gfx/hud/frag.tga", [50, 50, 0], [1,1,1], 1);
 	drawstring([0.9*width + 28, 0.825*height + 32, 0], ftos(grenades), [0.025*width, 0.025*width, 0], [1, 1, 1], 1, 1);
 }
 
@@ -973,9 +973,17 @@ void(float width, float height) HUD_Gum = {
 		case 1:
 			gdesc = "Ends the current round. All players gain 1600 points";
 	}
+	if (STAT_GUMNUM != 0)
+	{
+		switch (STAT_GUMNAME)
+		{
+			case 1:
+				drawpic([0.9*width,0.825*height,0], "gfx/hud/frag.tga", [50, 50, 0], [1,1,1], 1);
+		}
+	}
 	/*drawstring([0.415*width, 0.2*height, 0], "Round Robbin'", [0.015*width, 0.015*width, 0], [1, 1, 1], 1, 1);
-	drawstring([0.25*width, 0.23*height, 0], "Ends the current round. All players gain 1600 points", [0.01*width, 0.01*width, 0], [1, 1, 1], 1, 1);
-	//drawstring([width - (42/480)*width - (benis*20*width/1024), 0.96*height, 0], gname, [0.02*width, 0.02*width, 0], [1,1,1], 1, 1);*/
+	drawstring([0.25*width, 0.23*height, 0], "Ends the current round. All players gain 1600 points", [0.01*width, 0.01*width, 0], [1, 1, 1], 1, 1);*/
+	//drawstring([width - (42/480)*width - (benis*20*width/1024), 0.96*height, 0], gname, [0.02*width, 0.02*width, 0], [1,1,1], 1, 1);
 }
 
 

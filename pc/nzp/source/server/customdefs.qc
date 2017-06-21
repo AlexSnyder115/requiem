@@ -7,6 +7,8 @@
 
 const float FL_JUMPRELEASED = 4096;
 
+.float perkcount;
+
 float framecount;
 float deathmatch;
 float coop;
@@ -265,6 +267,7 @@ float powerup_activate;
 //gums
 .float gumname;
 .float gumdesc;
+.float gumnum;
 
 //rounds
 float roundinit;

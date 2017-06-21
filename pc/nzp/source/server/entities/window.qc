@@ -52,7 +52,7 @@ void() Barricade_hit_window =
 	if (mapname == "facility")
 			sound(self, 0,"sounds/misc/ds/barricade.wav", 1, 1);
 	if (!(mapname == "facility"))
-			sound(self, 0,"sounds/misc/ds/barricade.wav", 1, 1);
+			sound(self, 0,"sounds/misc/nzp/barricade.wav", 1, 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////  ANIMATIONS
