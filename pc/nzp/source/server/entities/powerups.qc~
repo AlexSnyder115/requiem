@@ -269,8 +269,6 @@ void() powerup_touch =
 		else if(self.zombie_drop_id == 6)
 		{
 			firesale();
-			sale_finished = time + 30;
-			other.sale_icon = true;
 		}
 		stuffcmd(other, "bf\n");
 		remove(self.owner);

@@ -250,7 +250,7 @@ void() worldspawn =
 	clientstat(STAT_X2, EV_FLOAT, x2_icon);
 	clientstat(STAT_GUMNAME, EV_FLOAT, gumname);
 	clientstat(STAT_GUMDESC, EV_FLOAT, gumdesc);
-	clientstat(STAT_SALE, EV_FLOAT, sale_icon);
+	clientstat(STAT_SALE, EV_FLOAT, saleicon);
 	mappath = strcat("maps/", mapname);
 	mappath = strzone(mappath);
 

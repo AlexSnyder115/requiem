@@ -1028,9 +1028,9 @@ void() mystery_touch =
 	if (other.classname != "player" || other.downed)
 		return;
 	if (other.sale_icon == true)
-		bprice = 10;
-	else
 		bprice = 950;
+	else
+		bprice = 10;
 		
 	if (!self.boxstatus) {
 		useprint (other, 6, bprice, 0);
