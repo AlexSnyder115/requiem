@@ -31,7 +31,7 @@ void(float what) play_sound_z =
 					sound(self,CHAN_WEAPON,"sounds/zombie/ds/a7.wav",1,ATTN_NORM);   
 				return;
 			}
-			if (!(mapname == "facility"))
+			else
 			{
 				if (e < 0.125)
 					sound(self,CHAN_WEAPON,"sounds/zombie/nzp/a0.wav",1,ATTN_NORM);
@@ -89,7 +89,7 @@ void(float what) play_sound_z =
 							sound(self,CHAN_VOICE,"sounds/zombie/ds/t4.wav",1,ATTN_NORM);  
 						return;
 					}
-					if (!(mapname == "facility"))
+					else
 					{
 						if(e < 0.2)
 							sound(self,CHAN_VOICE,"sounds/zombie/nzp/t0.wav",1,ATTN_NORM);   
@@ -131,7 +131,7 @@ void(float what) play_sound_z =
 							sound(self,CHAN_VOICE,"sounds/zombie/ds/w9.wav",1,ATTN_NORM);
 						return;
 					}
-					if (!(mapname == "facility"))
+					else
 					{
 						if (e < 0.1)
 							sound(self,CHAN_VOICE,"sounds/zombie/nzp/w0.wav",1,ATTN_NORM);   
@@ -183,7 +183,7 @@ void(float what) play_sound_z =
 							sound(self,CHAN_VOICE,"sounds/zombie/ds/r9.wav",1,ATTN_NORM);
 						return;
 					}
-					if (!(mapname == "facility"))
+					else
 					{
 						if (e < 0.1)
 							sound(self,CHAN_VOICE,"sounds/zombie/nzp/r0.wav",1,ATTN_NORM);   
@@ -233,7 +233,7 @@ void(float what) play_sound_z =
 					sound(self,CHAN_BODY,"sounds/zombie/ds/d7.wav",1,ATTN_NORM);   
 				return;
 			}
-			if (!(mapname == "facility"))
+			else
 			{
 				if (e < 0.125)
 					sound(self,CHAN_BODY,"sounds/zombie/nzp/d0.wav",1,ATTN_NORM);
@@ -273,7 +273,7 @@ void(float what) play_sound_z =
 					sound(self,CHAN_ITEM,"sounds/zombie/ds/t4.wav",1,ATTN_NORM);  
 				return;
 			}
-			if (!(mapname == "facility"))
+			else
 			{
 				if(e < 0.2)
 					sound(self,CHAN_ITEM,"sounds/zombie/nzp/t0.wav",1,ATTN_NORM);   
@@ -354,7 +354,7 @@ void() zombie_footstep
 		self.laststep = 0;
 		if (mapname == "facility")
 			sound(self,CHAN_VOICE,"sounds/zombie/ds/s0.wav",1,ATTN_NORM);
-		if (!(mapname == "facility"))
+		else
 			sound(self,CHAN_VOICE,"sounds/zombie/nzp/s0.wav",1,ATTN_NORM);
 	}
 	else
@@ -362,7 +362,7 @@ void() zombie_footstep
 		self.laststep = 1;
 		if (mapname == "facility")
 			sound(self,CHAN_VOICE,"sounds/zombie/ds/s1.wav",1,ATTN_NORM);
-		if (!(mapname == "facility"))
+		else
 			sound(self,CHAN_VOICE,"sounds/zombie/nzp/s1.wav",1,ATTN_NORM);
 	}
 }
@@ -980,7 +980,7 @@ void() Zombie_Death =
 		self.s_time = 0;
 	}
 	
-	//Spawn_Powerup(self.origin);
+	Spawn_Powerup(self.origin);
 	if(self.outside == FALSE)
 	{
 		if (totalpowerups < 4)
