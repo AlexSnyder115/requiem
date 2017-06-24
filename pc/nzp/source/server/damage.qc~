@@ -100,6 +100,7 @@ void() GetDown =
 	self.currentammo = 12;
 	self.currentmag = 6;
 	self.currentmag2 = 6;
+	self.perkcount = 0;
       
   	modelname = GetWeaponModel(self.weapon, 0);
 	self.weaponmodel = modelname;

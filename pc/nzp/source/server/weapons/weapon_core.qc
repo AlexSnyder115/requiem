@@ -105,7 +105,7 @@ void() W_Switch =
 	if (self.secondaryweapon && self.secondaryweapon !=0 && !self.new_anim_stop && !other.button7)
 	{	
 
-		if (!(self.perks & P_CANDO))
+		if (!(self.perks & P_MULE))
 		{
 			tempf = self.currentammo;
 			self.currentammo = self.secondaryammo;
@@ -127,7 +127,7 @@ void() W_Switch =
 			endframe = GetFrame(self.weapon,TAKE_OUT_END);
 			modelname = GetWeaponModel(self.weapon, 0);
 		}
-		if (self.perks & P_CANDO)
+		if (self.perks & P_MULE)
 		{
 			tempf = self.currentammo;
 			self.currentammo = self.secondaryammo;
@@ -156,9 +156,6 @@ void() W_Switch =
 			self.secondaryammo = self.thirdammo;
 			self.secondarymag = self.thirdmag;
 			self.secondaryweaponskin = self.thirdweaponskin;
-			self.thirdweapon = 0;
-			self.thirdammo = 0;
-			self.thirdmag = 0;
 		}
 
 		SwitchWeapon(self.weapon);

@@ -289,7 +289,7 @@ void () buy_weapon_touch =
 			other.weapon = other.secondaryweapon;
 			other.secondaryweapon = tempf2;
 		}
-		else if (other.weapon && other.secondaryweapon && !other.thirdweapon && (self.perks & P_CANDO)) {
+		else if (other.weapon && other.secondaryweapon && !other.thirdweapon && (self.perks & P_MULE)) {
 			tempf = other.currentammo;
 			other.currentammo = other.thirdammo;
 			other.thirdammo = tempf;

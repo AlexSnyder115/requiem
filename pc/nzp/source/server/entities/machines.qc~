@@ -34,6 +34,7 @@ void GivePerk(float perk) {
 			break;
 		case P_MULE:
 			self.perks = self.perks | 512;
+			break;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -104,6 +105,7 @@ void DrinkPerk(float perk) {
 		case P_MULE:
 			other.weaponskin = 1;
 			func = give_mulekick;
+			break;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}

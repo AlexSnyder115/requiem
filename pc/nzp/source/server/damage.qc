@@ -86,6 +86,10 @@ void() GetDown =
 	self.points = 10*rint((self.points*0.95)/10);
 	}
 	
+
+	self.thirdweapon = 0;
+	self.thirdmag = 0;
+	self.thirdammo = 0;
 	self.perks = 0;
 	SetPerk(self, self.perks);
 	if (self.health == 10)

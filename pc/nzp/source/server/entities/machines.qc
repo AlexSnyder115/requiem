@@ -34,6 +34,7 @@ void GivePerk(float perk) {
 			break;
 		case P_MULE:
 			self.perks = self.perks | 512;
+			break;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -104,6 +105,7 @@ void DrinkPerk(float perk) {
 		case P_MULE:
 			other.weaponskin = 1;
 			func = give_mulekick;
+			break;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -282,7 +284,7 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_mulekick" && self.fire_delay < time)
 		{
-			useprint (other, 10, 4000, 9);
+			useprint (other, 9, 4000, 10);
 			if (other.points >= 4000 && other.button7)
 			{
 				other.perkcount++;

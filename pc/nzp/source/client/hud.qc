@@ -798,6 +798,11 @@ void(float width, float height) HUD_Perks =
 				drawpic([y,yyy,0], "gfx/hud/cando.tga", [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
+			else if (perk_order[i] == P_MULE)
+			{
+				drawpic([y,yyy,0], "gfx/hud/mule.tga", [28, 28, 1], [1,1,1], 1);
+				y = y + 30;
+			}
 		}
 	}
 }
@@ -1064,6 +1069,11 @@ void UpdatePerks (float newperks) {
 		perk_order[current_perk_order] = P_CANDO;
 		current_perk_order = current_perk_order + 1;
 	}
+	if (newperks & P_MULE && !(perks & P_MULE))
+	{
+		perk_order[current_perk_order] = P_MULE;
+		current_perk_order = current_perk_order + 1;
+	}
 	if (perks & P_JUG && !(newperks & P_JUG))
 	{
 		for (s = 0; s < 10; s++)
@@ -1188,6 +1198,23 @@ void UpdatePerks (float newperks) {
 		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_CANDO)
+			{
+				perk_order[s] = 0;
+				while (perk_order[s+1])
+				{
+					perk_order[s] = perk_order[s+1];
+					perk_order[s+1] = 0;
+				}
+				break;
+			}
+		}
+		current_perk_order = current_perk_order - 1;
+	}
+	if (perks & P_MULE && !(newperks & P_MULE))
+	{
+		for (s = 0; s < 10; s++)
+		{
+			if (perk_order[s] == P_MULE)
 			{
 				perk_order[s] = 0;
 				while (perk_order[s+1])
