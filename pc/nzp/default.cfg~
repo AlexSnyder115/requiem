@@ -16,9 +16,8 @@ bind	MOUSE2			+button8
 bind	SPACE			+jump 
 bind	r				+button5
 bind	f				+button7
-//bind	MWHEELUP		impulse 25
-//bind	MWHEELDOWN		impulse 25
-bind	TAB 				impulse 25
+bind	MWHEELUP		impulse 25
+bind	MWHEELDOWN		impulse 25
 bind	g				+button3
 bind	v				+button6
 bind	CTRL			impulse 69

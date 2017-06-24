@@ -43,6 +43,7 @@ entity activator;
 .float zoom;
 .float sprinting;
 .float weaponskin;
+.float weapon3skin;
 .float stamina;
 void() W_SprintStop;
 .float into_sprint;
@@ -66,6 +67,7 @@ void Weapon_Logic();
 .float currentmag2;
 .float currentmagbk;
 .float currentmagbk2;
+.float secondaryweaponskin;
 .float currentammobk;
 .float secondaryammo;
 .float semi;
@@ -81,6 +83,10 @@ void Weapon_Logic();
 .float weapon2frame;
 .float reloadinterupted;
 .float hitcount;
+.float thirdweapon;
+.float thirdammo;
+.float thirdmag;
+.float thirdweaponskin;
 
 #define S_LEFT 0
 #define S_RIGHT 1

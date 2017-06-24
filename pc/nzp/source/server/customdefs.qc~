@@ -7,6 +7,8 @@
 
 const float FL_JUMPRELEASED = 4096;
 
+.float perkcount;
+
 float framecount;
 float deathmatch;
 float coop;
@@ -41,6 +43,7 @@ entity activator;
 .float zoom;
 .float sprinting;
 .float weaponskin;
+.float weapon3skin;
 .float stamina;
 void() W_SprintStop;
 .float into_sprint;
@@ -79,6 +82,10 @@ void Weapon_Logic();
 .float weapon2frame;
 .float reloadinterupted;
 .float hitcount;
+.float thirdweapon;
+.float thirdammo;
+.float thirdmag;
+.float thirdweaponskin;
 
 #define S_LEFT 0
 #define S_RIGHT 1
@@ -251,6 +258,7 @@ float isPowerOn;
 //powerups
 .float x2_icon;
 .float insta_icon;
+.float sale_icon;
 float instakill_finished;
 float insta_blink;
 float x2_finished;
@@ -264,6 +272,7 @@ float powerup_activate;
 //gums
 .float gumname;
 .float gumdesc;
+.float gumnum;
 
 //rounds
 float roundinit;

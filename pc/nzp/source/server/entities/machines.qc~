@@ -32,6 +32,8 @@ void GivePerk(float perk) {
 		case P_AMMO:
 			self.perks = self.perks | 256;
 			break;
+		case P_MULE:
+			self.perks = self.perks | 512;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -55,6 +57,7 @@ void() give_staminup = { GivePerk(P_STAMIN); }
 void() give_electric = { GivePerk(P_CHERRY); }
 void() give_candolier = { GivePerk(P_CANDO); }
 void() give_ammomatic = { GivePerk(P_AMMO); }
+void() give_mulekick = { GivePerk(P_MULE); }
 
 
 void DrinkPerk(float perk) {
@@ -98,6 +101,9 @@ void DrinkPerk(float perk) {
 			other.weaponskin = 3;
 			func = give_ammomatic;
 			break;
+		case P_MULE:
+			other.weaponskin = 1;
+			func = give_mulekick;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -115,152 +121,178 @@ void DrinkPerk(float perk) {
 
 void() touch_perk =
 {  
-	if (other.classname != "player" || other.downed || other.isBuying == true)
-		return;
-
-	if (self.requirespower == true && !isPowerOn)
+	if (other.perkcount < 4)
 	{
-		useprint (other, 8, 0, 0);
-		return;
-	}
-	  if (other.weaponskin == 0)
-      backupWepSkin = 0;
-    else 
-      backupWepSkin = 1;
+		if (other.classname != "player" || other.downed || other.isBuying == true)
+			return;
+
+		if (self.requirespower == true && !isPowerOn)
+		{
+			useprint (other, 8, 0, 0);
+			return;
+		}
+		  if (other.weaponskin == 0)
+ 	     backupWepSkin = 0;
+ 	   else 
+ 	     backupWepSkin = 1;
 
 	
-	if (self.classname == "perk_revive" && !(other.perks & P_REVIVE) && other.fire_delay < time)
-	{
-		if (!deathmatch && !coop)
+		if (self.classname == "perk_revive" && !(other.perks & P_REVIVE) && other.fire_delay < time)
 		{
-			useprint (other, 9, 500, 1);
-		}
-		else if ((coop || deathmatch))
-		{
-			useprint (other, 9, 1500, 1);
-		}
-		if (!deathmatch && !coop && other.points >= 500 && other.button7)
-		{
+			if (!deathmatch && !coop)
+			{
+				useprint (other, 9, 500, 1);
+			}
+			else if ((coop || deathmatch))
+			{
+				useprint (other, 9, 1500, 1);
+			}
+			if (!deathmatch && !coop && other.points >= 500 && other.button7)
+			{
 
-			addmoney (other, -500, 0);
-			DrinkPerk(P_REVIVE);
+				addmoney (other, -500, 0);
+				DrinkPerk(P_REVIVE);
 
-			other.revivesoda++;
-			if (other.revivesoda == 3)
-				remove (self);
+				other.revivesoda++;
+				other.perkcount++;
+				if (other.revivesoda == 3)
+					remove (self);
+			}
+			else if ((coop || deathmatch) && other.points >= 1500 && other.button7)
+			{
+				addmoney (other, -1500, 0);
+				other.perkcount++;
+				DrinkPerk(P_REVIVE);
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-		else if ((coop || deathmatch) && other.points >= 1500 && other.button7)
+		if (self.classname == "perk_flopper" && !(other.perks & P_FLOP) && self.fire_delay < time)
 		{
-			addmoney (other, -1500, 0);
-			DrinkPerk(P_REVIVE);
+			useprint (other, 9, 2000, 6);
+			if (other.points >= 2000 && other.button7)
+			{
+				addmoney (other, -2000, 0);
+				DrinkPerk(P_FLOP);
+				other.perkcount++;
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-		else if (other.button7)
+		if (self.classname == "perk_juggernog" && !(other.perks & P_JUG) && self.fire_delay < time)
 		{
-			centerprint (other, "Not enough points\n");
+			useprint (other, 9, 2500, 2);
+			if (other.points >= 2500 && other.button7)
+			{
+				addmoney (other, -2500, 0);
+				DrinkPerk(P_JUG);
+				other.perkcount++;
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-	}
-	if (self.classname == "perk_flopper" && !(other.perks & P_FLOP) && self.fire_delay < time)
-	{
-		useprint (other, 9, 2000, 6);
-		if (other.points >= 2000 && other.button7)
+		if (self.classname == "perk_staminup" && !(other.perks & P_STAMIN) && self.fire_delay < time)
 		{
-			addmoney (other, -2000, 0);
-			DrinkPerk(P_FLOP);
+			useprint (other, 9, 2000, 5);
+			if (other.points >= 2000 && other.button7)
+			{
+				addmoney (other, -2000, 0);
+				DrinkPerk(P_STAMIN);
+				other.perkcount++;
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-		else if (other.button7)
+		if (self.classname == "perk_speed" && !(other.perks & P_SPEED) && self.fire_delay < time)
 		{
-			centerprint (other, "Not enough points\n");
+			useprint (other, 9, 3000, 3);
+			if (other.points >= 3000 && other.button7)
+			{
+				addmoney (other, -3000, 0);
+				DrinkPerk(P_SPEED);
+				other.perkcount++;
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-	}
-	if (self.classname == "perk_juggernog" && !(other.perks & P_JUG) && self.fire_delay < time)
-	{
-		useprint (other, 9, 2500, 2);
-		if (other.points >= 2500 && other.button7)
+		if (self.classname == "perk_candolier" && !(other.perks & P_CANDO) && self.fire_delay < time)
 		{
-			addmoney (other, -2500, 0);
-			DrinkPerk(P_JUG);
+			useprint (other, 9, 3500, 8);
+			if (other.points >= 3500 && other.button7)
+			{
+				addmoney (other, -3500, 0);
+				DrinkPerk(P_CANDO);
+				other.perkcount++;
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-		else if (other.button7)
+		if (self.classname == "perk_double" && !(other.perks & P_DOUBLE) && self.fire_delay < time)
 		{
-			centerprint (other, "Not enough points\n");
+			useprint (other, 9, 2000, 4);
+			if (other.points >= 2000 && other.button7)
+			{
+				addmoney (other, -2000, 0);
+				DrinkPerk(P_DOUBLE);
+				other.perkcount++;
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-	}
-	if (self.classname == "perk_staminup" && !(other.perks & P_STAMIN) && self.fire_delay < time)
-	{
-		useprint (other, 9, 2000, 5);
-		if (other.points >= 2000 && other.button7)
+		if (self.classname == "perk_electric" && !(other.perks & P_CHERRY) && self.fire_delay < time)
 		{
-			addmoney (other, -2000, 0);
-			DrinkPerk(P_STAMIN);
+			useprint (other, 9, 2000, 7);
+			if (other.points >= 2000 && other.button7)
+			{
+				addmoney (other, -2000, 0);
+				DrinkPerk(P_CHERRY);
+				other.perkcount++;
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-		else if (other.button7)
+		if (self.classname == "perk_ammomatic" && self.fire_delay < time)
 		{
-			centerprint (other, "Not enough points\n");
+			useprint (other, 9, 5000, 9);
+			if (other.points >= 5000 && other.button7)
+			{
+				addmoney (other, -5000, 0);
+				DrinkPerk(P_AMMO);
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
-	}
-	if (self.classname == "perk_speed" && !(other.perks & P_SPEED) && self.fire_delay < time)
-	{
-		useprint (other, 9, 3000, 3);
-		if (other.points >= 3000 && other.button7)
+		if (self.classname == "perk_mulekick" && self.fire_delay < time)
 		{
-			addmoney (other, -3000, 0);
-			DrinkPerk(P_SPEED);
-		}
-		else if (other.button7)
-		{
-			centerprint (other, "Not enough points\n");
-		}
-	}
-	if (self.classname == "perk_candolier" && !(other.perks & P_CANDO) && self.fire_delay < time)
-	{
-		useprint (other, 9, 3500, 8);
-		if (other.points >= 3500 && other.button7)
-		{
-			addmoney (other, -3500, 0);
-			DrinkPerk(P_CANDO);
-		}
-		else if (other.button7)
-		{
-			centerprint (other, "Not enough points\n");
-		}
-	}
-	if (self.classname == "perk_double" && !(other.perks & P_DOUBLE) && self.fire_delay < time)
-	{
-		useprint (other, 9, 2000, 4);
-		if (other.points >= 2000 && other.button7)
-		{
-			addmoney (other, -2000, 0);
-			DrinkPerk(P_DOUBLE);
-		}
-		else if (other.button7)
-		{
-			centerprint (other, "Not enough points\n");
-		}
-	}
-	if (self.classname == "perk_electric" && !(other.perks & P_CHERRY) && self.fire_delay < time)
-	{
-		useprint (other, 9, 2000, 7);
-		if (other.points >= 2000 && other.button7)
-		{
-			addmoney (other, -2000, 0);
-			DrinkPerk(P_CHERRY);
-		}
-		else if (other.button7)
-		{
-			centerprint (other, "Not enough points\n");
-		}
-	}
-	if (self.classname == "perk_ammomatic" && self.fire_delay < time)
-	{
-		useprint (other, 9, 5000, 9);
-		if (other.points >= 5000 && other.button7)
-		{
-			addmoney (other, -5000, 0);
-			DrinkPerk(P_AMMO);
-		}
-		else if (other.button7)
-		{
-			centerprint (other, "Not enough points\n");
+			useprint (other, 10, 4000, 9);
+			if (other.points >= 4000 && other.button7)
+			{
+				other.perkcount++;
+				addmoney (other, -4000, 0);
+				DrinkPerk(P_MULE);
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
 		}
 	}
 }
@@ -305,14 +337,14 @@ void() GetGum =
 	}
 	else if (e < 0.5)
 	{
-		other.gumname = 1; //Round Robbin'
-		other.gumdesc = 1; //Ends the current round. All players gain 1600 points
-		RoundRobbin();
+		centerprint(other, "Stock Option");
+		StockOption();
 	}
 	else
 	{
-		centerprint(other, "Stock Option");
-		StockOption();
+		other.gumname = 1; //Round Robbin'
+		other.gumdesc = 1; //Ends the current round. All players gain 1600 points
+		other.gumnum = 1;
 	}
 }
 
@@ -322,14 +354,11 @@ void() DispenseGum =
 	GetGumPrice();
 
 	self.isBuying = true;
-	entity tempe = self;
-	self = other;
 	if (self.sprinting) {
 		W_SprintStop();
 	}
-	other.knife_delay = other.reload_delay2 = other.fire_delay2 = other.fire_delay = other.reload_delay = 2.5 + time;		
-	self = tempe;
 	GetGum();
+	other.knife_delay = other.reload_delay2 = other.fire_delay2 = other.fire_delay = other.reload_delay = 1.5 + time;	
 	//sound (other, CHAN_ITEM, "sounds/machines/perk_drink.wav", 1, ATTN_NORM);
 }
 
@@ -515,6 +544,22 @@ void() perk_ammomatic =
 	setmodel (self, "models/machines/ammomatic.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
 	self.classname = "perk_ammomatic";
+	self.touch = touch_perk;
+
+	self.think = setup_perk;
+	self.nextthink = time + 0.1;
+};
+
+void() perk_mulekick =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/mulekick.mdl");
+	precache_model ("models/machines/v_perk.mdl");
+	precache_sound ("sounds/machines/perk_drink.wav");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/mulekick.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "perk_mulekick";
 	self.touch = touch_perk;
 
 	self.think = setup_perk;
@@ -1028,9 +1073,9 @@ void() mystery_touch =
 	if (other.classname != "player" || other.downed)
 		return;
 	if (other.sale_icon == true)
-		bprice = 950;
-	else
 		bprice = 10;
+	else
+		bprice = 950;
 		
 	if (!self.boxstatus) {
 		useprint (other, 6, bprice, 0);

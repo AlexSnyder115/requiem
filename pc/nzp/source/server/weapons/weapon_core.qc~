@@ -156,9 +156,6 @@ void() W_Switch =
 			self.secondaryammo = self.thirdammo;
 			self.secondarymag = self.thirdmag;
 			self.secondaryweaponskin = self.thirdweaponskin;
-			self.thirdweapon = 0;
-			self.thirdammo = 0;
-			self.thirdmag = 0;
 		}
 
 		SwitchWeapon(self.weapon);
