@@ -71,12 +71,12 @@ void(float width, float height) HUD_Ammo =
 		float curmag2 = getstatf(STAT_CURRENTMAG2);
 		
 		ammostring = strcat(ftos(curmag2), " ", ftos(curmag), "/", ftos(ammo));
-		drawstring([width - (42/480)*width - (benis*20*width/1024), 0.96*height, 0], ammostring, [0.02*width, 0.02*width, 0], [1,1,1], 1, 1);
+		drawstring([width - (42/480)*width - (benis*20*width/1024), 0.8*height, 0], ammostring, [0.02*width, 0.02*width, 0], [1,1,1], 1, 1);
 	} else {
 		ammostring_1 = ftos(curmag);
 		ammostring_2 = strcat("/",ftos(ammo));
-		drawstring([width - (42/480)*width - (benis*20*width/1024), 0.96*height, 0], ammostring_1, [0.02*width, 0.02*width, 0], color, 1, 1);
-		drawstring([width - (42/480)*width - ((benis-strlen(ftos(curmag)))*20*width/1024), 0.96*height, 0], ammostring_2, [0.02*width, 0.02*width, 0], color_2, 1, 1);
+		drawstring([width - (42/480)*width - (benis*55*width/1024), 0.88*height, 0], ammostring_1, [0.03*width, 0.03*width, 0], color, 1, 1);
+		drawstring([width - (42/480)*width - ((benis-strlen(ftos(curmag)))*64*width/1024), 0.89*height, 0], ammostring_2, [0.02*width, 0.02*width, 0], color_2, 1, 1);
 	}
 }
 
@@ -111,8 +111,9 @@ void(float width, float height) HUD_Points =
 	points = getstatf(STAT_POINTS);
 	pointlength = strlen(ftos(points));
 		
-	drawpic([0.8*width,0.70*height,0], "gfx/hud/moneyback.tga", [0.2*width, 0.07*height, 0], [1,1,1], 1);
-	drawstring([.9414*width - pointlength*25*width/1024, 0.715*height, 0], ftos(points), [0.022*width, 0.022*width, 0], [1, 1, 1], 1, 1);   // naievil (FIXME) real offset needed (pointlength)
+	drawpic([0.85*width,0.70*height,0], "gfx/hud/moneyback.tga", [0.15*width, 0.04*height, 0], [1,1,1], 1);
+	drawpic([0.7*width,0.68*height,0], "gfx/hud/ammoback.tga", [0.3*width, 0.375*height, 0], [1,1,1], 1);
+	drawstring([.860*width - width/1024, 0.715*height, 0], ftos(points), [0.011*width, 0.011*width, 0], [1, 1, 1], 1, 1);   // naievil (FIXME) real offset needed (pointlength)
 }
 
 /***********************
@@ -127,29 +128,29 @@ void(float width, float height) HUD_PlayerName =
 	if (playernum < 0.125)
 	{
 		pname = "Dempsey";
-		plroffset = .69;
+		plroffset = .80;
 	}
 	else if (playernum < 0.25)
 	{
 		pname = "Nikolai";
-		plroffset = .685;
+		plroffset = .79;
 	}
 	else if (playernum < 0.375)
 	{
 		pname = "Takeo";
-		plroffset = .74;
+		plroffset = .85;
 	}
 	else if (playernum == 420)
 	{
 		pname = "Marine";
-		plroffset = .73;
+		plroffset = .87;
 	}
 	else
 	{
 		pname = "Richtofen";
-		plroffset = .66;
+		plroffset = .77;
 	}
-	drawstring([plroffset*width, 0.715*height, 0], pname, [0.015*width, 0.015*width, 0], [1, 1, 1], 1, 1);
+	drawstring([plroffset*width, 0.715*height, 0], pname, [0.0075*width, 0.0075*width, 0], [1, 1, 1], 1, 1);
 
 }
 
@@ -162,7 +163,7 @@ void(float width, float height) HUD_Grenades =
 	local float grenades;
 
 	grenades = getstatf(STAT_GRENADES);
-	//drawpic([0.9*width,0.825*height,0], "gfx/hud/frag.tga", [50, 50, 0], [1,1,1], 1);
+	drawpic([0.9*width,0.825*height,0], "gfx/hud/frag.tga", [50, 50, 0], [1,1,1], 1);
 	drawstring([0.9*width + 28, 0.825*height + 32, 0], ftos(grenades), [0.025*width, 0.025*width, 0], [1, 1, 1], 1, 1);
 }
 
@@ -821,7 +822,7 @@ void(float width, float height) HUD_Weaponstring =
 	
 	//	drawstring([width - (42/480)*width - (benis*20*width/1024), 0.96*height, 0], ammostring, [0.02*width, 0.02*width, 0], [1, 1, 1], 1, 1);
 	
-	drawstring([0.925*width + (40*width/1024) - ws_offset*20*width/1024, 0.75*height + 10, 0], weaponstring, [0.02*width, 0.02*width, 0], [1, 1, 1], 1, 1);
+	drawstring([0.9*width + (40*width/1024) - ws_offset*20*width/1024, 0.79*height + 10, 0], weaponstring, [0.01*width, 0.01*width, 0], [1, 1, 1], 1, 1);
 }
 
 /*******************
@@ -1008,12 +1009,12 @@ void(float width, float height) HUD_Draw =
 	HUD_Powerups();
 	HUD_PlayerName(width, height);
 	HUD_Gum(width, height);
+	HUD_Weaponstring(width, height);
 	
 	if (HUD_Change_time > time)
 	{
 		HUD_Ammo(width, height);
 		HUD_Grenades(width, height);
-		HUD_Weaponstring(width, height);
 		HUD_AmmoString();
 	}
 		
@@ -1067,6 +1068,11 @@ void UpdatePerks (float newperks) {
 	if (newperks & P_CANDO && !(perks & P_CANDO))
 	{
 		perk_order[current_perk_order] = P_CANDO;
+		current_perk_order = current_perk_order + 1;
+	}
+	if (newperks & P_MULE && !(perks & P_MULE))
+	{
+		perk_order[current_perk_order] = P_MULE;
 		current_perk_order = current_perk_order + 1;
 	}
 	if (perks & P_JUG && !(newperks & P_JUG))
@@ -1193,6 +1199,23 @@ void UpdatePerks (float newperks) {
 		for (s = 0; s < 10; s++)
 		{
 			if (perk_order[s] == P_CANDO)
+			{
+				perk_order[s] = 0;
+				while (perk_order[s+1])
+				{
+					perk_order[s] = perk_order[s+1];
+					perk_order[s+1] = 0;
+				}
+				break;
+			}
+		}
+		current_perk_order = current_perk_order - 1;
+	}
+	if (perks & P_MULE && !(newperks & P_MULE))
+	{
+		for (s = 0; s < 10; s++)
+		{
+			if (perk_order[s] == P_MULE)
 			{
 				perk_order[s] = 0;
 				while (perk_order[s+1])
