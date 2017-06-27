@@ -38,11 +38,11 @@ Wadinclude list :
 
 0 brushes (totalling 0 sides) discarded from clipping hulls
 CreateBrush:
- (0.08 seconds)
+ (0.05 seconds)
 SetModelCenters:
- (0.00 seconds)
+ (0.01 seconds)
 CSGBrush:
- (0.17 seconds)
+ (0.18 seconds)
 
 Using Wadfile: \home\moto\requiem\pc\nzp\textures\Example_01.wad
  - Contains 1 used texture, 9.09 percent of map (15 textures in wad)
@@ -62,7 +62,7 @@ Using Wadfile: \home\moto\requiem\pc\nzp\textures\waw_HLBSP.wad
  - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
 
 Texture usage is at 0.18 mb (of 4.00 mb MAX)
-0.41 seconds elapsed
+0.29 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -97,12 +97,12 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 281 (0.02 seconds)
+SolidBSP [hull 0] 280 (0.02 seconds)
 BSP generation successful, writing portal file 'Z:\home\moto\requiem\pc\nzp\maps\perk.prt'
 SolidBSP [hull 1] 231 (0.01 seconds)
 SolidBSP [hull 2] 227 (0.01 seconds)
-SolidBSP [hull 3] 265 (0.02 seconds)
-0.20 seconds elapsed
+SolidBSP [hull 3] 265 (0.01 seconds)
+0.19 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -116,7 +116,7 @@ Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
 Command line: Z:\home\moto\Downloads\zhlt34x86final\hlvis.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
  152 portalleafs
- 421 numportals
+ 422 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -138,10 +138,10 @@ full vis            [     off ] [     off ]
 BasePortalVis:
  (0.02 seconds)
 LeafThread:
- (0.26 seconds)
+ (0.23 seconds)
 average leafs visible: 59
 g_visdatasize:3171  compressed from 2888
-0.29 seconds elapsed
+0.25 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -214,28 +214,28 @@ rgb transfers        [               off ] [               off ]
 [59 texlights parsed from 'Z:\home\moto\Downloads\zhlt34x86final\lights.rad']
 
 1033 faces
-Create Patches : 6664 base patches
+Create Patches : 6655 base patches
 0 opaque faces
-87580 square feet [12611641.00 square inches]
+87580 square feet [12611637.00 square inches]
 16 direct lights
 
 BuildFacelights:
- (2.98 seconds)
+ (2.81 seconds)
 visibility matrix   :   2.6 megs
 BuildVisLeafs:
- (2.70 seconds)
+ (2.77 seconds)
 MakeScales:
- (0.99 seconds)
+ (0.97 seconds)
 SwapTransfers:
- (0.52 seconds)
-Transfer Lists :     8519608 :    8.52M transfers
-       Indices :     2243708 :    2.14M bytes
-          Data :    34078432 :   32.50M bytes
+ (0.53 seconds)
+Transfer Lists :     8515944 :    8.52M transfers
+       Indices :     2218968 :    2.12M bytes
+          Data :    34063776 :   32.49M bytes
 GatherLight:
- (0.29 seconds)
+ (0.30 seconds)
 FinalLightFace:
- (0.93 seconds)
-8.59 seconds elapsed
+ (0.94 seconds)
+8.52 seconds elapsed
 
 -----   END   hlrad -----
 

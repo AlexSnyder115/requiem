@@ -729,6 +729,12 @@ void(float width, float height) HUD_Useprint =
 			case 14:
 				usestring = strcat("Come back next round.");
 				break;
+			case 15:
+				usestring = strcat("Hold ",usebutton, " to craft Zombie Shield");
+				break;
+			case 16:
+				usestring = strcat("Insufficient parts");
+				break;
 			default:
 				usestring = "This should not happen you dum fuck";
 				break;

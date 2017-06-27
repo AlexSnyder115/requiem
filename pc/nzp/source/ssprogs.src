@@ -21,6 +21,7 @@ server/weapons/weapon_core.qc
 
 server/entities/powerups.qc
 server/entities/machines.qc
+server/entities/craft.qc
 
 server/player.qc
 
