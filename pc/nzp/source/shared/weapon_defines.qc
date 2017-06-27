@@ -107,6 +107,8 @@ string(float wep) GetWeaponName =
       		return "MP5K";
     	case W_TESLA:
       		return "Wunderwaffe DG-2";
+      	case W_SHIELD:
+      		return "Zombie Shield";
 		default:
 			return " ";
 	}
@@ -230,6 +232,8 @@ float(float wep) getMaxMag =
 
 	switch (wep)
 	{
+		case W_SHIELD:
+			return 99999;
 		case W_COLT:
 			return 8;
 		case W_BIATCH:
@@ -328,6 +332,8 @@ float(float wep) getWeaponMag =
 
 	switch (wep)
 	{
+		case W_SHIELD:
+			return 9999;
 		case W_COLT:
 			return 8;
 		case W_BIATCH:
@@ -1297,6 +1303,41 @@ float(float wep, float frametype) GetFrame =
 					return 13;
 			}
 			break;
+		case W_SHIELD:
+			switch (frametype)
+			{
+				case FIRE_START:
+					return 1;
+				case FIRE_END:
+					return 1;
+				case RELOAD_START:
+					return 1;
+				case RELOAD_END:
+					return 1;
+				case SPRINT_IN_START:
+					return 1;
+				case SPRINT_IN_END:
+					return 1;
+				case SPRINT_START:
+					return 1;
+				case SPRINT_END:
+					return 1;
+				case SPRINT_OUT_START:
+					return 1;
+				case SPRINT_OUT_END:
+					return 1;
+				case TAKE_OUT_START:
+					return 1;
+				case TAKE_OUT_END:
+					return 12;
+				case PUT_OUT_START:
+					return 19;
+				case PUT_OUT_END:
+					return 26;
+				case RELOAD_CANCEL:
+					return 1;
+			}
+			break;
 		case W_BIATCH:
 			switch (frametype)
 			{
@@ -2062,6 +2103,11 @@ string(float wep, float gorvmodel) GetWeaponModel =
 				return ("models/weapons/m1911/g_colt.mdl");
 			else
 				return ("models/weapons/m1911/v_colt.mdl");
+		case W_SHIELD:
+			if (gorvmodel)
+				return ("models/weapons/shield/g_shield.mdl");
+			else
+				return ("models/weapons/shield/v_shield.mdl");
 		case W_BIATCH:
 			if (gorvmodel)
 				return ("models/weapons/m1911/g_colt.mdl");

@@ -1021,6 +1021,8 @@ void(float width, float height) HUD_Gum = {
 void(float width, float height) HUD_Draw = 
 {	
 	Draw_Crosshair();
+	HUD_Ammo(width, height);
+	HUD_AmmoString();
 	HUD_Health(width, height);
 	HUD_Points(width, height);
 	HUD_Rounds(width, height);
@@ -1029,9 +1031,7 @@ void(float width, float height) HUD_Draw =
 	HUD_Powerups();
 	HUD_PlayerName(width, height);
 	HUD_Gum(width, height);
-	HUD_Ammo(width, height);
 	HUD_Grenades(width, height);
-	HUD_AmmoString();
 	
 	if (HUD_Change_time > time)
 	{

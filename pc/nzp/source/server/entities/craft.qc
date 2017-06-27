@@ -5,7 +5,8 @@ void() touch_zs =
 		useprint (other, 18, 0, 0);
 		if (other.button7)
 		{
-			centerprint(other, "Took Zombie Shield");
+			centerprint(other, "Press 2 to activate Zombie Shield");
+			other.equipment = 1;
 		}
 	}
 }

@@ -22,6 +22,13 @@ string soundstyle;
 .float hasclamps;
 .float hasdolly;
 .float hasgrate;
+.float equipment;
+.float bk;
+.float bkm;
+.float bka;
+.float eq;
+.float eqm;
+.float eqa;
 string mappath;
 
 

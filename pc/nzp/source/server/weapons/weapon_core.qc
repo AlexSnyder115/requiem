@@ -918,6 +918,12 @@ void () W_Knife =
 			self.fire_delay = time + 0.8;
 			self.knife_delay = time + 1.3;
 		}
+		else if (self.weapon == W_SHIELD)//shield strike
+		{
+			Set_W_Frame (12, 18, 0, 0.4, KNIFE, SUB_Null, "models/weapons/shield/v_shield.mdl", false, S_RIGHT);
+			self.fire_delay = time + 0.5;
+			self.knife_delay = time + 0.8;
+		}
 		else
 		{
 			Set_W_Frame (4, 12, 0.7, 0, KNIFE, ReturnWeaponModel, "progs/VModels/v_knife.mdl", false, S_RIGHT);
@@ -933,6 +939,12 @@ void () W_Knife =
 		if (self.weapon == W_BK)//slash
 		{
 			Set_W_Frame (8, 13, 0, 0.4, KNIFE, SUB_Null, "progs/VModels/v_bk.mdl", false, S_RIGHT);
+			self.fire_delay = time + 0.5;
+			self.knife_delay = time + 0.8;
+		}
+		else if (self.weapon == W_SHIELD)//shield strike
+		{
+			Set_W_Frame (12, 18, 0, 0.4, KNIFE, SUB_Null, "models/weapons/shield/v_shield.mdl", false, S_RIGHT);
 			self.fire_delay = time + 0.5;
 			self.knife_delay = time + 0.8;
 		}
@@ -1239,6 +1251,31 @@ void () Impulse_Functions =
 			if (self.gumname == 1)
 				RoundRobbin();
 			break;
+		case 101:
+		{
+			if (self.equipment == 1)
+			{
+				self.bk = self.weapon;
+				self.bkm = self.currentmag;
+				self.bka = self.currentammo;
+				self.weapon = W_SHIELD;
+				self.equipment = 2;
+				centerprint(self, "Press 3 to put away Zombie Shield");
+
+			}
+			break;
+		}
+		case 102:
+		{
+			if (self.equipment == 2)
+			{
+				self.weapon = self.bk;
+				self.currentmag = self.bkm;
+				self.currentammo = self.bka;
+				self.equipment = 1;
+			}
+			break;
+		}
 	}
 	
 	self.impulse = 0;
@@ -1339,7 +1376,16 @@ void () Weapon_Logic =
 		}
 	} else {
 		if (self.button0) {
-			W_Fire(S_RIGHT);
+			if (self.weapon != W_SHIELD)
+				W_Fire(S_RIGHT);
+			else
+			{
+				W_Knife();
+				self.semiknife = true;
+			}
+		if (!self.button0) {
+			self.semiknife = false;
+		}
 		} else {
 			self.semi = FALSE;
 		}
@@ -1358,6 +1404,13 @@ void () Weapon_Logic =
 	
 	if (self.button4 && !self.semiswitch && self.secondaryweapon && self.secondaryweapon !=0 && !self.zoom)
 	{
+		if (self.equipment == 2)
+		{
+			self.weapon = self.bk;
+			self.currentmag = self.bkm;
+			self.currentammo = self.bka;
+			self.equipment = 1;
+		}
 		W_PutOut();
 		self.semiswitch = true;
 	} else if (!self.button4) {
