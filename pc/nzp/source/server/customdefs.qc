@@ -19,6 +19,9 @@ string soundstyle;
 .vector oldvelocity;
 .float lastsound_time;
 .float isspec;
+.float hasclamps;
+.float hasdolly;
+.float hasgrate;
 string mappath;
 
 

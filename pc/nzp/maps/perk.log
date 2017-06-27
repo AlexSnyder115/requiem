@@ -40,9 +40,9 @@ Wadinclude list :
 CreateBrush:
  (0.05 seconds)
 SetModelCenters:
- (0.01 seconds)
+ (0.00 seconds)
 CSGBrush:
- (0.18 seconds)
+ (0.16 seconds)
 
 Using Wadfile: \home\moto\requiem\pc\nzp\textures\Example_01.wad
  - Contains 1 used texture, 9.09 percent of map (15 textures in wad)
@@ -62,7 +62,7 @@ Using Wadfile: \home\moto\requiem\pc\nzp\textures\waw_HLBSP.wad
  - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
 
 Texture usage is at 0.18 mb (of 4.00 mb MAX)
-0.29 seconds elapsed
+0.24 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -136,12 +136,12 @@ full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (0.02 seconds)
+ (0.01 seconds)
 LeafThread:
  (0.23 seconds)
 average leafs visible: 59
 g_visdatasize:3171  compressed from 2888
-0.25 seconds elapsed
+0.26 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -220,22 +220,22 @@ Create Patches : 6655 base patches
 16 direct lights
 
 BuildFacelights:
- (2.81 seconds)
+ (2.75 seconds)
 visibility matrix   :   2.6 megs
 BuildVisLeafs:
- (2.77 seconds)
+ (2.52 seconds)
 MakeScales:
- (0.97 seconds)
+ (0.95 seconds)
 SwapTransfers:
- (0.53 seconds)
+ (0.52 seconds)
 Transfer Lists :     8515944 :    8.52M transfers
-       Indices :     2218968 :    2.12M bytes
+       Indices :     2218528 :    2.12M bytes
           Data :    34063776 :   32.49M bytes
 GatherLight:
- (0.30 seconds)
+ (0.29 seconds)
 FinalLightFace:
- (0.94 seconds)
-8.52 seconds elapsed
+ (0.93 seconds)
+8.13 seconds elapsed
 
 -----   END   hlrad -----
 

@@ -946,3 +946,20 @@
 "spawnflags" "0"
 "origin" "-243 1033 -128"
 }
+{
+"classname" "crafting_clamps"
+"spawnflags" "0"
+"origin" "-316 831 -136"
+}
+{
+"classname" "crafting_dolly"
+"angles" "0 90 0"
+"spawnflags" "0"
+"origin" "-217.107 846.009 -136"
+}
+{
+"classname" "crafting_grate"
+"spawnflags" "0"
+"angles" "0 90 0"
+"origin" "-80 834 -137"
+}

@@ -735,6 +735,9 @@ void(float width, float height) HUD_Useprint =
 			case 16:
 				usestring = strcat("Insufficient parts");
 				break;
+			case 17:
+				usestring = strcat("Hold ",usebutton, " to pick up part");
+				break;
 			default:
 				usestring = "This should not happen you dum fuck";
 				break;

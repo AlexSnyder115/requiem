@@ -1,3 +1,42 @@
+void() touch_clamps =
+{
+	if (self.classname == "crafting_clamps" && self.fire_delay < time)
+	{
+		useprint (other, 17, 0, 0);
+		if (other.button7)
+		{
+			other.hasclamps = TRUE;
+			remove (self);
+		}
+	}
+}
+
+void() touch_dolly =
+{
+	if (self.classname == "crafting_dolly" && self.fire_delay < time)
+	{
+		useprint (other, 17, 0, 0);
+		if (other.button7)
+		{
+			other.hasdolly = TRUE;
+			remove (self);
+		}
+	}
+}
+
+void() touch_grate =
+{
+	if (self.classname == "crafting_grate" && self.fire_delay < time)
+	{
+		useprint (other, 17, 0, 0);
+		if (other.button7)
+		{
+			other.hasgrate = TRUE;
+			remove (self);
+		}
+	}
+}
+
 void() isCrafting =
 {
 	entity tempe = self;
@@ -18,8 +57,13 @@ void() touch_table =
 		useprint (other, 15, 0, 0);
 		if (other.button7)
 		{
-			addmoney (other, -2000, 0);
-			isCrafting();
+			if (other.hasclamps == TRUE && other.hasgrate == TRUE && other.hasdolly == TRUE)
+			{
+				addmoney (other, -2000, 0);
+				isCrafting();
+			}
+			else
+				useprint (other, 16, 0, 0);
 		}
 	}
 }
@@ -36,3 +80,36 @@ void() crafting_table =
 	self.classname = "crafting_table";
 	self.touch = touch_table;
 };
+
+void() crafting_clamps =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/clamps.mdl");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/clamps.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "crafting_clamps";
+	self.touch = touch_clamps;
+}
+
+void() crafting_dolly =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/dolly.mdl");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/dolly.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "crafting_dolly";
+	self.touch = touch_dolly;
+}
+
+void() crafting_grate =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/grate.mdl");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/grate.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "crafting_grate";
+	self.touch = touch_grate;
+}
