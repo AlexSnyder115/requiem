@@ -1,6 +1,18 @@
+void() touch_zs =
+{
+	if (self.classname == "zs" && other.fire_delay < time)
+	{
+		useprint (other, 18, 0, 0);
+		if (other.button7)
+		{
+			centerprint(other, "Took Zombie Shield");
+		}
+	}
+}
+
 void() touch_clamps =
 {
-	if (self.classname == "crafting_clamps" && self.fire_delay < time)
+	if (self.classname == "crafting_clamps" && other.fire_delay < time)
 	{
 		useprint (other, 17, 0, 0);
 		if (other.button7)
@@ -13,7 +25,7 @@ void() touch_clamps =
 
 void() touch_dolly =
 {
-	if (self.classname == "crafting_dolly" && self.fire_delay < time)
+	if (self.classname == "crafting_dolly" && other.fire_delay < time)
 	{
 		useprint (other, 17, 0, 0);
 		if (other.button7)
@@ -26,7 +38,7 @@ void() touch_dolly =
 
 void() touch_grate =
 {
-	if (self.classname == "crafting_grate" && self.fire_delay < time)
+	if (self.classname == "crafting_grate" && other.fire_delay < time)
 	{
 		useprint (other, 17, 0, 0);
 		if (other.button7)
@@ -69,8 +81,10 @@ void() touch_table =
 				tableorigin = find(world,classname,"crafting_table"); 
 				setorigin(tablemodel,tableorigin.origin); 
 				setmodel (tablemodel,"models/machines/craft.mdl");
-				remove (self);
-				
+				setmodel (self, "models/weapons/shield/v_shield.mdl");
+				setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+				self.classname = "zs";
+				self.touch = touch_zs;
 			}
 			else
 				useprint (other, 16, 0, 0);

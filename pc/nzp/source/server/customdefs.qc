@@ -91,6 +91,8 @@ void Weapon_Logic();
 .float thirdmag;
 .float thirdweaponskin;
 
+entity tableorigin;
+
 #define S_LEFT 0
 #define S_RIGHT 1
 #define S_BOTH 2
