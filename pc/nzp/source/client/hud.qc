@@ -921,17 +921,20 @@ void() Draw_Crosshair =
 	else if (/*crosshair.value == 1 && */getstatf(STAT_WEAPONZOOM) != 1 && getstatf(STAT_WEAPONZOOM) != 2 && getstatf(STAT_ACTIVEWEAPON) != W_PANZER) // naievil (FIXME) crosshair cvar
     {
         int x_value, y_value;
-        int crosshair_offset; /*= CrossHairWeapon() + cur_spread;*/
-        
-        /*if (sv_player->v.view_ofs[2] != 32) // naievil -- changed weapon spread if crouched or not
-         crosshair_offset = CrossHairWeapon()*(.8) + cur_spread;
-        else*/
-         crosshair_offset = CrossHairWeapon(getstatf(STAT_ACTIVEWEAPON)) + cur_spread;
+        int crosshair_offset; 
+
+        crosshair_offset = CrossHairWeapon(getstatf(STAT_ACTIVEWEAPON)) + cur_spread;
         
 		if (CrossHairMaxSpread(getstatf(STAT_ACTIVEWEAPON)) < crosshair_offset || croshhairmoving)
+		{
 			crosshair_offset = CrossHairMaxSpread(getstatf(STAT_ACTIVEWEAPON));
+			/*if (perks & P_DEAD)
+				crosshair_offset *= 0.5;*/
+		}
 
 		crosshair_offset_step += (crosshair_offset - crosshair_offset_step) * 0.5;
+		if (perks & P_DEAD)
+			crosshair_offset_step *= 0.85;
 
 		x_value = ((480 - 8)/2 - crosshair_offset_step)*(g_width/480);
 		y_value = ((272 - 8)/2)*g_height/272;
