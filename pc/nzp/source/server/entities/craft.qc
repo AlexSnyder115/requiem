@@ -81,7 +81,7 @@ void() touch_table =
 				tableorigin = find(world,classname,"crafting_table"); 
 				setorigin(tablemodel,tableorigin.origin); 
 				setmodel (tablemodel,"models/machines/craft.mdl");
-				setmodel (self, "models/weapons/shield/v_shield.mdl");
+				setmodel (self, "models/weapons/shield/g_shield.mdl");
 				setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
 				self.classname = "zs";
 				self.touch = touch_zs;
