@@ -50,6 +50,9 @@ void() isCrafting =
 	sound (other, CHAN_ITEM, "sounds/machines/perk_drink.wav", 1, ATTN_NORM);
 }
 
+
+
+
 void() touch_table =
 {
 	if (self.classname == "crafting_table" && other.fire_delay < time)
@@ -60,6 +63,14 @@ void() touch_table =
 			if (other.hasclamps == TRUE && other.hasgrate == TRUE && other.hasdolly == TRUE)
 			{
 				isCrafting();
+				entity tablemodel; 
+				entity tableorigin; 
+				tablemodel = spawn (); 
+				tableorigin = find(world,classname,"crafting_table"); 
+				setorigin(tablemodel,tableorigin.origin); 
+				setmodel (tablemodel,"models/machines/craft.mdl");
+				remove (self);
+				
 			}
 			else
 				useprint (other, 16, 0, 0);
