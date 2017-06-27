@@ -4,7 +4,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlcsg -----
-Command line: Z:/home/moto/Downloads/zhlt34x86final/hlcsg.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
+Command line: Z:\home\moto\Downloads\zhlt34x86final\hlcsg.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
 Entering Z:\home\moto\requiem\pc\nzp\maps\perk.map
 
 Current hlcsg Settings
@@ -38,18 +38,18 @@ Wadinclude list :
 
 0 brushes (totalling 0 sides) discarded from clipping hulls
 CreateBrush:
- (0.04 seconds)
+ (0.08 seconds)
 SetModelCenters:
  (0.00 seconds)
 CSGBrush:
- (0.09 seconds)
+ (0.17 seconds)
 
 Using Wadfile: \home\moto\requiem\pc\nzp\textures\Example_01.wad
- - Contains 1 used texture, 14.29 percent of map (15 textures in wad)
+ - Contains 1 used texture, 9.09 percent of map (15 textures in wad)
 Using Wadfile: \home\moto\requiem\pc\nzp\textures\Waw_hlwad.wad
- - Contains 2 used textures, 28.57 percent of map (157 textures in wad)
+ - Contains 4 used textures, 36.36 percent of map (157 textures in wad)
 Using Wadfile: \home\moto\requiem\pc\nzp\textures\bo2.wad
- - Contains 4 used textures, 57.14 percent of map (60 textures in wad)
+ - Contains 6 used textures, 54.55 percent of map (60 textures in wad)
 Using Wadfile: \home\moto\requiem\pc\nzp\textures\de_bikinibottom.wad
  - Warning: Larger than expected texture (348972 bytes): 'SB_METWALL'
  - Warning: Larger than expected texture (348972 bytes): 'SB_METWALL2'
@@ -61,8 +61,8 @@ Using Wadfile: \home\moto\requiem\pc\nzp\textures\minecraft.wad
 Using Wadfile: \home\moto\requiem\pc\nzp\textures\waw_HLBSP.wad
  - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
 
-Texture usage is at 0.10 mb (of 4.00 mb MAX)
-0.17 seconds elapsed
+Texture usage is at 0.18 mb (of 4.00 mb MAX)
+0.41 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -74,7 +74,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlbsp -----
-Command line: Z:/home/moto/Downloads/zhlt34x86final/hlbsp.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
+Command line: Z:\home\moto\Downloads\zhlt34x86final\hlbsp.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
 
 Current hlbsp Settings
 Name               |  Setting  |  Default
@@ -97,13 +97,12 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 174 (0.01 seconds)
+SolidBSP [hull 0] 281 (0.02 seconds)
 BSP generation successful, writing portal file 'Z:\home\moto\requiem\pc\nzp\maps\perk.prt'
-SolidBSP [hull 1] 133 (0.01 seconds)
-Warning: No entities exist in hull 1, no filling performed for this hull
-SolidBSP [hull 2] 129 (0.01 seconds)
-SolidBSP [hull 3] 139 (0.01 seconds)
-0.13 seconds elapsed
+SolidBSP [hull 1] 231 (0.01 seconds)
+SolidBSP [hull 2] 227 (0.01 seconds)
+SolidBSP [hull 3] 265 (0.02 seconds)
+0.20 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -115,9 +114,9 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
-Command line: Z:/home/moto/Downloads/zhlt34x86final/hlvis.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
-  89 portalleafs
- 250 numportals
+Command line: Z:\home\moto\Downloads\zhlt34x86final\hlvis.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
+ 152 portalleafs
+ 421 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -137,12 +136,12 @@ full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (0.01 seconds)
+ (0.02 seconds)
 LeafThread:
- (0.11 seconds)
-average leafs visible: 56
-g_visdatasize:1253  compressed from 1068
-0.14 seconds elapsed
+ (0.26 seconds)
+average leafs visible: 59
+g_visdatasize:3171  compressed from 2888
+0.29 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -154,7 +153,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlrad -----
-Command line: Z:/home/moto/Downloads/zhlt34x86final/hlrad.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
+Command line: Z:\home\moto\Downloads\zhlt34x86final\hlrad.exe Z:\home\moto\requiem\pc\nzp\maps\perk 
 
 -= Current hlrad Settings =-
 Name                | Setting             | Default
@@ -214,29 +213,29 @@ rgb transfers        [               off ] [               off ]
 [Reading texlights from 'Z:\home\moto\Downloads\zhlt34x86final\lights.rad']
 [59 texlights parsed from 'Z:\home\moto\Downloads\zhlt34x86final\lights.rad']
 
-544 faces
-Create Patches : 4180 base patches
+1033 faces
+Create Patches : 6664 base patches
 0 opaque faces
-61411 square feet [8843260.00 square inches]
-11 direct lights
+87580 square feet [12611641.00 square inches]
+16 direct lights
 
 BuildFacelights:
- (0.60 seconds)
-visibility matrix   :   1.0 megs
+ (2.98 seconds)
+visibility matrix   :   2.6 megs
 BuildVisLeafs:
- (1.71 seconds)
+ (2.70 seconds)
 MakeScales:
- (0.76 seconds)
+ (0.99 seconds)
 SwapTransfers:
- (0.32 seconds)
-Transfer Lists :     5547696 :    5.55M transfers
-       Indices :     1058368 :    1.01M bytes
-          Data :    22190784 :   21.16M bytes
+ (0.52 seconds)
+Transfer Lists :     8519608 :    8.52M transfers
+       Indices :     2243708 :    2.14M bytes
+          Data :    34078432 :   32.50M bytes
 GatherLight:
- (0.27 seconds)
+ (0.29 seconds)
 FinalLightFace:
- (0.84 seconds)
-4.59 seconds elapsed
+ (0.93 seconds)
+8.59 seconds elapsed
 
 -----   END   hlrad -----
 

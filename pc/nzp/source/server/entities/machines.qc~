@@ -35,6 +35,8 @@ void GivePerk(float perk) {
 		case P_MULE:
 			self.perks = self.perks | 512;
 			break;
+		case P_DEAD:
+			self.perks = self.perks | 1024;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -59,6 +61,7 @@ void() give_electric = { GivePerk(P_CHERRY); }
 void() give_candolier = { GivePerk(P_CANDO); }
 void() give_ammomatic = { GivePerk(P_AMMO); }
 void() give_mulekick = { GivePerk(P_MULE); }
+void() give_deadshot = { GivePerk(P_DEAD); }
 
 
 void DrinkPerk(float perk) {
@@ -105,6 +108,10 @@ void DrinkPerk(float perk) {
 		case P_MULE:
 			other.weaponskin = 1;
 			func = give_mulekick;
+			break;
+		case P_DEAD:
+			other.weaponskin = 1;
+			func = give_deadshot;
 			break;
 		default:
 			print("Unknown perk type, wtf?\n");
@@ -284,12 +291,29 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_mulekick" && self.fire_delay < time)
 		{
-			useprint (other, 10, 4000, 9);
+			useprint (other, 9, 4000, 10);
 			if (other.points >= 4000 && other.button7)
 			{
 				other.perkcount++;
 				addmoney (other, -4000, 0);
 				DrinkPerk(P_MULE);
+				other.thirdweapon = 0;
+				other.thirdammo = 0;
+				other.thirdmag = 0;
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
+		}
+		if (self.classname == "perk_deadshot" && self.fire_delay < time)
+		{
+			useprint (other, 9, 1500, 11);
+			if (other.points >= 1500 && other.button7)
+			{
+				other.perkcount++;
+				addmoney (other, -1500, 0);
+				DrinkPerk(P_DEAD);
 			}
 			else if (other.button7)
 			{
@@ -562,6 +586,22 @@ void() perk_mulekick =
 	setmodel (self, "models/machines/mulekick.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
 	self.classname = "perk_mulekick";
+	self.touch = touch_perk;
+
+	self.think = setup_perk;
+	self.nextthink = time + 0.1;
+};
+
+void() perk_deadshot =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/deadshot.mdl");
+	precache_model ("models/machines/v_perk.mdl");
+	precache_sound ("sounds/machines/perk_drink.wav");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/deadshot.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "perk_deadshot";
 	self.touch = touch_perk;
 
 	self.think = setup_perk;
