@@ -84,6 +84,7 @@ void() touch_table =
 				setmodel (self, "models/weapons/shield/g_shield.mdl");
 				setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
 				self.classname = "zs";
+				setorigin(self, tableorigin.origin + '0 0 26');
 				self.touch = touch_zs;
 			}
 			else
