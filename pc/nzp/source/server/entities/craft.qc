@@ -52,14 +52,13 @@ void() isCrafting =
 
 void() touch_table =
 {
-	if (self.classname == "crafting_table" && self.fire_delay < time)
+	if (self.classname == "crafting_table" && other.fire_delay < time)
 	{
 		useprint (other, 15, 0, 0);
 		if (other.button7)
 		{
 			if (other.hasclamps == TRUE && other.hasgrate == TRUE && other.hasdolly == TRUE)
 			{
-				addmoney (other, -2000, 0);
 				isCrafting();
 			}
 			else
