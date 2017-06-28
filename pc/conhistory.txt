@@ -132,3 +132,5 @@ restart
 restart
 exec
 map perk
+map perk
+map perk

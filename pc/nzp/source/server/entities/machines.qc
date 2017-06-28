@@ -1616,7 +1616,7 @@ void touch_pap() {
 			return;
 		}
 		useprint (other, 12, 5000, 5);
-		if (other.points >= 5000 && other.button7 && other.weapon)
+		if (other.points >= 5000 && other.button7 && other.weapon && other.weapon != W_SHIELD)
 		{
 			PapUpgrade(self, other);
 		
