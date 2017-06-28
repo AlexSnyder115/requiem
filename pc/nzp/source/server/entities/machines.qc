@@ -290,7 +290,7 @@ void() touch_perk =
 				centerprint (other, "Not enough points\n");
 			}
 		}
-		if (self.classname == "perk_mulekick" && self.fire_delay < time)
+		if (self.classname == "perk_mulekick" && !(other.perks & P_MULE) && self.fire_delay < time)
 		{
 			useprint (other, 9, 4000, 10);
 			if (other.points >= 4000 && other.button7)
@@ -307,7 +307,7 @@ void() touch_perk =
 				centerprint (other, "Not enough points\n");
 			}
 		}
-		if (self.classname == "perk_deadshot" && self.fire_delay < time)
+		if (self.classname == "perk_deadshot" && !(other.perks & P_DEAD) && self.fire_delay < time)
 		{
 			useprint (other, 9, 1500, 11);
 			if (other.points >= 1500 && other.button7)

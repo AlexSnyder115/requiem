@@ -127,3 +127,8 @@ map perk
 map perk
 map perk
 restart
+map perk
+restart
+restart
+exec
+map perk
