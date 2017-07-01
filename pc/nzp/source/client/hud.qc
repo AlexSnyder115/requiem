@@ -950,19 +950,23 @@ void() Draw_Crosshair =
 
 		x_value = ((480 - 8)/2 - crosshair_offset_step)*(g_width/480);
 		y_value = ((272 - 8)/2)*g_height/272;
-		drawstring([x_value, y_value, 0], "-", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
+		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD)
+			drawstring([x_value, y_value, 0], "-", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
 
 		x_value = ((480 - 8)/2 + crosshair_offset_step)*(g_width/480);
 		y_value = ((272 - 8)/2)*g_height/272;
-		drawstring([x_value, y_value, 0], "-", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
+		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD)
+			drawstring([x_value, y_value, 0], "-", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
 
 		x_value = ((480 - 8)/2)*(g_width/480);
 		y_value = ((272 - 8)/2 - crosshair_offset_step)*g_height/272;
-		drawstring([x_value, y_value, 0], "|", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
+		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD)
+			drawstring([x_value, y_value, 0], "|", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
 
 		x_value = ((480 - 8)/2)*(g_width/480);
 		y_value = ((272 - 8)/2 + crosshair_offset_step)*g_height/272;
-		drawstring([x_value, y_value, 0], "|", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
+		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD)
+			drawstring([x_value, y_value, 0], "|", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
 
     }
     else if (/*crosshair.value && */getstatf(STAT_WEAPONZOOM) != 1 && getstatf(STAT_WEAPONZOOM) != 2) // naievil (FIXME) crosshair cvar
