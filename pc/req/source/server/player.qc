@@ -271,7 +271,8 @@ void() PlayerSpawn =
 	if (udm < time)
 		undm();*/
 	//Spawn_Powerup(self.origin);
-	other.perkcount = 0;
+	self.perkcount = 0;
+	//self.atime = 0;
 };
 
 void() SpectatorSpawn =
@@ -321,6 +322,11 @@ void() SetChangeParms =
 void() info_player_start =
 {
 	
+};
+
+void() info_player_takeo =
+{
+
 };
 
 

@@ -1033,17 +1033,21 @@ void(float width, float height) HUD_Gum = {
 
 void(float width, float height) HUD_Ach =
 {
-	if (rounds == 5)
-	{
-		drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/oym.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
-	}
-	if (rounds == 10)
-	{
-		drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/gs.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
-	}
-	if (rounds == 15)
-	{
-		drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/go.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
+	if (atime == 0)
+	{	
+		if (rounds == 5)
+		{
+			drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/oym.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
+		}
+		if (rounds == 10)
+		{
+			drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/gs.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
+		}
+		if (rounds == 15)
+		{
+			drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/go.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
+		}
+		atime = time + 10;
 	}
 }
 
@@ -1068,9 +1072,14 @@ void(float width, float height) HUD_Draw =
 	HUD_Gum(width, height);
 	HUD_Grenades(width, height);
 
-	if (getstatf(STAT_ATIME) > time)
+	if (atime != 0 && atime > time)
 	{
 		HUD_Ach(width, height);
+	}
+
+	if (atime != 0 && atime < time)
+	{
+		atime = 0;
 	}
 	
 	if (HUD_Change_time < time)

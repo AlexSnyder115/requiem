@@ -66,16 +66,27 @@ void() menu_back2 =
 
 void() menu_loadndu =
 {
-	print("loading ndu\n");
 	localcmd("map ndu\n");
-	drawpic([0,0,0], "menu/maps/ndu", [g_width, g_height, 1], [1, 1, 1], 1);
+};
+
+void() menu_loadkn =
+{
+	localcmd("map kino_der_toten\n");
+};
+
+void() menu_loadwa =
+{
+	localcmd("map warehouse\n");
 };
 
 void() menu_loadwh =
 {
-	print("loading kino\n");
-	localcmd("map kino_der_toten\n");
-	drawpic([0,0,0], "menu/maps/kino", [g_width, g_height, 1], [1, 1, 1], 1);
+	localcmd("map wahnsinn\n");
+};
+
+void() menu_loadcs =
+{
+	localcmd("map christmas_special\n");
 };
 
 void() menu_join =
@@ -110,6 +121,21 @@ void() menu_main =
 	localcmd("disconnect\n");
 };
 
+void() menu_classic =
+{
+	in_menu = MENU_CLASSIC;
+}
+
+void() menu_nzp =
+{
+	in_menu = MENU_NZP;
+}
+
+void() menu_bs =
+{
+	in_menu = MENU_SINGLE;
+}
+
 //struct for all buttons, note pos and scale are going to be multiplied with width/height in draw step, so keep them between 0 and 1
 var struct
 {
@@ -128,8 +154,14 @@ var struct
 	{[0.025, 0.400, 0], [0.325, 0.06, 0], " Credits", -1, menu_about, MENU_MAIN},
 	{[0.025, 0.475, 0], [0.325, 0.06, 0], " Quit", -1, menu_quit, MENU_MAIN},
 	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_back, MENU_SINGLE + MENU_MULTI + MENU_SETTINGS + MENU_ABOUT},
-	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Nacht Der Untoten", -1, menu_loadndu, MENU_SINGLE},
-	{[0.025, 0.250, 0], [0.425, 0.06, 0], "Kino Der Toten", -1, menu_loadwh, MENU_SINGLE},
+	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_bs, MENU_CLASSIC + MENU_NZP},
+	{[0.025, 0.175, 0], [0.325, 0.06, 0], "Original", -1, menu_classic, MENU_SINGLE},
+	{[0.025, 0.250, 0], [0.325, 0.06, 0], "NZ:P Beta", -1, menu_nzp, MENU_SINGLE},
+	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Nacht Der Untoten", -1, menu_loadndu, MENU_CLASSIC},
+	{[0.025, 0.250, 0], [0.425, 0.06, 0], "Kino Der Toten", -1, menu_loadkn, MENU_CLASSIC},
+	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Warehouse", -1, menu_loadwa, MENU_NZP},
+	{[0.025, 0.250, 0], [0.425, 0.06, 0], "Christmas Special", -1, menu_loadcs, MENU_NZP},
+	{[0.025, 0.325, 0], [0.425, 0.06, 0], "Wahnsinn", -1, menu_loadwh, MENU_NZP},
 	{[0.475, 0.500, 0], [0.250, 0.05, 0], "Join", -1, game_join, MENU_JOIN},
 	{[0.475, 0.575, 0], [0.250, 0.05, 0], "Spectate", -1, game_spec, MENU_JOIN},
 	{[0.025, 0.500, 0], [0.250, 0.05, 0], "Resume", -1, menu_resume, MENU_PAUSE},
@@ -142,7 +174,7 @@ var struct
 };
 
 //REMEMBER TO UPDATE THIS CONST IF YOU ADD BUTTONS
-const float BUTTONS_COUNT = 17;
+const float BUTTONS_COUNT = 23;
 
 float mapdesc = 0;
 
@@ -181,6 +213,16 @@ void(float index) Update_Button =
 			sound(self, 0, "sounds/menu/navigate.wav", 1, ATTN_NONE);
 			udplay = 1;
 		}
+		if (buttons[index].text == "Original")
+		{
+			drawstring([0.01*g_width, 0.5*g_height, 0], "Real CoD Zombies maps ported to Requiem for", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.55*g_height, 0], "your enjoyment.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+		}
+		if (buttons[index].text == "NZ:P Beta")
+		{
+			drawstring([0.01*g_width, 0.5*g_height, 0], "Want some nostalgia? Play the original three", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.55*g_height, 0], "Nazi Zombies Portable beta maps!", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+		}
 		if (buttons[index].text == "Nacht Der Untoten")
 		{
 			drawstring([0.01*g_width, 0.5*g_height, 0], "You drove them deep into the heart of the Reich.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
@@ -193,6 +235,25 @@ void(float index) Update_Button =
 			drawstring([0.01*g_width, 0.55*g_height, 0], "of \"Zombies\". New twists and clues could uncover", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
 			drawstring([0.01*g_width, 0.6*g_height, 0], "the final plan. It's show time!", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
 			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/kino", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
+		}
+		if (buttons[index].text == "Warehouse")
+		{
+			drawstring([0.01*g_width, 0.50*g_height, 0], "Old warehouse full of zombies! Fight your way to", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.55*g_height, 0], "the power switch through the hordes...", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/wh", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
+		}
+		if (buttons[index].text == "Christmas Special")
+		{
+			drawstring([0.01*g_width, 0.50*g_height, 0], "No Santa this year, but I'm sure you will get some", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.55*g_height, 0], "presents from the undead. The only question is, will", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.6*g_height, 0], "you accept them?", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/xmas", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
+		}
+		if (buttons[index].text == "Wahnsinn")
+		{
+			drawstring([0.01*g_width, 0.50*g_height, 0], "Abandoned house with some marks of human existence.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.55*g_height, 0], "Teddy is the only thing seperating you from the box!", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/wa", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
 		}
 		if (buttons[index].text == "")
 			udplay = 0;
@@ -301,8 +362,14 @@ void() Draw_Menu =
 		case MENU_RES:
 			title = "RESTART";
 			break;
+		case MENU_CLASSIC:
+			title = "ORIGINAL";
+			break;
+		case MENU_NZP:
+			title = "NZ:P BETA";
+			break;
 		default:
-			title = "Nazi Zombies: Portable";
+			title = "Requiem";
 	}
 
 	local float chars_to_keep;

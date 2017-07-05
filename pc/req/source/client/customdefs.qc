@@ -45,6 +45,8 @@ const float MENU_JOIN = 32;
 const float MENU_PAUSE = 64;
 const float MENU_IGS = 128;
 const float MENU_RES = 256;
+const float MENU_CLASSIC = 512;
+const float MENU_NZP = 1024;
 
 
 float useprint_type;
@@ -57,7 +59,7 @@ float Hitmark_time;
 float crosshair_spread_time;
 float zoom_2_time;
 float ach_time;
-float achtime;
+float atime;
 
 float weaponframetime;
 float weapon2frametime;
