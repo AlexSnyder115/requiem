@@ -741,6 +741,12 @@ void(float width, float height) HUD_Useprint =
 			case 18:
 				usestring = strcat("Hold ",usebutton, " to take Zombie Shield");
 				break;
+			case 19:
+				usestring = strcat("Hold ",usebutton, " to enter After Life");
+				break;
+			case 20:
+				usestring = strcat("Hold ",usebutton, " to revive yourself");
+				break;
 			default:
 				usestring = "This should not happen you dum fuck";
 				break;
@@ -950,22 +956,22 @@ void() Draw_Crosshair =
 
 		x_value = ((480 - 8)/2 - crosshair_offset_step)*(g_width/480);
 		y_value = ((272 - 8)/2)*g_height/272;
-		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD)
+		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD || getstatf(STAT_ACTIVEWEAPON) != W_AL)
 			drawstring([x_value, y_value, 0], "-", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
 
 		x_value = ((480 - 8)/2 + crosshair_offset_step)*(g_width/480);
 		y_value = ((272 - 8)/2)*g_height/272;
-		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD)
+		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD || getstatf(STAT_ACTIVEWEAPON) != W_AL)
 			drawstring([x_value, y_value, 0], "-", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
 
 		x_value = ((480 - 8)/2)*(g_width/480);
 		y_value = ((272 - 8)/2 - crosshair_offset_step)*g_height/272;
-		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD)
+		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD || getstatf(STAT_ACTIVEWEAPON) != W_AL)
 			drawstring([x_value, y_value, 0], "|", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
 
 		x_value = ((480 - 8)/2)*(g_width/480);
 		y_value = ((272 - 8)/2 + crosshair_offset_step)*g_height/272;
-		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD)
+		if (getstatf(STAT_ACTIVEWEAPON) != W_SHIELD || getstatf(STAT_ACTIVEWEAPON) != W_AL)
 			drawstring([x_value, y_value, 0], "|", [0.0175*g_width, 0.0175*g_width, 0], [1, 1, 1], 1, 1); 
 
     }

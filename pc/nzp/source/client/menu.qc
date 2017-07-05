@@ -127,7 +127,7 @@ var struct
 	{[0.025, 0.550, 0], [0.325, 0.06, 0], " Quit", -1, menu_quit, MENU_MAIN},
 	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_back, MENU_SINGLE + MENU_MULTI + MENU_SETTINGS + MENU_ABOUT},
 	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Nacht Der Untoten", -1, menu_loadndu, MENU_SINGLE},
-	//{[0.025, 0.575, 0], [0.250, 0.05, 0], "Warehouse", -1, menu_loadwh, MENU_SINGLE},
+	{[0.025, 0.250, 0], [0.425, 0.06, 0], "Kino Der Toten", -1, menu_loadwh, MENU_SINGLE},
 	{[0.475, 0.500, 0], [0.250, 0.05, 0], "Join", -1, game_join, MENU_JOIN},
 	{[0.475, 0.575, 0], [0.250, 0.05, 0], "Spectate", -1, game_spec, MENU_JOIN},
 	{[0.025, 0.500, 0], [0.250, 0.05, 0], "Resume", -1, menu_resume, MENU_PAUSE},
@@ -140,7 +140,7 @@ var struct
 };
 
 //REMEMBER TO UPDATE THIS CONST IF YOU ADD BUTTONS
-const float BUTTONS_COUNT = 17;
+const float BUTTONS_COUNT = 18;
 
 float mapdesc = 0;
 
@@ -174,9 +174,17 @@ void(float index) Update_Button =
 		drawfill(pos, scale, [0.6,0.6,0.6] + [0.15,0.15,0.15]*buttons[index].active, 0.3 * alphafactor); //Solid Background
 		drawline(1, pos, [pos_x + scale_x, pos_y, 0], [90,90,90], 1.5, 1); //top outline
 		drawline(1, [pos_x, pos_y + scale_y, 0], [pos_x + scale_x, pos_y + scale_y, 0], [90,90,90], 1.5, 1); //bottom outline
+		if (udplay == 0)
+		{
+			sound(self, 0, "sounds/menu/navigate.wav", 1, ATTN_NONE);
+			udplay = 1;
+		}
 	}
 	else
 		alphafactor = buttons[index].active + 1; //-1 invis, 0 normal
+
+	if (buttons[index].active < 0)
+		udplay = 0;
 	
 	if(cursor_pos_x > pos_x && cursor_pos_x < pos_x + scale_x && cursor_pos_y > pos_y && cursor_pos_y < pos_y + scale_y )
 		buttons[index].active = 1;
@@ -221,21 +229,21 @@ void() Menu_Click =
 	}
 };
 
-
-
 void() Draw_Menu =
 {
 	precache_sound("sounds/menu/enter.wav");
-	precache_sound("sounds/menu/tune1.wav");
-	
-	//Background picture with a nice scrolling effect, scrolling happens in the shader in scripts/menu.shader
-	//moto - put loading of demo.bsp when it's time has come.
 	if(serverkey("constate") == "disconnected")
 	{
 		if(g_width <= g_height * 1.77778)
 			drawpic([0,0,0], "menu/bg", [g_height * 1.77778, g_height, 1], [1, 1, 1], 1);
 		else
 			drawpic([0,0,0], "menu/bg", [g_width, g_height, 1], [1, 1, 1], 1);
+        if (played == 0)
+        {
+            precache_sound("sounds/menu/theme.wav");
+            sound(self, 0, "sounds/menu/theme.wav", 1, ATTN_NONE);
+            played = 1;
+        }
 	}
 
 		

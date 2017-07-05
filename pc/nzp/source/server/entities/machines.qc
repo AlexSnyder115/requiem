@@ -1682,3 +1682,74 @@ void() perk_pap =
 	self.classname = "perk_pap";
 	self.touch = touch_pap;
 }
+
+void() touch_dummy =
+{
+	useprint (other, 20, 0, 0);
+	if (other.button7 && other.alstate != 2 && other.fire_delay < time)
+	{
+		other.alstate = 2;
+		other.progress_bar = 3 + time;     
+		other.progress_bar_time = 3;
+		other.progress_bar_percent = 1;
+		other.fire_delay = 3;
+	}
+}
+
+void() PlaceDummy =
+{
+	local entity player;
+	entity dummy;
+	dummy = spawn ();
+	player = find(world, classname, "player");
+	setorigin(dummy,player.origin);
+	setmodel(dummy,"models/player.mdl");
+	dummy.classname = "playerdummy";
+	dummy.touch = touch_dummy;
+	dummy.solid = SOLID_TRIGGER;
+	dummy.frame = 36;
+}
+
+void() EnterAfterlife =
+{
+	other.bk = other.weapon;
+	other.bkm = other.currentmag;
+	other.bka = other.currentammo;
+	other.weapon = W_AL;
+	PlaceDummy();
+}
+
+void() touch_albox =
+{
+	if (other.classname == "player" && other.fire_delay < time && other.alstate == 0)
+	{
+		useprint (other, 19, 0, 0);
+		if (other.button7)
+		{
+			EnterAfterlife();
+			other.fire_delay = 3 + time;
+			other.alstate = 1;
+		}
+	}
+}
+
+void() ALReturn =
+{
+	entity dummy;
+	dummy = find(world,classname,"playerdummy");
+	remove (dummy);
+	other.weapon = other.bk;
+	other.currentmag = other.bkm;
+	other.currentammo = other.bka;
+}
+
+void() suicide_box =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/albox.mdl");
+	setorigin(self, self.origin);
+	setmodel (self, "models/machines/albox.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "suicide_box";
+	self.touch = touch_albox;
+}

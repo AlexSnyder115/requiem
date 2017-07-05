@@ -216,6 +216,7 @@ float(float wep) GetFiretype =
 		case W_STG:
 		case W_SPATZ:
 			return 0;
+		case W_AL:
 		case W_TRENCH:
 		case W_GUT:
 			return 1;
@@ -232,6 +233,7 @@ float(float wep) getMaxMag =
 
 	switch (wep)
 	{
+		case W_AL:
 		case W_SHIELD:
 			return 99999;
 		case W_COLT:
@@ -332,6 +334,7 @@ float(float wep) getWeaponMag =
 
 	switch (wep)
 	{
+		case W_AL:
 		case W_SHIELD:
 			return 9999;
 		case W_COLT:
@@ -601,6 +604,7 @@ float(float wep) getWeaponDamage =
 			return 1000;
 		case W_PENETRATOR:
 			return 1000;
+		case W_AL:
 		case W_RAY:
 			return 1000;
 		case W_PORTER:
@@ -933,6 +937,7 @@ float(float wep, float delaytype) getWeaponDelay =
 				return 2.4;
 			else if (delaytype == FIRE)
 				return 0.08;
+		case W_AL:
 		case W_357:
 		case W_KILLU:
 			if (delaytype == RELOAD)
@@ -1272,13 +1277,13 @@ float(float wep, float frametype) GetFrame =
 			switch (frametype)
 			{
 				case FIRE_START:
-					return 1;
-				case FIRE_END:
 					return 2;
+				case FIRE_END:
+					return 13;
 				case RELOAD_START:
-					return 3;
+					return 40;
 				case RELOAD_END:
-					return 26;
+					return 96;
 				case SPRINT_IN_START:
 					return 33;
 				case SPRINT_IN_END:
@@ -1292,15 +1297,50 @@ float(float wep, float frametype) GetFrame =
 				case SPRINT_OUT_END:
 					return 42;
 				case TAKE_OUT_START:
-					return 29;
-				case TAKE_OUT_END:
-					return 32;
-				case PUT_OUT_START:
 					return 26;
+				case TAKE_OUT_END:
+					return 36;
+				case PUT_OUT_START:
+					return 17;
 				case PUT_OUT_END:
-					return 29;
+					return 26;
 				case RELOAD_CANCEL:
 					return 13;
+			}
+			break;
+		case W_AL:
+			switch (frametype)
+			{
+				case FIRE_START:
+					return 49;
+				case FIRE_END:
+					return 57;
+				case RELOAD_START:
+					return 1;
+				case RELOAD_END:
+					return 1;
+				case SPRINT_IN_START:
+					return 83;
+				case SPRINT_IN_END:
+					return 87;
+				case SPRINT_START:
+					return 87;
+				case SPRINT_END:
+					return 87;
+				case SPRINT_OUT_START:
+					return 88;
+				case SPRINT_OUT_END:
+					return 92;
+				case TAKE_OUT_START:
+					return 1;
+				case TAKE_OUT_END:
+					return 1;
+				case PUT_OUT_START:
+					return 1;
+				case PUT_OUT_END:
+					return 1;
+				case RELOAD_CANCEL:
+					return 1;
 			}
 			break;
 		case W_SHIELD:
@@ -2102,7 +2142,12 @@ string(float wep, float gorvmodel) GetWeaponModel =
 			if (gorvmodel)
 				return ("models/weapons/m1911/g_colt.mdl");
 			else
-				return ("models/weapons/m1911/v_colt.mdl");
+				return ("models/weapons/m1911/v_colt.iqm");
+		case W_AL:
+			if (gorvmodel)
+				return ("models/weapons/m1911/g_colt.mdl");
+			else
+				return ("models/weapons/afterlife/al.mdl");
 		case W_SHIELD:
 			if (gorvmodel)
 				return ("models/weapons/shield/g_shield.mdl");
@@ -2541,11 +2586,11 @@ void (float wep, float anim_style, float dualwep, float curweaponframe)	PlayWeap
 
 	switch (wep) {
 		case W_COLT:
-			if (curweaponframe == 5) {
+			if (curweaponframe == 52) {
 				sound (self ,5, "sounds/weapons/colt/magout.wav", 1, ATTN_NORM);
-			} else if (curweaponframe == 12) {
+			} else if (curweaponframe == 66) {
 				sound (self ,5, "sounds/weapons/colt/magin.wav", 1, ATTN_NORM);
-			} else if(curweaponframe == 18) {
+			} else if(curweaponframe == 80) {
 				sound (self ,5, "sounds/weapons/colt/slide.wav", 1, ATTN_NORM);
 			}
 			break;

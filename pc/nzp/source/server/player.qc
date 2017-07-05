@@ -142,14 +142,27 @@ void() PlayerPostThink =
 	}
 	
 	if (self.progress_bar) {
-		if (self.progress_bar < time) {
-			GetUp();
-			self.progress_bar = 0;
-			self.progress_bar_time = 0;
-			self.progress_bar_percent = 0;
-		} else {
-			float remaining = self.progress_bar - time;
-			self.progress_bar_percent = (remaining / self.progress_bar_time);
+		if (self.weapon != W_AL)
+			if (self.progress_bar < time) {
+				GetUp();
+				self.progress_bar = 0;
+				self.progress_bar_time = 0;
+				self.progress_bar_percent = 0;
+			} else {
+				float remaining = self.progress_bar - time;
+				self.progress_bar_percent = (remaining / self.progress_bar_time);
+			}
+		else
+		{
+			if (self.progress_bar < time) {
+				ALReturn();
+				self.progress_bar = 0;
+				self.progress_bar_time = 0;
+				self.progress_bar_percent = 0;
+			} else {
+				remaining = self.progress_bar - time;
+				self.progress_bar_percent = (remaining / self.progress_bar_time);
+			}
 		}
 	}
 

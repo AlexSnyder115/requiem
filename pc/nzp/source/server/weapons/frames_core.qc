@@ -135,13 +135,18 @@ void () W_Frame_Update =
 
 void Set_W_Frame (float startframe, float endframe, float duration, float funccalledin, float animtype, void(optional float t) endanimfunc, string set_model, float dontstartnew, float side) =
 {
-	float math, reversed;
+	float math, reversed, ft;
 
 	if (startframe >= endframe) {
 		reversed = true;
 	} else {
 		reversed = false;
 	}
+
+	if (self.weapon == W_COLT)
+		ft = 0.42;
+	else
+		ft = 1;
 	
 	math = 0;
 	if (duration) {
@@ -149,6 +154,8 @@ void Set_W_Frame (float startframe, float endframe, float duration, float funcca
 	} else {
 		math = 0.1;
 	}
+
+	math *= ft;
 
 	if (side == S_RIGHT || side == S_BOTH) {
 		self.weaponframe = startframe;

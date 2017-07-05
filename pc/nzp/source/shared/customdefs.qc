@@ -69,6 +69,7 @@ const float EVENT_UPDATE = 23;
 #define W_MP5          54
 #define W_M14          55
 #define W_SHIELD	   57
+#define W_AL 		   58
 
 #define W_TESLA  56
 

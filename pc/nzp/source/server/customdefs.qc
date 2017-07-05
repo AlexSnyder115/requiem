@@ -29,6 +29,7 @@ string soundstyle;
 .float eq;
 .float eqm;
 .float eqa;
+.float alstate;
 string mappath;
 
 

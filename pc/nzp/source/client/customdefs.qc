@@ -17,6 +17,8 @@ entity mzlflash;
 entity dummy;
 
 float weapon;
+float played;
+float udplay;
 
 float tracercounter;
 .float rate;
