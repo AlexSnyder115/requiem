@@ -120,11 +120,11 @@ var struct
 } buttons[] =
 {
 	{[0.025, 0.175, 0], [0.325, 0.06, 0], " Solo", -1, menu_single, MENU_MAIN},
-	{[0.025, 0.250, 0], [0.325, 0.06, 0], " Cooperative", -1, menu_multi, MENU_MAIN},
-	{[0.025, 0.325, 0], [0.325, 0.06, 0], " Settings", -1, menu_settings, MENU_MAIN},
-	{[0.025, 0.400, 0], [0.325, 0.06, 0], " Achievements", -1, menu_main, MENU_MAIN},
-	{[0.025, 0.475, 0], [0.325, 0.06, 0], " Credits", -1, menu_about, MENU_MAIN},
-	{[0.025, 0.550, 0], [0.325, 0.06, 0], " Quit", -1, menu_quit, MENU_MAIN},
+	//{[0.025, 0.250, 0], [0.325, 0.06, 0], " Cooperative", -1, menu_multi, MENU_MAIN},
+	{[0.025, 0.250, 0], [0.325, 0.06, 0], " Settings", -1, menu_settings, MENU_MAIN},
+	{[0.025, 0.325, 0], [0.325, 0.06, 0], " Achievements", -1, menu_main, MENU_MAIN},
+	{[0.025, 0.400, 0], [0.325, 0.06, 0], " Credits", -1, menu_about, MENU_MAIN},
+	{[0.025, 0.475, 0], [0.325, 0.06, 0], " Quit", -1, menu_quit, MENU_MAIN},
 	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_back, MENU_SINGLE + MENU_MULTI + MENU_SETTINGS + MENU_ABOUT},
 	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Nacht Der Untoten", -1, menu_loadndu, MENU_SINGLE},
 	{[0.025, 0.250, 0], [0.425, 0.06, 0], "Kino Der Toten", -1, menu_loadwh, MENU_SINGLE},
@@ -140,7 +140,7 @@ var struct
 };
 
 //REMEMBER TO UPDATE THIS CONST IF YOU ADD BUTTONS
-const float BUTTONS_COUNT = 18;
+const float BUTTONS_COUNT = 17;
 
 float mapdesc = 0;
 
@@ -179,6 +179,21 @@ void(float index) Update_Button =
 			sound(self, 0, "sounds/menu/navigate.wav", 1, ATTN_NONE);
 			udplay = 1;
 		}
+		if (buttons[index].text == "Nacht Der Untoten")
+		{
+			drawstring([0.01*g_width, 0.5*g_height, 0], "You drove them deep into the heart of the Reich.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.55*g_height, 0], "You thought they were dead. You were wrong.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/ndu", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
+		}
+		if (buttons[index].text == "Kino Der Toten")
+		{
+			drawstring([0.01*g_width, 0.50*g_height, 0], "Battle the undead in this theatrical installment", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.55*g_height, 0], "of \"Zombies\". New twists and clues could uncover", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.01*g_width, 0.6*g_height, 0], "the final plan. It's show time!", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/kino", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
+		}
+		if (buttons[index].text == "")
+			udplay = 0;
 	}
 	else
 		alphafactor = buttons[index].active + 1; //-1 invis, 0 normal
