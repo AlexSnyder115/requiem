@@ -747,6 +747,15 @@ void(float width, float height) HUD_Useprint =
 			case 20:
 				usestring = strcat("Hold ",usebutton, " to revive yourself");
 				break;
+			case 21:
+				usestring = strcat("Hold ",usebutton, " to link teleporter to mainframe");
+				break;
+			case 22:
+				usestring = strcat("Hold ",usebutton, " to teleport");
+				break;
+			case 23:
+				usestring = strcat("Teleporter is cooling down");
+				break;
 			default:
 				usestring = "This should not happen you dum fuck";
 				break;
@@ -1022,6 +1031,22 @@ void(float width, float height) HUD_Gum = {
 	//drawstring([width - (42/480)*width - (benis*20*width/1024), 0.96*height, 0], gname, [0.02*width, 0.02*width, 0], [1,1,1], 1, 1);
 }
 
+void(float width, float height) HUD_Ach =
+{
+	if (rounds == 5)
+	{
+		drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/oym.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
+	}
+	if (rounds == 10)
+	{
+		drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/gs.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
+	}
+	if (rounds == 15)
+	{
+		drawpic([0.01*g_width, 0.01*g_height, 0], "gfx/ach/go.tga", [g_height * 0.7, g_height * 0.2, 1], [1, 1, 1], 1);
+	}
+}
+
 
 
 /*******************
@@ -1042,8 +1067,13 @@ void(float width, float height) HUD_Draw =
 	HUD_PlayerName(width, height);
 	HUD_Gum(width, height);
 	HUD_Grenades(width, height);
+
+	if (getstatf(STAT_ATIME) > time)
+	{
+		HUD_Ach(width, height);
+	}
 	
-	if (HUD_Change_time > time)
+	if (HUD_Change_time < time)
 	{
 		HUD_Weaponstring(width, height);
 	}

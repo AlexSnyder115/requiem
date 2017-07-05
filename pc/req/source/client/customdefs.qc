@@ -56,6 +56,8 @@ float HUD_Change_time;
 float Hitmark_time;
 float crosshair_spread_time;
 float zoom_2_time;
+float ach_time;
+float achtime;
 
 float weaponframetime;
 float weapon2frametime;

@@ -116,7 +116,7 @@ void() W_Switch =
 			self.secondarymag = tempf1;
 	
 			tempf1 = self.currentmag2;
-			self.currentmag2 = self.secondarymag2;self.secondaryweapon;
+			self.currentmag2 = self.secondarymag2;
 			self.secondarymag2 = tempf1;
 	
 			tempf2 = self.weapon;
@@ -165,7 +165,7 @@ void() W_Switch =
 		//UpdateWeapons(1);
 		//if (self.weaponslot1.dualwield)
 		//	Set_W2_Frame (self.weaponslot1.TakeWeaponStart, self.weaponslot1.TakeWeaponEnd, 0, 0, 0, SUB_Null, self.weaponslot1.v_model2, false);//FIXME
-		Set_W_Frame (startframe, endframe, 0, 0, 0, SUB_Null, modelname, false, S_BOTH);//FIXME
+		//Set_W_Frame (startframe, endframe, 0, 0, 0, SUB_Null, modelname, false, S_BOTH);//FIXME
 		
 		self.reload_delay2 = self.fire_delay2 = self.reload_delay = self.fire_delay = 0;
 	}

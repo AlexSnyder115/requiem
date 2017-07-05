@@ -118,16 +118,19 @@ void() NewRound =
 	{
 		WriteByte (MSG_ALL, 43);
 		WriteByte (MSG_ALL, 0);
+		self.atime = 10 + time;
 	}
 	if (rounds == 10)
 	{
 		WriteByte (MSG_ALL, 43);
 		WriteByte (MSG_ALL, 1);
+		self.atime = 10 + time;
 	}
 	if (rounds == 15)
 	{
 		WriteByte (MSG_ALL, 43);
 		WriteByte (MSG_ALL, 2);
+		self.atime = 10 + time;
 	}
 }
 void() Round_Core =

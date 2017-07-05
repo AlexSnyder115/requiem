@@ -9,6 +9,8 @@ const float FL_JUMPRELEASED = 4096;
 
 .float perkcount;
 
+float linked;
+float cantp;
 float framecount;
 float deathmatch;
 float coop;
@@ -66,6 +68,7 @@ void GetUp();
 void Weapon_Logic();
 .float downed;
 .float fire_delay;
+.float tp_delay;
 .float fire_delay2;
 .float reload_delay;
 .float reload_delay2;
@@ -98,6 +101,7 @@ void Weapon_Logic();
 .float thirdammo;
 .float thirdmag;
 .float thirdweaponskin;
+.float atime;
 
 entity tableorigin;
 

@@ -68,12 +68,14 @@ void() menu_loadndu =
 {
 	print("loading ndu\n");
 	localcmd("map ndu\n");
+	drawpic([0,0,0], "menu/maps/ndu", [g_width, g_height, 1], [1, 1, 1], 1);
 };
 
 void() menu_loadwh =
 {
 	print("loading kino\n");
 	localcmd("map kino_der_toten\n");
+	drawpic([0,0,0], "menu/maps/kino", [g_width, g_height, 1], [1, 1, 1], 1);
 };
 
 void() menu_join =
@@ -247,6 +249,7 @@ void() Menu_Click =
 void() Draw_Menu =
 {
 	precache_sound("sounds/menu/enter.wav");
+	precache_sound("sounds/menu/navigate.wav");
 	if(serverkey("constate") == "disconnected")
 	{
 		if(g_width <= g_height * 1.77778)

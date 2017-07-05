@@ -1753,3 +1753,76 @@ void() suicide_box =
 	self.classname = "suicide_box";
 	self.touch = touch_albox;
 }
+
+void() Teleport_Return =
+{
+	local entity player, returntp;
+	player = find (world, classname, "player");
+	returntp = find (world, classname, "info_player_start");
+	setorigin (player, returntp.origin);
+}
+
+void() Teleport =
+{
+	local entity player, destination;
+	player = find (world, classname, "player");
+	destination = find (world, classname, "info_player_takeo");
+	setorigin (player, destination.origin + '0 0 10');
+}
+
+void() touch_tp =
+{
+	if (linked == 0 && other.tp_delay < time)
+	{
+		useprint(other, 21, 0, 0);
+		if (other.button7)
+			linked = 1;
+	}
+	if (cantp == 1)
+	{
+		useprint(other, 22, 0, 0);
+		if (other.button7)
+		{
+			linked = 0;
+			cantp = 0;
+			other.tp_delay = 120 + time;
+			Teleport();
+			self.think = Teleport_Return;
+			self.nextthink = 30 + time;
+		}
+	}
+	if (other.tp_delay > time)
+		useprint(other, 23, 0, 0);
+}
+
+void() touch_tpad =
+{
+	if (linked == 1 && cantp == 0)
+	{
+		useprint(other, 21, 0, 0);
+		if (other.button7)
+			cantp = 1;
+	}
+}
+
+void() teleport_pad =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("progs/Props/mainframe_pad.mdl");
+	setorigin(self, self.origin);
+	setmodel (self, "progs/Props/mainframe_pad.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "teleport_pad";
+	self.touch = touch_tpad;
+}
+
+void() teleport_machine =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("progs/Props/teleporter.mdl");
+	setorigin(self, self.origin);
+	setmodel (self, "progs/Props/teleporter.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "teleport_machine";
+	self.touch = touch_tp;
+}

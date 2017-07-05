@@ -275,6 +275,22 @@
 		2 : "Random use place" : 0
 	]
 ]
+
+@PointClass size(-32 -32 -32, 32 32 56) base(Item, Appearflags) color(125 196 187) studio("progs/Props/teleporter.mdl") = 
+	teleport_machine : "Teleporter" 
+[	
+]
+
+@PointClass size(-32 -32 -32, 32 32 56) base(Item, Appearflags) color(125 196 187) studio("progs/Props/mainframe_pad.mdl") = 
+	teleport_pad : "Teleporter Pad" 
+[	
+]
+
+@PointClass size(-32 -32 -32, 32 32 56) base(Item, Appearflags) color(125 196 187) studio("models/player.mdl") = 
+	teleport_destination : "Teleporter Destination" 
+[	
+]
+
 //
 // NZP Weapons
 //

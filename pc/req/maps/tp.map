@@ -1,0 +1,110 @@
+{
+"classname" "worldspawn"
+"sounds" "1"
+"mapversion" "220"
+"wad" "/home/moto/requiem/pc/req/textures/Example_01.wad;/home/moto/requiem/pc/req/textures/U-Bahn.wad;/home/moto/requiem/pc/req/textures/Waw_hlwad.wad;/home/moto/requiem/pc/req/textures/bo2.wad;/home/moto/requiem/pc/req/textures/de_bikinibottom.wad;/home/moto/requiem/pc/req/textures/der_riese.wad;/home/moto/requiem/pc/req/textures/minecraft.wad;/home/moto/requiem/pc/req/textures/nzphlwad.wad;/home/moto/requiem/pc/req/textures/zhlt.wad"
+"_generator" "J.A.C.K. 1.1.1262 (vpHalfLife)"
+{
+( 447 -288 256 ) ( 447 -288 0 ) ( 447 192 256 ) BERLIN_CEILINGS [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 448 192 256 ) ( 448 192 0 ) ( 448 -288 256 ) BERLIN_CEILINGS [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 448 192 256 ) ( 447 192 256 ) ( 448 192 0 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 448 -288 0 ) ( 447 -288 0 ) ( 448 -288 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 448 -288 256 ) ( 447 -288 256 ) ( 448 192 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 448 192 0 ) ( 447 192 0 ) ( 448 -288 0 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+{
+( -319 192 256 ) ( -319 192 0 ) ( -319 -288 256 ) BERLIN_CEILINGS [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -320 -288 256 ) ( -320 -288 0 ) ( -320 192 256 ) BERLIN_CEILINGS [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -320 -288 256 ) ( -319 -288 256 ) ( -320 -288 0 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -320 192 0 ) ( -319 192 0 ) ( -320 192 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -320 192 0 ) ( -320 -288 0 ) ( -319 192 0 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -320 -288 256 ) ( -320 192 256 ) ( -319 -288 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+{
+( 447 -288 256 ) ( 447 -287 256 ) ( 447 -288 0 ) BERLIN_CEILINGS [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 -288 0 ) ( -319 -287 0 ) ( -319 -288 256 ) BERLIN_CEILINGS [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 -287 256 ) ( -319 -287 0 ) ( 447 -287 256 ) BERLIN_CEILINGS [ -1 -0 -0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 447 -288 256 ) ( 447 -288 0 ) ( -319 -288 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 -288 256 ) ( -319 -287 256 ) ( 447 -288 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -319 -287 0 ) ( -319 -288 0 ) ( 447 -287 0 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+{
+( -319 192 256 ) ( -319 191 256 ) ( -319 192 0 ) BERLIN_CEILINGS [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 447 192 0 ) ( 447 191 0 ) ( 447 192 256 ) BERLIN_CEILINGS [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 447 191 256 ) ( 447 191 0 ) ( -319 191 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 192 256 ) ( -319 192 0 ) ( 447 192 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 192 0 ) ( -319 191 0 ) ( 447 192 0 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -319 191 256 ) ( -319 192 256 ) ( 447 191 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+{
+( 447 191 1.6 ) ( 447 191 0 ) ( 447 -287 1.6 ) BERLIN_CEILINGS [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 -287 1.6 ) ( -319 -287 0 ) ( -319 191 1.6 ) BERLIN_CEILINGS [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 447 -287 1.6 ) ( 447 -287 0 ) ( -319 -287 1.6 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 191 1.6 ) ( -319 191 0 ) ( 447 191 1.6 ) BERLIN_CEILINGS [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 -287 1.6 ) ( -319 191 1.6 ) ( 447 -287 1.6 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -319 191 0 ) ( -319 -287 0 ) ( 447 191 0 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+{
+( -319 -287 256 ) ( -319 -287 254.4 ) ( -319 191 256 ) BERLIN_CEILINGS [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 447 191 256 ) ( 447 191 254.4 ) ( 447 -287 256 ) BERLIN_CEILINGS [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 191 256 ) ( -319 191 254.4 ) ( 447 191 256 ) BERLIN_CEILINGS [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 447 -287 256 ) ( 447 -287 254.4 ) ( -319 -287 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -319 191 254.4 ) ( -319 -287 254.4 ) ( 447 191 254.4 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -319 -287 256 ) ( -319 191 256 ) ( 447 -287 256 ) BERLIN_CEILINGS [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+}
+{
+"classname" "info_player_start"
+"origin" "-288 -46 36"
+}
+{
+"classname" "teleport_machine"
+"origin" "-252 91 1"
+}
+{
+"classname" "teleport_pad"
+"origin" "383 -222 2"
+}
+{
+"classname" "teleport_destination"
+"origin" "56 -50 40"
+}
+{
+"classname" "light"
+"style" "0"
+"wait" "1"
+"_light" "255 255 128 200"
+"origin" "-125 10 127"
+}
+{
+"classname" "light"
+"style" "0"
+"wait" "1"
+"_light" "255 255 128 200"
+"origin" "139 -15 127"
+}
+{
+"classname" "light"
+"style" "0"
+"wait" "1"
+"_light" "255 255 128 200"
+"origin" "-123 -184 127"
+}
+{
+"classname" "light"
+"style" "0"
+"wait" "1"
+"_light" "255 255 128 200"
+"origin" "357 105 127"
+}
+{
+"classname" "light"
+"style" "0"
+"wait" "1"
+"_light" "255 255 128 200"
+"origin" "325 -210 127"
+}
+{
+"classname" "teleport_destination"
+"origin" "372 -213 43"
+}

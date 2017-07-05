@@ -147,3 +147,4 @@ const float EVENT_UPDATE = 23;
 #define STAT_GUMDESC 			65
 #define STAT_SALE 				66
 #define STAT_GUMNUM 			67
+#define STAT_ATIME 				68
