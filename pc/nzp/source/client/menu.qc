@@ -72,8 +72,8 @@ void() menu_loadndu =
 
 void() menu_loadwh =
 {
-	print("loading warehouse\n");
-	localcmd("map warehouse\n");
+	print("loading kino\n");
+	localcmd("map kino_der_toten\n");
 };
 
 void() menu_join =
