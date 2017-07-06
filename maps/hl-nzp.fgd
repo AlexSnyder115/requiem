@@ -159,15 +159,6 @@
 		2 : "Switch location" : 0
 	]
 ]
-@PointClass size(-24 -24 -32, 24 24 56) base(Item, Appearflags) color(0 117 58) studio("models/machines/candolier.mdl") = 
-	perk_candolier : "Candolier Cola" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
 @PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/quick_revive.mdl") = 
 	perk_revive : "quick revive" 
 [
@@ -186,85 +177,7 @@
 		2 : "Switch location" : 0
 	]
 ]
-@PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/cherry.mdl") = 
-	perk_electric : "Electric Cherry" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
 
-@PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/ammomatic.mdl") = 
-	perk_ammomatic : "Amm-O-Matic" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
-
-@PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/mulekick.mdl") = 
-	perk_mulekick : "Mulekick" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
-
-@PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/deadshot.mdl") = 
-	perk_deadshot : "Deadshot Daiquiri" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
-
-@PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/craft.mdl") = 
-	crafting_table : "Crafting Table" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
-
-@PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/clamps.mdl") = 
-	crafting_clamps : "Clamps" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
-
-@PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/dolly.mdl") = 
-	crafting_dolly : "Dolly" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
-
-@PointClass size(-16 -16 -32, 16 16 32) base(Item, Appearflags) color(129 172 254) studio("models/machines/grate.mdl") = 
-	crafting_grate : "Grate" 
-[
-	spawnflags(Flags) =
-	[
-		1 : "Random location" : 0
-		2 : "Switch location" : 0
-	]
-]
 
 @PointClass size(-32 -32 -32, 32 32 56) base(Item, Appearflags) color(125 196 187) studio("models/machines/pap.mdl") = 
 	perk_pap : "Pack-A-Punch" 
@@ -275,22 +188,6 @@
 		2 : "Random use place" : 0
 	]
 ]
-
-@PointClass size(-32 -32 -32, 32 32 56) base(Item, Appearflags) color(125 196 187) studio("progs/Props/teleporter.mdl") = 
-	teleport_machine : "Teleporter" 
-[	
-]
-
-@PointClass size(-32 -32 -32, 32 32 56) base(Item, Appearflags) color(125 196 187) studio("progs/Props/mainframe_pad.mdl") = 
-	teleport_pad : "Teleporter Pad" 
-[	
-]
-
-@PointClass size(-32 -32 -32, 32 32 56) base(Item, Appearflags) color(125 196 187) studio("models/player.mdl") = 
-	teleport_destination : "Teleporter Destination" 
-[	
-]
-
 //
 // NZP Weapons
 //
@@ -307,7 +204,7 @@
 @PointClass size(-32 -8 -8, 32 8 8) base(Item, Appearflags) color(151 104 34) studio("models/machines/mystery.mdl") = 
 	mystery_box_tp_spot : "Mystery Box Possible Spawn Point" []
 	
-@PointClass size(-28 -28 -64, 28 28 40 ) base(Item, Appearflags) color(114 224 172) studio("models/misc/nzp/window.mdl")  = 
+@PointClass size(-28 -28 -64, 28 28 40 ) base(Item, Appearflags) color(114 224 172) studio("models/misc/window.mdl")  = 
 	item_barricade : "Window Boards" 
 	[
 	
