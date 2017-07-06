@@ -4,7 +4,11 @@
 
 void() firesale =
 {
-
+	entity salebox;
+	salebox = find(world, classname, "mystery_box_tp_spot");
+	salebox.classname = "mystery_firesale";
+	salebox.touch = mystery_touch;
+	setmodel (salebox, "models/machines/mystery.mdl");
 }
 
 void() maxammo =
@@ -256,6 +260,7 @@ void() powerup_touch =
 			if (boxmoved == 1)
 			{
 				firesale();
+				firesale_finished = time + 30;
 				other.sale_icon = true;
 				hassale = true;
 			}

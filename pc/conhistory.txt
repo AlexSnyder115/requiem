@@ -8,3 +8,8 @@ map warehouse
 map ndu
 map warehouse
 fog 0
+map wahnsinn
+map warehouse
+map
+map warehouse
+map warehouse

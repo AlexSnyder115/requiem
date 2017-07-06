@@ -1278,7 +1278,7 @@ void(entity ent) CheckPowerups =
 
 	if (firesale_finished >= time)
 	{
-		if (instakill_finished < 4 + time)
+		if (firesale_finished < 4 + time)
 		{
 			if (sale_blink< time - 0.25)
 				sale_blink = time + 0.25;
@@ -1303,6 +1303,11 @@ void(entity ent) CheckPowerups =
 		firesale_finished = 0;
 		ent.sale_icon = false;
 		hassale = false;
+		entity tpbox;
+		tpbox = find(world, classname, "mystery_firesale");
+		tpbox.classname = "mystery_box_tp_spot";
+		tpbox.touch = SUB_Null;
+		setmodel (tpbox, "progs/Misc/teddy.mdl");
 	}
 
 }
