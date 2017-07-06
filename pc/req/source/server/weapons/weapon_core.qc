@@ -1186,7 +1186,6 @@ void () Impulse_Functions =
 	{		
 		case 22:
 			addmoney(self, 10000, 0);
-			rounds += 4;
 			break;
 		case 23:
 			W_SprintStart();
@@ -1195,7 +1194,8 @@ void () Impulse_Functions =
 			W_SprintStop();
 			break;
 		case 25:
-			switch_nade();
+			W_PutOut();
+			self.semiswitch = true;
 			break;
 		case 110:
 			CheckButtonOne();
