@@ -194,8 +194,11 @@ void() powerup_flash =
 			setmodel(self,"progs/Misc/nuke!.mdl");
 		if(self.zombie_drop_id == 5)
 			setmodel(self,"progs/Misc/carpenter!.mdl");
-		if(self.zombie_drop_id == 6)
-			setmodel(self,"progs/Misc/firesale!.mdl");
+		if (boxmoved == 1)
+		{
+			if(self.zombie_drop_id == 6)
+				setmodel(self,"progs/Misc/firesale!.mdl");
+		}
 	}
 	else
 	{

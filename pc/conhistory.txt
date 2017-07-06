@@ -5,3 +5,6 @@ restart
 restart
 restart
 map warehouse
+map ndu
+map warehouse
+fog 0
