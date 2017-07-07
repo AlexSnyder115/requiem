@@ -1186,6 +1186,7 @@ void () Impulse_Functions =
 	{		
 		case 22:
 			addmoney(self, 10000, 0);
+			rounds++;
 			break;
 		case 23:
 			W_SprintStart();
