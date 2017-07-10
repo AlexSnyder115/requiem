@@ -104,3 +104,5 @@ map perk
 map perk
 map perk
 map tp
+map perk
+map perk

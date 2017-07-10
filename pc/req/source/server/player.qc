@@ -372,7 +372,7 @@ void() PlayerSpawn =
 
 	SetRound(self, rounds);
 
-	self.stamina = 300;
+	self.stamina = 3;
 	self.reviving = 0;
 	self.weaponnum = 0;
 	

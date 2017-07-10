@@ -1179,6 +1179,12 @@ void() CheckButtonTwo = {if (self.weaponnum == 0) {W_PutOut();}}	// weapon switc
 
 void() slide =
 {
+	if (self.perks & P_FLOP)
+	{
+		sound (self, CHAN_WEAPON, "sounds/weapons/grenade/explode.wav", 1, ATTN_NORM);	
+		DamgageExplode (self, self.owner, 225, 75, 128);//was 256 inch radius, kicked it down to 128 because 21 feet exploding radius is... a bit overkill...	
+		te_explosionquad(self.origin);
+	}
 	makevectors (self.v_angle);
 	self.view_ofs = '0 0 10';
 	self.velocity = v_forward * 700;
