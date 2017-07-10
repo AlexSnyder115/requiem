@@ -338,7 +338,7 @@ void() PlayerSpawn =
 	
 	self.origin = spawnpoint.origin + [0,0,1];
 	self.angles = spawnpoint.angles;
-	self.fixangle = TRUE;
+	self.fixangle = FALSE;
 	setsize(self, [-16, -16, -24], [16, 16, 32]);
 	self.view_ofs = VEC_VIEW_OFS; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
 
@@ -372,7 +372,7 @@ void() PlayerSpawn =
 
 	SetRound(self, rounds);
 
-	self.stamina = 3;
+	self.stamina = 300;
 	self.reviving = 0;
 	self.weaponnum = 0;
 	

@@ -1802,7 +1802,7 @@ void() perk_pap =
 
 void() touch_dummy =
 {
-	useprint (other, 20, 0, 0);
+	useprint (other, 21, 0, 0);
 	if (other.button7 && other.alstate != 2 && other.fire_delay < time)
 	{
 		other.alstate = 2;
@@ -1840,7 +1840,7 @@ void() touch_albox =
 {
 	if (other.classname == "player" && other.fire_delay < time && other.alstate == 0)
 	{
-		useprint (other, 19, 0, 0);
+		useprint (other, 20, 0, 0);
 		if (other.button7)
 		{
 			EnterAfterlife();
@@ -1896,13 +1896,13 @@ void() touch_tp =
 {
 	if (linked == 0 && other.tp_delay < time)
 	{
-		useprint(other, 21, 0, 0);
+		useprint(other, 22, 0, 0);
 		if (other.button7)
 			linked = 1;
 	}
 	if (cantp == 1)
 	{
-		useprint(other, 22, 0, 0);
+		useprint(other, 23, 0, 0);
 		if (other.button7)
 		{
 			linked = 0;
@@ -1914,14 +1914,14 @@ void() touch_tp =
 		}
 	}
 	if (other.tp_delay > time)
-		useprint(other, 23, 0, 0);
+		useprint(other, 24, 0, 0);
 }
 
 void() touch_tpad =
 {
 	if (linked == 1 && cantp == 0)
 	{
-		useprint(other, 21, 0, 0);
+		useprint(other, 22, 0, 0);
 		if (other.button7)
 			cantp = 1;
 	}

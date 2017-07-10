@@ -10,6 +10,7 @@ const float FL_JUMPRELEASED = 4096;
 
 float framecount;
 float deathmatch;
+float hasprone;
 float coop;
 .vector oldvelocity;
 .float lastsound_time;

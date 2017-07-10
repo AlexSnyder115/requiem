@@ -2,7 +2,7 @@ void() touch_zs =
 {
 	if (self.classname == "zs" && other.fire_delay < time)
 	{
-		useprint (other, 18, 0, 0);
+		useprint (other, 19, 0, 0);
 		if (other.button7)
 		{
 			centerprint(other, "Press 2 to activate Zombie Shield");
@@ -15,7 +15,7 @@ void() touch_clamps =
 {
 	if (self.classname == "crafting_clamps" && other.fire_delay < time)
 	{
-		useprint (other, 17, 0, 0);
+		useprint (other, 18, 0, 0);
 		if (other.button7)
 		{
 			other.hasclamps = TRUE;
@@ -28,7 +28,7 @@ void() touch_dolly =
 {
 	if (self.classname == "crafting_dolly" && other.fire_delay < time)
 	{
-		useprint (other, 17, 0, 0);
+		useprint (other, 18, 0, 0);
 		if (other.button7)
 		{
 			other.hasdolly = TRUE;
@@ -41,7 +41,7 @@ void() touch_grate =
 {
 	if (self.classname == "crafting_grate" && other.fire_delay < time)
 	{
-		useprint (other, 17, 0, 0);
+		useprint (other, 18, 0, 0);
 		if (other.button7)
 		{
 			other.hasgrate = TRUE;
@@ -70,7 +70,7 @@ void() touch_table =
 {
 	if (self.classname == "crafting_table" && other.fire_delay < time)
 	{
-		useprint (other, 15, 0, 0);
+		useprint (other, 16, 0, 0);
 		if (other.button7)
 		{
 			if (other.hasclamps == TRUE && other.hasgrate == TRUE && other.hasdolly == TRUE)

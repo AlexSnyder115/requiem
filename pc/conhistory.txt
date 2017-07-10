@@ -21,3 +21,86 @@ map dogs
 map
 map
 map perk
+pause
+pause
+map kino_der_toten
+map warehouse
+map dr
+fog 0
+fog
+fog
+fog 0
+fog 0
+fog 0
+fog
+fog
+fog 0
+fog 0
+fog 0
+map perk
+fog 0
+fov 90
+fov 90
+fog 0
+fov
+fov 160
+fog 0
+fov 90
+fog 0
+fov 90
+fog 0
+fov 90
+fov 160
+fov 90
+fov 160
+fog 0
+fov 90
+fov 160
+fov 90
+fog 0
+map pentagon
+fog
+fog 0
+map wahnsinn
+fog 0
+fog 0.1
+fog 0.1
+fog 0
+map dr
+fog 0
+fog 0.1
+map ndu
+fog 0.1
+fog 0
+map ndu
+fog 0
+map perk
+map perk
+map perk
+map perk
+map perk
+fog 0.1
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map tp

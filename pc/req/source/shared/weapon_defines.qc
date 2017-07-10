@@ -128,6 +128,16 @@ string(float perk) GetPerkName =
 			return "Stamin-Up";
 		case 6:
 			return "PhD Flopper";
+		case 7:
+			return "Electric Cherry";
+		case 8:
+			return "Candolier Cola";
+		case 9:
+			return "Amm-O-Matic";
+		case 10:
+			return "Mulekick";
+		case 11:
+			return "Deadshot Daiquiri";
 		default:
 			return "NULL";
 	}
@@ -2035,7 +2045,7 @@ string(float wep, float gorvmodel) GetWeaponModel =
 			if (gorvmodel)
 				return ("models/weapons/mp40/g_mp40.mdl");
 			else
-				return ("models/weapons/mp40/v_mp40.mdl");
+				return ("models/weapons/mp40/v_mp40.md3");
 		case W_MG:
     	case W_BARRACUDA:
 			if (gorvmodel)

@@ -1177,6 +1177,13 @@ void() W_Grenade =
 void() CheckButtonOne = {if (self.weaponnum == 1){W_PutOut();}}		// weapon switch to two if 1
 void() CheckButtonTwo = {if (self.weaponnum == 0) {W_PutOut();}}	// weapon switch to one if 2
 
+void() slide =
+{
+	makevectors (self.v_angle);
+	self.view_ofs = '0 0 10';
+	self.velocity = v_forward * 700;
+}
+
 void () Impulse_Functions =
 {
 	if (!self.impulse)
@@ -1186,7 +1193,6 @@ void () Impulse_Functions =
 	{		
 		case 22:
 			addmoney(self, 10000, 0);
-			rounds++;
 			break;
 		case 23:
 			W_SprintStart();
@@ -1197,6 +1203,33 @@ void () Impulse_Functions =
 		case 25:
 			W_PutOut();
 			self.semiswitch = true;
+			break;
+		case 26:
+			if (self.sprinting == false) 
+			{
+				if (self.view_ofs == VEC_VIEW_OFS) {
+					self.view_ofs = '0 0 20';
+					hasprone = false;
+					break; }
+				if (self.view_ofs == '0 0 20' && hasprone == false) {
+					self.view_ofs = '0 0 -10';
+					break; }
+				if (self.view_ofs == '0 0 20' && hasprone == true) {
+					self.view_ofs = VEC_VIEW_OFS;
+					break; }
+				if (self.view_ofs == '0 0 -10') {
+					hasprone = true;
+					self.view_ofs = '0 0 20';
+					break; }
+				else {
+					self.view_ofs = VEC_VIEW_OFS;
+					break; }
+			}
+			else
+			{
+				W_SprintStop();
+				slide();
+			}
 			break;
 		case 110:
 			CheckButtonOne();
