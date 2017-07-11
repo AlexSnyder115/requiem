@@ -85,9 +85,9 @@ void() Update_Vmodel =
 	local vector dir;
     local float ads;
 		
-	offset_x = 0.6 * sin(time * 1.2);
-	offset_y = 0.4 * cos(time * 1.5);
-	offset_z = 0.7 * sin(1.1*time + 0.5);
+	//offset_x = 0.6 * sin(time * 4);
+	offset_y = 0.3 * cos(time * 0.6);
+	offset_z = 0.5 * sin(0.4*time + 0.2);
 	
 	dir = vmodel_targetpos - vmodel_currentpos;
 	if(vlen(dir) < (0.15 * 128 * frametime))

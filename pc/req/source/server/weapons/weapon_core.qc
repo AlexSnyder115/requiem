@@ -1201,6 +1201,8 @@ void () Impulse_Functions =
 			addmoney(self, 10000, 0);
 			break;
 		case 23:
+			if (self.view_ofs != VEC_VIEW_OFS)
+				self.view_ofs = VEC_VIEW_OFS;
 			W_SprintStart();
 			break;
 		case 24:

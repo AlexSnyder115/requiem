@@ -133,6 +133,138 @@ void DrinkPerk(float perk) {
 
 void() touch_perk =
 {  
+	if (self.classname == "perk_revive")
+	{
+		if (rev == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					rev = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_juggernog")
+	{
+		if (jug == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					jug = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_speed")
+	{
+		if (spd == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					spd = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_double")
+	{
+		if (dtp == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					dtp = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_flopper")
+	{
+		if (phd == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					phd = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_staminup")
+	{
+		if (sup == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					sup = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_candolier")
+	{
+		if (can == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					can = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_electric")
+	{
+		if (cry == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					cry = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_ammomatic")
+	{
+		if (amm == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					amm = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_mulekick")
+	{
+		if (muk == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					muk = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_deadshot")
+	{
+		if (ded == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					ded = 1;
+				}
+			}
+	}
 	if (other.perkcount < 4)
 	{
 		if (other.classname != "player" || other.downed || other.isBuying == true)
@@ -151,15 +283,6 @@ void() touch_perk =
 	
 		if (self.classname == "perk_revive" && !(other.perks & P_REVIVE) && other.fire_delay < time)
 		{
-			if (rev == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					rev = 1;
-				}
-			}
 			if (!deathmatch && !coop)
 			{
 				useprint (other, 9, 500, 1);
@@ -192,15 +315,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_flopper" && !(other.perks & P_FLOP) && self.fire_delay < time)
 		{
-			if (phd == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					phd = 1;
-				}
-			}
 			useprint (other, 9, 2000, 6);
 			if (other.points >= 2000 && other.button7)
 			{
@@ -215,15 +329,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_juggernog" && !(other.perks & P_JUG) && self.fire_delay < time)
 		{
-			if (jug == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					jug = 1;
-				}
-			}
 			useprint (other, 9, 2500, 2);
 			if (other.points >= 2500 && other.button7)
 			{
@@ -238,15 +343,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_staminup" && !(other.perks & P_STAMIN) && self.fire_delay < time)
 		{
-			if (sup == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					sup = 1;
-				}
-			}
 			useprint (other, 9, 2000, 5);
 			if (other.points >= 2000 && other.button7)
 			{
@@ -261,15 +357,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_speed" && !(other.perks & P_SPEED) && self.fire_delay < time)
 		{
-			if (spd == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					spd = 1;
-				}
-			}
 			useprint (other, 9, 3000, 3);
 			if (other.points >= 3000 && other.button7)
 			{
@@ -284,15 +371,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_candolier" && !(other.perks & P_CANDO) && self.fire_delay < time)
 		{
-			if (can == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					can = 1;
-				}
-			}
 			useprint (other, 9, 3500, 8);
 			if (other.points >= 3500 && other.button7)
 			{
@@ -307,15 +385,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_double" && !(other.perks & P_DOUBLE) && self.fire_delay < time)
 		{
-			if (dtp == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					dtp = 1;
-				}
-			}
 			useprint (other, 9, 2000, 4);
 			if (other.points >= 2000 && other.button7)
 			{
@@ -330,15 +399,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_electric" && !(other.perks & P_CHERRY) && self.fire_delay < time)
 		{
-			if (cry == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					cry = 1;
-				}
-			}
 			useprint (other, 9, 2000, 7);
 			if (other.points >= 2000 && other.button7)
 			{
@@ -353,15 +413,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_ammomatic" && self.fire_delay < time)
 		{
-			if (amm == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					amm = 1;
-				}
-			}
 			useprint (other, 9, 5000, 9);
 			if (other.points >= 5000 && other.button7)
 			{
@@ -375,15 +426,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_mulekick" && !(other.perks & P_MULE) && self.fire_delay < time)
 		{
-			if (muk == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					muk = 1;
-				}
-			}
 			useprint (other, 9, 4000, 10);
 			if (other.points >= 4000 && other.button7)
 			{
@@ -401,15 +443,6 @@ void() touch_perk =
 		}
 		if (self.classname == "perk_deadshot" && !(other.perks & P_DEAD) && self.fire_delay < time)
 		{
-			if (ded == 0)
-			{
-				if (other.view_ofs == '0 0 -10')
-				{
-					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
-					addmoney(other, 100, 0);
-					ded = 1;
-				}
-			}
 			useprint (other, 9, 1500, 11);
 			if (other.points >= 1500 && other.button7)
 			{

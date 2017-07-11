@@ -100,7 +100,7 @@ void() PlayerJump =
 		|| self.downed) {
 		return;
 	}
-			
+	
 	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 	sound(self, CHAN_VOICE, "sounds/player/jump.wav", 1, 1.75);
 	self.button2 = 0;
@@ -118,6 +118,10 @@ void() PlayerPreThink =
 			self.maxspeed *= 1.66;
 		} else if (self.zoom == 1) {
 			self.maxspeed *= 0.5;
+		} else if (self.view_ofs == '0 0 20') {
+			self.maxspeed *= 0.4;
+		} else if (self.view_ofs == '0 0 -10') {
+			self.maxspeed *= 0.25;
 		} if (self.damagetimer > time) {
 			self.maxspeed *= 0.5;
 		}
@@ -161,9 +165,12 @@ void() PlayerPreThink =
 	}
 	
 
-	if(self.button2)
+	if(self.impulse == 27)
 	{
-		PlayerJump ();
+		if (self.view_ofs == VEC_VIEW_OFS)
+			PlayerJump ();
+		else
+			self.view_ofs = VEC_VIEW_OFS;
 	}
 	else
 		self.flags = self.flags | FL_JUMPRELEASED;
