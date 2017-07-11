@@ -740,7 +740,7 @@ void(float width, float height) HUD_Useprint =
 				usestring = strcat("Hold ",usebutton, " to buy a random weapon [Cost:", ftos(useprint_cost),"]");
 				break;
 			case 7://box take
-				usestring = strcat("Hold ",usebutton, " to take weapon");
+				usestring = strcat("Hold ",usebutton, " to take ",GetWeaponName(useprint_weapon),".");
 				break;
 			case 8://power
 				usestring = "The power must be activated first";
@@ -1080,7 +1080,11 @@ void() HUD_Scores =
 void() HUD_Endgame = {
 
 	string message = "GAME OVER";
-	string survive = strcat("You survived ",ftos(rounds)," rounds");
+	string rnd = " ";
+	if (ftos(rounds) != "1")
+		rnd = "s";
+
+	string survive = strcat("You survived ",ftos(rounds)," round",rnd);
 	
 	// first message
 	float print_width = stringwidth(message, 0, [(1/30)*g_width, (1/30)*g_width, 0]);

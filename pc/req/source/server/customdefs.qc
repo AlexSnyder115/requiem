@@ -23,6 +23,7 @@ float amm;
 float muk;
 float ded;
 float coop;
+.float boxwep;
 .vector oldvelocity;
 .float lastsound_time;
 .float isspec;
