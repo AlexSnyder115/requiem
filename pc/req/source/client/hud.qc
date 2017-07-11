@@ -71,8 +71,8 @@ void(float width, float height) HUD_Ammo =
 	} else {
 		ammostring_1 = ftos(curmag);
 		ammostring_2 = strcat("/",ftos(ammo));
-		drawstring([width - (42/480)*width - (benis*20*width/1024), 0.96*height, 0], ammostring_1, [0.02*width, 0.02*width, 0], color, 1, 1);
-		drawstring([width - (42/480)*width - ((benis-strlen(ftos(curmag)))*20*width/1024), 0.96*height, 0], ammostring_2, [0.02*width, 0.02*width, 0], color_2, 1, 1);
+		drawstring([(width*.8) - (benis*20*width/1024), 0.85*height, 0], ammostring_1, [0.02*width, 0.02*width, 0], color, 1, 1);
+		drawstring([(width*.8) - ((benis-strlen(ftos(curmag)))*20*width/1024), 0.85*height, 0], ammostring_2, [0.015*width, 0.015*width, 0], color_2, 1, 1);
 	}
 }
 
@@ -121,12 +121,12 @@ void(float width, float height) HUD_Points =
 		if ((i+1) == getstatf(STAT_PLAYERNUM)) {
 			pointlength = strlen(ftos(playerpoints[i]));
 			drawpic([0.8*width,0.70*height - (.061*height*i),0], "gfx/hud/moneyback.tga", [0.2*width, 0.07*height, 0], [1,1,1], 1); 
-			drawstring([.9414*width - pointlength*20*width/1024, 0.715*height - 0.06*height*i, 0], ftos(playerpoints[i]), [0.022*width, 0.022*width, 0], TEXTCOLOR, 1, 1); 
+			drawstring([.83*width, 0.715*height - 0.06*height*i, 0], ftos(playerpoints[i]), [0.022*width, 0.022*width, 0], TEXTCOLOR, 1, 1); 
 		}
 		else {
 			pointlength = strlen(ftos(playerpoints[i]));
 			drawpic([0.85*width,0.70*height - (.071*height*i*0.8),0], "gfx/hud/moneyback.tga", [0.2*width*0.8, 0.07*height*0.8, 0], [1,1,1], 1); 
-			drawstring([.97*width - pointlength*20*width/1024, 0.715*height - 0.07*height*i*0.8, 0], ftos(playerpoints[i]), [0.022*width*0.8, 0.022*width*0.8, 0], TEXTCOLOR, 1, 1); 
+			drawstring([0.97*width - pointlength*20*width/1024, 0.715*height - 0.07*height*i*0.8, 0], ftos(playerpoints[i]), [0.022*width*0.8, 0.022*width*0.8, 0], TEXTCOLOR, 1, 1); 
 		}
 	}
 }
@@ -176,8 +176,26 @@ void(float width, float height) HUD_Grenades =
 
 	grenades = getstatf(STAT_GRENADES);
 	betties = getstatf(STAT_SECGRENADES);
-	drawpic([0.9*width,0.825*height,0], "gfx/hud/frag.tga", [50, 50, 0], [1,1,1], 1);
-	drawstring([0.9*width + 28, 0.825*height + 32, 0], ftos(grenades), [0.025*width, 0.025*width, 0], [1, 1, 1], 1, 1);
+	if (grenades == 1)
+		drawpic([0.76*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+	if (grenades == 2)
+	{
+		drawpic([0.76*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+		drawpic([0.77*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+	}
+	if (grenades == 3)
+	{
+		drawpic([0.76*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+		drawpic([0.77*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+		drawpic([0.78*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+	}
+	if (grenades == 4)
+	{
+		drawpic([0.76*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+		drawpic([0.77*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+		drawpic([0.78*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+		drawpic([0.79*width,0.875*height,0], "gfx/hud/frag.tga", [35, 35, 0], [1,1,1], 1);
+	}
 	
 	if (betties != -1) {
 		drawpic([0.825*width,0.825*height,0], "gfx/hud/betty.tga", [50, 50, 0], [1,1,1], 1);
@@ -870,7 +888,7 @@ void(float width, float height) HUD_Weaponstring =
 	weaponstring = GetWeaponName(getstatf(STAT_ACTIVEWEAPON));
 	ws_offset = (strlen(weaponstring));
 		
-	drawstring([0.925*width + (40*width/1024) - ws_offset*20*width/1024, 0.75*height + 10, 0], weaponstring, [0.02*width, 0.02*width, 0], [1, 1, 1], 1, 1);
+	drawstring([0.7*width, 0.78*height + 10, 0], weaponstring, [0.012*width, 0.012*width, 0], [1, 1, 1], 1, 1);
 }
 
 /*******************
@@ -1089,7 +1107,6 @@ void(float width, float height) HUD_Draw =
 		Draw_Crosshair();
 		HUD_Health(width, height);
 		HUD_Points(width, height);
-		HUD_PlayerName(width, height);
 		HUD_Rounds(width, height);
 		HUD_Perks(width, height);
 		HUD_Progressbar(width, height);
@@ -1101,6 +1118,7 @@ void(float width, float height) HUD_Draw =
 			HUD_Ammo(width, height);
 			HUD_Grenades(width, height);
 			HUD_Weaponstring(width, height);
+			HUD_PlayerName(width, height);
 		}
 			
 		if (useprint_time > time) 

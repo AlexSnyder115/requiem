@@ -165,12 +165,9 @@ void() PlayerPreThink =
 	}
 	
 
-	if(self.impulse == 27)
+	if(self.button2)
 	{
-		if (self.view_ofs == VEC_VIEW_OFS)
-			PlayerJump ();
-		else
-			self.view_ofs = VEC_VIEW_OFS;
+		PlayerJump ();
 	}
 	else
 		self.flags = self.flags | FL_JUMPRELEASED;
