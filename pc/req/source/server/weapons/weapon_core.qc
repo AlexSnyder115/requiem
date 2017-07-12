@@ -276,7 +276,7 @@ void() ContinueReload = //Special reloads
 
 	if (delay) {
 		if (self.perks & P_SPEED) {
-			delay *= 0.75;
+			delay *= 0.35;
 		}
 		self.reload_delay = time + delay;
 		Set_W_Frame (startframe, endframe, delay, 0, RELOAD, endanimfunc, modelname, false, S_RIGHT);
@@ -379,7 +379,7 @@ void(float side) W_Reload =
 		}
 
 		if (self.perks & P_SPEED)
-			delay = delay*0.75;
+			delay = delay*0.35;
 		
 		if (side == S_RIGHT) {
 			self.reload_delay = delay + time;
@@ -736,7 +736,9 @@ void(float side) W_Fire =
 	}
 	
 	//get some basic info
-	damage = getWeaponDamage(self.weapon);   
+	damage = getWeaponDamage(self.weapon);
+	if (self.perks & P_DOUBLE)
+		damage *= 2;   
 	firetype = GetFiretype (self.weapon);
 	if (side == S_RIGHT) {
 		modelname = GetWeaponModel(self.weapon, 0);
@@ -749,6 +751,8 @@ void(float side) W_Fire =
     soundname = GetWeaponSound(self.weapon);
 	delay = getWeaponDelay(self.weapon, FIRE);
 	spread = 1.5*GetWeaponSpread(self.weapon);
+	if (self.perks & P_DEAD)
+		spread *= 0.65;
 
 	if (self.zoom == 1) {
 		if (self.weapon == W_TRENCH ||
@@ -790,7 +794,7 @@ void(float side) W_Fire =
 	endframe = GetFrame(self.weapon,FIRE_END);
 
 	if (self.perks & P_DOUBLE) {
-		delay *=0.5;
+		delay *=0.25;
 	}
 
 	if (self.weapon == W_GUT || self.weapon == W_KAR_SCOPE || self.weapon == W_TRENCH || self.weapon == W_KAR || self.weapon == W_ARMAGEDDON || self.weapon == W_HEADCRACKER)

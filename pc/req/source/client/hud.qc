@@ -989,8 +989,8 @@ void() Draw_Crosshair =
 		if (CrossHairMaxSpread(getstatf(STAT_ACTIVEWEAPON)) < crosshair_offset || croshhairmoving)
 		{
 			crosshair_offset = CrossHairMaxSpread(getstatf(STAT_ACTIVEWEAPON));
-			/*if (perks & P_DEAD)
-				crosshair_offset *= 0.5;*/
+			if (perks & P_DEAD)
+				crosshair_offset *= 0.65;
 		}
 
 		crosshair_offset_step += (crosshair_offset - crosshair_offset_step) * 0.5;

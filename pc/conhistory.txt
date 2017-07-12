@@ -160,3 +160,14 @@ map ndu
 map ndu
 map ndu
 map perk
+map perk
+fov 165
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
