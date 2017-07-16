@@ -1,5 +1,10 @@
 void() W_PutOut;
 
+void() CherryBoom =
+{
+	DamgageExplode (self, self.owner, 512, 75, 175);
+}
+
 void() ReturnWeaponModel =
 {
 	self.weaponmodel = GetWeaponModel(self.weapon, 0);
@@ -285,6 +290,8 @@ void() ContinueReload = //Special reloads
 
 void(float side) W_Reload =
 {
+	if (self.perks & P_CHERRY && (self.currentammo != 0) && self.currentmag < getWeaponMag(self.weapon))
+			CherryBoom();
 	self.viewzoom = 1;
 	
 	if (side == S_BOTH) {

@@ -138,6 +138,8 @@ string(float perk) GetPerkName =
 			return "Mulekick";
 		case 11:
 			return "Deadshot Daiquiri";
+		case 12:
+			return "Who's Who";
 		default:
 			return "NULL";
 	}
@@ -148,6 +150,7 @@ float(float wep) GetFiretype =
 
 	switch (wep)
 	{
+		case W_TESLA:
 		case W_COLT:
 		case W_BIATCH:
 			return 1;
@@ -319,6 +322,8 @@ float(float wep) getWeaponMag =
 			return 30;
 		case W_SAMURAI:
 			return 60;
+		case W_TESLA:
+			return 3;
 	}
 	return 0;
 }
@@ -419,6 +424,8 @@ float(float wep) getWeaponAmmo =
 			return 160;
 		case W_SAMURAI:
 			return 220;
+		case W_TESLA:
+			return 15;
 	}
 	return 0;
 }
@@ -497,6 +504,7 @@ float(float wep) getWeaponDamage =
 			return 1000;
 		case W_PENETRATOR:
 			return 1000;
+		case W_TESLA:
 		case W_RAY:
 			return 1000;
 		case W_PORTER:
@@ -612,6 +620,7 @@ float(float wep, float penetration_times) getWeaponPenetration =
 			if (penetration_times >= 2)
 				return 0;
 			return 0.8;
+		case W_TESLA:
 		case W_MG:
 		case W_BARRACUDA:
 			if (penetration_times >= 3)
@@ -987,6 +996,11 @@ float(float wep, float delaytype) getWeaponDelay =
 				return 2.3;
 			else if (delaytype == FIRE)
 				return 0.065;
+		case W_TESLA:
+			if (delaytype == RELOAD)
+				return 3;
+			else if (delaytype == FIRE)
+				return 2.5;
     }
 
     return 0;
@@ -1134,6 +1148,7 @@ vector GetWeaponADSPos(float wep) {
 		case W_M1A1:
 		case W_WIDDER:
 			return [-0.6, 2.7, 1.94];
+		case W_TESLA:
 		case W_MP40:
 		case W_AFTERBURNER:
 			return [-3.79, 6.1, 4.04];
@@ -1964,6 +1979,11 @@ string(float wep, float gorvmodel) GetWeaponModel =
 				return ("models/weapons/m1911/g_colt.mdl");
 			else
 				return ("models/weapons/m1911/v_colt.mdl");
+		case W_TESLA:
+			if (gorvmodel)
+				return ("models/weapons/tesla/g_tesla.mdl");
+			else
+				return ("models/weapons/tesla/v_tesla.mdl");
 		case W_BIATCH:
 			if (gorvmodel)
 				return ("models/weapons/m1911/g_colt.mdl");
@@ -2182,6 +2202,8 @@ string(float wep) GetWeaponSound =
 		case W_TYPE:
     	case W_SAMURAI:
 			return "sounds/weapons/type100/shoot.wav";
+		case W_TESLA:
+			return "sounds/weapons/tesla/shoot.wav";
     }
 
     return "";

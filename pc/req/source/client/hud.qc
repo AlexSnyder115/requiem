@@ -793,6 +793,9 @@ void(float width, float height) HUD_Useprint =
 			case 24:
 				usestring = strcat("Teleporter is cooling down");
 				break;
+			case 25:
+				usestring = strcat("Hold ",usebutton, " to revive youself");
+				break;
 			default:
 				usestring = "This should not happen you dum fuck";
 				break;
@@ -871,6 +874,11 @@ void(float width, float height) HUD_Perks =
 			else if (perk_order[i] == P_DEAD)
 			{
 				drawpic([y,yyy,0], "gfx/hud/dead.tga", [28, 28, 1], [1,1,1], 1);
+				y = y + 30;
+			}
+			else if (perk_order[i] == P_WHO)
+			{
+				drawpic([y,yyy,0], "gfx/hud/who.tga", [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 		}
@@ -1195,9 +1203,14 @@ void UpdatePerks (float newperks) {
 		perk_order[current_perk_order] = P_DEAD;
 		current_perk_order = current_perk_order + 1;
 	}
+	if (newperks & P_WHO && !(perks & P_WHO))
+	{
+		perk_order[current_perk_order] = P_WHO;
+		current_perk_order = current_perk_order + 1;
+	}
 	if (perks & P_JUG && !(newperks & P_JUG))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_JUG)
 			{
@@ -1214,7 +1227,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_DOUBLE && !(newperks & P_DOUBLE))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_DOUBLE)
 			{
@@ -1231,7 +1244,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_SPEED && !(newperks & P_SPEED))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_SPEED)
 			{
@@ -1248,7 +1261,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_REVIVE && !(newperks & P_REVIVE))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_REVIVE)
 			{
@@ -1265,7 +1278,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_FLOP && !(newperks & P_FLOP))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_FLOP)
 			{
@@ -1282,7 +1295,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_STAMIN && !(newperks & P_STAMIN))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_STAMIN)
 			{
@@ -1299,7 +1312,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_CHERRY && !(newperks & P_CHERRY))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_CHERRY)
 			{
@@ -1316,7 +1329,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_CANDO && !(newperks & P_CANDO))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_CANDO)
 			{
@@ -1333,7 +1346,7 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_MULE && !(newperks & P_MULE))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_MULE)
 			{
@@ -1350,9 +1363,26 @@ void UpdatePerks (float newperks) {
 	}
 	if (perks & P_DEAD && !(newperks & P_DEAD))
 	{
-		for (s = 0; s < 11; s++)
+		for (s = 0; s < 12; s++)
 		{
 			if (perk_order[s] == P_DEAD)
+			{
+				perk_order[s] = 0;
+				while (perk_order[s+1])
+				{
+					perk_order[s] = perk_order[s+1];
+					perk_order[s+1] = 0;
+				}
+				break;
+			}
+		}
+		current_perk_order = current_perk_order - 1;
+	}
+	if (perks & P_WHO && !(newperks & P_WHO))
+	{
+		for (s = 0; s < 12; s++)
+		{
+			if (perk_order[s] == P_WHO)
 			{
 				perk_order[s] = 0;
 				while (perk_order[s+1])

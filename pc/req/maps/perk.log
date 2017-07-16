@@ -1,0 +1,228 @@
+hlcsg v3.4 Final (Jul  3 2017)
+Zoner's Half-Life Compilation Tools -- Custom Build
+Based on code modifications by Sean 'Zoner' Cavanaugh
+Based on Valve's version, modified with permission.
+Submit detailed bug reports to (amckern@yahoo.com)
+-----  BEGIN  hlcsg -----
+Command line: /home/moto/Compilers/Mapping/HL/build/hlcsg /home/moto/requiem/pc/req/maps/perk 
+Entering /home/moto/requiem/pc/req/maps/perk.map
+
+Current hlcsg Settings
+Name                 |  Setting  |  Default
+---------------------|-----------|-------------------------
+threads               [       1 ] [       1 ]
+verbose               [     off ] [     off ]
+log                   [      on ] [      on ]
+developer             [       0 ] [       0 ]
+chart                 [     off ] [     off ]
+estimate              [      on ] [      on ]
+max texture memory    [ 4194304 ] [ 4194304 ]
+max lighting memory   [ 6291456 ] [ 6291456 ]
+priority              [  Normal ] [  Normal ]
+
+noclip                [     off ] [     off ]
+null texture stripping[      on ] [      on ]
+clipnode economy mode [      on ] [      on ]
+clip hull type        [  legacy ] [  legacy ]
+onlyents              [     off ] [     off ]
+wadtextures           [      on ] [      on ]
+skyclip               [      on ] [      on ]
+hullfile              [    None ] [    None ]
+nullfile              [    None ] [    None ]
+min surface area      [   0.500 ] [   0.500 ]
+brush union threshold [   0.000 ] [   0.000 ]
+
+Using mapfile wad configuration
+Wadinclude list :
+[zhlt.wad]
+
+0 brushes (totalling 0 sides) discarded from clipping hulls
+CreateBrush:
+ (0.01 seconds)
+SetModelCenters:
+ (0.00 seconds)
+CSGBrush:
+ (0.02 seconds)
+
+Using Wadfile: /home/moto/Downloads/nzportable_1051_dirty/nzp/textures/Example_01.wad
+ - Contains 3 used textures, 60.00 percent of map (15 textures in wad)
+Using Wadfile: /home/moto/Downloads/nzportable_1051_dirty/nzp/textures/waw_HLBSP.wad
+ - Contains 2 used textures, 40.00 percent of map (157 textures in wad)
+
+Texture usage is at 0.04 mb (of 4.00 mb MAX)
+0.04 seconds elapsed
+
+-----   END   hlcsg -----
+
+
+
+hlbsp v3.4 Final (Jul  3 2017)
+Zoner's Half-Life Compilation Tools -- Custom Build
+Based on code modifications by Sean 'Zoner' Cavanaugh
+Based on Valve's version, modified with permission.
+Submit detailed bug reports to (amckern@yahoo.com)
+-----  BEGIN  hlbsp -----
+Command line: /home/moto/Compilers/Mapping/HL/build/hlbsp /home/moto/requiem/pc/req/maps/perk 
+
+Current hlbsp Settings
+Name               |  Setting  |  Default
+-------------------|-----------|-------------------------
+threads             [       1 ] [       1 ]
+verbose             [     off ] [     off ]
+log                 [      on ] [      on ]
+developer           [       0 ] [       0 ]
+chart               [     off ] [     off ]
+estimate            [      on ] [      on ]
+max texture memory  [ 4194304 ] [ 4194304 ]
+priority            [  Normal ] [  Normal ]
+
+noclip              [     off ] [     off ]
+nofill              [     off ] [     off ]
+noopt               [     off ] [     off ]
+null tex. stripping [      on ] [      on ]
+notjunc             [     off ] [     off ]
+subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
+max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
+
+
+SolidBSP [hull 0] 33 (0.00 seconds)
+BSP generation successful, writing portal file '/home/moto/requiem/pc/req/maps/perk.prt'
+SolidBSP [hull 1] 29 (0.00 seconds)
+SolidBSP [hull 2] 27 (0.00 seconds)
+SolidBSP [hull 3] 34 (0.00 seconds)
+0.02 seconds elapsed
+
+-----   END   hlbsp -----
+
+
+
+hlvis v3.4 Final (Jul  3 2017)
+Zoner's Half-Life Compilation Tools -- Custom Build
+Based on code modifications by Sean 'Zoner' Cavanaugh
+Based on Valve's version, modified with permission.
+Submit detailed bug reports to (amckern@yahoo.com)
+-----  BEGIN  hlvis -----
+Command line: /home/moto/Compilers/Mapping/HL/build/hlvis /home/moto/requiem/pc/req/maps/perk 
+  17 portalleafs
+  37 numportals
+
+-= Current hlvis Settings =-
+Name               |  Setting  |  Default
+-------------------|-----------|-------------------------
+threads             [       1 ] [       1 ]
+verbose             [     off ] [     off ]
+log                 [      on ] [      on ]
+developer           [       0 ] [       0 ]
+chart               [     off ] [     off ]
+estimate            [      on ] [      on ]
+max texture memory  [ 4194304 ] [ 4194304 ]
+max vis distance    [       0 ] [       0 ]
+priority            [  Normal ] [  Normal ]
+
+fast vis            [     off ] [     off ]
+full vis            [     off ] [     off ]
+
+
+BasePortalVis:
+ (0.00 seconds)
+LeafThread:
+ (0.00 seconds)
+average leafs visible: 7
+g_visdatasize:74  compressed from 51
+0.01 seconds elapsed
+
+-----   END   hlvis -----
+
+
+
+hlrad v3.4 Final (Jul  3 2017)
+Zoner's Half-Life Compilation Tools -- Custom Build
+Based on code modifications by Sean 'Zoner' Cavanaugh
+Based on Valve's version, modified with permission.
+Submit detailed bug reports to (amckern@yahoo.com)
+-----  BEGIN  hlrad -----
+Command line: /home/moto/Compilers/Mapping/HL/build/hlrad /home/moto/requiem/pc/req/maps/perk 
+
+-= Current hlrad Settings =-
+Name                | Setting             | Default
+--------------------|---------------------|-------------------------
+threads              [                 1 ] [                 1 ]
+verbose              [               off ] [               off ]
+log                  [                on ] [                on ]
+developer            [                 0 ] [                 0 ]
+chart                [               off ] [               off ]
+estimate             [                on ] [                on ]
+max texture memory   [           4194304 ] [           4194304 ]
+max lighting memory  [           6291456 ] [           6291456 ]
+priority             [            Normal ] [            Normal ]
+
+vismatrix algorithm  [          Original ] [          Original ]
+oversampling (-extra)[               off ] [               off ]
+bounces              [                 1 ] [                 1 ]
+bounce dynamic light [                on ] [                on ]
+ambient light        [ 0.000 0.000 0.000 ] [ 0.000 0.000 0.000 ]
+maximum light        [           255.000 ] [           256.000 ]
+circus mode          [               off ] [               off ]
+
+smoothing threshold  [            50.000 ] [            50.000 ]
+direct threshold     [            25.000 ] [            25.000 ]
+direct light scale   [             2.000 ] [             2.000 ]
+coring threshold     [             1.000 ] [             1.000 ]
+patch interpolation  [                on ] [                on ]
+
+texscale             [                on ] [                on ]
+patch subdividing    [                on ] [                on ]
+chop value           [            64.000 ] [            64.000 ]
+texchop value        [            32.000 ] [            32.000 ]
+
+global fade          [             1.000 ] [             1.000 ]
+global falloff       [                 2 ] [                 2 ]
+global light scale   [ 1.000 1.000 1.000 ] [ 1.000 1.000 1.000 ]
+global gamma         [ 0.500 0.500 0.500 ] [ 0.500 0.500 0.500 ]
+global light scale   [             1.000 ] [             1.000 ]
+global sky diffusion [             1.000 ] [             1.000 ]
+
+opaque entities      [                on ] [                on ]
+sky lighting fix     [                on ] [                on ]
+incremental          [               off ] [               off ]
+dump                 [               off ] [               off ]
+
+colour jitter        [       0.0 0.0 0.0 ] [       0.0 0.0 0.0 ]
+monochromatic jitter [       0.0 0.0 0.0 ] [       0.0 0.0 0.0 ]
+softlight hack       [   0.0 0.0 0.0 0.0 ] [   0.0 0.0 0.0 0.0 ]
+diffuse hack         [                on ] [                on ]
+spotlight points     [                on ] [                on ]
+
+custom shadows with bounce light
+                     [               off ] [               off ]
+rgb transfers        [               off ] [               off ]
+
+
+72 faces
+Create Patches : 500 base patches
+0 opaque faces
+6619 square feet [953212.00 square inches]
+1 direct lights
+
+BuildFacelights:
+ (0.08 seconds)
+visibility matrix   :   0.0 megs
+BuildVisLeafs:
+ (0.01 seconds)
+MakeScales:
+ (0.01 seconds)
+SwapTransfers:
+ (0.00 seconds)
+Transfer Lists :       38286 :   38.29k transfers
+       Indices :        4816 :    4.70k bytes
+          Data :      153144 :  149.55k bytes
+GatherLight:
+ (0.00 seconds)
+FinalLightFace:
+ (0.03 seconds)
+0.16 seconds elapsed
+
+-----   END   hlrad -----
+
+
+

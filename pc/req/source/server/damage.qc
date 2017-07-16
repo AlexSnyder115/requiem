@@ -2,6 +2,47 @@
 // damage.qc -- used for any sort of down, hit, etc that the player or entity experiences
 //
 
+//Spawn the downed Who's Who player
+void() respawnplayer =
+{
+	local entity who, plr;
+	who = find(world,classname, "who");
+	plr = find(world,classname, "player");
+	setorigin(plr, who.origin);
+	plr.weaponbk = plr.weapon;
+	plr.currentammobk = plr.currentammo;
+	plr.currentmagbk = plr.currentmag;
+	plr.currentmagbk2 = plr.currentmag2;
+}
+
+void() touch_who =
+{
+	useprint(other, 25, 0, 0);
+	if (other.button7)
+	{
+		Set_W_Frame (0, 21, 0, 0, 0, SUB_Null, "models/v_morphine.mdl", false, S_BOTH);
+		other.progress_bar = 4 + time;     
+		other.progress_bar_time = 10;
+		other.progress_bar_percent = 1;
+		self.think = respawnplayer;
+		self.nextthink = 4 + time;
+	}
+}
+
+void() SpawnWhoDown =
+{
+	precache_model("models/player.mdl");
+	local entity ppoint, who;
+	ppoint = find(world, classname, "player");
+	who = spawn();
+	who.classname = "who";
+	setorigin(who, ppoint.origin);
+	setmodel(who, "models/player.mdl");
+	who.touch = touch_who;
+	who.frame = 36;
+	who.solid = SOLID_TRIGGER;
+}
+
 //Actual endgame function, all zombies die, music plays
 void() EndGame =
 {
@@ -143,6 +184,22 @@ void() rec_downed =
 
 void() GetDown =
 {
+	if (self.perks & P_WHO)
+	{
+		self.weaponbk = self.weapon;
+		self.currentammobk = self.currentammo;
+		self.currentmagbk = self.currentmag;
+		self.currentmagbk2 = self.currentmag2;
+		local entity spoint;
+		spoint = find(world, classname, "info_player_start");
+		self.weapon = W_COLT;
+		self.currentmag = 8;
+		self.currentammo = 32;
+		SpawnWhoDown();
+		setorigin(self, spoint.origin);
+		self.downed = 0;
+		return;
+	}
 	float startframe;
 	float endframe;
 	local string modelname;
@@ -170,9 +227,12 @@ void() GetDown =
 	}
 	
 	if (self.perks && P_REVIVE && !coop) {	
-		self.progress_bar = 10 + time;     
-		self.progress_bar_time = 10;
-		self.progress_bar_percent = 1;
+		if (!self.perks && P_WHO)
+		{
+			self.progress_bar = 10 + time;     
+			self.progress_bar_time = 10;
+			self.progress_bar_percent = 1;
+		}
 	}
 	self.points = 10*rint((self.points*0.95)/10);
 	addmoney(self, 0, true);						// used to call a broadcast

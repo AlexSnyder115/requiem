@@ -131,6 +131,7 @@ const float EVENT_POINTUPDATE = 25;
 #define 	P_AMMO	 	256
 #define 	P_MULE		512
 #define 	P_DEAD 		1024
+#define 	P_WHO 		2048
 
 #define STAT_CURRENTMAG         50
 #define STAT_CURRENTMAG2        51

@@ -171,3 +171,62 @@ map perk
 map perk
 map perk
 map perk
+fog 0.1
+fog 1
+fog 0.2
+fog 0.1
+fog 0.01
+fog 0.05
+fog 0.09
+fog 0.1
+fog 0.1
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+map perk
+god
+map perk
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+fog 0.1
+restart
+god
+god
+god
+god
+map perk
+god
+god
+fog 0.1
+god
+god
+restart
+god
+god
+fog 0.1
+god
+god
+god
+give 1
+map perk
+map perk
+map perk
+fog 0.1

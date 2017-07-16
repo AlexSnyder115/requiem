@@ -39,6 +39,9 @@ void GivePerk(float perk) {
 		case P_DEAD:
 			self.perks = self.perks | 1024;
 			break;
+		case P_WHO:
+			self.perks = self.perks | 2048;
+			break;
 		default:
 			print("Unknown perk type, wtf?\n");
 	}
@@ -64,6 +67,7 @@ void() give_candolier = { GivePerk(P_CANDO); }
 void() give_ammomatic = { GivePerk(P_AMMO); }
 void() give_mulekick = { GivePerk(P_MULE); }
 void() give_deadshot = { GivePerk(P_DEAD); }
+void() give_whoswho = { GivePerk(P_WHO); }
 
 
 void DrinkPerk(float perk) {
@@ -114,6 +118,10 @@ void DrinkPerk(float perk) {
 		case P_DEAD:
 			other.weaponskin = 1;
 			func = give_deadshot;
+			break;
+		case P_WHO:
+			other.weaponskin = 3;
+			func = give_whoswho;
 			break;
 		default:
 			print("Unknown perk type, wtf?\n");
@@ -254,6 +262,18 @@ void() touch_perk =
 			}
 	}
 	if (self.classname == "perk_deadshot")
+	{
+		if (ded == 0)
+			{
+				if (other.view_ofs == '0 0 -10')
+				{
+					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
+					addmoney(other, 100, 0);
+					ded = 1;
+				}
+			}
+	}
+	if (self.classname == "perk_whoswho")
 	{
 		if (ded == 0)
 			{
@@ -455,6 +475,20 @@ void() touch_perk =
 				centerprint (other, "Not enough points\n");
 			}
 		}
+		if (self.classname == "perk_whoswho" && !(other.perks & P_WHO) && self.fire_delay < time)
+		{
+			useprint (other, 9, 2000, 12);
+			if (other.points >= 2000 && other.button7)
+			{
+				other.perkcount++;
+				addmoney (other, -2000, 0);
+				DrinkPerk(P_WHO);
+			}
+			else if (other.button7)
+			{
+				centerprint (other, "Not enough points\n");
+			}
+		}
 	}
 }
 
@@ -569,6 +603,8 @@ void() setup_perk =
 			self.effects = EF_GREEN;
 		else if (self.classname == "perk_mulekick")
 			self.effects = EF_GREEN;
+		else if (self.classname == "perk_whoswho")
+			self.effects = EF_GREEN;
 		else if (self.classname == "perk_ammomatic")
 			self.effects = EF_BLUE;
 		else if (self.classname == "perk_electric")
@@ -633,6 +669,22 @@ void() perk_juggernog =
 	setmodel (self, "models/machines/juggernog.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
 	self.classname = "perk_juggernog";
+	self.touch = touch_perk;
+
+	self.think = setup_perk;
+	self.nextthink = time + 0.1;
+};
+
+void() perk_whoswho =
+{
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/juggernog.mdl");
+	precache_model ("models/machines/v_perk.mdl");
+	precache_sound ("sounds/machines/perk_drink.wav");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/juggernog.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "perk_whoswho";
 	self.touch = touch_perk;
 
 	self.think = setup_perk;
