@@ -230,3 +230,23 @@ map perk
 map perk
 map perk
 fog 0.1
+map ndu
+map perk
+fog 0.1
+god
+god
+fog 0.1
+map kino_der_toten
+fog 0.1
+fog 0.1
+map ndu
+map ndu
+fog 0.1
+restart
+map warehouse
+fog 0.1
+map warehouse
+fog 0.1
+restart
+fog 0.1
+map warehouse
