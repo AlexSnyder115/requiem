@@ -193,3 +193,21 @@ map wahnsinn
 fog 0.1
 god
 map perk
+map alcatraz
+map alcatraz
+restart
+restart
+map alcatraz
+map alcatraz
+map alcatraz
+map alcatraz
+fog 0.1
+map alcatraz
+map alcatraz
+fog 0.1
+map alcatraz
+map alcatraz
+map alcatraz
+map alcatraz
+map alcatraz
+map perk
