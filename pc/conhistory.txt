@@ -1,252 +1,151 @@
-
-restart
-restart
-restart
-restart
-restart
-map warehouse
-map ndu
-map warehouse
+fog 0.1
 fog 0
-map wahnsinn
-map warehouse
-map
-map warehouse
-map warehouse
-map ndu
-map warehouse
-map dog
-map dogs
-map dogs
-map
-map
+fog 0
+fog 0
+map perk
+map perk
+map perk
+map perk
+map perk
 map perk
 pause
-pause
-map kino_der_toten
+map ndu
+gamma
+gamma 0.75
+god
+fog 0
+restart
+gamma 0.5
+gamma 1
 map warehouse
-map dr
-fog 0
-fog
-fog
-fog 0
-fog 0
-fog 0
-fog
-fog
-fog 0
-fog 0
-fog 0
-map perk
-fog 0
-fov 90
-fov 90
-fog 0
-fov
-fov 160
-fog 0
-fov 90
-fog 0
-fov 90
-fog 0
-fov 90
-fov 160
-fov 90
-fov 160
-fog 0
-fov 90
-fov 160
-fov 90
-fog 0
-map pentagon
-fog
-fog 0
-map wahnsinn
-fog 0
-fog 0.1
-fog 0.1
-fog 0
-map dr
-fog 0
-fog 0.1
-map ndu
-fog 0.1
-fog 0
-map ndu
-fog 0
-map perk
-map perk
-map perk
-map perk
-map perk
-fog 0.1
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map tp
-map perk
-map perk
-map perk
-map warehouse
-fog 0.1
-fog 0.1
-fog 0.1
-fog 0.1
-map ndu
-map ndu
-map warehouse
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-fov
-fov 75
-fov 70
-map warehouse
-map warehouse
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-fog 0
-fog 0.1
-fog 0.1
-fog 0.1
-map ndu
-fog 0.1
-fog 0
-map perk
-fog 0.1
-fog 0.1
-fog 0.1
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map perk
-map perk
-fov 165
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-fog 0.1
-fog 1
-fog 0.2
+god
 fog 0.1
 fog 0.01
-fog 0.05
-fog 0.09
-fog 0.1
-fog 0.1
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
-map perk
+/r_shadow_shadowmapping_bias
+/r_shadow_shadowmapping_bias 1
+/r_shadow_shadowmapping_bias 
+/r_shadow_shadowmapping_bias 0.3
+/r_shadow_shadowmapping_bias 1
+/r_shadow_realtime_world_lightmaps
+/r_shadow_realtime_world_lightmaps 1
+/r_shadow_realtime_world_lightmaps 
+/r_shadow_realtime_world_lightmaps 1
+/r_shadow_realtime_world_lightmaps 0
+/r_shadow_realtime_world_lightmaps 1
+/r_shadow_realtime_dlight_shadows
+/r_shadow_realtime_dlight_shadows 0
+god
+/r_shadow_bumpscale_bumpmap
+/r_shadow_bumpscale_bumpmap 7
+/r_shadow_bumpscale_bumpmap 0
+/r_shadow_bumpscale_bumpmap 7
+fog 0.4
+fog 1
+fog 4
+fo
+fo
 map perk
 god
 map perk
 god
-map perk
-god
-god
 god
 map perk
-god
-god
-god
-map perk
-god
-god
-fog 0.1
-restart
-god
 god
 god
 god
 map perk
 god
 god
-fog 0.1
 god
-god
-restart
-god
-god
-fog 0.1
-god
-god
-god
-give 1
 map perk
-map perk
-map perk
-fog 0.1
-map ndu
-map perk
-fog 0.1
 god
 god
-fog 0.1
-map kino_der_toten
-fog 0.1
-fog 0.1
-map ndu
-map ndu
-fog 0.1
-restart
-map warehouse
-fog 0.1
-map warehouse
-fog 0.1
-restart
-fog 0.1
-map warehouse
+god
+map perk
+god
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+god
+map perk
+god
+god
+god
+god
+map perk
+god
+god
+god
+god
+god
+god

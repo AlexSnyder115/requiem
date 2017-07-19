@@ -45,11 +45,11 @@ CSGBrush:
  (0.02 seconds)
 
 Using Wadfile: /home/moto/Downloads/nzportable_1051_dirty/nzp/textures/Example_01.wad
- - Contains 3 used textures, 60.00 percent of map (15 textures in wad)
+ - Contains 4 used textures, 66.67 percent of map (15 textures in wad)
 Using Wadfile: /home/moto/Downloads/nzportable_1051_dirty/nzp/textures/waw_HLBSP.wad
- - Contains 2 used textures, 40.00 percent of map (157 textures in wad)
+ - Contains 2 used textures, 33.33 percent of map (157 textures in wad)
 
-Texture usage is at 0.04 mb (of 4.00 mb MAX)
+Texture usage is at 0.06 mb (of 4.00 mb MAX)
 0.04 seconds elapsed
 
 -----   END   hlcsg -----
@@ -88,9 +88,9 @@ max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 SolidBSP [hull 0] 33 (0.00 seconds)
 BSP generation successful, writing portal file '/home/moto/requiem/pc/req/maps/perk.prt'
 SolidBSP [hull 1] 29 (0.00 seconds)
-SolidBSP [hull 2] 27 (0.00 seconds)
+SolidBSP [hull 2] 27 (0.01 seconds)
 SolidBSP [hull 3] 34 (0.00 seconds)
-0.02 seconds elapsed
+0.08 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -129,7 +129,7 @@ LeafThread:
  (0.00 seconds)
 average leafs visible: 7
 g_visdatasize:74  compressed from 51
-0.01 seconds elapsed
+0.00 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -198,14 +198,14 @@ custom shadows with bounce light
 rgb transfers        [               off ] [               off ]
 
 
-72 faces
-Create Patches : 500 base patches
+78 faces
+Create Patches : 506 base patches
 0 opaque faces
-6619 square feet [953212.00 square inches]
+6623 square feet [953716.00 square inches]
 1 direct lights
 
 BuildFacelights:
- (0.08 seconds)
+ (0.11 seconds)
 visibility matrix   :   0.0 megs
 BuildVisLeafs:
  (0.01 seconds)
@@ -213,14 +213,14 @@ MakeScales:
  (0.01 seconds)
 SwapTransfers:
  (0.00 seconds)
-Transfer Lists :       38286 :   38.29k transfers
-       Indices :        4816 :    4.70k bytes
-          Data :      153144 :  149.55k bytes
+Transfer Lists :       38674 :   38.67k transfers
+       Indices :        5568 :    5.44k bytes
+          Data :      154696 :  151.07k bytes
 GatherLight:
  (0.00 seconds)
 FinalLightFace:
  (0.03 seconds)
-0.16 seconds elapsed
+0.18 seconds elapsed
 
 -----   END   hlrad -----
 

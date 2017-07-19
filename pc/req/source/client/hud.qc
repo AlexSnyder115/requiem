@@ -121,7 +121,8 @@ void(float width, float height) HUD_Points =
 		if ((i+1) == getstatf(STAT_PLAYERNUM)) {
 			pointlength = strlen(ftos(playerpoints[i]));
 			drawpic([0.8*width,0.70*height - (.061*height*i),0], "gfx/hud/moneyback.tga", [0.2*width, 0.07*height, 0], [1,1,1], 1); 
-			drawstring([.83*width, 0.715*height - 0.06*height*i, 0], ftos(playerpoints[i]), [0.022*width, 0.022*width, 0], TEXTCOLOR, 1, 1); 
+			drawstring([.83*width, 0.715*height - 0.06*height*i, 0], ftos(playerpoints[i]), [0.022*width, 0.022*width, 0], TEXTCOLOR, 1, 1);
+			drawstring([0.8*width, 0.7*height], ftos(getstatf(STAT_POINTDIF)), [0.022*width*0.8, 0.022*width*0.8, 0], TEXT_ORANGE, 1, 1); 
 		}
 		else {
 			pointlength = strlen(ftos(playerpoints[i]));

@@ -151,3 +151,4 @@ const float EVENT_POINTUPDATE = 25;
 #define STAT_PLAYERNAME 		65
 #define STAT_SALE 				66
 #define STAT_BOXWEP 			67
+#define STAT_POINTDIF 			68

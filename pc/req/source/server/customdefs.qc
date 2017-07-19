@@ -8,6 +8,20 @@
 const float FL_JUMPRELEASED = 4096;
 
 
+//whoswho perk check
+float whoq;
+float whoflop;
+float whojug;
+float whorun;
+float whospd;
+float whodt;
+float whocry;
+float whocan;
+float whoamm;
+float whomul;
+float whoded;
+
+.float pointdif;
 float framecount;
 float deathmatch;
 float hasprone;
@@ -108,6 +122,12 @@ void Weapon_Logic();
 .float secondarymag;
 .float secondarymag2;
 .float secondaryweapon;
+
+.float secondaryweaponbk;
+.float secondarymagbk;
+.float secondarymag2bk;
+.float secondaryammobk;
+
 .float NeedLoad;
 .string weapon2model;
 .float weapon2frame;

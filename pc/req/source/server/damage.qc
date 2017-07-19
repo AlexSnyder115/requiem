@@ -8,24 +8,106 @@ void() respawnplayer =
 	local entity who, plr;
 	who = find(world,classname, "who");
 	plr = find(world,classname, "player");
+	SetPerk(plr, plr.perks);
+	plr.perks = 0;
+	plr.perkcount = 0;
 	setorigin(plr, who.origin);
-	plr.weaponbk = plr.weapon;
-	plr.currentammobk = plr.currentammo;
-	plr.currentmagbk = plr.currentmag;
-	plr.currentmagbk2 = plr.currentmag2;
+	if (whoq == 1)
+	{
+		plr.perks = plr.perks | 8;
+		plr.perkcount++;
+		whoq = 0;
+	}
+	if (whoflop == 1)
+	{
+		plr.perks = plr.perks | 16;
+		plr.perkcount++;
+		whoflop = 0;
+	}
+	if (whojug == 1)
+	{
+		plr.perks = plr.perks | 1;
+		plr.perkcount++;
+		whojug = 0;
+	}
+	if (whorun == 1)
+	{
+		plr.perks = plr.perks | 32;
+		plr.perkcount++;
+		whorun = 0;
+	}
+	if (whospd == 1)
+	{
+		plr.perks = plr.perks | 4;
+		plr.perkcount++;
+		whospd = 0;
+	}
+	if (whodt == 1)
+	{
+		plr.perks = plr.perks | 2;
+		plr.perkcount++;
+		whodt = 0;
+	}
+	if (whocry == 1)
+	{
+		plr.perks = plr.perks | 64;
+		plr.perkcount++;
+		whocry = 0;
+	}
+	if (whocan == 1)
+	{
+		plr.perks = plr.perks | 128;
+		plr.perkcount++;
+		whocan = 0;
+	}
+	if (whoamm == 1)
+	{
+		plr.perks = plr.perks | 256;
+		plr.perkcount++;
+		whoamm = 0;
+	}
+	if (whomul == 1)
+	{
+		plr.perks = plr.perks | 512;
+		plr.perkcount++;
+		whomul = 0;
+	}
+	if (whoded == 1)
+	{
+		plr.perks = plr.perks | 1024;
+		plr.perkcount++;
+		whoded = 0;
+	}
+	SetPerk(plr, plr.perks);
+	plr.weapon = plr.weaponbk;
+	plr.currentammo = plr.currentammobk;
+	plr.currentmag = plr.currentmagbk;
+	plr.currentmag2 = plr.currentmagbk2;
+	plr.secondaryweapon = plr.secondaryweaponbk;
+	plr.secondarymag = plr.secondarymagbk;
+	plr.secondarymag2 = plr.secondarymag2bk;
+	plr.secondaryammo = plr.secondaryammobk;
+	plr.weaponmodel = GetWeaponModel(plr.weapon, 0);// Give weapon model
+	SwitchWeapon(plr.weapon);
+	remove(who);
 }
 
 void() touch_who =
 {
+	float revtime;
+	if (!(self.perks & P_REVIVE))
+		revtime = 4;
+	else
+		revtime = 2;
 	useprint(other, 25, 0, 0);
 	if (other.button7)
 	{
 		Set_W_Frame (0, 21, 0, 0, 0, SUB_Null, "models/v_morphine.mdl", false, S_BOTH);
-		other.progress_bar = 4 + time;     
-		other.progress_bar_time = 10;
+		other.progress_bar = revtime + time;     
+		other.progress_bar_time = revtime;
 		other.progress_bar_percent = 1;
 		self.think = respawnplayer;
-		self.nextthink = 4 + time;
+		self.nextthink = revtime + time;
 	}
 }
 
@@ -186,15 +268,69 @@ void() GetDown =
 {
 	if (self.perks & P_WHO)
 	{
+		if (self.perks & P_REVIVE)
+		{
+			whoq = 1;
+		}
+		if (self.perks & P_FLOP)
+		{
+			whoflop = 1;
+		}
+		if (self.perks & P_JUG)
+		{
+			whojug = 1;
+		}
+		if (self.perks & P_STAMIN)
+		{
+			whorun = 1;
+		}
+		if (self.perks & P_SPEED)
+		{
+			whospd = 1;
+		}
+		if (self.perks & P_DOUBLE)
+		{
+			whodt = 1;
+		}
+		if (self.perks & P_CHERRY)
+		{
+			whocry = 1;
+		}
+		if (self.perks & P_CANDO)
+		{
+			whocan = 1;
+		}
+		if (self.perks & P_AMMO)
+		{
+			whoamm = 1;
+		}
+		if (self.perks & P_MULE)
+		{
+			whomul = 1;
+		}
+		if (self.perks & P_DEAD)
+		{
+			whoded = 1;
+		}
+		self.perks = 0;
+		SetPerk(self, self.perks);
+		self.perkcount = 0;
 		self.weaponbk = self.weapon;
 		self.currentammobk = self.currentammo;
 		self.currentmagbk = self.currentmag;
 		self.currentmagbk2 = self.currentmag2;
+		self.secondaryweaponbk = self.secondaryweapon;
+		self.secondarymagbk = self.secondarymag;
+		self.secondarymag2bk = self.secondarymag2;
+		self.secondaryammobk = self.secondaryammo;
 		local entity spoint;
 		spoint = find(world, classname, "info_player_start");
 		self.weapon = W_COLT;
 		self.currentmag = 8;
 		self.currentammo = 32;
+		self.secondaryweapon = 0;
+		self.weaponmodel = GetWeaponModel(self.weapon, 0);// Give weapon model
+		SwitchWeapon(self.weapon);
 		SpawnWhoDown();
 		setorigin(self, spoint.origin);
 		self.downed = 0;
