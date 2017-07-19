@@ -181,3 +181,15 @@ map perk
 god
 god
 god
+map perk
+fog 0.1
+map perk
+fog 0
+fog 0.1
+map perk
+fog 0.
+god
+map wahnsinn
+fog 0.1
+god
+map perk

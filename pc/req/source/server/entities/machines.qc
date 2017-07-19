@@ -275,13 +275,13 @@ void() touch_perk =
 	}
 	if (self.classname == "perk_whoswho")
 	{
-		if (ded == 0)
+		if (who == 0)
 			{
 				if (other.view_ofs == '0 0 -10')
 				{
 					sound(self, 0,"sounds/misc/ching.wav", 1, 1);
 					addmoney(other, 100, 0);
-					ded = 1;
+					who = 1;
 				}
 			}
 	}
@@ -677,18 +677,21 @@ void() perk_juggernog =
 
 void() perk_whoswho =
 {
-	self.solid = SOLID_TRIGGER;
-	precache_model ("models/machines/who.mdl");
-	precache_model ("models/machines/v_perk.mdl");
-	precache_sound ("sounds/machines/perk_drink.wav");
-	setorigin (self, self.origin);
-	setmodel (self, "models/machines/who.mdl");
-	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
-	self.classname = "perk_whoswho";
-	self.touch = touch_perk;
+	if (coop)
+	{
+		self.solid = SOLID_TRIGGER;
+		precache_model ("models/machines/who.mdl");
+		precache_model ("models/machines/v_perk.mdl");
+		precache_sound ("sounds/machines/perk_drink.wav");
+		setorigin (self, self.origin);
+		setmodel (self, "models/machines/who.mdl");
+		setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+		self.classname = "perk_whoswho";
+		self.touch = touch_perk;
 
-	self.think = setup_perk;
-	self.nextthink = time + 0.1;
+		self.think = setup_perk;
+		self.nextthink = time + 0.1;
+	}
 };
 
 void() perk_staminup =

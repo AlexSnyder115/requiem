@@ -28,24 +28,36 @@ void() menu_multi =
 {
 	in_menu = MENU_MULTI;
 	time_in_menu = 0;
+	settings = 0;
 };
 
 void() menu_settings =
 {
 	in_menu = MENU_SETTINGS;
 	time_in_menu = 0;
+	if (settings == 0)
+	{
+		localcmd("help\n");
+		settings = 1;
+	}
 };
 
 void() menu_settings2 =
 {
 	in_menu = MENU_IGS;
 	time_in_menu = 0;
+	if (settings == 0)
+	{
+		localcmd("help\n");
+		settings = 1;
+	}
 }
 
 void() menu_about =
 {
 	in_menu = MENU_ABOUT;
 	time_in_menu = 0;
+	settings = 0;
 };
 
 void() menu_quit =
@@ -57,11 +69,13 @@ void() menu_back =
 {
 	in_menu = MENU_MAIN;
 	time_in_menu = 0;
+	settings = 0;
 };
 
 void() menu_back2 =
 {
 	in_menu = MENU_PAUSE;
+	settings = 0;
 };
 
 void() menu_loadndu =
@@ -93,6 +107,7 @@ void() menu_join =
 {
 	setcursormode(TRUE,"menu/cursor");
 	in_menu = MENU_JOIN;
+	settings = 0;
 };
 
 void() game_join =
@@ -113,27 +128,32 @@ void() menu_resume =
 {
 	in_menu = MENU_NONE;
 	setcursormode(FALSE);
+	settings = 0;
 };
 
 void() menu_main =
 {
 	in_menu = MENU_MAIN;
 	localcmd("disconnect\n");
+	settings = 0;
 };
 
 void() menu_classic =
 {
 	in_menu = MENU_CLASSIC;
+	settings = 0;
 }
 
 void() menu_nzp =
 {
 	in_menu = MENU_NZP;
+	settings = 0;
 }
 
 void() menu_bs =
 {
 	in_menu = MENU_SINGLE;
+	settings = 0;
 }
 
 //struct for all buttons, note pos and scale are going to be multiplied with width/height in draw step, so keep them between 0 and 1

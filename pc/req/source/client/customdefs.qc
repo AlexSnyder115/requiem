@@ -16,6 +16,8 @@ entity v2model;
 entity mzlflash;
 entity dummy;
 
+float settings;
+
 float weapon;
 
 float tracercounter;

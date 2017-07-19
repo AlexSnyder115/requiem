@@ -21,6 +21,8 @@ float whoamm;
 float whomul;
 float whoded;
 
+float who;
+
 .float pointdif;
 float framecount;
 float deathmatch;
