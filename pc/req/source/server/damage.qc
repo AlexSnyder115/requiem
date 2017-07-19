@@ -2,6 +2,8 @@
 // damage.qc -- used for any sort of down, hit, etc that the player or entity experiences
 //
 
+void() ReturnWeaponModel;
+
 //Spawn the downed Who's Who player
 void() respawnplayer =
 {
@@ -88,26 +90,29 @@ void() respawnplayer =
 	plr.secondarymag2 = plr.secondarymag2bk;
 	plr.secondaryammo = plr.secondaryammobk;
 	plr.weaponmodel = GetWeaponModel(plr.weapon, 0);// Give weapon model
+	plr.movetype = MOVETYPE_WALK;
 	SwitchWeapon(plr.weapon);
 	remove(who);
 }
 
 void() touch_who =
 {
-	float revtime;
-	if (!(self.perks & P_REVIVE))
-		revtime = 4;
-	else
-		revtime = 2;
 	useprint(other, 25, 0, 0);
-	if (other.button7)
+	if (other.button7 && other.progress_bar_time < time)
 	{
-		Set_W_Frame (0, 21, 0, 0, 0, SUB_Null, "models/v_morphine.mdl", false, S_BOTH);
-		other.progress_bar = revtime + time;     
-		other.progress_bar_time = revtime;
+		other.movetype = MOVETYPE_NONE;
+		Set_W_Frame (0, 21, 0, 0, SPRINT, ReturnWeaponModel, "models/v_morphine.mdl", false, S_BOTH);	
+		if !(other.perks & P_REVIVE)
+			other.progress_bar_time = 4;
+		else
+			other.progress_bar_time = 2;
+
+		other.fire_delay = other.progress_bar_time + time;
+					
+		other.progress_bar = other.progress_bar_time + time;     
 		other.progress_bar_percent = 1;
 		self.think = respawnplayer;
-		self.nextthink = revtime + time;
+		self.nextthink = other.progress_bar_time + time;
 	}
 }
 

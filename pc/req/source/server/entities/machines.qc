@@ -678,11 +678,11 @@ void() perk_juggernog =
 void() perk_whoswho =
 {
 	self.solid = SOLID_TRIGGER;
-	precache_model ("models/machines/juggernog.mdl");
+	precache_model ("models/machines/who.mdl");
 	precache_model ("models/machines/v_perk.mdl");
 	precache_sound ("sounds/machines/perk_drink.wav");
 	setorigin (self, self.origin);
-	setmodel (self, "models/machines/juggernog.mdl");
+	setmodel (self, "models/machines/who.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
 	self.classname = "perk_whoswho";
 	self.touch = touch_perk;

@@ -149,3 +149,35 @@ god
 god
 god
 god
+fog 0.1
+fog 0.1
+map perk
+god
+god
+fog 0.1
+map perk
+fog 0.1
+god
+map 
+fog 0.2
+fog 0.1
+map 
+map perk
+god
+god
+god
+map perk
+god
+god
+god
+god
+god
+map perk
+god
+god
+god
+god
+map perk
+god
+god
+god

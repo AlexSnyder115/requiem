@@ -195,7 +195,7 @@
 		2 : "Switch location" : 0
 	]
 ]
-@PointClass size(-24 -24 -32, 24 24 48) base(Item, Appearflags) color(254 198 65) studio("models/machines/juggernog.mdl") = 
+@PointClass size(-24 -24 -32, 24 24 48) base(Item, Appearflags) color(254 198 65) studio("models/machines/who.mdl") = 
 	perk_whoswho : "Who's Who" 
 [
 	spawnflags(Flags) =
