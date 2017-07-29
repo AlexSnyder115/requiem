@@ -372,6 +372,7 @@ void() PlayerSpawn =
 	SwitchWeapon(self.weapon);
 	UpdateV2model("", 0);
 	stuffcmd(self, "cl_gunx 8;cl_guny 16;cl_gunz 25\n");
+	localcmd("fog 0.1");
 
 	SetRound(self, rounds);
 

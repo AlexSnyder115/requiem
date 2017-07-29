@@ -127,7 +127,7 @@ void() NewRound =
 		localcmd("fog 0.25\n");
 	} else {
 		roundtype = 1;
-		localcmd(strcat("fog ", world.fog));
+		localcmd(strcat("fog 0.1"));
 	}
 }
 void() Round_Core =
