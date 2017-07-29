@@ -102,6 +102,16 @@ void(float playernum, float points, string name) UpdatePlayerPoints =
 	WriteString(MSG_ALL, name);
 }
 
+void(float newtime, float newtype, entity change) PromptLevelChange =
+{
+	WriteByte(MSG_MULTICAST, SVC_CGAMEPACKET);
+	WriteByte(MSG_MULTICAST, EVENT_BLACKOUT);
+	WriteByte(MSG_MULTICAST, newtime);
+	WriteByte(MSG_MULTICAST, newtype);
+	msg_entity = change;
+	multicast('0 0 0', MULTICAST_ONE);
+}
+
 // *****************************************
 // Unrelated to engine, but custom functions
 // *****************************************
@@ -134,17 +144,6 @@ void WeaponSwitch(entity player) {
 	self = player;
 	SwitchWeapon(other.weapon);
 	self = tempe;
-}
-
-//
-// invert float takes in float value between 0 and 1, inverts position
-// eg: 0.1 returns 0.9, 0.34 returns 0.66
-float invertfloat(float input) {
-	
-	if (input <= 0 || input >= 1)
-		return input; 					// out of boundaries 
-	
-	return (1 - input);	
 }
 
 void(entity person, float expamt , float doublepoint) addmoney =

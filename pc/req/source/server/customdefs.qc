@@ -65,7 +65,6 @@ float oilet;
 .float toilet;
 float player_count;
 .string fog;		// used for hacking in changing fog from world.fog for legacy maps
-entity trueclient;
 
 float linked;
 float cantp;

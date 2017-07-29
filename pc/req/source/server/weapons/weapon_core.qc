@@ -3,6 +3,8 @@ void() W_PutOut;
 void() CherryBoom =
 {
 	DamgageExplode (self, self.owner, 512, 75, 175);
+	te_explosionquad(self.origin);
+	sound (self, CHAN_WEAPON, "sounds/weapons/tesla/shoot.wav", 1, ATTN_NORM);
 }
 
 void() ReturnWeaponModel =

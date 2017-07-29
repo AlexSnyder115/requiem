@@ -1109,6 +1109,31 @@ void() HUD_Endgame = {
 	HUD_Scores();
 }
 
+float oldfade_alpha;
+void() HUD_Fade = 
+{  
+	float alpha;
+	
+	if (fade_type == 1) {
+		alpha = cos(fade_time - time);
+			if (oldfade_alpha > 0.95)
+			alpha = 1;
+			
+			alpha = invertfloat(alpha);
+						
+		drawfill ([0, 0, 0], [g_width, g_height, 0], [0, 0, 0], alpha);	// background
+		oldfade_alpha = alpha;
+	}
+	else if (fade_type == 2) {
+		alpha = sin(((fade_time - time) * 2));
+		if (oldfade_alpha > 0.95)
+			alpha = 1;
+				
+		drawfill ([0, 0, 0], [g_width, g_height, 0], [0, 0, 0], alpha);	// background
+		oldfade_alpha = alpha;
+	}
+}
+
 /*******************
 *     HUD Draw     *
 *******************/
@@ -1150,6 +1175,9 @@ void(float width, float height) HUD_Draw =
 		
 	if (score_show)
 		HUD_Scores();
+
+	if (fade_time > time)
+		HUD_Fade();
 }
 
 void UpdatePerks (float newperks) {

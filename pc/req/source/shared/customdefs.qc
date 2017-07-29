@@ -11,6 +11,7 @@ const float EVENT_PERK = 22;
 const float EVENT_UPDATE = 23;
 const float EVENT_BROADCAST = 24;
 const float EVENT_POINTUPDATE = 25;
+const float EVENT_BLACKOUT = 26;
 
 //nzp weapon defines
 //id list
@@ -152,3 +153,14 @@ const float EVENT_POINTUPDATE = 25;
 #define STAT_SALE 				66
 #define STAT_BOXWEP 			67
 #define STAT_POINTDIF 			68
+
+//
+// invert float takes in float value between 0 and 1, inverts position
+// eg: 0.1 returns 0.9, 0.34 returns 0.66
+float invertfloat(float input) {
+
+	if (input <= 0 || input >= 1)
+		return input;				//out of boundaries
+
+	return (1 - input);
+}

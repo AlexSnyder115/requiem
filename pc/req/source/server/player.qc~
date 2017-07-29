@@ -273,6 +273,7 @@ void() ClientConnect =
 		stuffcmd(self, "fog 0.075\n"); // naievil -- temp reliable fog
 	}
 	
+	trueclient = self;
 
 	bprint(PRINT_HIGH, self.netname); //print player name
 	bprint(PRINT_HIGH, " connected.\n");
@@ -346,7 +347,7 @@ void() PlayerSpawn =
 	self.view_ofs = VEC_VIEW_OFS; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
 
 	self.currentammo = 32;
-	self.currentmag = 8;
+	self.currentmag = 0;
 	self.weapon = W_COLT;
 	
 	self.grenades = self.grenades | 1;  // add frag grenades to player inventory
@@ -387,7 +388,6 @@ void() PlayerSpawn =
 	}
 	
 	PollPlayerPoints();
-	PromptLevelChange(self.nextthink + 3, 1, self);
 };
 
 void() SpectatorSpawn =

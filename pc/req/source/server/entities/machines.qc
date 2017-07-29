@@ -575,6 +575,31 @@ void() touch_gum =
 	}
 }*/
 
+void() playwho =
+{
+	sound (self, CHAN_ITEM, "sounds/machines/who.wav", 1, ATTN_NORM);
+}
+
+void() playrev =
+{
+	sound (self, CHAN_ITEM, "sounds/machines/qr.wav", 1, ATTN_NORM);
+}
+
+void() playjug =
+{
+	sound (self, CHAN_ITEM, "sounds/machines/jug.wav", 1, ATTN_NORM);
+}
+
+void() playspeed =
+{
+	sound (self, CHAN_ITEM, "sounds/machines/speed.wav", 1, ATTN_NORM);
+}
+
+void() playtap =
+{
+	sound (self, CHAN_ITEM, "sounds/machines/double.wav", 1, ATTN_NORM);
+}
+
 
 void() setup_perk =
 {
@@ -620,6 +645,7 @@ void() perk_revive =
 	precache_model ("models/machines/v_perk.mdl");
 	precache_sound ("sounds/machines/perk_drink.wav");
   	precache_sound ("sounds/weapons/papfire.wav");
+  	precache_sound ("sounds/machines/qr.wav");
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/quick_revive.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
@@ -665,6 +691,7 @@ void() perk_juggernog =
 	precache_model ("models/machines/juggernog.mdl");
 	precache_model ("models/machines/v_perk.mdl");
 	precache_sound ("sounds/machines/perk_drink.wav");
+	precache_sound ("sounds/machines/jug.wav");
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/juggernog.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
@@ -677,21 +704,19 @@ void() perk_juggernog =
 
 void() perk_whoswho =
 {
-	if (coop)
-	{
-		self.solid = SOLID_TRIGGER;
-		precache_model ("models/machines/who.mdl");
-		precache_model ("models/machines/v_perk.mdl");
-		precache_sound ("sounds/machines/perk_drink.wav");
-		setorigin (self, self.origin);
-		setmodel (self, "models/machines/who.mdl");
-		setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
-		self.classname = "perk_whoswho";
-		self.touch = touch_perk;
+	self.solid = SOLID_TRIGGER;
+	precache_model ("models/machines/who.mdl");
+	precache_model ("models/machines/v_perk.mdl");
+	precache_sound ("sounds/machines/perk_drink.wav");
+	precache_sound ("sounds/machines/who.wav");
+	setorigin (self, self.origin);
+	setmodel (self, "models/machines/who.mdl");
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.classname = "perk_whoswho";
+	self.touch = touch_perk;
 
-		self.think = setup_perk;
-		self.nextthink = time + 0.1;
-	}
+	self.think = setup_perk;
+	self.nextthink = time + 0.1;
 };
 
 void() perk_staminup =
@@ -717,6 +742,7 @@ void() perk_speed =
 	precache_model ("models/machines/v_perk.mdl");
 	precache_sound ("sounds/machines/perk_drink.wav");
 	precache_sound("player/talk/fast.wav");//FIXME(Jukki)
+	precache_sound ("sounds/machines/speed.wav");
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/speed_cola.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
@@ -749,6 +775,7 @@ void() perk_double =
 	precache_model ("models/machines/double_tap.mdl");
 	precache_model ("models/machines/v_perk.mdl");
 	precache_sound ("sounds/machines/perk_drink.wav");
+	precache_sound ("sounds/machines/double.wav");
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/double_tap.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
@@ -853,6 +880,8 @@ void() Turn_Lights =
 			self.effects = EF_BLUE;
 		else if (self.classname == "perk_electric")
 			self.effects = EF_BLUE;
+		else if (self.classname == "perk_whoswho")
+			self.effects = EF_GREEN;
       
 		tempe = findfloat (tempe, requirespower, 1);// trigger all paired doors
 	}  // naievil (FIXME) redo light effects 
@@ -902,7 +931,6 @@ void() touch_power_Switch =
         tempe = find (tempe, classname, "door_nzp");// trigger all paired doors
        }
 		}
-
 		Turn_Lights ();
 		
 	}
