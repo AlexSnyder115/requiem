@@ -78,6 +78,7 @@ void DrinkPerk(float perk) {
 		case P_REVIVE:
 			other.weaponskin = 3;	
 			func = give_revive;
+			buyqr = 1;
 			break;
 		case P_FLOP:
 			other.weaponskin = 4;	
@@ -86,6 +87,7 @@ void DrinkPerk(float perk) {
 		case P_JUG:
 			other.weaponskin = 2;	
 			func = give_juggernog;
+			buyjug = 1;
 			break;
 		case P_STAMIN:
 			other.weaponskin = 2;	
@@ -94,10 +96,12 @@ void DrinkPerk(float perk) {
 		case P_SPEED:
 			other.weaponskin = 1;	
 			func = give_speedcola;
+			buyspeed = 1;
 			break;
 		case P_DOUBLE:
 			other.weaponskin = 0;	
 			func = give_doubletap;
+			buydt = 1;
 			break;
 		case P_CHERRY:
 			other.weaponskin = 3;

@@ -259,6 +259,8 @@ void() PlayerPostThink =
 	}
 
 	self.oldvelocity = self.velocity;
+
+	QuoteCheck();
 };
 
 void() ClientKill =

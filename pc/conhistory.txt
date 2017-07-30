@@ -212,3 +212,27 @@ map alcatraz
 map alcatraz
 map perk
 map alcatraz
+pause
+map
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart

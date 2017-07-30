@@ -21,6 +21,12 @@ float whoamm;
 float whomul;
 float whoded;
 
+//what am i buying? doing just 4 core perks because kino
+float buyqr;
+float buyjug;
+float buyspeed;
+float buydt;
+
 float who;
 
 .float pointdif;
