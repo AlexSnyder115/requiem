@@ -306,6 +306,7 @@ void() PlayerSpawn =
 	
 	spawnpoint = find(world, classname, "info_player_start");
 	
+	self.spawntime = 2.5 + time;
 	self.playernumber = random();
 	self.isspec = FALSE;
 	self.classname = "player";

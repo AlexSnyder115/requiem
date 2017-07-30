@@ -496,6 +496,7 @@ void(entity attacker, float d_style) DieHandler =
         }
 		else if (d_style == S_KNIFE){
 			addmoney(attacker, 130, true);
+			hasknifed = 1;
 			total_powerup_points = total_powerup_points + 130;
 		}
     }

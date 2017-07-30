@@ -27,8 +27,13 @@ float buyjug;
 float buyspeed;
 float buydt;
 
+float spwnn;
+
+float hasknifed;
+
 float who;
 
+.float spawntime; //Used to time how long we've been spawned in
 .float pointdif;
 float framecount;
 float deathmatch;
