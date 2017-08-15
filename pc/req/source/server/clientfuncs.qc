@@ -146,6 +146,11 @@ void WeaponSwitch(entity player) {
 	self = tempe;
 }
 
+void() give0 =
+{
+	addmoney(self, 0, 0);
+}
+
 void(entity person, float expamt , float doublepoint) addmoney =
 {
 	if (person.classname != "player")
@@ -157,6 +162,8 @@ void(entity person, float expamt , float doublepoint) addmoney =
 		person.points = person.points + expamt;
 
 	person.pointdif = expamt;
+	person.nextthink = time + 0.4;
+	person.think = give0;
 		
 	UpdatePlayerPoints(person.playernum, person.points, person.netname);
 };

@@ -607,7 +607,7 @@ void() playtap =
 
 void() setup_perk =
 {
-	if (find (world, classname, "power_switch"))
+	/*if (find (world, classname, "power_switch"))
 	{
 		if (self.classname == "perk_revive" && !coop && !deathmatch)
 			self.effects = EF_BLUE;
@@ -618,16 +618,16 @@ void() setup_perk =
 	{
 		if (self.classname == "perk_revive")
 			self.effects = EF_BLUE;
-		/*else if (self.classname == "perk_flopper")
-			self.effects = EF_PURPLELIGHT;*/
+		else if (self.classname == "perk_flopper")
+			self.effects = EF_PURPLELIGHT;
 		else if (self.classname == "perk_juggernog")
 			self.effects = EF_RED;
-		/*else if (self.classname == "perk_staminup")
-			self.effects = EF_ORANGELIGHT;*/
+		else if (self.classname == "perk_staminup")
+			self.effects = EF_ORANGELIGHT;
 		else if (self.classname == "perk_speed")
 			self.effects = EF_GREEN;
-		/*else if (self.classname == "perk_double")
-			self.effects = EF_ORANGELIGHT;*/
+		else if (self.classname == "perk_double")
+			self.effects = EF_ORANGELIGHT;
 		else if (self.classname == "perk_deadshot")
 			self.effects = EF_GREEN;
 		else if (self.classname == "perk_mulekick")
@@ -638,7 +638,7 @@ void() setup_perk =
 			self.effects = EF_BLUE;
 		else if (self.classname == "perk_electric")
 			self.effects = EF_BLUE;
-	} 
+	}*/ 
 	
 		// naievil (FIXME) light effects 
 }

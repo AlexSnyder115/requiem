@@ -2,6 +2,17 @@ void() crawler_rip_board1;
 void() crawler_da1;
 void() crawler_die1;
 
+float EMPTY_BBOX = 0;
+float BASE_BBOX = 1;
+float IDLE_BBOX = 2;
+//Rising from ground bbox
+float WALK1_BBOX = 4;
+float WALK2_BBOX = 5;
+float WALK3_BBOX = 6;
+float JOG_BBOX = 7;
+float RUN_BBOX = 8;
+float CRAWLER_BBOX = 9;
+
 void(float what) play_sound_z =
 {
 	if(self.classname == "ai_zombie")
@@ -173,6 +184,196 @@ void() set_z_health =
 		{
 			z_health *= 1.1; 
 			i--;
+		}
+	}
+};
+
+void(float which) SetZombieHitBox =
+{
+	//Zombie's bbox is constant across all hitbox setups, so we don't update it.
+	
+	if(self.currentHitBoxSetup == which)
+		return;
+	
+	switch(which)
+	{
+		case EMPTY_BBOX:
+		{
+			setorigin(self.head,'0 0 0');
+			setsize (self.head, '0 0 0', '0 0 0');
+			
+			setorigin(self.larm, '0 0 0');
+			setsize (self.larm, '0 0 0','0 0 0');
+			
+			setorigin(self.rarm, '0 0 0');
+			setsize (self.rarm, '0 0 0','0 0 0');
+			
+			self.head.view_ofs = '0 0 0';
+			self.rarm.view_ofs = '0 0 0';
+			self.larm.view_ofs = '0 0 0';
+			
+			self.currentHitBoxSetup = EMPTY_BBOX;
+			return;
+		}
+		case IDLE_BBOX: 
+		{
+			//setsize (self.head, '-5 -5 -5', '5 5 5');
+			self.head.bbmins = '-5 -5 -5';
+			self.head.bbmaxs = '5 5 5';
+			self.head.view_ofs = '0 10 35';
+	
+			//setsize (self.larm, '-5 -5 -15', '5 5 15');
+			self.larm.bbmins = '-5 -5 -15';
+			self.larm.bbmaxs  = '5 5 15';
+			self.larm.view_ofs = '-10 10 10';
+	
+			//setsize (self.rarm, '-5 -5 -15', '5 5 15');
+			self.rarm.bbmins = '-5 -5 -15';
+			self.rarm.bbmaxs = '5 5 15';
+			self.rarm.view_ofs = '10 10 10';
+			
+			self.currentHitBoxSetup = IDLE_BBOX;
+			return;
+		}
+		case WALK1_BBOX:
+		{
+			//setsize (self.head, '-5 -5 -5', '5 5 5');
+			self.head.bbmins = '-5 -5 -5';
+			self.head.bbmaxs = '5 5 5';
+			self.head.view_ofs = '2 -3 35';
+			
+			//setsize (self.head, '-3 -8 30', '7 2 40');
+			//self.head.view_ofs = '0 0 0';
+
+			//setsize (self.larm, '-5 -7 -15', '5 7 15');
+			self.larm.bbmins = '-5 -7 -15';
+			self.larm.bbmaxs = '5 7 15';
+			self.larm.view_ofs = '-10 -4 15';
+
+			//setsize (self.rarm, '-5 -8 -11', '5 8 11');
+			self.rarm.bbmins = '-5 -8 -11';
+			self.rarm.bbmaxs = '5 8 11';
+			self.rarm.view_ofs = '10 11 11';
+			
+			self.currentHitBoxSetup = WALK1_BBOX;
+			return;
+		}
+		case WALK2_BBOX:
+		{
+			//setsize (self.head, '-7 -5 -5', '7 5 5');
+			self.head.bbmins = '-7 -5 -5';
+			self.head.bbmaxs = '7 5 5';
+			self.head.view_ofs = '-11 6 36';
+
+			//setsize (self.larm, '-5 -6 -15', '5 6 15');
+			self.larm.bbmins = '-5 -6 -15';
+			self.larm.bbmaxs = '5 6 15';
+			self.larm.view_ofs = '-14 3 15';
+	
+			//setsize (self.rarm, '-5 -5 -11', '5 5 11');
+			self.rarm.bbmins = '-5 -5 -11';
+			self.rarm.bbmaxs = '5 5 11';
+			self.rarm.view_ofs = '4 13 11';
+			
+			self.currentHitBoxSetup = WALK2_BBOX;
+			return;
+		}
+		case WALK3_BBOX:
+		{
+			//setsize (self.head, '-5 -5 -5', '5 5 5');
+			self.head.bbmins = '-5 -5 -5';
+			self.head.bbmaxs = '5 5 5';
+			self.head.view_ofs = '-2 13 31';
+	
+			//setsize (self.larm, '-4 -6 -14', '4 6 14');
+			self.larm.bbmins = '-4 -6 -14';
+			self.larm.bbmaxs = '4 6 14';
+			self.larm.view_ofs = '-12 3 11';
+	
+			//setsize (self.rarm, '-5 -5 -11', '5 5 11');
+			self.rarm.bbmins = '-5 -5 -11';
+			self.rarm.bbmaxs = '5 5 11';
+			self.rarm.view_ofs = '14 6 12';
+			
+			self.currentHitBoxSetup = WALK3_BBOX;
+			return;
+		}
+		case JOG_BBOX:
+		{
+			//setsize (self.head, '-5 -5 -5', '5 5 5');
+			self.head.bbmins = '-5 -5 -5';
+			self.head.bbmaxs = '5 5 5';
+			self.head.view_ofs = '0 5 36';
+			
+			//setsize (self.larm, '-5 -13 -5', '5 13 5');
+			self.larm.bbmins = '-5 -13 -5';
+			self.larm.bbmaxs = '5 13 5';
+			self.larm.view_ofs = '-8 19 24';
+			
+			//setsize (self.rarm, '-5 -13 -5', '5 13 5');
+			self.rarm.bbmins = '-5 -13 -5';
+			self.rarm.bbmaxs = '5 13 5';
+			self.rarm.view_ofs = '10 19 24';
+			
+			self.currentHitBoxSetup = JOG_BBOX;
+			return;
+		}
+		case RUN_BBOX:
+		{
+			//setsize (self.head, '-5 -5 -5', '5 5 5');
+			self.head.bbmins = '-5 -5 -5';
+			self.head.bbmaxs = '5 5 5';
+			self.head.view_ofs = '3 17 32';
+	
+			//setsize (self.larm, '-4 -10 -9', '4 10 9');
+			self.larm.bbmins = '-4 -10 -9';
+			self.larm.bbmaxs = '4 10 9';
+			self.larm.view_ofs = '-12 28 18';
+			
+			//setsize (self.rarm, '-4 -13 -10', '4 13 10');
+			self.rarm.bbmins = '-4 -13 -10';
+			self.rarm.bbmaxs = '4 13 10';
+			self.rarm.view_ofs = '12 -2 19';
+			
+			self.currentHitBoxSetup = RUN_BBOX;
+			return;
+		}
+		case CRAWLER_BBOX:
+		{
+			self.head.bbmins = '-5 -5 -5';
+			self.head.bbmaxs = '5 5 5';
+			self.head.view_ofs = '2 18 -14';
+	
+			self.larm.bbmins = '-4 -10 -9';
+			self.larm.bbmaxs = '4 10 9';
+			self.larm.view_ofs = '-9 24 -27';
+			
+			self.rarm.bbmins = '-4 -13 -10';
+			self.rarm.bbmaxs = '4 13 10';
+			self.rarm.view_ofs = '12 15 -25';
+			
+			self.currentHitBoxSetup = CRAWLER_BBOX;
+			return;
+		}
+		default:  //also known as BASE_BBOX
+		{
+			//setsize (self.head, '-5 -5 -5', '5 5 5');
+			self.head.bbmins = '-5 -5 -5';
+			self.head.bbmaxs = '5 5 5';
+			self.head.view_ofs = '0 0 35';
+			
+			//setsize (self.larm, '-5 -5 -15', '5 5 15');
+			self.larm.bbmins = '-5 -5 -15';
+			self.larm.bbmaxs = '5 5 15';
+			self.larm.view_ofs = '-10 0 5';
+			
+			//setsize (self.rarm, '-5 -5 -15', '5 5 15');
+			self.rarm.bbmins = '-5 -5 -15';
+			self.rarm.bbmaxs = '5 5 15';
+			self.rarm.view_ofs = '10 0 5';
+			
+			self.currentHitBoxSetup = BASE_BBOX;
+			return;
 		}
 	}
 };
@@ -953,6 +1154,52 @@ void(float i) spawnSingleZombEnt =
 	zSpawn.aistatus = "0";
 	zSpawn.goaldummy = spawn();
 	zSpawn.goaldummy.classname = "waypoint_target";
+	
+	zSpawn.head = spawn();
+	zSpawn.head.classname = "in_ai_zombie_head";
+	zSpawn.head.owner = zSpawn;
+	zSpawn.head.solid = SOLID_NOT;
+	zSpawn.head.movetype = MOVETYPE_STEP;
+	zSpawn.head.takedamage = DAMAGE_NO;
+	//updateLimb (zSpawn, 0, zSpawn.head);
+	
+	zSpawn.larm = spawn();
+	zSpawn.larm.classname = "in_ai_zombie_larm";
+	zSpawn.larm.owner = zSpawn;
+	zSpawn.larm.solid = SOLID_NOT;
+	zSpawn.larm.movetype = MOVETYPE_STEP;
+	zSpawn.larm.takedamage = DAMAGE_NO;
+	//updateLimb (zSpawn, 1, zSpawn.larm);
+	
+	zSpawn.rarm = spawn();
+	zSpawn.rarm.classname = "in_ai_zombie_rarm";
+	zSpawn.rarm.owner = zSpawn;
+	zSpawn.rarm.solid = SOLID_NOT;
+	zSpawn.rarm.movetype = MOVETYPE_STEP;
+	zSpawn.rarm.takedamage = DAMAGE_NO;
+	//updateLimb (zSpawn, 2, zSpawn.rarm);
+};
+void(entity szombie)  SetUpHitBoxes =
+{
+	szombie.head.solid = SOLID_CORPSE;
+	szombie.head.movetype = MOVETYPE_STEP;
+	szombie.head.classname = "ai_zombie_head";
+	szombie.head.takedamage = DAMAGE_YES;
+
+	szombie.larm.solid = SOLID_CORPSE;
+	szombie.larm.movetype = MOVETYPE_STEP;
+	szombie.larm.classname = "ai_zombie_larm";
+	szombie.larm.takedamage = DAMAGE_YES;
+
+	szombie.rarm.solid = SOLID_CORPSE;
+	szombie.rarm.movetype = MOVETYPE_STEP;
+	szombie.rarm.classname = "ai_zombie_rarm";
+	szombie.rarm.takedamage = DAMAGE_YES;
+	
+	local entity oldself = self;
+	self = szombie;
+	SetZombieHitBox(BASE_BBOX);
+	self = oldself;
 };
 
 void() spawnAllZombEnts =
@@ -999,6 +1246,9 @@ void(entity where) spawn_a_zombieB =
 	
 	szombie.solid = SOLID_SLIDEBOX;
 	szombie.movetype = MOVETYPE_WALK;
+	/*setmodel(szombie.head, "models/ai/zh^.mdl");
+	setmodel(szombie.rarm, "models/ai/zar(.mdl");
+	setmodel(szombie.larm, "models/ai/zal(.mdl");*/
 	setmodel(szombie, "models/ai/zfull.mdl");
 	szombie.hop_step = 0;
 	szombie.gravity = 1.0;

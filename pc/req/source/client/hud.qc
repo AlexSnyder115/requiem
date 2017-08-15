@@ -101,10 +101,22 @@ void() HUD_AmmoString =
 *    HUD_Points    *
 *******************/
 
+float loc, opac;
+
 void(float width, float height) HUD_Points =
 {
+	local float y;
+	if (getstatf(STAT_POINTDIF) == 0) {
+		loc = 0.8;
+		opac = 1;
+	}
+	local string pm;
 	local float pointlength = 0, increm = 10, i = 0;
 	vector TEXTCOLOR;
+	if (getstatf(STAT_POINTDIF) > 0)
+		pm = "+";
+	else
+		pm = "";
 	
 	for (i = 3; i >= 0; i = i - 1)
 	{
@@ -122,7 +134,10 @@ void(float width, float height) HUD_Points =
 			pointlength = strlen(ftos(playerpoints[i]));
 			drawpic([0.8*width,0.70*height - (.061*height*i),0], "gfx/hud/moneyback.tga", [0.2*width, 0.07*height, 0], [1,1,1], 1); 
 			drawstring([.83*width, 0.715*height - 0.06*height*i, 0], ftos(playerpoints[i]), [0.022*width, 0.022*width, 0], TEXTCOLOR, 1, 1);
-			drawstring([0.8*width, 0.7*height], ftos(getstatf(STAT_POINTDIF)), [0.022*width*0.8, 0.022*width*0.8, 0], TEXT_ORANGE, 1, 1); 
+			if (getstatf(STAT_POINTDIF) != 0)
+				drawstring([loc*width, 0.7*height], strcat(pm, ftos(getstatf(STAT_POINTDIF))), [0.022*width*0.8, 0.022*width*0.8, 0], TEXT_ORANGE, opac, opac); 
+			loc -= 0.001;
+			opac -= 0.1;
 		}
 		else {
 			pointlength = strlen(ftos(playerpoints[i]));

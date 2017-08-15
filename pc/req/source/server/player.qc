@@ -302,6 +302,10 @@ void() PollPlayerPoints =
 
 void() PlayerSpawn =
 {	
+	if (mapname == "ndu" || mapname == "kdt") //Nacht or Kino
+		soundstyle = "cod";
+	else
+		soundstyle = "nzp";
 	local entity spawnpoint;
 	
 	spawnpoint = find(world, classname, "info_player_start");
@@ -387,7 +391,7 @@ void() PlayerSpawn =
 		self.playernum = player_count + 1;
 
 	if (rounds < 1) {
-		sound (self, CHAN_AUTO, "sounds/rounds/splash.wav", 1, ATTN_NONE);//temporarily here.
+		sound (self, CHAN_AUTO, strcat("sounds/rounds/", soundstyle, "/splash.wav"), 1, ATTN_NONE);//temporarily here.
 	}
 	
 	PollPlayerPoints();

@@ -8,6 +8,8 @@
 const float FL_JUMPRELEASED = 4096;
 
 
+string soundstyle;
+
 //whoswho perk check
 float whoq;
 float whoflop;
@@ -208,12 +210,18 @@ vector	trace_plane_normal;
 //Used for global one-zombie-at-a-time type ai
 void Do_Zombie_AI();
 .string aistatus;
+.float currentHitBoxSetup;
 entity lastzombie;
 //Other AI definitions
 .vector box1, box2, box3;//used for windows and zombies
 .vector idlebox;
 .vector hop_spot;//used for windows (zombies hop to these)
 .vector goalorigin;
+.vector		bbmins, bbmaxs;		// Used for zombie hitboxes
+//float(entity zombie, float which, entity limb) updateLimb		= #33;
+.entity head;
+.entity larm;
+.entity rarm;
 float crawler_num;
 //==== Reference Vars ====
 const float WWINDOW = 1; 

@@ -44,6 +44,10 @@ void() StartFrame =
 //called when map loaded
 void() worldspawn =
 {
+	if (mapname == "ndu" || mapname == "kdt") //Nacht or Kino
+		soundstyle = "cod";
+	else
+		soundstyle = "nzp";
 	precache_model ("models/player.mdl");
 	precache_model ("models/v_morphine.mdl");
 	precache_model ("progs/Sprites/revive.spr");
@@ -97,9 +101,9 @@ void() worldspawn =
 	precache_sound("sounds/weapons/knife/knife.wav");
 	precache_sound("sounds/weapons/knife/knife_hit.wav");
 	
-	precache_sound("sounds/rounds/eround.wav");
-	precache_sound("sounds/rounds/nround.wav");
-	precache_sound("sounds/rounds/splash.wav");
+	precache_sound(strcat("sounds/rounds/", soundstyle, "/eround.wav"));
+	precache_sound(strcat("sounds/rounds", soundstyle, "/nround.wav"));
+	precache_sound(strcat("sounds/rounds/", soundstyle, "/splash.wav"));
 	precache_sound("sounds/music/end.wav");
 	precache_sound("sounds/null.wav");
 
