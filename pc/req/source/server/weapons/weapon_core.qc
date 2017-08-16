@@ -72,7 +72,10 @@ void() FireFlame =
 
 void() RayExplode =
 {
-	DamgageExplode (self, self.owner, 1800, 1800, 64);
+	if (self.weapon == W_RAY)
+		DamgageExplode (self, self.owner, 1800, 1800, 64);
+	else
+		DamgageExplode (self, self.owner, 3600, 3600, 96);
 	te_explosionquad(self.origin);
 	remove(self);
 }
@@ -91,7 +94,10 @@ void() FireRay =
 	setmodel(fuck, "models/weapons/m1911/v_colt.mdl");
 	makevectors(self.v_angle);
 	fuck.velocity = v_forward * 2000;
-	fuck.effects = EF_GREEN;
+	if (self.weapon == W_RAY)
+		fuck.effects = EF_GREEN;
+	else
+		fuck.effects = EF_RED;
 	fuck.solid = SOLID_TRIGGER;
 	fuck.touch = RayExplode;
 
@@ -112,6 +118,7 @@ void() ReturnWeaponModel =
 
 void() W_AimIn =
 {	
+	local string modelname = GetWeaponModel(self.weapon, 0);
 	if (IsDualWeapon(self.weapon) ||
 		self.zoom ||
 		self.reload_delay > time ||
@@ -126,6 +133,8 @@ void() W_AimIn =
 		SetUpdate(self, UT_ZOOM2, 0, 0, 0);
 		self.viewzoom = 0.5;
 	}
+	/*if (self.weapon == W_RAY || self.weapon == W_PORTER)
+		Set_W_Frame (32, 34, 0, 0, SPRINT, SUB_Null, modelname, false, S_BOTH);*/
 	else
 	{
 		self.zoom = 1;
@@ -139,6 +148,7 @@ void() W_AimIn =
 
 void() W_AimOut =
 {
+	local string modelname = GetWeaponModel(self.weapon, 0);
 	if (!self.zoom ||
 		self.new_anim_stop) {
 		return;
@@ -146,6 +156,8 @@ void() W_AimOut =
 	if (self.weapon == 11 || self.weapon == 19 ||
 	    self.weapon == 49 || self.weapon == 51)
 		ReturnWeaponModel();
+	/*if (self.weapon == W_RAY || self.weapon == W_PORTER)
+		Set_W_Frame (37, 39, 0, 0, SPRINT, SUB_Null, modelname, false, S_BOTH);*/
 	
 	self.zoom = 0;
 	self.viewzoom = 1;
