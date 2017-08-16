@@ -7,6 +7,11 @@ void() CherryBoom =
 	sound (self, CHAN_WEAPON, "sounds/weapons/tesla/shoot.wav", 1, ATTN_NORM);
 }
 
+/*=====================
+   CUSTOM FLAMETHROWER
+  =====================*/
+//Naievil used Inside3D, this is custom, hopefully it'll work..
+
 void() FlameThink =
 {
 	if (!self.owner) {
@@ -38,8 +43,9 @@ void() TouchFlame =
 	self.think = FlameThink;
 }
 
-void() FireFlame =	//Naievil used Inside3D, this is custom, hopefully it'll work..
+void() FireFlame =
 {
+	precache_model("progs/flame_main2.spr");
 	local vector playerorg;
 	playerorg = self.origin + '0 0 20'; //FIXME - Need it to look like it's coming from the weapon.. not from your mouth..
 	entity flame;
@@ -54,6 +60,41 @@ void() FireFlame =	//Naievil used Inside3D, this is custom, hopefully it'll work
 	flame.removetime = time + 3; //If it's been awhile and it still hasn't touched anyone, remove it.
 	flame.touch = TouchFlame;
 	flame.solid = SOLID_TRIGGER;
+}
+
+/* ===============
+    CUSTOM RAYGUN
+   ===============*/
+/*I should push these to the official repo, but whatever.
+  I also feel like explaining this in detail. Essentially,
+  all we need to do is shoot out the ray gun model (raybeam.mdl)
+  and create an explosion when it touches anything.*/
+
+void() RayExplode =
+{
+	DamgageExplode (self, self.owner, 1800, 1800, 64);
+	te_explosionquad(self.origin);
+	remove(self);
+}
+
+void() FireRay =
+{
+	local vector playerorg;
+	playerorg = self.origin + '0 0 20';
+	entity fuck;
+	fuck = spawn();
+	fuck.classname = "me";
+	fuck.movetype = MOVETYPE_FLY;
+	fuck.origin = self.origin + self.view_ofs;
+	fuck.origin += v_forward * 0;
+	setorigin(fuck, fuck.origin);
+	setmodel(fuck, "models/weapons/m1911/v_colt.mdl");
+	makevectors(self.v_angle);
+	fuck.velocity = v_forward * 2000;
+	fuck.effects = EF_GREEN;
+	fuck.solid = SOLID_TRIGGER;
+	fuck.touch = RayExplode;
+
 }
 
 void() ReturnWeaponModel =
@@ -844,10 +885,12 @@ void(float side) W_Fire =
 		}
 	}
 
-	if (firetype != 6) //NOT flamethrower
-		FireTrace(shotcount, spread, damage/* , self.weaponslot1.headx, self.weaponslot1.legx */);
-	else //IS flamethrower
+	if (firetype == 6) //flamethrower
 		FireFlame();
+	if (firetype == 4) //Raygun
+		FireRay();
+	else
+		FireTrace(shotcount, spread, damage/* , self.weaponslot1.headx, self.weaponslot1.legx */);
 
 
 	//Play weapon animation and sound
