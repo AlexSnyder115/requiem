@@ -2103,7 +2103,7 @@ void() Teleport =
 	local entity player, destination;
 	player = find (world, classname, "player");
 	destination = find (world, classname, "teleporter_destination");
-	setorigin (player, destination.origin + '0 0 1');
+	player.origin = destination.origin + [0,0,1];
 }
 
 void() teleporter_destination =

@@ -91,16 +91,17 @@ void() FireRay =
 	fuck.origin = self.origin + self.view_ofs;
 	fuck.origin += v_forward * 0;
 	setorigin(fuck, fuck.origin);
-	setmodel(fuck, "models/weapons/m1911/v_colt.mdl");
-	makevectors(self.v_angle);
-	fuck.velocity = v_forward * 2000;
+	setmodel(fuck, "progs/raybeam.mdl");
 	if (self.weapon == W_RAY)
 		fuck.effects = EF_GREEN;
 	else
 		fuck.effects = EF_RED;
+	makevectors (self.v_angle);
+	fuck.angles = vectoangles(v_forward);
+	fuck.angles_z -= 15;
+	fuck.velocity = v_forward * 2000;
 	fuck.solid = SOLID_TRIGGER;
 	fuck.touch = RayExplode;
-
 }
 
 void() ReturnWeaponModel =

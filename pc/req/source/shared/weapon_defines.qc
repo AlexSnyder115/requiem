@@ -2889,7 +2889,7 @@ void(float weptype) precache_extra =
 			precache_sound("sounds/weapons/raygun/in.wav");
 			precache_sound("sounds/weapons/raygun/close.wav");
 			precache_sound("sounds/weapons/raygun/shoot.wav");
-			//precache_model ("progs/raybeam.mdl");
+			precache_model ("progs/raybeam.mdl");
 			break;
 		case W_STG:
 		case W_SPATZ:
