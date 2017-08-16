@@ -7,6 +7,55 @@ void() CherryBoom =
 	sound (self, CHAN_WEAPON, "sounds/weapons/tesla/shoot.wav", 1, ATTN_NORM);
 }
 
+void() FlameThink =
+{
+	if (!self.owner) {
+		if (self.flametime < time)
+			remove(self);	}
+	else
+	{
+		self.origin = self.owner.origin; //We're attached! Don't leave the entity affected!
+		self.flametime++;
+		if (self.flametime == 100) { //1 second
+			DamageHandler(self.owner, self, 35, S_NORMAL);//FIXME - Need actual damage
+			self.flametime = 0; //Reset timer
+		}
+		if (self.owner.health == 0 && self.owner.classname == "ai_zombie")//If entity is dead
+			remove(self); //Delete flame.
+	}
+	self.nextthink = time + 0.01;
+}
+
+void() TouchFlame =
+{
+	if (other.classname == "ai_zombie") //We only want zomboz to be affected.
+	{
+		self.owner = other;
+		DamageHandler (self.owner, self, 125, S_NORMAL); //Do the damage.. FIXME - Need actual damage
+		self.movetype = MOVETYPE_NONE; //Stop bouncing around.
+	}
+	self.nextthink = time + 0.1;
+	self.think = FlameThink;
+}
+
+void() FireFlame =	//Naievil used Inside3D, this is custom, hopefully it'll work..
+{
+	local vector playerorg;
+	playerorg = self.origin + '0 0 20'; //FIXME - Need it to look like it's coming from the weapon.. not from your mouth..
+	entity flame;
+	flame = spawn();
+	flame.classname = "fuck";
+	flame.movetype = MOVETYPE_BOUNCE;
+	setorigin(flame, playerorg);
+	setmodel(flame, "progs/flame_main2.spr"); //Flame throw sprite.
+	//setmodel(flame, "progs/Misc/nuke!.mdl"); //Temp. here, hard to see past flame sprite..
+	makevectors(self.v_angle);
+	flame.velocity = v_forward * 1000; //Shoot 'em out!
+	flame.removetime = time + 3; //If it's been awhile and it still hasn't touched anyone, remove it.
+	flame.touch = TouchFlame;
+	flame.solid = SOLID_TRIGGER;
+}
+
 void() ReturnWeaponModel =
 {
 	self.weaponmodel = GetWeaponModel(self.weapon, 0);
@@ -795,7 +844,10 @@ void(float side) W_Fire =
 		}
 	}
 
-	FireTrace(shotcount, spread, damage/* , self.weaponslot1.headx, self.weaponslot1.legx */);
+	if (firetype != 6) //NOT flamethrower
+		FireTrace(shotcount, spread, damage/* , self.weaponslot1.headx, self.weaponslot1.legx */);
+	else //IS flamethrower
+		FireFlame();
 
 
 	//Play weapon animation and sound

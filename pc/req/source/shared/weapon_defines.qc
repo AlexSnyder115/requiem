@@ -5,6 +5,7 @@ string(float wep) GetWeaponName =
 	{
 		case W_COLT:
 			return "Colt M1911";
+			//return "Ok, you see a perfectly good MP40 on the wall, but instead you go for the PP? Jerk.";
 		case W_BIATCH:
       		return "Mustang & Sally";
 		case W_KAR:

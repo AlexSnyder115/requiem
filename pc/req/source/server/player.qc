@@ -261,6 +261,11 @@ void() PlayerPostThink =
 	self.oldvelocity = self.velocity;
 
 	QuoteCheck();
+	if (self.weapon == W_M2 && self.currentmag != getWeaponMag(self.weapon) && self.regen_delay < time) //Regenerate Flamethrower Ammo
+	{
+		self.currentmag += 1;
+		self.regen_delay = time + 0.15; //FIXME -- Need actual time..
+	}
 };
 
 void() ClientKill =
