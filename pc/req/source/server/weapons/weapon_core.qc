@@ -1475,6 +1475,39 @@ void(entity ent) CheckPowerups =
 		tpbox.touch = SUB_Null;
 		setmodel (tpbox, "progs/Misc/teddy.mdl");
 	}
+	if (dm_finished >= time)
+	{
+		if (dm_finished < 4 + time)
+		{
+			if (dm_blink< time - 0.25)
+				dm_blink = time + 0.25;
+		}
+		else if (dm_finished < 7 + time)
+		{
+			if (dm_blink< time - 0.5)
+				dm_blink = time + 0.5;
+		}
+		else if (dm_finished < 10 + time)
+		{
+			if (dm_blink< time - 1)
+				dm_blink = time + 1;
+		}
+		if (dm_blink < time)
+			ent.dm_icon = true;
+		else 
+			ent.dm_icon = false;			
+	}
+	else if(dm_finished)
+	{
+		dm_finished = 0;
+		ent.dm_icon = false;
+		ent.weapon = ent.dmweapon;
+		ent.currentammo = ent.dmammo;
+		ent.currentmag = ent.dmmag;
+		ent.secondaryweapon = ent.dm2weapon;
+		SwitchWeapon(ent.weapon);
+		Set_W_Frame (GetFrame(ent.weapon, TAKE_OUT_START), GetFrame(ent.weapon, TAKE_OUT_END), 0, 0, 0, SUB_Null, GetWeaponModel(ent.weapon, 0), false, S_BOTH);
+	}
 
 }
 

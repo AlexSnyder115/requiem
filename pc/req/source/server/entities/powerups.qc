@@ -209,6 +209,8 @@ void() powerup_flash =
 			setmodel(self,"progs/Misc/carpenter!.mdl");
 		if(self.zombie_drop_id == 6)
 			setmodel(self,"progs/Misc/firesale!.mdl");
+		if(self.zombie_drop_id == 7)
+			setmodel(self,"models/weapons/mg/g_mg.mdl");
 	}
 	else
 	{
@@ -270,6 +272,23 @@ void() powerup_touch =
 				other.sale_icon = true;
 				hassale = true;
 			}
+		}
+		else if(self.zombie_drop_id == 7)
+		{
+			other.dmweapon = other.weapon;
+			other.dmammo = other.currentammo;
+			other.dmmag = other.currentmag;
+			other.dm2weapon = other.secondaryweapon;
+			other.dm2ammo = other.secondaryammo;
+			other.dm2mag = other.secondarymag;
+			other.weapon = W_BARRACUDA;
+			other.currentmag = 999;
+			other.secondaryweapon = 0;
+			other.weaponmodel = GetWeaponModel(W_BARRACUDA, 0);
+			SwitchWeapon(other.weapon);
+			Set_W_Frame (GetFrame(other.weapon, TAKE_OUT_START), GetFrame(other.weapon, TAKE_OUT_END), 0, 0, 0, SUB_Null, GetWeaponModel(other.weapon, 0), false, S_BOTH);
+			dm_finished = time + 30;
+			other.dm_icon = true;
 		}
 		stuffcmd(other, "bf\n");
 		remove(self.owner);
@@ -338,22 +357,59 @@ void(vector where, float type) Spawn_Powerup =
 	if (!type) {
 		if (total_windows_down >= 5 && boxmoved == 1)
     	{
-        	if (t < 0.1666)
+        	if (t < (1/7))
         	{
             	setmodel(new_powerup,"progs/Misc/maxammo!.mdl");
             	new_powerup.zombie_drop_id = 1;
         	}
-        	else if (t < 0.3333)
+        	else if (t < (2/7))
         	{
        			setmodel(new_powerup,"progs/Misc/x2!.mdl");
             	new_powerup.zombie_drop_id = 2;
         	}
-        	else if (t < 0.5)
+        	else if (t < (3/7))
         	{
             	setmodel(new_powerup,"progs/Misc/instakill!.mdl");
             	new_powerup.zombie_drop_id = 3;
         	}
-        	else if (t < 0.6666)
+        	else if (t < (4/7))
+        	{
+            	setmodel(new_powerup,"progs/Misc/nuke!.mdl");
+            	new_powerup.zombie_drop_id = 4;
+        	}
+        	else if (t < (5/7))
+        	{
+            	setmodel(new_powerup,"progs/Misc/carpenter!.mdl");
+            	new_powerup.zombie_drop_id = 5;
+        	}
+        	else if (t < (6/7))
+        	{
+            	setmodel(new_powerup,"progs/Misc/firesale!.mdl");
+            	new_powerup.zombie_drop_id = 6;
+        	}
+        	else
+        	{
+        		setmodel(new_powerup,"models/weapons/mg/g_mg.mdl");
+        		new_powerup.zombie_drop_id = 7;
+        	}
+        if (total_windows_down >= 5)
+        {
+        	if (t < (1/6))
+        	{
+            	setmodel(new_powerup,"progs/Misc/maxammo!.mdl");
+            	new_powerup.zombie_drop_id = 1;
+        	}
+        	else if (t < (2/6))
+        	{
+       			setmodel(new_powerup,"progs/Misc/x2!.mdl");
+            	new_powerup.zombie_drop_id = 2;
+        	}
+        	else if (t < (3/6))
+        	{
+            	setmodel(new_powerup,"progs/Misc/instakill!.mdl");
+            	new_powerup.zombie_drop_id = 3;
+        	}
+        	else if (t < (4/6))
         	{
             	setmodel(new_powerup,"progs/Misc/nuke!.mdl");
             	new_powerup.zombie_drop_id = 4;
@@ -365,35 +421,8 @@ void(vector where, float type) Spawn_Powerup =
         	}
         	else
         	{
-            	setmodel(new_powerup,"progs/Misc/firesale!.mdl");
-            	new_powerup.zombie_drop_id = 6;
-        	}
-        if (total_windows_down >= 5)
-        {
-        	if (t < 0.2)
-        	{
-            	setmodel(new_powerup,"progs/Misc/maxammo!.mdl");
-            	new_powerup.zombie_drop_id = 1;
-        	}
-        	else if (t < 0.4)
-        	{
-       			setmodel(new_powerup,"progs/Misc/x2!.mdl");
-            	new_powerup.zombie_drop_id = 2;
-        	}
-        	else if (t < 0.5)
-        	{
-            	setmodel(new_powerup,"progs/Misc/instakill!.mdl");
-            	new_powerup.zombie_drop_id = 3;
-        	}
-        	else if (t < 0.8)
-        	{
-            	setmodel(new_powerup,"progs/Misc/nuke!.mdl");
-            	new_powerup.zombie_drop_id = 4;
-        	}
-        	else
-        	{
-            	setmodel(new_powerup,"progs/Misc/carpenter!.mdl");
-            	new_powerup.zombie_drop_id = 5;
+        		setmodel(new_powerup,"models/weapons/mg/g_mg.mdl");
+        		new_powerup.zombie_drop_id = 7;
         	}
         }
         /*else
@@ -404,25 +433,30 @@ void(vector where, float type) Spawn_Powerup =
     	}
     	else
     	{
-        	if (t < 0.25)
+        	if (t < (1/5))
         	{
             	setmodel(new_powerup,"progs/Misc/maxammo!.mdl");
             	new_powerup.zombie_drop_id = 1;
         	}
-        	else if (t < 0.5)
+        	else if (t < (2/5))
         	{
             	setmodel(new_powerup,"progs/Misc/x2!.mdl");
             	new_powerup.zombie_drop_id = 2;
         	}
-        	else if (t < 0.75)
+        	else if (t < (3/5))
         	{
             	setmodel(new_powerup,"progs/Misc/instakill!.mdl");
             	new_powerup.zombie_drop_id = 3;
         	}
-        	else
+        	else if (t < (4/5))
         	{
             	setmodel(new_powerup,"progs/Misc/nuke!.mdl");
             	new_powerup.zombie_drop_id = 4;
+        	}
+        	else
+        	{
+        		setmodel(new_powerup,"models/weapons/mg/g_mg.mdl");
+        		new_powerup.zombie_drop_id = 7;
         	}
         /*
         else
