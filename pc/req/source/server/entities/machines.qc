@@ -3,6 +3,7 @@ float backupWepSkin;
 float sound_perk_delay; 
 void() W_Switch;
 void() mystery_touch;
+void() maxammo;
 
 void GivePerk(float perk) {
 	switch(perk) {
@@ -442,6 +443,7 @@ void() touch_perk =
 			{
 				addmoney (other, -5000, 0);
 				DrinkPerk(P_AMMO);
+				maxammo();
 			}
 			else if (other.button7)
 			{

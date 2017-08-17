@@ -24,7 +24,10 @@ void() maxammo =
 		{
 			if (tempe.weapon)
 			{
-				tempe.currentammo = getWeaponAmmo(tempe.weapon);
+				if (self.perks & P_CANDO)
+					tempe.currentammo = (getWeaponAmmo(tempe.weapon) + (getWeaponMag(tempe.weapon) * 2));
+				else
+					tempe.currentammo = getWeaponAmmo(tempe.weapon);
 				if (!tempe.currentmag)
 				{
 					temp = self;
@@ -33,8 +36,12 @@ void() maxammo =
 					self = temp;
 				}
 			}
-			if (tempe.secondaryweapon)
-				tempe.secondaryammo = getWeaponAmmo(tempe.secondaryweapon);
+			if (tempe.secondaryweapon) {
+				if (self.perks & P_CANDO)
+					tempe.secondaryammo = (getWeaponAmmo(tempe.secondaryweapon) + (getWeaponMag(tempe.secondaryweapon) * 2));
+				else
+					tempe.secondaryammo = getWeaponAmmo(tempe.secondaryweapon);
+			}
 			
 			tempe.primary_grenades = 4;
 			

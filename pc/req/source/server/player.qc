@@ -243,18 +243,18 @@ void() PlayerPostThink =
 		}
 		
 		if (self.perks & P_STAMIN) {
-			self.stamina = self.stamina - 5*frametime;
+			self.stamina = self.stamina - 2.5*frametime;
 		} else {
-			self.stamina = self.stamina - (10*frametime);
+			self.stamina = self.stamina - (5*frametime);
 		}
 
 		if (self.stamina <= 0) {
 			W_SprintStop();
 		}
-	} else if (self.stamina < 3) 	{
-		self.stamina = self.stamina + 10*frametime;
-		if (self.stamina > 3) {
-			self.stamina = 3;
+	} else if (self.stamina < 6) 	{
+		self.stamina = self.stamina + 5*frametime;
+		if (self.stamina > 6) {
+			self.stamina = 6;
 		}
 	}
 
@@ -358,8 +358,8 @@ void() PlayerSpawn =
 	self.view_ofs = VEC_VIEW_OFS; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
 
 	self.currentammo = 32;
-	self.currentmag = 8;
-	self.weapon = W_COLT;
+	self.currentmag = 3;
+	self.weapon = W_TESLA;
 	
 	self.grenades = self.grenades | 1;  // add frag grenades to player inventory
 	
@@ -388,7 +388,7 @@ void() PlayerSpawn =
 
 	SetRound(self, rounds);
 
-	self.stamina = 3;
+	self.stamina = 6;
 	self.reviving = 0;
 	self.weaponnum = 0;
 	

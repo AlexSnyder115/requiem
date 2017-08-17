@@ -229,7 +229,10 @@ void () buy_weapon_touch =
 		}
 
 		if (self.weapon == other.weapon || (self.weapon == EqualNonPapWeapon(other.weapon))) {
-			other.currentammo = getWeaponAmmo(self.weapon);
+			if (self.perks & P_CANDO)
+				other.currentammo = (getWeaponAmmo(self.weapon) + (getWeaponMag(self.weapon) * 2));
+			else
+				other.currentammo = getWeaponAmmo(self.weapon);
 		} else if (self.weapon == other.secondaryweapon || (self.weapon == EqualNonPapWeapon(other.secondaryweapon)) ) {
 			other.secondaryammo = getWeaponAmmo(self.weapon);
 		}
