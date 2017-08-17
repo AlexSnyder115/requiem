@@ -153,6 +153,7 @@ const float EVENT_BLACKOUT = 26;
 #define STAT_SALE 				66
 #define STAT_BOXWEP 			67
 #define STAT_POINTDIF 			68
+#define STAT_FLAMECOOL 			69
 
 //
 // invert float takes in float value between 0 and 1, inverts position

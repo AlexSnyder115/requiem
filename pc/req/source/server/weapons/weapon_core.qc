@@ -901,7 +901,7 @@ void(float side) W_Fire =
 		}
 	}
 
-	if (firetype == 6) //flamethrower
+	if (firetype == 6)//flamethrower
 		FireFlame();
 	if (firetype == 4) //Raygun
 		FireRay();
@@ -1598,7 +1598,12 @@ void () Weapon_Logic =
 		}
 	} else {
 		if (self.button0) {
-			W_Fire(S_RIGHT);
+			if (self.weapon == W_M2) {
+				if (self.iscooling == 0)
+					W_Fire(S_RIGHT);
+			}
+			if (self.weapon != W_M2)
+				W_Fire(S_RIGHT);
 		} else {
 			self.semi = FALSE;
 		}

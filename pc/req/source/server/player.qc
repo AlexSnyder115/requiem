@@ -266,6 +266,12 @@ void() PlayerPostThink =
 		self.currentmag += 1;
 		self.regen_delay = time + 0.15; //FIXME -- Need actual time..
 	}
+	if (self.weapon == W_M2 && self.currentmag <= 25) {
+		self.flamecool = time + 9;
+		self.iscooling = 1;
+	}
+	if (self.flamecool < time)
+		self.iscooling = 0;
 };
 
 void() ClientKill =

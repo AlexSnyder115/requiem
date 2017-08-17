@@ -71,8 +71,32 @@ void(float width, float height) HUD_Ammo =
 	} else {
 		ammostring_1 = ftos(curmag);
 		ammostring_2 = strcat("/",ftos(ammo));
-		drawstring([(width*.8) - (benis*20*width/1024), 0.85*height, 0], ammostring_1, [0.02*width, 0.02*width, 0], color, 1, 1);
-		drawstring([(width*.8) - ((benis-strlen(ftos(curmag)))*20*width/1024), 0.85*height, 0], ammostring_2, [0.015*width, 0.015*width, 0], color_2, 1, 1);
+		if (getstatf(STAT_ACTIVEWEAPON) != W_M2) {
+			drawstring([(width*.8) - (benis*20*width/1024), 0.85*height, 0], ammostring_1, [0.02*width, 0.02*width, 0], color, 1, 1);
+			drawstring([(width*.8) - ((benis-strlen(ftos(curmag)))*20*width/1024), 0.85*height, 0], ammostring_2, [0.015*width, 0.015*width, 0], color_2, 1, 1);
+		}
+		else {
+			float percent = (getstatf(STAT_CURRENTMAG)/200);
+		if (!percent) {
+			return;
+		}	
+		string progress; 
+		local float ws_offset;
+		
+		progress = ftos(percent);
+		ws_offset = (strlen(progress) - 1);
+
+		float bar_width = 0.0175*width * 20;
+		float bar_height = 0.0175*width;
+		float bar_x = (width - bar_width)/2;
+		float bar_y = height*0.75;
+
+		drawfill ([bar_x - 1, bar_y - 1, 0], [bar_width+2, bar_height, 0], [0, 0, 0], 0.4);
+		if (getstatf(STAT_FLAMECOOL))
+			drawfill ([bar_x, bar_y, 0], [bar_width * percent, bar_height-2, 0], [1, 0, 0], 0.4);
+		else
+			drawfill ([bar_x, bar_y, 0], [bar_width * percent, bar_height-2, 0], [1, 1, 1], 0.4);
+		}
 	}
 }
 
@@ -1166,13 +1190,10 @@ void(float width, float height) HUD_Draw =
 		HUD_Powerups();
 		HUD_AmmoString();
 	
-		if (HUD_Change_time > time)
-		{
-			HUD_Ammo(width, height);
-			HUD_Grenades(width, height);
-			HUD_Weaponstring(width, height);
-			HUD_PlayerName(width, height);
-		}
+		HUD_Ammo(width, height);
+		HUD_Grenades(width, height);
+		HUD_Weaponstring(width, height);
+		HUD_PlayerName(width, height);
 			
 		if (useprint_time > time) 
 			HUD_Useprint(width, height);
