@@ -97,8 +97,10 @@ void() FireRay =
 	setmodel(fuck, "progs/raybeam.mdl");
 	if (self.weapon == W_RAY)
 		fuck.effects = EF_GREEN;
-	else
+	else {
 		fuck.effects = EF_RED;
+		fuck.weaponskin = 2;
+	}
 	makevectors (self.v_angle);
 	fuck.angles = vectoangles(v_forward);
 	fuck.angles_z -= 15;

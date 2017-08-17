@@ -365,7 +365,7 @@ void() PlayerSpawn =
 
 	self.currentammo = 32;
 	self.currentmag = 8;
-	self.weapon = W_COLT;
+	self.weapon = W_RAY;
 	
 	self.grenades = self.grenades | 1;  // add frag grenades to player inventory
 	
