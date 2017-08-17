@@ -493,7 +493,7 @@ float(float wep) getWeaponDamage =
 		case W_HEADCRACKER:
 			return 1000;
 		case W_M14:
-			return 210;
+			return 160;
 		case W_M1:
 			return 105;
 		case W_M1000:
@@ -1154,7 +1154,6 @@ float GetWeaponWalkSpeed (int weapontype)
 
 vector GetWeaponADSPos(float wep) {
 	switch (wep) {
-		case W_M14:
 		case W_COLT:
 			return [-2.99, 2.77, 0.92];
 		case W_KAR:
@@ -1188,6 +1187,7 @@ vector GetWeaponADSPos(float wep) {
 		case W_M1:
 		case W_M1000:
 			return [-2.6, 2.46, 1.12];
+		case W_M14:
 		case W_M1A1:
 		case W_WIDDER:
 			return [-0.6, 2.7, 1.94];
@@ -2104,6 +2104,37 @@ float(float wep, float frametype) GetFrame =
 					return 20;
 			}
 			break;
+		case W_M14:
+			switch (frametype)
+			{
+				case FIRE_START:
+					return 1;
+				case FIRE_END:
+					return 2;
+				case RELOAD_START:
+					return 12;
+				case RELOAD_END:
+					return 30;
+				case SPRINT_IN_START:
+					return 33;
+				case SPRINT_IN_END:
+					return 34;
+				case SPRINT_OUT_START:
+					return 39;
+				case SPRINT_OUT_END:
+					return 40;
+				case TAKE_OUT_START:
+					return 7;
+				case TAKE_OUT_END:
+					return 9;
+				case PUT_OUT_START:
+					return 5;
+				case PUT_OUT_END:
+					return 6;
+				case RELOAD_CANCEL:
+					return 21;
+			}
+			break;
 	}
 
     return 0;
@@ -2123,7 +2154,7 @@ string(float wep, float gorvmodel) GetWeaponModel =
 			if (gorvmodel)
 				return ("models/weapons/m1911/g_colt.mdl");
 			else
-				return ("models/weapons/m14/v_m14.iqm");
+				return ("models/weapons/m14/v_m14.mdl");
 		case W_TESLA:
 			if (gorvmodel)
 				return ("models/weapons/tesla/g_tesla.mdl");

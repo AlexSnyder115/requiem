@@ -346,6 +346,8 @@
 		24: "Bowie"
 		25: "Grenade"
 		26: "Betty"
+		55: "M14"
+		58: "Stakeout"
 	]
 ]
 @PointClass  base(Appearflags, Targetname) color(114 224 172) studio("models/props/barrel_m.mdl") = explosive_barrel : "Barrel that can explode when shot at" 
