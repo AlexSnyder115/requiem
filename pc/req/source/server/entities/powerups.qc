@@ -6,8 +6,10 @@ void() firesale =
 {
 	entity salebox;
 	salebox = find(world, classname, "mystery_box_tp_spot");
+	makevectors (salebox.v_angle);
 	salebox.classname = "mystery_firesale";
 	salebox.touch = mystery_touch;
+	salebox.solid = SOLID_TRIGGER;
 	setmodel (salebox, "models/machines/mystery.mdl");
 }
 
@@ -198,11 +200,8 @@ void() powerup_flash =
 			setmodel(self,"progs/Misc/nuke!.mdl");
 		if(self.zombie_drop_id == 5)
 			setmodel(self,"progs/Misc/carpenter!.mdl");
-		if (boxmoved == 1)
-		{
-			if(self.zombie_drop_id == 6)
-				setmodel(self,"progs/Misc/firesale!.mdl");
-		}
+		if(self.zombie_drop_id == 6)
+			setmodel(self,"progs/Misc/firesale!.mdl");
 	}
 	else
 	{
@@ -330,7 +329,7 @@ void(vector where, float type) Spawn_Powerup =
 	t = random();
 	
 	if (!type) {
-		if (total_windows_down >= 5)
+		if (total_windows_down >= 5 && boxmoved == 1)
     	{
         	if (t < 0.1666)
         	{
@@ -362,14 +361,8 @@ void(vector where, float type) Spawn_Powerup =
             	setmodel(new_powerup,"progs/Misc/firesale!.mdl");
             	new_powerup.zombie_drop_id = 6;
         	}
-        /*else
-     {
-            setmodel(new_powerup,"progs/Misc/perkbottle!.mdl");
-            new_powerup.zombie_drop_id = 7;
-        }*/
-    	}
-    	else
-    	{
+        if (total_windows_down >= 5)
+        {
         	if (t < 0.2)
         	{
             	setmodel(new_powerup,"progs/Misc/maxammo!.mdl");
@@ -377,10 +370,10 @@ void(vector where, float type) Spawn_Powerup =
         	}
         	else if (t < 0.4)
         	{
-            	setmodel(new_powerup,"progs/Misc/x2!.mdl");
+       			setmodel(new_powerup,"progs/Misc/x2!.mdl");
             	new_powerup.zombie_drop_id = 2;
         	}
-        	else if (t < 0.6)
+        	else if (t < 0.5)
         	{
             	setmodel(new_powerup,"progs/Misc/instakill!.mdl");
             	new_powerup.zombie_drop_id = 3;
@@ -392,8 +385,37 @@ void(vector where, float type) Spawn_Powerup =
         	}
         	else
         	{
-            	setmodel(new_powerup,"progs/Misc/firesale!.mdl");
-            	new_powerup.zombie_drop_id = 6;
+            	setmodel(new_powerup,"progs/Misc/carpenter!.mdl");
+            	new_powerup.zombie_drop_id = 5;
+        	}
+        }
+        /*else
+     {
+            setmodel(new_powerup,"progs/Misc/perkbottle!.mdl");
+            new_powerup.zombie_drop_id = 7;
+        }*/
+    	}
+    	else
+    	{
+        	if (t < 0.25)
+        	{
+            	setmodel(new_powerup,"progs/Misc/maxammo!.mdl");
+            	new_powerup.zombie_drop_id = 1;
+        	}
+        	else if (t < 0.5)
+        	{
+            	setmodel(new_powerup,"progs/Misc/x2!.mdl");
+            	new_powerup.zombie_drop_id = 2;
+        	}
+        	else if (t < 0.75)
+        	{
+            	setmodel(new_powerup,"progs/Misc/instakill!.mdl");
+            	new_powerup.zombie_drop_id = 3;
+        	}
+        	else
+        	{
+            	setmodel(new_powerup,"progs/Misc/nuke!.mdl");
+            	new_powerup.zombie_drop_id = 4;
         	}
         /*
         else
