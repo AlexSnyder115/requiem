@@ -196,3 +196,26 @@ map ndu
 map warehouse
 map warehouse
 give 33
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip

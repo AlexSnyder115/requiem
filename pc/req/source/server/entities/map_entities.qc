@@ -319,6 +319,21 @@ void () buy_weapon_touch =
 		other.semiuse = true;
 		return;
 	}
+	else if (self.weapon == W_BOWIE)
+	{
+		if (other.hasbowie == 0)
+		{
+			useprint(other, 3, self.cost2, self.weapon);
+			if (other.button7)
+			{
+				entity tempz;
+				tempz = self;
+				self = other;
+				Set_W_Frame(15, 30, 0, 0, 0, ReturnWeaponModel, "progs/VModels/v_bowie.mdl", false, S_BOTH);
+				self.hasbowie = 1;
+			}
+		}
+	}
 	else
 	{
 		entity tempe;

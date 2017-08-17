@@ -654,7 +654,7 @@ void() LungeKnifeHit =
 		
 		if (self.bowie && self.weapon == W_BK)
 			f_damage = 1200;
-		else if (self.bowie)
+		else if (self.hasbowie == 1)
 			f_damage = 1000;
 		else if (self.weapon == W_BK)
 			f_damage = 500;
@@ -1033,7 +1033,7 @@ void () W_Knife =
 			self.fire_delay = time + 1.5;
 			self.knife_delay = time + 1.75;
 		}
-		else if (self.bowie)
+		else if (self.hasbowie == 1)
 		{
 			Set_W_Frame (4, 10, 0.7, 0, KNIFE, ReturnWeaponModel, "progs/VModels/v_bowie.mdl", false, S_RIGHT);
 			self.fire_delay = time + 0.8;
@@ -1056,7 +1056,7 @@ void () W_Knife =
 			self.fire_delay = time + 0.5;
 			self.knife_delay = time + 0.8;
 		}
-		else if (self.bowie)
+		else if (self.hasbowie == 1)
 		{
 			Set_W_Frame (0, 3, 0.3, 0, KNIFE, ReturnWeaponModel, "progs/VModels/v_bowie.mdl", false, S_RIGHT);
 			self.fire_delay = time + 0.4;

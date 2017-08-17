@@ -10,6 +10,7 @@ const float FL_JUMPRELEASED = 4096;
 .float teleport_time;
 .float flamecool;
 .float iscooling;
+.float hasbowie;
 
 string soundstyle;
 
