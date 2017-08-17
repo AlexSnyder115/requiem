@@ -184,10 +184,10 @@ var struct
 	{[0.025, 0.325, 0], [0.425, 0.06, 0], "Wahnsinn", -1, menu_loadwh, MENU_NZP},
 	{[0.475, 0.500, 0], [0.250, 0.05, 0], "Join", -1, game_join, MENU_JOIN},
 	{[0.475, 0.575, 0], [0.250, 0.05, 0], "Spectate", -1, game_spec, MENU_JOIN},
-	{[0.025, 0.500, 0], [0.250, 0.05, 0], "Resume", -1, menu_resume, MENU_PAUSE},
-	{[0.025, 0.575, 0], [0.250, 0.05, 0], "Restart", -1, menu_restart, MENU_PAUSE},
-	{[0.025, 0.650, 0], [0.250, 0.05, 0], "Settings", -1, menu_settings2, MENU_PAUSE},
-	{[0.025, 0.725, 0], [0.250, 0.05, 0], "Main Menu", -1, menu_main, MENU_PAUSE},
+	{[0.025, 0.500, 0], [0.200, 0.045, 0], "Resume Carnage", -1, menu_resume, MENU_PAUSE},
+	{[0.025, 0.575, 0], [0.200, 0.045, 0], "Restart", -1, menu_restart, MENU_PAUSE},
+	{[0.025, 0.650, 0], [0.200, 0.045, 0], "Settings", -1, menu_settings2, MENU_PAUSE},
+	{[0.025, 0.725, 0], [0.200, 0.045, 0], "Quit", -1, menu_main, MENU_PAUSE},
 	{[0.025, 0.925, 0], [0.250, 0.05, 0], "Back", -1, menu_back2, MENU_IGS},
 	{[0.025, 0.500, 0], [0.250, 0.05, 0], "Yes", -1, menu_resy, MENU_RES},
 	{[0.025, 0.575, 0], [0.250, 0.05, 0], "No", -1, menu_resn, MENU_RES},
@@ -409,26 +409,36 @@ void() Draw_Menu =
 	switch(in_menu)
 	{
 		case MENU_ABOUT:
-			drawstring([0.03*g_width, 0.15*g_height, 0], "Blubswillrule: Coding, Models, GFX, Sounds,", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.03*g_width, 0.185*g_height, 0], "               Animations, Music", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawfill ([.03*g_width, 0.15*g_height + g_height*0.025 + 3, 0], [strlen("Blubswillrule")*12.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
-			
-			drawstring([0.03*g_width, 0.25*g_height, 0], "Ju[s]tice:     Maps, Models, GFX", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawfill ([.03*g_width, 0.25*g_height + g_height*0.025 + 3, 0], [strlen("Ju[s]tice")*12.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
-
-				
-			drawstring([0.03*g_width, 0.35*g_height, 0], "Jukki:         Coding", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawfill ([.03*g_width, 0.35*g_height + g_height*0.025 + 3, 0], [strlen("Jukki")*12.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
-												
-			drawstring([0.03*g_width, 0.45*g_height, 0], "Special Thanks:", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawfill ([.03*g_width, 0.45*g_height + g_height*0.025 + 3, 0], [strlen("Special Thanks")*12.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
-			
-			drawstring([0.25*g_width, 0.525*g_height, 0], "- Spike", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.25*g_width, 0.575*g_height, 0], "- Shpuld", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.25*g_width, 0.625*g_height, 0], "- DR_Mabuse1981", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.25*g_width, 0.675*g_height, 0], "- Naievil", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1); 
-			drawstring([0.25*g_width, 0.725*g_height, 0], "- Biodude", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.25*g_width, 0.775*g_height, 0], "- MotoLegacy", [g_height * 0.025, g_height * 0.025, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.04*g_width, 0.15*g_height, 0], "Requiem Credits", [g_height * 0.025, g_height * 0.025, 1], [1, 0, 0], 1, 1);
+			drawfill ([0.04*g_width, 0.15*g_height + g_height*0.025 + 3, 0], [strlen("Requiem Credits")*12.5, 0.0025*g_height, 0], [1, 0, 0], 1);
+			drawstring([0.04*g_width, 0.20*g_height, 0], "MotoLegacy:            Programming & GFX", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.20*g_height + g_height*0.015 + 3, 0], [strlen("MotoLegacy")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.24*g_height, 0], "Derped_Crusader:       Models & GFX", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.24*g_height + g_height*0.015 + 3, 0], [strlen("Derped_Crusader")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.28*g_height, 0], "Etrius:                Animations", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.28*g_height + g_height*0.015 + 3, 0], [strlen("Etrius")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.33*g_height, 0], "Nazi Zombies Portable Credits", [g_height * 0.025, g_height * 0.025, 1], [1, 0, 0], 1, 1);
+			drawfill ([0.04*g_width, 0.33*g_height + g_height*0.025 + 3, 0], [strlen("Nazi Zombies Portable Credits")*12.5, 0.0025*g_height, 0], [1, 0, 0], 1);
+			drawstring([0.04*g_width, 0.38*g_height, 0], "Blubswillrule:          Programming, Models, GFX, Sounds, Animations, & Music", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.38*g_height + g_height*0.015 + 3, 0], [strlen("Blubswillrule")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.42*g_height, 0], "Jukki:                  Programming", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.42*g_height + g_height*0.015 + 3, 0], [strlen("Jukki")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.46*g_height, 0], "Ju[s]tice:              Maps, Models, & GFX", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.46*g_height + g_height*0.015 + 3, 0], [strlen("Ju[s]tice")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.51*g_height, 0], "Special Thanks To:", [g_height * 0.025, g_height * 0.025, 1], [1, 0, 0], 1, 1);
+			drawfill ([0.04*g_width, 0.51*g_height + g_height*0.025 + 3, 0], [strlen("Special Thanks To")*12.5, 0.0025*g_height, 0], [1, 0, 0], 1);
+			drawstring([0.04*g_width, 0.56*g_height, 0], "Spike", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.56*g_height + g_height*0.015 + 3, 0], [strlen("Spike")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.60*g_height, 0], "Shpuld", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.60*g_height + g_height*0.015 + 3, 0], [strlen("Shpuld")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.64*g_height, 0], "DR_Mabuse1981", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.64*g_height + g_height*0.015 + 3, 0], [strlen("DR_Mabuse1981")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.68*g_height, 0], "Naievil", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.68*g_height + g_height*0.015 + 3, 0], [strlen("Naievil")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.72*g_height, 0], "Biodude", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawfill ([0.04*g_width, 0.72*g_height + g_height*0.015 + 3, 0], [strlen("Biodude")*10.5, 0.0025*g_height, 0], [0.8, 0.8, 0.8], 1);
+			drawstring([0.04*g_width, 0.77*g_height, 0], "Thank you for being part of this great community!", [g_height * 0.025, g_height * 0.025, 1], [1, 0, 0], 1, 1);
+			drawfill ([0.04*g_width, 0.77*g_height + g_height*0.025 + 3, 0], [strlen("Thank you for being part of this great community")*12.5, 0.0025*g_height, 0], [1, 0, 0], 1);
 		default:
 			break;
 	}
