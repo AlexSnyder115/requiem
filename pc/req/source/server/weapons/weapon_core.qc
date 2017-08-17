@@ -359,6 +359,11 @@ void() ContinueReload = //Special reloads
 			startframe = 24;
 			endframe = 26;
 			endanimfunc = W_LoadAmmo;
+		} else if (self.weapon == W_STAKE) {
+			delay = 0.5;
+			startframe = 4;
+			endframe = 16;
+			endanimfunc = W_LoadAmmo;
 		}
 		self.reloadinterupted = FALSE;
 	} else if (self.currentmag < getWeaponMag(self.weapon)) {
@@ -374,7 +379,7 @@ void() ContinueReload = //Special reloads
 			startframe = 19;
 			endframe = 24;
 			endanimfunc = ContinueReload;
-		} else if (self.weapon == W_TRENCH || self.weapon == W_GUT) {
+		} else if (self.weapon == W_TRENCH || self.weapon == W_GUT || self.weapon == W_STAKE) {
 			if (self.weapon == W_GUT && self.currentammo >= 2 && self.currentmag < 9) {
 				self.currentmag = self.currentmag + 2;
 				self.currentammo = self.currentammo - 2;
@@ -482,7 +487,7 @@ void(float side) W_Reload =
 				delay = 3.6;
 				endanimfunc = W_Give_Ammo;
 			}
-		} else if (self.weapon == W_TRENCH || self.weapon == W_GUT) {
+		} else if (self.weapon == W_TRENCH || self.weapon == W_GUT || self.weapon == W_STAKE) {
 			if (self.currentmag == 0) {
 				self.NeedLoad = true;
 			}
@@ -541,6 +546,13 @@ void () W_LoadAmmo =
 	{
 		startframe = 4;
 		endframe = 14;
+		reloadcancelframe = 12;
+		delay = 1;
+		endanimfunc = W_LoadAmmoDone;
+	}
+	if (self.weapon == W_STAKE) {
+		startframe = 4;
+		endframe = 17;
 		reloadcancelframe = 12;
 		delay = 1;
 		endanimfunc = W_LoadAmmoDone;
@@ -846,7 +858,7 @@ void(float side) W_Fire =
 	}
 
 	//Dont fire if the gun has to cycle
-	if (self.NeedLoad && (self.weapon == W_TRENCH || self.weapon == W_GUT || self.weapon == W_KAR_SCOPE || self.weapon == W_KAR || self.weapon == W_ARMAGEDDON || self.weapon == W_HEADCRACKER))
+	if (self.NeedLoad && (self.weapon == W_TRENCH || self.weapon == W_GUT || self.weapon == W_KAR_SCOPE || self.weapon == W_KAR || self.weapon == W_ARMAGEDDON || self.weapon == W_HEADCRACKER || self.weapon == W_STAKE))
 	{
 		W_LoadAmmo();
 		return;
@@ -876,7 +888,8 @@ void(float side) W_Fire =
 			self.weapon == W_DB ||
 			self.weapon == W_SAWNOFF ||
 			self.weapon == W_GUT ||
-			self.weapon == W_BORE) {
+			self.weapon == W_BORE ||
+			self.weapon == W_STAKE) {
 				spread = spread * 0.75;
 			} else {
 				spread = spread * 0.1;
@@ -919,7 +932,7 @@ void(float side) W_Fire =
 		delay *=0.25;
 	}
 
-	if (self.weapon == W_GUT || self.weapon == W_KAR_SCOPE || self.weapon == W_TRENCH || self.weapon == W_KAR || self.weapon == W_ARMAGEDDON || self.weapon == W_HEADCRACKER)
+	if (self.weapon == W_GUT || self.weapon == W_KAR_SCOPE || self.weapon == W_TRENCH || self.weapon == W_KAR || self.weapon == W_ARMAGEDDON || self.weapon == W_HEADCRACKER || self.weapon == W_STAKE)
 	{
 		Set_W_Frame (startframe, endframe, delay, 0, FIRE, W_LoadAmmo, modelname, FALSE, side);
 		self.NeedLoad = true;

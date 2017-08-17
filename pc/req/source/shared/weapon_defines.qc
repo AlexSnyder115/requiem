@@ -110,6 +110,8 @@ string(float wep) GetWeaponName =
       		return "Wunderwaffe DG-2";
       	case W_M14:
       		return "M14";
+      	case W_STAKE:
+      		return "Stakeout";
 		default:
 			return " ";
 	}
@@ -228,6 +230,8 @@ float(float wep) GetFiretype =
 			return 0;
 		case W_TESLA:
 			return 7;
+		case W_STAKE:
+			return 1;
     }
 
     return 0;
@@ -330,6 +334,8 @@ float(float wep) getWeaponMag =
 			return 60;
 		case W_TESLA:
 			return 3;
+		case W_STAKE:
+			return 6;
 	}
 	return 0;
 }
@@ -434,6 +440,8 @@ float(float wep) getWeaponAmmo =
 			return 220;
 		case W_TESLA:
 			return 15;
+		case W_STAKE:
+			return 60;
 	}
 	return 0;
 }
@@ -537,6 +545,8 @@ float(float wep) getWeaponDamage =
 			return 200;
 		case W_TESLA:
      		return 15000;
+     	case W_STAKE:
+     		return 160;
     }
 
     return 0;
@@ -557,6 +567,8 @@ float(float wep) GetWeaponShotcount =
 			return 8;
 		case W_GUT:
 			return 10;
+		case W_STAKE:
+			return 8;
 	}
 
     return 1;
@@ -672,6 +684,10 @@ float(float wep, float penetration_times) getWeaponPenetration =
 			if (penetration_times >= 2)
 				return 0;
 			return 0.8;
+		case W_STAKE:
+			if (penetration_times >= 1)
+				return 0;
+			return 0.7;
 		default:
 			return 0;
     }
@@ -818,6 +834,8 @@ float(float wep) GetWeaponSpread =
 			break;
 		case W_M14:
 			Weapon_Spread = 5;
+		case W_STAKE:
+			Weapon_Spread = 12.5;
 		break;
 	}
 
@@ -1016,6 +1034,11 @@ float(float wep, float delaytype) getWeaponDelay =
 				return 4;
 			else if (delaytype == FIRE)
 				return 1;
+		case W_STAKE:
+			if (delaytype == RELOAD)
+				return 2.3;
+			else if (delaytype == FIRE)
+				return 1;
     }
 
     return 0;
@@ -1123,6 +1146,8 @@ float GetWeaponWalkSpeed (int weapontype)
 		return 0.75;
 	else if(weapontype == W_WIDOW)
 		return 1;
+	else if(weapontype == W_STAKE)
+		return 1;
 	else
 		return 1;
 }
@@ -1188,6 +1213,8 @@ vector GetWeaponADSPos(float wep) {
 		case W_TYPE:
 		case W_SAMURAI:
 			return [0.41, 2.8, 1.34];
+		case W_STAKE:
+			return [0, 2.85, 1.4];
 		default:
 			return [0, 0, 0];
 	}
@@ -2050,6 +2077,33 @@ float(float wep, float frametype) GetFrame =
           			return 48;
 			}
 			break;
+		case W_STAKE:
+			switch (frametype)
+			{
+				case FIRE_START:
+					return 1;
+				case FIRE_END:
+					return 3;
+				case SPRINT_IN_START:
+					return 35;
+				case SPRINT_IN_END:
+					return 39;
+				case SPRINT_OUT_START:
+					return 41;
+				case SPRINT_OUT_END:
+					return 44;
+				case TAKE_OUT_START:
+					return 48;
+				case TAKE_OUT_END:
+					return 51;
+				case PUT_OUT_START:
+					return 45;
+				case PUT_OUT_END:
+					return 48;
+				case RELOAD_CANCEL:
+					return 20;
+			}
+			break;
 	}
 
     return 0;
@@ -2215,6 +2269,11 @@ string(float wep, float gorvmodel) GetWeaponModel =
 				return ("models/weapons/type/g_type.mdl");
 			else
 				return ("models/weapons/type/v_type.mdl");
+		case W_STAKE:
+			if (gorvmodel)
+				return ("models/weapons/m1911/v_colt.mdl");
+			else
+				return ("models/weapons/stake/v_stake.mdl");
     }
 
     return "";
@@ -2295,6 +2354,8 @@ string(float wep) GetWeaponSound =
 			return "sounds/weapons/type100/shoot.wav";
 		case W_TESLA:
 			return "sounds/weapons/tesla/shoot.wav";
+		case W_STAKE:
+			return "sounds/weapons/shotgun/shoot.wav";
     }
 
     return "";
@@ -3112,6 +3173,8 @@ float(float wep) getWeaponRecoilReturn =
 		case W_TESLA:
 			return 1813;
 			break;
+		case W_STAKE:
+			return 500;
 	}
 	return 0;
 }
@@ -3258,6 +3321,8 @@ float(float weapon) CrossHairWeapon =
 		case W_TESLA:
 			return 0;
 			break;
+		case W_STAKE:
+			return 25;
 	}
 	return 0;	
 }
@@ -3404,6 +3469,9 @@ float(float weapon) CrossHairMaxSpread =
 			break;
 		case W_TESLA:
 			return 0;
+			break;
+		case W_STAKE:
+			return 25;
 			break;
 	}
 	return 0;

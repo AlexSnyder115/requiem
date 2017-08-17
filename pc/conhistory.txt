@@ -190,3 +190,9 @@ map ndu
 
 map ndu
 map ndu
+map ndu
+map ndu
+map ndu
+map warehouse
+map warehouse
+give 33
