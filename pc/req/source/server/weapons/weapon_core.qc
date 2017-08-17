@@ -72,10 +72,12 @@ void() FireFlame =
 
 void() RayExplode =
 {
-	if (self.weapon == W_RAY)
+	if (self.owner.weapon == W_RAY) {
 		DamgageExplode (self, self.owner, 1800, 1800, 64);
-	else
-		DamgageExplode (self, self.owner, 3600, 3600, 96);
+	}
+	else {
+		DamgageExplode (self, self.owner, 3600, 3600, 64);
+	}
 	te_explosionquad(self.origin);
 	remove(self);
 }
@@ -87,6 +89,7 @@ void() FireRay =
 	entity fuck;
 	fuck = spawn();
 	fuck.classname = "me";
+	fuck.owner = self;
 	fuck.movetype = MOVETYPE_FLY;
 	fuck.origin = self.origin + self.view_ofs;
 	fuck.origin += v_forward * 0;

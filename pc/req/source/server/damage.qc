@@ -155,7 +155,7 @@ void() EndGame =
 	self.origin = '0 0 0';
 	setorigin (self, self.origin);
 	self.velocity = '0 0 0';
-	sound (self, CHAN_AUTO, "sounds/music/end.wav", 1, ATTN_NORM);
+	sound (self, CHAN_AUTO, strcat("sounds/music/", soundstyle, "/end.wav"), 1, ATTN_NORM);
 
 	oldself = self;
 	
@@ -172,7 +172,10 @@ void() EndGame =
 		who = find(who,classname,"ai_zombie");
 	}
 	self.think = EndGame_FadePrompt;
-	self.nextthink = time + 33;
+	if (soundstyle == "cod")
+		self.nextthink = time + 28;
+	else
+		self.nextthink = time + 33;
 }
 
 // removes revive icon from downed player heads, used as a recursive think function

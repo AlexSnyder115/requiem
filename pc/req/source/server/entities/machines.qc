@@ -1367,7 +1367,7 @@ void() Float_Change =
 			self.angles_y = self.angles_y - 90;
 			self.nextthink = time + 5;
 			self.think = remove_box;
-			sound (self, CHAN_ITEM, "sounds/music/end.wav", 1, ATTN_NORM);	//naievil FIXME -- change sound
+			sound (self, CHAN_ITEM, strcat("sounds/music/", soundstyle, "/end.wav"), 1, ATTN_NORM);	//naievil FIXME -- change sound
 			return;
 		}
 	}
