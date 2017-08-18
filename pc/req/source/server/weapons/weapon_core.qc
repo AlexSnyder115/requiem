@@ -7,6 +7,41 @@ void() CherryBoom =
 	sound (self, CHAN_WEAPON, "sounds/weapons/tesla/shoot.wav", 1, ATTN_NORM);
 }
 
+/*========================
+   CUSTOM BALLISTIC KNIFE
+  ========================*/
+
+void() TouchBK =
+{
+	self.movetype = MOVETYPE_NONE;
+	useprint(self.owner, 26, 0, 0);
+	if (self.owner.button7)
+	{
+		if (self.owner.weapon == W_BK)
+			self.owner.currentammo += 1;
+		if (self.owner.secondaryweapon == W_BK)
+			self.owner.secondaryammo += 1;
+		remove(self);
+	}
+}
+
+void() FireBK =
+{
+	precache_model("models/weapons/bk/g_bk.mdl");
+	local vector playerorg;
+	playerorg = self.origin + '0 0 20';
+	local entity knife;
+	knife = spawn();
+	setmodel(knife, "models/weapons/bk/g_bk.mdl");
+	setorigin(knife, playerorg);
+	knife.movetype = MOVETYPE_BOUNCE;
+	knife.solid = SOLID_TRIGGER;
+	makevectors(self.v_angle);
+	knife.velocity = v_forward * 2000;
+	knife.owner = self;
+	knife.touch = TouchBK;
+}
+
 /*=====================
    CUSTOM FLAMETHROWER
   =====================*/
@@ -922,6 +957,9 @@ void(float side) W_Fire =
 		FireRay();
 	else
 		FireTrace(shotcount, spread, damage/* , self.weaponslot1.headx, self.weaponslot1.legx */);
+	if (firetype == 8) //ballistic knife
+		FireBK();		//Added it here so we can deal damage to entities with ease.
+
 
 
 	//Play weapon animation and sound
@@ -1029,7 +1067,7 @@ void () W_Knife =
 	{
 		if (self.weapon == W_BK)
 		{
-			Set_W_Frame (14, 24, 1.4, 0, KNIFE, SUB_Null, "progs/VModels/v_bk.mdl", false, S_RIGHT);
+			Set_W_Frame (14, 24, 1.4, 0, KNIFE, SUB_Null, "models/weapons/bk/v_bk.mdl", false, S_RIGHT);
 			self.fire_delay = time + 1.5;
 			self.knife_delay = time + 1.75;
 		}
@@ -1052,7 +1090,7 @@ void () W_Knife =
 	{
 		if (self.weapon == W_BK)//slash
 		{
-			Set_W_Frame (8, 13, 0, 0.4, KNIFE, SUB_Null, "progs/VModels/v_bk.mdl", false, S_RIGHT);
+			Set_W_Frame (8, 13, 0, 0.4, KNIFE, SUB_Null, "models/weapons/bk/v_bk.mdl", false, S_RIGHT);
 			self.fire_delay = time + 0.5;
 			self.knife_delay = time + 0.8;
 		}

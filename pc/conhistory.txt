@@ -31,3 +31,19 @@ restart
 give 33
 god
 map perk
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu
+map ndu

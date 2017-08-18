@@ -836,6 +836,9 @@ void(float width, float height) HUD_Useprint =
 			case 25:
 				usestring = strcat("Hold ",usebutton, " to revive youself");
 				break;
+			case 26:
+				usestring = strcat("Hold ",usebutton, " to pick up knife");
+				break;
 			default:
 				usestring = "This should not happen you dum fuck";
 				break;

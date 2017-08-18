@@ -236,6 +236,8 @@ float(float wep) GetFiretype =
 			return 1;
 		case W_OLYM:
 			return 1;
+		case W_BK:
+			return 8;
     }
 
     return 0;
@@ -342,6 +344,8 @@ float(float wep) getWeaponMag =
 			return 6;
 		case W_OLYM:
 			return 2;
+		case W_BK:
+			return 1;
 	}
 	return 0;
 }
@@ -450,6 +454,8 @@ float(float wep) getWeaponAmmo =
 			return 60;
 		case W_OLYM:
 			return 24;
+		case W_BK:
+			return 4;
 	}
 	return 0;
 }
@@ -557,6 +563,8 @@ float(float wep) getWeaponDamage =
      		return 160;
      	case W_OLYM:
      		return 100;
+     	case W_BK:
+     		return 500;
     }
 
     return 0;
@@ -704,6 +712,10 @@ float(float wep, float penetration_times) getWeaponPenetration =
 			if (penetration_times >= 1)
 				return 0;
 			return 0.5;
+		case W_BK:
+			if (penetration_times >= 1)
+				return 0;
+			return 0.2;
 		default:
 			return 0;
     }
@@ -854,6 +866,8 @@ float(float wep) GetWeaponSpread =
 			Weapon_Spread = 12.5;
 		case W_OLYM:
 			Weapon_Spread = 10.5;
+		case W_BK:
+			Weapon_Spread = 5;
 		break;
 	}
 
@@ -1062,6 +1076,11 @@ float(float wep, float delaytype) getWeaponDelay =
 				return 1;
 			else if (delaytype == FIRE)
 				return 0.5;
+		case W_BK:
+			if (delaytype == RELOAD)
+				return 2;
+			else if (delaytype == FIRE)
+				return 1;
     }
 
     return 0;
@@ -1172,6 +1191,8 @@ float GetWeaponWalkSpeed (int weapontype)
 	else if(weapontype == W_STAKE)
 		return 1;
 	else if(weapontype == W_OLYM)
+		return 1;
+	else if(weapontype == W_BK)
 		return 1;
 	else
 		return 1;
@@ -2165,6 +2186,37 @@ float(float wep, float frametype) GetFrame =
 					return 21;
 			}
 			break;
+		case W_BK:
+			switch (frametype)
+			{
+				case FIRE_START:
+					return 27;
+				case FIRE_END:
+					return 31;
+				case RELOAD_START:
+					return 32;
+				case RELOAD_END:
+					return 44;
+				case SPRINT_IN_START:
+					return 49;
+				case SPRINT_IN_END:
+					return 52;
+				case SPRINT_OUT_START:
+					return 60;
+				case SPRINT_OUT_END:
+					return 63;
+				case TAKE_OUT_START:
+					return 2;
+				case TAKE_OUT_END:
+					return 7;
+				case PUT_OUT_START:
+					return 44;
+				case PUT_OUT_END:
+					return 49;
+				case RELOAD_CANCEL:
+					return 35;
+			}
+			break;
 	}
 
     return 0;
@@ -2337,9 +2389,14 @@ string(float wep, float gorvmodel) GetWeaponModel =
 				return ("models/weapons/stake/v_stake.mdl");
 		case W_OLYM:
 			if (gorvmodel)
-				return ("models/weapons/m1911/v_colt.mdl");
+				return ("models/weapons/m1911/g_colt.mdl");
 			else
 				return ("models/weapons/olympia/v_olympia.mdl");
+		case W_BK:
+			if (gorvmodel)
+				return ("models/weapons/bk/g_bk.mdl");
+			else
+				return ("models/weapons/bk/v_bk.mdl");
     }
 
     return "";
@@ -2424,6 +2481,8 @@ string(float wep) GetWeaponSound =
 			return "sounds/weapons/shotgun/shoot.wav";
 		case W_OLYM:
 			return "sounds/weapons/shotgun/shoot.wav";
+		case W_BK:
+			return "sounds/weapons/ballknife/shoot.wav";
     }
 
     return "";
@@ -2645,6 +2704,11 @@ void (float wep, float anim_style, float dualwep, float curweaponframe)	PlayWeap
 				sound (self ,5, "sounds/weapons/colt/magin.wav", 1, ATTN_NORM);
 			} else if(curweaponframe == 18) {
 				sound (self ,5, "sounds/weapons/colt/slide.wav", 1, ATTN_NORM);
+			}
+			break;
+		case W_BK:
+			if (curweaponframe == 39) {
+				sound (self,5, "sounds/weapons/ballknife/insert.wav", 1, ATTN_NORM);
 			}
 			break;
 		case W_KAR:
@@ -2929,6 +2993,9 @@ void(float weptype) precache_extra =
 			precache_sound("sounds/weapons/colt/slide.wav");
 			precache_model ("models/weapons/m1911/v_biatch_right.mdl");	// sprite explosion
 			break;
+		case W_BK:
+			precache_sound("sounds/weapons/ballknife/shoot.wav");
+			precache_sound("sounds/weapons/ballknife/insert.wav");
 		case W_KAR_SCOPE:
 		case W_KAR:
 		case W_ARMAGEDDON:
@@ -3393,6 +3460,8 @@ float(float weapon) CrossHairWeapon =
 			return 20;
 		case W_OLYM:
 			return 20;
+		case W_BK:
+			return 10;
 	}
 	return 0;	
 }
@@ -3545,6 +3614,9 @@ float(float weapon) CrossHairMaxSpread =
 			break;
 		case W_OLYM:
 			return 25;
+			break;
+		case W_BK:
+			return 35;
 			break;
 	}
 	return 0;
