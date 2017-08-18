@@ -986,7 +986,6 @@ void()	box_close3	=[	11,	box_close4	] { self.frame = 11;updateBoxGlow();};
 void()	box_close4	=[	12,	resetbox	] { self.frame = 12;updateBoxGlow();};
 
 float colt, kar, db,bar, mg, ray, thomp, flame, ppsh, sawn, tesla, m1a1, ptrs, panz, stg, mp40, revolver, gewehr, fg, browning, kars, bknife, trench, m1, type100;
-
 float (float r) Getweaponid =
 {	
 	if (r == 1)
@@ -1357,8 +1356,11 @@ void() Float_Change =
 		self.velocity = '0 0 0';
 		
 		if (!teddygen || teddygen < 0.9) {		//teddy gen threshold, high means less chance
+			local entity meeee;
+			meeee = find(world,classname,"player");
 			self.owner.boxstatus = 2;
 			self.weapon = r;
+			meeee.boxwepname = GetWeaponName(self.weapon);
 			self.nextthink = time + 5;
 			self.think = Float_Decrease;
 			return;

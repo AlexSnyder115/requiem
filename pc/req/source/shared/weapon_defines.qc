@@ -316,7 +316,7 @@ float(float wep) getWeaponMag =
 		case W_RAY:
 			return 20;
 		case W_PORTER:
-			return 20;
+			return 40;
 		case W_SAWNOFF:
 		case W_SNUFF:
 			return 2;
@@ -421,7 +421,7 @@ float(float wep) getWeaponAmmo =
 		case W_RAY:
 			return 160;
 		case W_PORTER:
-			return 160;
+			return 200;
 		case W_SAWNOFF:
 			return 60;
 		case W_SNUFF:
@@ -1215,6 +1215,9 @@ vector GetWeaponADSPos(float wep) {
 			return [0.41, 2.8, 1.34];
 		case W_STAKE:
 			return [0, 2.85, 1.4];
+		case W_RAY:
+		case W_PORTER:
+			return [-4, 8.15, 2];
 		default:
 			return [0, 0, 0];
 	}

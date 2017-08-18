@@ -780,7 +780,7 @@ void(float width, float height) HUD_Useprint =
 				usestring = strcat("Hold ",usebutton, " to buy a random weapon [Cost:", ftos(useprint_cost),"]");
 				break;
 			case 7://box take
-				usestring = strcat("Hold ",usebutton, " to take ",GetWeaponName(useprint_weapon),".");
+				usestring = strcat("Hold ",usebutton, " to take ",getstats(STAT_BOXWEP));
 				break;
 			case 8://power
 				usestring = "The power must be activated first";

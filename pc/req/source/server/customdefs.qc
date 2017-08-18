@@ -11,6 +11,7 @@ const float FL_JUMPRELEASED = 4096;
 .float flamecool;
 .float iscooling;
 .float hasbowie;
+.string boxwepname;
 
 string soundstyle;
 
