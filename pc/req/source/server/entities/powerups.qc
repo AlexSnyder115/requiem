@@ -24,7 +24,7 @@ void() maxammo =
 		{
 			if (tempe.weapon)
 			{
-				if (self.perks & P_CANDO)
+				if (tempe.perks & P_CANDO)
 					tempe.currentammo = (getWeaponAmmo(tempe.weapon) + (getWeaponMag(tempe.weapon) * 2));
 				else
 					tempe.currentammo = getWeaponAmmo(tempe.weapon);
@@ -37,7 +37,7 @@ void() maxammo =
 				}
 			}
 			if (tempe.secondaryweapon) {
-				if (self.perks & P_CANDO)
+				if (tempe.perks & P_CANDO)
 					tempe.secondaryammo = (getWeaponAmmo(tempe.secondaryweapon) + (getWeaponMag(tempe.secondaryweapon) * 2));
 				else
 					tempe.secondaryammo = getWeaponAmmo(tempe.secondaryweapon);

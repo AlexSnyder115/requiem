@@ -30,3 +30,4 @@ give 33
 restart
 give 33
 god
+map perk
