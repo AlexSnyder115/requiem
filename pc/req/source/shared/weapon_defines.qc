@@ -112,6 +112,8 @@ string(float wep) GetWeaponName =
       		return "M14";
       	case W_STAKE:
       		return "Stakeout";
+      	case W_OLYM:
+      		return "Olympia";
 		default:
 			return " ";
 	}
@@ -232,6 +234,8 @@ float(float wep) GetFiretype =
 			return 7;
 		case W_STAKE:
 			return 1;
+		case W_OLYM:
+			return 1;
     }
 
     return 0;
@@ -336,6 +340,8 @@ float(float wep) getWeaponMag =
 			return 3;
 		case W_STAKE:
 			return 6;
+		case W_OLYM:
+			return 2;
 	}
 	return 0;
 }
@@ -442,6 +448,8 @@ float(float wep) getWeaponAmmo =
 			return 15;
 		case W_STAKE:
 			return 60;
+		case W_OLYM:
+			return 24;
 	}
 	return 0;
 }
@@ -547,6 +555,8 @@ float(float wep) getWeaponDamage =
      		return 15000;
      	case W_STAKE:
      		return 160;
+     	case W_OLYM:
+     		return 100;
     }
 
     return 0;
@@ -569,6 +579,8 @@ float(float wep) GetWeaponShotcount =
 			return 10;
 		case W_STAKE:
 			return 8;
+		case W_OLYM:
+			return 6;
 	}
 
     return 1;
@@ -688,6 +700,10 @@ float(float wep, float penetration_times) getWeaponPenetration =
 			if (penetration_times >= 1)
 				return 0;
 			return 0.7;
+		case W_OLYM:
+			if (penetration_times >= 1)
+				return 0;
+			return 0.5;
 		default:
 			return 0;
     }
@@ -836,6 +852,8 @@ float(float wep) GetWeaponSpread =
 			Weapon_Spread = 5;
 		case W_STAKE:
 			Weapon_Spread = 12.5;
+		case W_OLYM:
+			Weapon_Spread = 10.5;
 		break;
 	}
 
@@ -1039,6 +1057,11 @@ float(float wep, float delaytype) getWeaponDelay =
 				return 2.3;
 			else if (delaytype == FIRE)
 				return 1;
+		case W_OLYM:
+			if (delaytype == RELOAD)
+				return 1;
+			else if (delaytype == FIRE)
+				return 0.5;
     }
 
     return 0;
@@ -1148,6 +1171,8 @@ float GetWeaponWalkSpeed (int weapontype)
 		return 1;
 	else if(weapontype == W_STAKE)
 		return 1;
+	else if(weapontype == W_OLYM)
+		return 1;
 	else
 		return 1;
 }
@@ -1217,6 +1242,8 @@ vector GetWeaponADSPos(float wep) {
 			return [0, 2.85, 1.4];
 		case W_RAY:
 		case W_PORTER:
+			return [-4, 8.15, 2];
+		case W_OLYM:
 			return [-4, 8.15, 2];
 		default:
 			return [0, 0, 0];
@@ -2308,6 +2335,11 @@ string(float wep, float gorvmodel) GetWeaponModel =
 				return ("models/weapons/m1911/v_colt.mdl");
 			else
 				return ("models/weapons/stake/v_stake.mdl");
+		case W_OLYM:
+			if (gorvmodel)
+				return ("models/weapons/m1911/v_colt.mdl");
+			else
+				return ("models/weapons/olympia/v_olympia.mdl");
     }
 
     return "";
@@ -2389,6 +2421,8 @@ string(float wep) GetWeaponSound =
 		case W_TESLA:
 			return "sounds/weapons/tesla/shoot.wav";
 		case W_STAKE:
+			return "sounds/weapons/shotgun/shoot.wav";
+		case W_OLYM:
 			return "sounds/weapons/shotgun/shoot.wav";
     }
 
@@ -3356,7 +3390,9 @@ float(float weapon) CrossHairWeapon =
 			return 0;
 			break;
 		case W_STAKE:
-			return 25;
+			return 20;
+		case W_OLYM:
+			return 20;
 	}
 	return 0;	
 }
@@ -3505,6 +3541,9 @@ float(float weapon) CrossHairMaxSpread =
 			return 0;
 			break;
 		case W_STAKE:
+			return 25;
+			break;
+		case W_OLYM:
 			return 25;
 			break;
 	}

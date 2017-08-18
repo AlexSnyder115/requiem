@@ -364,8 +364,8 @@ void() PlayerSpawn =
 	self.view_ofs = VEC_VIEW_OFS; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
 
 	self.currentammo = 32;
-	self.currentmag = 75;
-	self.weapon = W_MG;
+	self.currentmag = 8;
+	self.weapon = W_COLT;
 	
 	self.grenades = self.grenades | 1;  // add frag grenades to player inventory
 	

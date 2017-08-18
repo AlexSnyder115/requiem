@@ -50,7 +50,7 @@ const float EVENT_BLACKOUT = 26;
 //#define W_KOLLIDER   32
 #define W_PORTER       33 // Ray
 #define W_WIDDER       34 // M1A1
-#define W_FIW          35 //upgraded flamethrower
+#define W_FIW          35 //upgraded flamethrower MOTO - Who the hell added 'upgraded' to that? None of the other comments have it.. lol..
 #define W_ARMAGEDDON   36 //Kar
 #define W_WUNDER       37
 #define W_GIBS         38 // thompson
@@ -72,10 +72,9 @@ const float EVENT_BLACKOUT = 26;
 #define W_MP5          54 
 #define W_M14          55 
 #define W_STAKE		   58
-
 #define W_TESLA  56
-
 #define W_AL 	57
+#define W_OLYM		   59
 
 
 #define BASE_FRAME			1
