@@ -56,7 +56,7 @@ void() QuoteCheck = 	//Constantly ran, if THIS, play THAT.
 		}
 		if (hasknifed == 1) //Melee Kill
 		{
-			local float snd1, shouldplay; //shouldplay is here because sometimes a quote doesn't play
+			local float snd1, shouldplay; //shouldplay is here because sometimes a quote shouldn't play
 			local string sd1;
 			snd1 = random();
 			shouldplay = random();
@@ -73,6 +73,21 @@ void() QuoteCheck = 	//Constantly ran, if THIS, play THAT.
 			if (shouldplay < 0.600)
 				sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/killclose", sd1, ".wav"), 1, ATTN_NORM);
 			hasknifed = 0;
+		}
+		if (self.rock1 == 1)
+		{
+			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/rock1.wav"), 1, ATTN_NORM);
+			self.rock1 = 0;
+		}
+		if (self.rock2 == 1)
+		{
+			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/rock2.wav"), 1, ATTN_NORM);
+			self.rock2 = 0;
+		}
+		if (self.activatedsong == 1)
+		{
+			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/rock3.wav"), 1, ATTN_NORM);
+			self.activatedsong = 0;
 		}
 	}
 }

@@ -47,3 +47,15 @@ map ndu
 map ndu
 map ndu
 map ndu
+map kino_der_toten
+map kino_der_toten
+map kino_der_toten
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+map kino_der_toten
+restart
+restart

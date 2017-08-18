@@ -12,6 +12,11 @@ const float FL_JUMPRELEASED = 4096;
 .float iscooling;
 .float hasbowie;
 .string boxwepname;
+.float rock1;
+.float rock2;
+.float activatedsong;
+
+float teddycount;
 
 string soundstyle;
 

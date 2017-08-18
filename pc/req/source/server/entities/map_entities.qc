@@ -708,3 +708,39 @@ void() teddy_spawn =
 	self.health = 0;
 	self.th_die = teddy_react;
 };
+
+/* ===========================
+    CUSTOM TEDDY EE SONG CODE
+   =========================== */
+void() touch_song =
+{
+	if (other.classname == "player")
+	{
+		if (other.button7)
+		{
+			teddycount++;
+			if (teddycount == 1) {
+				other.rock1 = 1;
+			}
+			if (teddycount == 2) {
+				other.rock2 = 1;
+			}
+			if (teddycount == 3) {
+				other.activatedsong = 1;
+				playSoundAtPlayers("sounds/music/115.mp3");
+			}
+			remove(self);
+		}
+	}
+}
+
+void() teddy_song =
+{
+	precache_model("progs/Props/teddy.mdl");
+	self.movetype = MOVETYPE_NONE;
+	self.solid = SOLID_TRIGGER;
+	self.classname = "teddy_song";
+	setmodel(self, "progs/Props/teddy.mdl");
+	setorigin(self, self.origin);
+	self.touch = touch_song;
+}
