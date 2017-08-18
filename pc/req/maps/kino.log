@@ -38,24 +38,24 @@ Wadinclude list :
 
 9 brushes (totalling 54 sides) discarded from clipping hulls
 CreateBrush:
- (0.09 seconds)
+ (0.07 seconds)
 SetModelCenters:
  (0.00 seconds)
 CSGBrush:
- (0.23 seconds)
+ (0.27 seconds)
 
 Using Wadfile: /Users/Moto/Documents/NZP_maps/Example_01.wad
- - Contains 3 used textures, 10.34 percent of map (15 textures in wad)
+ - Contains 4 used textures, 13.33 percent of map (15 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/GAOL.wad
- - Contains 1 used texture, 3.45 percent of map (32 textures in wad)
+ - Contains 1 used texture, 3.33 percent of map (32 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/Ju[s]tice_null2.wad
- - Contains 21 used textures, 72.41 percent of map (938 textures in wad)
+ - Contains 21 used textures, 70.00 percent of map (938 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/L4QNewest.wad
- - Contains 3 used textures, 10.34 percent of map (225 textures in wad)
+ - Contains 3 used textures, 10.00 percent of map (225 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/U-Bahn.wad
  - Contains 0 used textures, 0.00 percent of map (8 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/nzphlwad.wad
- - Contains 1 used texture, 3.45 percent of map (103 textures in wad)
+ - Contains 1 used texture, 3.33 percent of map (103 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/verruckt.wad
  - Warning: Larger than expected texture (348972 bytes): 'WARNING_METAL'
  - Warning: Larger than expected texture (348972 bytes): 'WHITE_ASPHALT'
@@ -71,7 +71,7 @@ Including Wadfile: /Users/Moto/Documents/NZP_maps/zhlt.wad
  - Contains 0 used textures, 0.00 percent of map (18 textures in wad)
 
 Texture usage is at 0.28 mb (of 4.00 mb MAX)
-0.35 seconds elapsed
+0.37 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -106,12 +106,12 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 500...687 (0.07 seconds)
+SolidBSP [hull 0] 500...688 (0.06 seconds)
 BSP generation successful, writing portal file 'C:\Users\Moto\Quake\requiem\pc\req\maps\kino.prt'
 SolidBSP [hull 1] 500...614 (0.05 seconds)
 SolidBSP [hull 2] 500...552 (0.04 seconds)
-SolidBSP [hull 3] 500...762 (0.10 seconds)
-0.48 seconds elapsed
+SolidBSP [hull 3] 500...770 (0.07 seconds)
+0.44 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -125,7 +125,7 @@ Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
 Command line: C:/Users/Moto/Documents/exec/hlvis.exe C:\Users\Moto\Quake\requiem\pc\req\maps\kino 
  402 portalleafs
-1337 numportals
+1322 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -145,12 +145,12 @@ full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (0.18 seconds)
+ (0.27 seconds)
 LeafThread:
- (26.54 seconds)
-average leafs visible: 203
-g_visdatasize:18287  compressed from 20502
-26.74 seconds elapsed
+ (31.26 seconds)
+average leafs visible: 200
+g_visdatasize:18423  compressed from 20502
+31.57 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -219,29 +219,29 @@ custom shadows with bounce light
 rgb transfers        [               off ] [               off ]
 
 
-1210 faces
-Create Patches : 4327 base patches
+1216 faces
+Create Patches : 4337 base patches
 0 opaque faces
-22707 square feet [3269925.25 square inches]
+22708 square feet [3270006.25 square inches]
 3 direct lights
 
 BuildFacelights:
- (2.29 seconds)
+ (2.24 seconds)
 visibility matrix   :   1.1 megs
 BuildVisLeafs:
- (1.91 seconds)
+ (1.83 seconds)
 MakeScales:
- (0.35 seconds)
+ (0.34 seconds)
 SwapTransfers:
- (0.20 seconds)
-Transfer Lists :     2764818 :    2.76M transfers
-       Indices :     2014960 :    1.92M bytes
-          Data :    11059272 :   10.55M bytes
+ (0.21 seconds)
+Transfer Lists :     2691808 :    2.69M transfers
+       Indices :     2074796 :    1.98M bytes
+          Data :    10767232 :   10.27M bytes
 GatherLight:
- (0.08 seconds)
+ (0.07 seconds)
 FinalLightFace:
  (0.06 seconds)
-4.94 seconds elapsed
+4.80 seconds elapsed
 
 -----   END   hlrad -----
 

@@ -331,6 +331,7 @@ void(vector where, float type) Spawn_Powerup =
 	setorigin(new_powerup, new_powerup.origin);
 	new_powerup.solid = SOLID_TRIGGER;
 	new_powerup.classname = "item_powerup";
+	new_powerup.effects = EF_GREEN;
 
 	
 	setsize (new_powerup, VEC_HULL_MIN, VEC_HULL_MAX);
@@ -344,7 +345,7 @@ void(vector where, float type) Spawn_Powerup =
 	new_powerup.owner = twlt_Sparkle; //just a reference so power up can delete the sparkle later on
 	
 	setorigin(twlt_Sparkle,where);
-	setmodel(twlt_Sparkle,"progs/Sprites/sprkle.spr");
+	//setmodel(twlt_Sparkle,"progs/Sprites/sprkle.spr");
 	
 	twlt_Sparkle.think = sparkle_think;
 	twlt_Sparkle.nextthink = time + 0.1;
