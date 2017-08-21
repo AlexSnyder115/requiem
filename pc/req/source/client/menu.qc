@@ -2,10 +2,15 @@
 //	Menu stuff
 //
 
-
 void() menu_single =
 {
 	in_menu = MENU_SINGLE;
+	time_in_menu = 0;
+}
+
+void() menu_maps =
+{
+	in_menu = MENU_MAPS;
 	time_in_menu = 0;
 };
 
@@ -152,8 +157,28 @@ void() menu_nzp =
 
 void() menu_bs =
 {
-	in_menu = MENU_SINGLE;
+	in_menu = MENU_MAPS;
 	settings = 0;
+}
+
+void() mode_none =
+{
+	float modee;
+	modee = fopen("mode", FILE_WRITE);
+	fputs(modee, "0");
+	fclose(modee);
+	in_menu = MENU_MAPS;
+	time_in_menu = 0;
+}
+
+void() mode_gungame =
+{
+	float mode;
+	mode = fopen("mode", FILE_WRITE);
+	fputs(mode, "1");
+	fclose(mode);
+	in_menu = MENU_MAPS;
+	time_in_menu = 0;
 }
 
 //struct for all buttons, note pos and scale are going to be multiplied with width/height in draw step, so keep them between 0 and 1
@@ -173,10 +198,10 @@ var struct
 	{[0.025, 0.325, 0], [0.325, 0.06, 0], " Achievements", -1, menu_main, MENU_MAIN},
 	{[0.025, 0.400, 0], [0.325, 0.06, 0], " Credits", -1, menu_about, MENU_MAIN},
 	{[0.025, 0.475, 0], [0.325, 0.06, 0], " Quit", -1, menu_quit, MENU_MAIN},
-	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_back, MENU_SINGLE + MENU_MULTI + MENU_SETTINGS + MENU_ABOUT},
+	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_back, MENU_MAPS + MENU_MULTI + MENU_SETTINGS + MENU_ABOUT},
 	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_bs, MENU_CLASSIC + MENU_NZP},
-	{[0.025, 0.175, 0], [0.325, 0.06, 0], "Original", -1, menu_classic, MENU_SINGLE},
-	{[0.025, 0.250, 0], [0.325, 0.06, 0], "NZ:P Beta", -1, menu_nzp, MENU_SINGLE},
+	{[0.025, 0.175, 0], [0.325, 0.06, 0], "Original", -1, menu_classic, MENU_MAPS},
+	{[0.025, 0.250, 0], [0.325, 0.06, 0], "NZ:P Beta", -1, menu_nzp, MENU_MAPS},
 	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Nacht Der Untoten", -1, menu_loadndu, MENU_CLASSIC},
 	{[0.025, 0.250, 0], [0.425, 0.06, 0], "Kino Der Toten", -1, menu_loadkn, MENU_CLASSIC},
 	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Warehouse", -1, menu_loadwa, MENU_NZP},
@@ -191,10 +216,12 @@ var struct
 	{[0.025, 0.925, 0], [0.250, 0.05, 0], "Back", -1, menu_back2, MENU_IGS},
 	{[0.025, 0.500, 0], [0.250, 0.05, 0], "Yes", -1, menu_resy, MENU_RES},
 	{[0.025, 0.575, 0], [0.250, 0.05, 0], "No", -1, menu_resn, MENU_RES},
+	{[0.025, 0.175, 0], [0.325, 0.06, 0], "Normal", -1, mode_none, MENU_SINGLE},
+	{[0.025, 0.250, 0], [0.325, 0.06, 0], "Gungame", -1, mode_gungame, MENU_SINGLE},
 };
 
 //REMEMBER TO UPDATE THIS CONST IF YOU ADD BUTTONS
-const float BUTTONS_COUNT = 23;
+const float BUTTONS_COUNT = 25;
 
 float mapdesc = 0;
 
@@ -212,7 +239,7 @@ void(float index) Update_Button =
 		else
 			return;
 	}
-	
+
 	local vector pos = buttons[index].pos;
 	pos_x *= g_width;
 	pos_y *= g_height;
@@ -361,7 +388,7 @@ void() Draw_Menu =
 			//drawfill ([0.025*g_width, 0.393*g_height + g_height*0.025 + 3, 0], [0.25*g_width, 0.0025*g_height, 0], [0.4, 0.4, 0.4], 1); //Achievements | Credits
 			//drawfill ([0.025*g_width, 0.463*g_height + g_height*0.025 + 3, 0], [0.25*g_width, 0.0025*g_height, 0], [0.4, 0.4, 0.4], 1); //Credits | Quit 
 			break;
-		case MENU_SINGLE:
+		case MENU_MAPS:
 			title = "SOLO";
 			break;
 		case MENU_MULTI:

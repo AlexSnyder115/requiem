@@ -47,6 +47,7 @@ const float MENU_IGS = 128;
 const float MENU_RES = 256;
 const float MENU_CLASSIC = 512;
 const float MENU_NZP = 1024;
+const float MENU_MAPS = 2048;
 
 
 float useprint_type;

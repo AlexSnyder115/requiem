@@ -173,6 +173,55 @@ void() PlayerPreThink =
 		self.flags = self.flags | FL_JUMPRELEASED;
 };
 
+void() GiveNextWep =
+{
+	switch (self.weapon)
+	{
+		case W_COLT:
+			self.weapon = W_KAR;
+			gunnumber++;
+			self.weaponmodel = GetWeaponModel(self.weapon, 0);
+			SwitchWeapon(self.weapon);
+			break;
+		case W_KAR:
+			self.weapon = W_DB;
+			gunnumber++;
+			self.weaponmodel = GetWeaponModel(self.weapon, 0);
+			SwitchWeapon(self.weapon);
+			break;
+		case W_DB:
+			self.weapon = W_THOMPSON;
+			gunnumber++;
+			self.weaponmodel = GetWeaponModel(self.weapon, 0);
+			SwitchWeapon(self.weapon);
+			break;
+		case W_THOMPSON:
+			self.weapon = W_357;
+			gunnumber++;
+			self.weaponmodel = GetWeaponModel(self.weapon, 0);
+			SwitchWeapon(self.weapon);
+			break;
+		case W_357:
+			self.weapon = W_MG;
+			gunnumber++;
+			self.weaponmodel = GetWeaponModel(self.weapon, 0);
+			SwitchWeapon(self.weapon);
+			break;
+	}
+	self.currentmag = getWeaponMag(self.weapon);
+	self.currentammo = getWeaponAmmo(self.weapon);
+}
+
+void() GunGame =
+{
+	self.ptsleft = (((1200 * gunnumber) + 50) - self.points);
+	if (self.ptsleft <= 0)
+	{
+		GiveNextWep();
+	}
+	centerprint(self, strcat("(", ftos(gunnumber), " of 29) ", ftos(self.ptsleft), " points until next advancement"));
+}
+
 void() PlayerPostThink =
 {
 	if(self.isspec)
@@ -272,6 +321,11 @@ void() PlayerPostThink =
 	}
 	if (self.flamecool < time)
 		self.iscooling = 0;
+
+	if (self.gamemode == 1) //Gungame
+	{
+		GunGame();
+	}
 };
 
 void() ClientKill =
@@ -407,6 +461,18 @@ void() PlayerSpawn =
 	
 	PollPlayerPoints();
 	PromptLevelChange(self.nextthink + 3, 1, self);
+
+	float mode;
+	string gm;
+	mode = fopen("mode", FILE_READ);
+	gm = fgets(mode);
+	fclose(mode);
+	if (gm == "0")
+		self.gamemode = 0;
+	if (gm == "1") {
+		self.gamemode = 1;
+		gunnumber++;
+	}
 };
 
 void() SpectatorSpawn =
