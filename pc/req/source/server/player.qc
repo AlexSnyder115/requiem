@@ -326,6 +326,11 @@ void() PlayerPostThink =
 	{
 		GunGame();
 	}
+	if (self.accomplished < time && self.nomore == 1 && self.amready == 1 && self.nomoremusic == 0)
+	{
+		playSoundAtPlayers("sounds/music/115.mp3");
+		self.nomoremusic = 1;
+	}
 };
 
 void() ClientKill =

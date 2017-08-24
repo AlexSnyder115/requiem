@@ -44,7 +44,7 @@ void() StartFrame =
 //called when map loaded
 void() worldspawn =
 {
-	if (mapname == "ndu" || mapname == "kdt") //Nacht or Kino
+	if (mapname == "ndu" || mapname == "kdt" || mapname == "kino_der_toten") //Nacht or Kino
 		soundstyle = "cod";
 	else
 		soundstyle = "nzp";

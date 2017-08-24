@@ -88,6 +88,13 @@ void() QuoteCheck = 	//Constantly ran, if THIS, play THAT.
 		{
 			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/rock3.wav"), 1, ATTN_NORM);
 			self.activatedsong = 0;
+			self.accomplished = time + 3;
+			self.amready = 1;
+		}
+		if (self.accomplished < time && self.nomore == 0 && self.amready == 1)
+		{
+			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/song.wav"), 1, ATTN_NORM);
+			self.nomore = 1;
 		}
 	}
 }

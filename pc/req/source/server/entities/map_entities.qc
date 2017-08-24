@@ -727,7 +727,6 @@ void() touch_song =
 			}
 			if (teddycount == 3) {
 				other.activatedsong = 1;
-				playSoundAtPlayers("sounds/music/115.mp3");
 			}
 			remove(self);
 		}

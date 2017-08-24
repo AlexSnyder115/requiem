@@ -59,3 +59,22 @@ noclip
 map kino_der_toten
 restart
 restart
+map kino_der_toten
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip

@@ -17,6 +17,10 @@ const float FL_JUMPRELEASED = 4096;
 .float activatedsong;
 .float gamemode;
 .float ptsleft;
+.float accomplished;
+.float nomore;
+.float amready;
+.float nomoremusic;
 float gunnumber;
 
 float teddycount;
