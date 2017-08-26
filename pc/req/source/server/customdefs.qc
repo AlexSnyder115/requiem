@@ -24,6 +24,9 @@ const float FL_JUMPRELEASED = 4096;
 float gunnumber;
 float perkdropcount;
 
+float num;
+float usingfizz;
+
 float teddycount;
 
 string soundstyle;
@@ -33,6 +36,9 @@ float spdfall;
 float papfall;
 float dtfall;
 float kills;
+
+float fizzskin;
+float fizztime;
 
 
 //whoswho perk check

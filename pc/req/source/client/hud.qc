@@ -839,6 +839,15 @@ void(float width, float height) HUD_Useprint =
 			case 26:
 				usestring = strcat("Hold ",usebutton, " to pick up knife");
 				break;
+			case 27:
+				usestring = strcat("Hold ",usebutton, " to use Der Wunderfizz [Cost: 1500]");
+				break;
+			case 28:
+				usestring = "You can only hold 4 perks!";
+				break;
+			case 29:
+				usestring = strcat("Hold ",usebutton, " to take ", GetPerkName(useprint_weapon));
+				break;
 			default:
 				usestring = "This should not happen you dum fuck";
 				break;

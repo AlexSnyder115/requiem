@@ -121,3 +121,17 @@ map ptest
 map ptest
 map ptest
 map kino
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz
+map fizz

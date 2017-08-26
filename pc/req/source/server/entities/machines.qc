@@ -2330,3 +2330,127 @@ void() nuke_rand = //Random Perk Drop
 	self.think = perkfall;
 	self.nextthink = time + 0.1;
 }
+
+/* ================
+    DER WUNDERFIZZ
+   ================*/
+void() GivePlayerPerk =
+{
+	num = 0;
+	switch (self.skin)
+	{
+		case 1:
+			num = 4;
+		case 2:
+			num = 3;
+		case 3:
+			num = 2;
+		case 4:
+			num = 1;
+		case 5:
+			num = 6;
+	}
+}
+
+void() PerkCycle =
+{
+	if (fizztime > time)
+	{
+		fizzskin++;
+		self.skin = fizzskin;
+		if (fizzskin == 6)
+			fizzskin = 1;
+		self.nextthink = 0.3 + time;
+	}
+	else {
+		self.think = GivePlayerPerk;
+		self.nextthink = time + 0.1;
+	}
+}
+
+void() PerkSpawn =
+{
+	local entity bottle;
+	bottle = spawn();
+	bottle.classname = "perk";
+	setmodel(bottle, "progs/GModels/perkbottle.mdl");
+	setorigin(bottle, self.origin  + '0 0 60');
+	bottle.skin = fizzskin;
+	bottle.think = PerkCycle;
+	bottle.nextthink = 0.3 + time;
+}
+
+void() touch_fizz =
+{
+	if (self.classname == "perk_fizz")
+	{
+		useprint (other, 27, 0, 0);
+		if (other.points >= 1500 && other.button7 && other.perkcount < 4 && other.fire_delay < time)
+		{
+			addmoney (other, -1500, 0);
+			PerkSpawn();
+			other.fire_delay = 4 + time;
+			fizztime = time + 3;
+			usingfizz = 1;
+		}
+		else if (fizztime < time && usingfizz == 1)
+		{
+			useprint(other, 29, 0, num);
+			if (other.button7)
+			{
+				switch(num)
+				{
+					case 1:
+						if !(other.perks & P_REVIVE) {
+							DrinkPerk(P_REVIVE);
+							usingfizz = 0; }
+						else
+							num++;
+					case 2:
+						if !(other.perks & P_JUG) {
+							DrinkPerk(P_JUG);
+							usingfizz = 0; }
+						else
+							num++;
+					case 3:
+						if !(other.perks & P_SPEED) {
+							DrinkPerk(P_SPEED);
+							usingfizz = 0; }
+						else
+							num++;
+					case 4:
+						if !(other.perks & P_DOUBLE) {
+							DrinkPerk(P_DOUBLE);
+							usingfizz = 0; }
+						else
+							num++;
+					case 5:
+						if !(other.perks & P_FLOP) {
+							DrinkPerk(P_FLOP);
+							usingfizz = 0; }
+						else
+							num = 1;
+				}
+			}
+		}
+		else if (other.button7 && other.perkcount >= 4 && other.fire_delay < time)
+		{
+			useprint(other, 28, 0, 0);
+		}
+		else if (other.button7 && other.points < 1500 && other.perkcount < 4)
+		{
+			centerprint(other, "Not enough points.");
+		}
+	}
+}
+
+void() perk_fizz =
+{
+	precache_model("models/machines/juggernog.mdl");
+	precache_model("progs/GModels/perkbottle.mdl");
+	self.classname = "perk_fizz";
+	self.touch = touch_fizz;
+	self.solid = SOLID_TRIGGER;
+	setmodel(self, "models/machines/juggernog.mdl");
+	setorigin(self, self.origin);
+}
