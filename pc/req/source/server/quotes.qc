@@ -13,8 +13,8 @@ void() QuoteCheck = 	//Constantly ran, if THIS, play THAT.
 		playername = "2";
 	else //Player 4 (Richtofen)
 		playername = "3";
-	//Quick tut, if you want to add quotes to your map, copy paste this kino code, change "kino_der_toten" to the name of your map, and change sound names (if wanted)
-	if (mapname == "kino_der_toten")
+	//Quick tut, if you want to add quotes to your map, copy paste this kino code, change "kdt" to the name of your map, and change sound names (if wanted)
+	if (mapname == "kdt")
 	{
 		if (buyqr == 1 && self.fire_delay < time) //Quick Revive
 		{

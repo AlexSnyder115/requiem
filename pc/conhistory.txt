@@ -78,3 +78,46 @@ noclip
 noclip
 noclip
 noclip
+mapname
+map nuketown
+map ptest
+map ptest
+restart
+map ptest
+restart
+restart
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+restart
+restart
+restart
+map ptest
+map ptest
+map ptest
+restart
+restart
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map ptest
+map kino

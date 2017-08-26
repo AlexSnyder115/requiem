@@ -22,10 +22,18 @@ const float FL_JUMPRELEASED = 4096;
 .float amready;
 .float nomoremusic;
 float gunnumber;
+float perkdropcount;
 
 float teddycount;
 
 string soundstyle;
+
+float jugfall; 
+float spdfall;
+float papfall;
+float dtfall;
+float kills;
+
 
 //whoswho perk check
 float whoq;

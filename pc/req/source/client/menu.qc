@@ -90,7 +90,7 @@ void() menu_loadndu =
 
 void() menu_loadkn =
 {
-	localcmd("map kino_der_toten\n");
+	localcmd("map kdt\n");
 };
 
 void() menu_loadwa =

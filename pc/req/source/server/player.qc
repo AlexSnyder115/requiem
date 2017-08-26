@@ -331,6 +331,20 @@ void() PlayerPostThink =
 		playSoundAtPlayers("sounds/music/115.mp3");
 		self.nomoremusic = 1;
 	}
+	/*switch (mapname)
+	{
+		case "ndu":
+			soundstyle = "cod";
+			break;
+		case "kdt":
+			soundstyle = "cod";
+			break;
+		case "nuketown":
+			soundstyle = "cod";
+		default:
+			soundstyle = "nzp";
+			break;
+	}*/
 };
 
 void() ClientKill =
@@ -372,7 +386,7 @@ void() PollPlayerPoints =
 
 void() PlayerSpawn =
 {	
-	if (mapname == "ndu" || mapname == "kdt") //Nacht or Kino
+	if (mapname == "ndu" || mapname == "kdt" || mapname == "nuketown") //Nacht, Kino, or Nuketown
 		soundstyle = "cod";
 	else
 		soundstyle = "nzp";

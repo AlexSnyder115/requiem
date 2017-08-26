@@ -321,9 +321,10 @@ void() touch_perk =
 
 				addmoney (other, -500, 0);
 				DrinkPerk(P_REVIVE);
-
 				other.revivesoda++;
 				other.perkcount++;
+				if (mapname == "kdt")
+					sound (self, CHAN_ITEM, "sounds/music/revsting.wav", 1, ATTN_NORM);
 				if (other.revivesoda == 3)
 					remove (self);
 			}
@@ -331,6 +332,8 @@ void() touch_perk =
 			{
 				addmoney (other, -1500, 0);
 				other.perkcount++;
+				if (mapname == "kdt")
+					sound (self, CHAN_ITEM, "sounds/music/revsting.wav", 1, ATTN_NORM);
 				DrinkPerk(P_REVIVE);
 			}
 			else if (other.button7)
@@ -360,6 +363,8 @@ void() touch_perk =
 				addmoney (other, -2500, 0);
 				DrinkPerk(P_JUG);
 				other.perkcount++;
+				if (mapname == "kdt")
+					sound (self, CHAN_ITEM, "sounds/music/jugsting.wav", 1, ATTN_NORM);
 			}
 			else if (other.button7)
 			{
@@ -388,6 +393,9 @@ void() touch_perk =
 				addmoney (other, -3000, 0);
 				DrinkPerk(P_SPEED);
 				other.perkcount++;
+				if (mapname == "kdt")
+					sound (self, CHAN_ITEM, "sounds/music/spdsting.wav", 1, ATTN_NORM);
+
 			}
 			else if (other.button7)
 			{
@@ -416,6 +424,9 @@ void() touch_perk =
 				addmoney (other, -2000, 0);
 				DrinkPerk(P_DOUBLE);
 				other.perkcount++;
+				if (mapname == "kdt")
+					sound (self, CHAN_ITEM, "sounds/music/dtsting.wav", 1, ATTN_NORM);
+
 			}
 			else if (other.button7)
 			{
@@ -652,6 +663,7 @@ void() perk_revive =
 	precache_sound ("sounds/machines/perk_drink.wav");
   	precache_sound ("sounds/weapons/papfire.wav");
   	precache_sound ("sounds/machines/qr.wav");
+  	precache_sound ("sounds/music/revsting.wav");
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/quick_revive.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
@@ -698,6 +710,7 @@ void() perk_juggernog =
 	precache_model ("models/machines/v_perk.mdl");
 	precache_sound ("sounds/machines/perk_drink.wav");
 	precache_sound ("sounds/machines/jug.wav");
+	precache_sound ("sounds/music/jugsting.wav");
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/juggernog.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
@@ -749,6 +762,7 @@ void() perk_speed =
 	precache_sound ("sounds/machines/perk_drink.wav");
 	precache_sound("player/talk/fast.wav");//FIXME(Jukki)
 	precache_sound ("sounds/machines/speed.wav");
+	precache_sound ("sounds/music/spdsting.wav");
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/speed_cola.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
@@ -782,6 +796,7 @@ void() perk_double =
 	precache_model ("models/machines/v_perk.mdl");
 	precache_sound ("sounds/machines/perk_drink.wav");
 	precache_sound ("sounds/machines/double.wav");
+	precache_sound ("sounds/music/dtsting.wav");
 	setorigin (self, self.origin);
 	setmodel (self, "models/machines/double_tap.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
@@ -2198,4 +2213,120 @@ void() tower_toilet =
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
 	self.classname = "tower_toilet";
 	self.touch = touch_stoilet;
+}
+
+// Nuketown Perk Falling things.
+
+void() revivefall =
+{
+	local float xd;
+	local entity xdd, nuke;
+	xd = random();
+	if (xd < 0.33) {
+		nuke = find(world, classname, "nuke_revive");
+		xdd = spawn();
+		setorigin(xdd, nuke.origin);
+		xdd.think = perk_revive;
+		xdd.nextthink = time + 0.1;
+		remove(nuke);
+	}
+	if (xd < 0.66 && xd > 0.33) {
+		nuke = find(world, classname, "nuke_revive2");
+		xdd = spawn();
+		setorigin(xdd, nuke.origin);
+		xdd.think = perk_revive;
+		xdd.nextthink = time + 0.1;
+		remove(nuke);
+	}
+	if (xd > 0.66) {
+		nuke = find(world, classname, "nuke_revive3");
+		xdd = spawn();
+		setorigin(xdd, nuke.origin);
+		xdd.think = perk_revive;
+		xdd.nextthink = time + 0.1;
+		remove(nuke);
+	}
+		
+
+}
+
+void() nuke_revive = //Since Quick Revive is ALWAYS the first thing to spawn, let's give it it's own entity.
+{
+	self.classname = "nuke_revive";
+	self.solid = SOLID_TRIGGER;
+	setorigin(self, self.origin);
+	setmodel(self, "models/props/sandbags.mdl");
+	self.think = revivefall;
+	self.nextthink = time + 10; //10 seconds until QR will fall
+}
+
+void() nuke_revive2 =
+{
+	self.classname = "nuke_revive2";
+	self.solid = SOLID_TRIGGER;
+	setorigin(self, self.origin);
+	setmodel(self, "models/props/sandbags.mdl");
+	self.think = revivefall;
+}
+
+void() nuke_revive3 =
+{
+	self.classname = "nuke_revive3";
+	self.solid = SOLID_TRIGGER;
+	setorigin(self, self.origin);
+	setmodel(self, "models/props/sandbags.mdl");
+	self.think = revivefall;
+}
+
+void() perkfall =
+{
+	if (kills == (50 * perkdropcount)) {
+		local entity y;
+		local float z;
+		y = spawn();
+		setorigin(y, self.origin);
+		z = random();
+		if (z < 0.25 && jugfall == 0) {
+			y.think = perk_juggernog;
+			y.nextthink = time + 0.1;
+			jugfall = 1;
+			perkdropcount++;
+			remove(self);
+		}
+		else if (z < 0.50 && dtfall == 0) {
+			y.think = perk_double;
+			y.nextthink = time + 0.1;
+			dtfall = 1;
+			perkdropcount++;
+			remove(self);
+		}
+		else if (z < 0.75 && spdfall == 0) {
+			y.think = perk_speed;
+			y.nextthink = time + 0.1;
+			spdfall = 1;
+			perkdropcount++;
+			remove(self);
+		}
+		else if (z > 0.75 && papfall == 0) {
+			y.think = perk_pap;
+			y.nextthink = time + 0.1;
+			papfall = 1;
+			perkdropcount++;
+			remove(self);
+		}
+		else {
+			self.nextthink = time + 0.1;
+		}
+	}
+	self.nextthink = time + 0.1;
+}
+
+void() nuke_rand = //Random Perk Drop
+{
+	self.classname = "nuke_rand";
+	self.solid = SOLID_TRIGGER;
+	setorigin(self, self.origin);
+	setmodel(self, "models/props/sandbags.mdl");
+	self.think = perkfall;
+	self.nextthink = time + 0.1;
 }
