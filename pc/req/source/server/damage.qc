@@ -528,11 +528,14 @@ void(entity victim,entity attacker, float damage, float d_style) DamageHandler =
 					addmoney(attacker, 10, 1);
 				}
 			}
-			else
+			else 
 				victim.th_die();	
 				
-			if (victim.health <= 0)
+			if (victim.health <= 0) {
 				addmoney(attacker, 60, 1);
+				if (attacker.weapon == W_RAY)
+            		attacker.raykill = 1;
+			}
 		}
 
 		if (victim.health <= 0 || instakill_finished) {

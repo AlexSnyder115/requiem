@@ -145,3 +145,44 @@ map fizz
 map fizz
 map fizz
 map fizz
+map kdt
+map kdt
+map kdt
+map kdt
+map kdt
+map kdt
+map kdt
+map kdt
+map kdt
+map kdt
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+restart
+map kdt
+map kdt
+map kdt
+map kdt
+map kdt
+map kdt
+noclip
+noclip
+noclip
+noclip
+noclip
+noclip
+map kdt
+map kdt
+map kdt
+map kdt
+god
+god
+map kdt

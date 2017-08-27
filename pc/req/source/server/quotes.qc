@@ -60,17 +60,17 @@ void() QuoteCheck = 	//Constantly ran, if THIS, play THAT.
 			local string sd1;
 			snd1 = random();
 			shouldplay = random();
-			if (snd1 < 0.125)
+			if (snd1 < (1/5))
 				sd1 = "0";
-			if (snd1 < 0.250)
+			else if (snd1 < (2/5))
 				sd1 = "1";
-			if (snd1 < 0.375)
+			else if (snd1 < (3/5))
 				sd1 = "2";
-			if (snd1 < 0.500)
+			else if (snd1 < (4/5))
 				sd1 = "3";
 			else
 				sd1 = "4";
-			if (shouldplay < 0.600)
+			if (shouldplay < 0.4)
 				sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/killclose", sd1, ".wav"), 1, ATTN_NORM);
 			hasknifed = 0;
 		}
@@ -95,6 +95,42 @@ void() QuoteCheck = 	//Constantly ran, if THIS, play THAT.
 		{
 			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/song.wav"), 1, ATTN_NORM);
 			self.nomore = 1;
+		}
+		if (self.hasray == 1) //Got Ray Gun
+		{
+			local float rsnd;
+			local string ray;
+			rsnd = random();
+			if (rsnd < (1/5))
+				ray = "0";
+			else if (rsnd < (2/5))
+				ray = "1";
+			else if (rsnd < (3/5))
+				ray = "2";
+			else if (rsnd < (4/5))
+				ray = "3";
+			else
+				ray = "4";
+			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/ray", ray, ".wav"), 1, ATTN_NORM);
+			self.hasray = 0;
+		}
+		if (self.raykill == 1) //Killed with Ray Gun
+		{
+			local float rsndk;
+			local string rayk;
+			rsndk = random();
+			if (rsndk < (1/5))
+				rayk = "0";
+			else if (rsndk < (2/5))
+				rayk = "1";
+			else if (rsndk < (3/5))
+				rayk = "2";
+			else if (rsndk < (4/5))
+				rayk = "3";
+			else
+				rayk = "4";
+			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/rayk", rayk, ".wav"), 1, ATTN_NORM);
+			self.raykill = 0;
 		}
 	}
 }

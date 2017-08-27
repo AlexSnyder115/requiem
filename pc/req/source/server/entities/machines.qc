@@ -1510,6 +1510,8 @@ void() mystery_touch =
           			other.currentammo = getWeaponAmmo(self.boxweapon.weapon);
 					other.currentmag = getWeaponMag(self.boxweapon.weapon);
 					other.weaponskin = 0;
+					if (other.weapon == W_RAY)
+						other.hasray = 1;
 				}
 				else if (other.weapon == self.boxweapon.weapon)
 				{

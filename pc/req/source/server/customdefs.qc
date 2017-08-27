@@ -27,6 +27,9 @@ float perkdropcount;
 float num;
 float usingfizz;
 
+.float hasray;
+.float raykill;
+
 float teddycount;
 
 string soundstyle;

@@ -2,7 +2,6 @@
 //	Player.qc - Various stuff done for the player, including per-frame functions like PlayerPreThink and PlayerPostThink, also client specific stuff like PutClientInServer etc.
 //
 
-
 // player animations
 
 void() playdown 	 	=[	1,		playdown1	  	] {self.frame = 32;}
