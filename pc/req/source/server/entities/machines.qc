@@ -2336,19 +2336,30 @@ void() nuke_rand = //Random Perk Drop
    ================*/
 void() GivePlayerPerk =
 {
-	num = 0;
-	switch (self.skin)
-	{
-		case 1:
-			num = 4;
-		case 2:
-			num = 3;
-		case 3:
-			num = 2;
-		case 4:
-			num = 1;
-		case 5:
-			num = 6;
+	if !(other.perks & P_DOUBLE)
+		self.skin++;
+	else {
+		num = 4;
+	}
+	if !(other.perks & P_SPEED)
+		self.skin++;
+	else {
+		num = 3;
+	}
+	if !(other.perks & P_REVIVE)
+		self.skin++;
+	else {
+		num = 1;
+	}
+	if !(other.perks & P_JUG)
+		self.skin++;
+	else {
+		num = 2;
+	}
+	if !(other.perks & P_FLOP)
+		self.skin = 0;
+	else {
+		num = 6;
 	}
 }
 
@@ -2358,8 +2369,8 @@ void() PerkCycle =
 	{
 		fizzskin++;
 		self.skin = fizzskin;
-		if (fizzskin == 6)
-			fizzskin = 1;
+		if (fizzskin == 5)
+			fizzskin = 0;
 		self.nextthink = 0.3 + time;
 	}
 	else {
@@ -2384,8 +2395,11 @@ void() touch_fizz =
 {
 	if (self.classname == "perk_fizz")
 	{
-		useprint (other, 27, 0, 0);
-		if (other.points >= 1500 && other.button7 && other.perkcount < 4 && other.fire_delay < time)
+		if (other.perkcount >= 4)
+			useprint(other, 28, 0, 0);
+		else if (usingfizz == 0)
+			useprint (other, 27, 0, 0);
+		if (other.points >= 1500 && other.button7 && other.perkcount < 4 && other.fire_delay < time && usingfizz == 0)
 		{
 			addmoney (other, -1500, 0);
 			PerkSpawn();
@@ -2398,44 +2412,43 @@ void() touch_fizz =
 			useprint(other, 29, 0, num);
 			if (other.button7)
 			{
-				switch(num)
-				{
-					case 1:
-						if !(other.perks & P_REVIVE) {
-							DrinkPerk(P_REVIVE);
-							usingfizz = 0; }
-						else
-							num++;
-					case 2:
-						if !(other.perks & P_JUG) {
-							DrinkPerk(P_JUG);
-							usingfizz = 0; }
-						else
-							num++;
-					case 3:
-						if !(other.perks & P_SPEED) {
-							DrinkPerk(P_SPEED);
-							usingfizz = 0; }
-						else
-							num++;
-					case 4:
-						if !(other.perks & P_DOUBLE) {
+				local entity bottle;
+				bottle = find(world, classname, "perk");
+				switch(bottle.skin) {
+					case 0:
+						if !(other.perks & P_DOUBLE)
 							DrinkPerk(P_DOUBLE);
-							usingfizz = 0; }
-						else
-							num++;
-					case 5:
-						if !(other.perks & P_FLOP) {
+						else {
+							bottle.skin++;
+						}
+					case 1:
+						if !(other.perks & P_SPEED)
+							DrinkPerk(P_SPEED);
+						else {
+							bottle.skin++;
+						}
+					case 2:
+						if !(other.perks & P_JUG)
+							DrinkPerk(P_JUG);
+						else {
+							bottle.skin++;
+						}
+					case 3:
+						if !(other.perks & P_REVIVE)
+							DrinkPerk(P_REVIVE);
+						else {
+							bottle.skin++;
+						}
+					case 4:
+						if !(other.perks & P_FLOP)
 							DrinkPerk(P_FLOP);
-							usingfizz = 0; }
-						else
-							num = 1;
+						else {
+							bottle.skin = 0;
+						}
 				}
+				remove(bottle);
+				usingfizz = 0;
 			}
-		}
-		else if (other.button7 && other.perkcount >= 4 && other.fire_delay < time)
-		{
-			useprint(other, 28, 0, 0);
 		}
 		else if (other.button7 && other.points < 1500 && other.perkcount < 4)
 		{
