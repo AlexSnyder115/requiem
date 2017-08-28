@@ -132,5 +132,43 @@ void() QuoteCheck = 	//Constantly ran, if THIS, play THAT.
 			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/rayk", rayk, ".wav"), 1, ATTN_NORM);
 			self.raykill = 0;
 		}
+		if (self.ampap == 1) //IS PaPing
+		{
+			local float p;
+			local string pp;
+			p = random();
+			if (p < (1/5))
+				pp = "0";
+			else if (p < (2/5))
+				pp = "1";
+			else if (p < (3/5))
+				pp = "2";
+			else if (p < (4/5))
+				pp = "3";
+			else
+				pp = "4";
+			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/wait", pp, ".wav"), 1, ATTN_NORM);
+			self.ampap = 0;
+		}
+		if (self.haspap == 1) //HAS PaP
+		{
+			local float ppp;
+			local string pppp;
+			ppp = random();
+			if (ppp < (1/6))
+				pppp = "0";
+			else if (ppp < (2/6))
+				pppp = "1";
+			else if (ppp < (3/6))
+				pppp = "2";
+			else if (ppp < (4/6))
+				pppp = "3";
+			else if (ppp < (5/6))
+				pppp = "4";
+			else
+				pppp = "5";
+			sound (self, CHAN_ITEM, strcat("sounds/player/", mapname, "/", playername, "/has", pppp, ".wav"), 1, ATTN_NORM);
+			self.haspap = 0;
+		}
 	}
 }

@@ -1938,7 +1938,13 @@ void PapUpgrade(entity pap, entity buyer) {
 
 	self.fire_delay = self.reload_delay = 4.0 + time;
 	Set_W_Frame (0, 39, 0, 0, 0, SUB_Null, "models/machines/v_pap.mdl", true, S_BOTH);
-	sound(self,CHAN_WEAPON,"sounds/machines/papsound.wav",1,ATTN_NONE);
+	precache_sound("sounds/machines/papsting.wav");
+	if (mapname == "kdt")
+		sound(pap,CHAN_WEAPON,"sounds/machines/papsting.wav",1,ATTN_NONE);
+	else
+		sound(self,CHAN_WEAPON,"sounds/machines/papsound.wav",1,ATTN_NONE);
+
+	self.ampap = 1;
 
 	pap.weapon = self.weapon;
 
@@ -1994,6 +2000,7 @@ void touch_pap() {
 			}
 
 			other.weapon = EqualPapWeapon(self.weapon);
+			other.haspap = 1;
 			other.currentammo = getWeaponAmmo(other.weapon);
 			other.currentmag = getWeaponMag(other.weapon);
 

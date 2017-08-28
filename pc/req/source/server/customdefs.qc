@@ -21,6 +21,8 @@ const float FL_JUMPRELEASED = 4096;
 .float nomore;
 .float amready;
 .float nomoremusic;
+.float ampap;
+.float haspap;
 float gunnumber;
 float perkdropcount;
 
