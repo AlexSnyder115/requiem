@@ -2113,23 +2113,20 @@ void() suicide_box =
 
 void() Teleport_Return =
 {
-	local entity player, returntp;
-	player = find (world, classname, "player");
-	returntp = find (world, classname, "info_player_start");
-	setorigin (player, returntp.origin);
+	local entity destination, tpme;
+	destination = find(world, classname, "info_player_start");
+	tpme = find(world, classname, "player");
+	tpme.origin = destination.origin + [0,0,1];
+	tpme.angles = destination.angles;
 }
 
 void() Teleport =
 {
-	local entity player, destination;
-	player = find (world, classname, "player");
-	destination = find (world, classname, "teleporter_destination");
-	player.origin = destination.origin + [0,0,1];
-}
-
-void() teleporter_destination =
-{
-
+	local entity destination, tpme;
+	destination = find(world, classname, "teleport_destination");
+	tpme = find(world, classname, "player");
+	tpme.origin = destination.origin + [0,0,1];
+	tpme.angles = destination.angles;
 }
 
 void() touch_tp =
@@ -2147,10 +2144,10 @@ void() touch_tp =
 		{
 			linked = 0;
 			cantp = 0;
-			other.tp_delay = 120 + time;
+			other.tp_delay = 180 + time;
 			Teleport();
-			self.think = Teleport_Return;
 			self.nextthink = 30 + time;
+			self.think = Teleport_Return;
 		}
 	}
 	if (other.tp_delay > time)

@@ -36,27 +36,63 @@ Using mapfile wad configuration
 Wadinclude list :
 [zhlt.wad]
 
-9 brushes (totalling 54 sides) discarded from clipping hulls
+31 brushes (totalling 179 sides) discarded from clipping hulls
 CreateBrush:
- (0.07 seconds)
+ (0.40 seconds)
 SetModelCenters:
  (0.00 seconds)
 CSGBrush:
- (0.27 seconds)
+ (0.95 seconds)
 
-Using Wadfile: /Users/Moto/Documents/NZP_maps/Example_01.wad
- - Contains 4 used textures, 13.33 percent of map (15 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/GAOL.wad
- - Contains 1 used texture, 3.33 percent of map (32 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/Ju[s]tice_null2.wad
- - Contains 21 used textures, 70.00 percent of map (938 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/L4QNewest.wad
- - Contains 3 used textures, 10.00 percent of map (225 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/U-Bahn.wad
+Using Wadfile: /Users/Moto/Documents/xd/Example_01.wad
+ - Contains 4 used textures, 7.14 percent of map (15 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/bo2.wad
+ - Contains 5 used textures, 8.93 percent of map (57 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/chronic.wad
+ - Contains 0 used textures, 0.00 percent of map (83 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/kurok.wad
+ - Contains 0 used textures, 0.00 percent of map (112 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/nuketown.wad
+ - Contains 0 used textures, 0.00 percent of map (34 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/nw.wad
+ - Warning: Larger than expected texture (348972 bytes): 'SILO_WALK_BOT'
+ - Warning: Larger than expected texture (348972 bytes): 'SILO_WALK_TOP'
+ - Warning: Larger than expected texture (348972 bytes): 'GEN_DISK_SPIN'
+ - Warning: Larger than expected texture (348972 bytes): 'WHITE_512_ARC'
+ - Contains 0 used textures, 0.00 percent of map (1326 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/waw_HLBSP.wad
+ - Contains 2 used textures, 3.57 percent of map (157 textures in wad)
+Including Wadfile: /Users/Moto/Documents/xd/zhlt.wad
+ - Contains 0 used textures, 0.00 percent of map (19 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/bo2.wad
+ - Contains 0 used textures, 0.00 percent of map (57 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/Example_01.wad
+ - Contains 0 used textures, 0.00 percent of map (15 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/GAOL.wad
+ - Contains 1 used texture, 1.79 percent of map (32 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/Ju[s]tice_null2.wad
+ - Contains 40 used textures, 71.43 percent of map (938 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/L4QNewest.wad
+ - Contains 3 used textures, 5.36 percent of map (225 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/U-Bahn.wad
  - Contains 0 used textures, 0.00 percent of map (8 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/nzphlwad.wad
- - Contains 1 used texture, 3.33 percent of map (103 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/verruckt.wad
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/Wahnsinn_btm.wad
+ - Contains 0 used textures, 0.00 percent of map (32 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/chronic.wad
+ - Contains 0 used textures, 0.00 percent of map (83 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/kurok.wad
+ - Contains 0 used textures, 0.00 percent of map (112 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/nuketown.wad
+ - Contains 0 used textures, 0.00 percent of map (34 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/nw.wad
+ - Warning: Larger than expected texture (348972 bytes): 'SILO_WALK_BOT'
+ - Warning: Larger than expected texture (348972 bytes): 'SILO_WALK_TOP'
+ - Warning: Larger than expected texture (348972 bytes): 'GEN_DISK_SPIN'
+ - Warning: Larger than expected texture (348972 bytes): 'WHITE_512_ARC'
+ - Contains 0 used textures, 0.00 percent of map (1326 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/nzphlwad.wad
+ - Contains 1 used texture, 1.79 percent of map (103 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/verruckt.wad
  - Warning: Larger than expected texture (348972 bytes): 'WARNING_METAL'
  - Warning: Larger than expected texture (348972 bytes): 'WHITE_ASPHALT'
  - Warning: Larger than expected texture (348972 bytes): 'AABERLIN'
@@ -67,11 +103,19 @@ Using Wadfile: /Users/Moto/Documents/NZP_maps/verruckt.wad
  - Warning: Larger than expected texture (348972 bytes): 'INTRO_IMAGES_IN'
  - Warning: Larger than expected texture (348972 bytes): 'SIDEWALK'
  - Contains 0 used textures, 0.00 percent of map (107 textures in wad)
-Including Wadfile: /Users/Moto/Documents/NZP_maps/zhlt.wad
- - Contains 0 used textures, 0.00 percent of map (18 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/waw_HLBSP.wad
+ - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
+Including Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/zhlt.wad
+ - Contains 0 used textures, 0.00 percent of map (19 textures in wad)
 
-Texture usage is at 0.28 mb (of 4.00 mb MAX)
-0.37 seconds elapsed
+Warning: More than 8 wadfiles are in use. (23)
+This may be harmless, and if no strange side effects are occurring, then
+it can safely be ignored. However, if your map starts exhibiting strange
+or obscure errors, consider this as suspect.
+
+
+Texture usage is at 0.50 mb (of 4.00 mb MAX)
+1.45 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -106,12 +150,12 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 500...688 (0.06 seconds)
+SolidBSP [hull 0] 500...1000...1500...2000...2500...3000...3263 (0.19 seconds)
 BSP generation successful, writing portal file 'C:\Users\Moto\Quake\requiem\pc\req\maps\kino.prt'
-SolidBSP [hull 1] 500...614 (0.05 seconds)
-SolidBSP [hull 2] 500...552 (0.04 seconds)
-SolidBSP [hull 3] 500...770 (0.07 seconds)
-0.44 seconds elapsed
+SolidBSP [hull 1] 500...1000...1500...2000...2500...2880 (0.17 seconds)
+SolidBSP [hull 2] 500...1000...1500...2000...2500...2629 (0.16 seconds)
+SolidBSP [hull 3] 500...1000...1500...2000...2500...3000...3267 (0.22 seconds)
+1.79 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -123,9 +167,9 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
-Command line: C:/Users/Moto/Documents/exec/hlvis.exe C:\Users\Moto\Quake\requiem\pc\req\maps\kino 
- 402 portalleafs
-1322 numportals
+Command line: C:/Users/Moto/Documents/exec/hlvis.exe -fast C:\Users\Moto\Quake\requiem\pc\req\maps\kino 
+1914 portalleafs
+6393 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -140,17 +184,15 @@ max texture memory  [ 4194304 ] [ 4194304 ]
 max vis distance    [       0 ] [       0 ]
 priority            [  Normal ] [  Normal ]
 
-fast vis            [     off ] [     off ]
+fast vis            [      on ] [     off ]
 full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (0.27 seconds)
-LeafThread:
- (31.26 seconds)
-average leafs visible: 200
-g_visdatasize:18423  compressed from 20502
-31.57 seconds elapsed
+ (3.38 seconds)
+average leafs visible: 1211
+g_visdatasize:406930  compressed from 459360
+3.48 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -219,29 +261,29 @@ custom shadows with bounce light
 rgb transfers        [               off ] [               off ]
 
 
-1216 faces
-Create Patches : 4337 base patches
+5261 faces
+Create Patches : 23070 base patches
 0 opaque faces
-22708 square feet [3270006.25 square inches]
-3 direct lights
+158865 square feet [22876670.00 square inches]
+22 direct lights
 
 BuildFacelights:
- (2.24 seconds)
-visibility matrix   :   1.1 megs
+ (14.88 seconds)
+visibility matrix   :  31.7 megs
 BuildVisLeafs:
- (1.83 seconds)
+ (44.30 seconds)
 MakeScales:
- (0.34 seconds)
+ (10.22 seconds)
 SwapTransfers:
- (0.21 seconds)
-Transfer Lists :     2691808 :    2.69M transfers
-       Indices :     2074796 :    1.98M bytes
-          Data :    10767232 :   10.27M bytes
+ (1.69 seconds)
+Transfer Lists :    16955056 :   16.96M transfers
+       Indices :    12109568 :   11.55M bytes
+          Data :    67820224 :   64.68M bytes
 GatherLight:
- (0.07 seconds)
+ (0.54 seconds)
 FinalLightFace:
- (0.06 seconds)
-4.80 seconds elapsed
+ (0.43 seconds)
+72.27 seconds elapsed [1m 12s]
 
 -----   END   hlrad -----
 

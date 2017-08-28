@@ -35,6 +35,9 @@ void() info_player_nikolai		= {};
 void() info_player_doctor		= {};
 void() info_player_takeo		= {};
 
+// teleport
+void() teleport_destination = {};
+
 void() zapper1 = {remove(self);};
 void() zapper2 = {remove(self);};
 void() item_switch = {remove(self);};

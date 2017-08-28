@@ -38,11 +38,11 @@ Wadinclude list :
 
 50 brushes (totalling 292 sides) discarded from clipping hulls
 CreateBrush:
- (0.72 seconds)
+ (0.82 seconds)
 SetModelCenters:
- (0.00 seconds)
+ (0.03 seconds)
 CSGBrush:
- (2.18 seconds)
+ (2.57 seconds)
 
 Using Wadfile: /Users/Moto/Documents/xd/Example_01.wad
  - Contains 6 used textures, 12.00 percent of map (15 textures in wad)
@@ -115,7 +115,7 @@ or obscure errors, consider this as suspect.
 
 
 Texture usage is at 0.42 mb (of 4.00 mb MAX)
-3.46 seconds elapsed
+4.58 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -150,12 +150,12 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 500...1000...1500...2000...2500...3000...3284 (0.17 seconds)
+SolidBSP [hull 0] 500...1000...1500...2000...2500...3000...3283 (0.18 seconds)
 BSP generation successful, writing portal file 'C:\Users\Moto\Quake\requiem\pc\req\maps\Kino_Der_Toten.prt'
-SolidBSP [hull 1] 500...1000...1500...2000...2500...3000...3500...4000...4500...4748 (0.46 seconds)
-SolidBSP [hull 2] 500...1000...1500...2000...2500...3000...3500...4000...4296 (0.42 seconds)
-SolidBSP [hull 3] 500...1000...1500...2000...2500...3000...3500...4000...4500...5000...5054 (0.62 seconds)
-3.43 seconds elapsed
+SolidBSP [hull 1] 500...1000...1500...2000...2500...3000...3500...4000...4500...4749 (0.59 seconds)
+SolidBSP [hull 2] 500...1000...1500...2000...2500...3000...3500...4000...4300 (0.44 seconds)
+SolidBSP [hull 3] 500...1000...1500...2000...2500...3000...3500...4000...4500...5000...5045 (0.69 seconds)
+3.73 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -168,8 +168,8 @@ Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
 Command line: C:/Users/Moto/Documents/exec/hlvis.exe C:\Users\Moto\Quake\requiem\pc\req\maps\Kino_Der_Toten 
-1143 portalleafs
-2810 numportals
+1144 portalleafs
+2806 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -189,12 +189,12 @@ full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (0.65 seconds)
+ (0.70 seconds)
 LeafThread:
- (43.49 seconds)
-average leafs visible: 140
-g_visdatasize:58450  compressed from 163449
-44.18 seconds elapsed
+ (42.43 seconds)
+average leafs visible: 141
+g_visdatasize:58505  compressed from 163592
+43.18 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -264,28 +264,28 @@ rgb transfers        [               off ] [               off ]
 
 
 4681 faces
-Create Patches : 28338 base patches
+Create Patches : 28342 base patches
 0 opaque faces
 263102 square feet [37886800.00 square inches]
 33 direct lights
 
 BuildFacelights:
- (23.40 seconds)
+ (20.15 seconds)
 visibility matrix   :  47.9 megs
 BuildVisLeafs:
- (36.22 seconds)
+ (31.34 seconds)
 MakeScales:
- (19.50 seconds)
+ (19.96 seconds)
 SwapTransfers:
- (2.87 seconds)
-Transfer Lists :    25145294 :   25.15M transfers
-       Indices :    13847748 :   13.21M bytes
-          Data :   100581176 :   95.92M bytes
+ (2.62 seconds)
+Transfer Lists :    25150390 :   25.15M transfers
+       Indices :    13836992 :   13.20M bytes
+          Data :   100601560 :   95.94M bytes
 GatherLight:
- (0.84 seconds)
+ (0.76 seconds)
 FinalLightFace:
- (0.87 seconds)
-84.19 seconds elapsed [1m 24s]
+ (0.75 seconds)
+76.02 seconds elapsed [1m 16s]
 
 -----   END   hlrad -----
 

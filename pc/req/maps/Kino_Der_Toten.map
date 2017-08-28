@@ -11593,3 +11593,9 @@
 "angles" "0 0 0"
 "origin" "794 18 56"
 }
+{
+"classname" "sound_song"
+"spawnflags" "0"
+"song" "sounds/music/damned.wav"
+"origin" "-207 -811 -66"
+}

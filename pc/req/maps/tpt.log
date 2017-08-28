@@ -44,34 +44,30 @@ SetModelCenters:
 CSGBrush:
  (0.01 seconds)
 
-Using Wadfile: /Users/Moto/Documents/NZP_maps/Example_01.wad
+Using Wadfile: /Users/Moto/Documents/xd/Example_01.wad
  - Contains 0 used textures, 0.00 percent of map (15 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/GAOL.wad
- - Contains 0 used textures, 0.00 percent of map (32 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/Ju[s]tice_null2.wad
- - Contains 0 used textures, 0.00 percent of map (938 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/L4QNewest.wad
- - Contains 0 used textures, 0.00 percent of map (225 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/U-Bahn.wad
- - Contains 0 used textures, 0.00 percent of map (8 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/nzphlwad.wad
- - Contains 1 used texture, 100.00 percent of map (103 textures in wad)
-Using Wadfile: /Users/Moto/Documents/NZP_maps/verruckt.wad
- - Warning: Larger than expected texture (348972 bytes): 'WARNING_METAL'
- - Warning: Larger than expected texture (348972 bytes): 'WHITE_ASPHALT'
- - Warning: Larger than expected texture (348972 bytes): 'AABERLIN'
- - Warning: Larger than expected texture (348972 bytes): 'AALIBERTY'
- - Warning: Larger than expected texture (348972 bytes): 'AAPARIS'
- - Warning: Larger than expected texture (348972 bytes): 'ASPHALT'
- - Warning: Larger than expected texture (348972 bytes): 'FANCY_DOOR_INDE'
- - Warning: Larger than expected texture (348972 bytes): 'INTRO_IMAGES_IN'
- - Warning: Larger than expected texture (348972 bytes): 'SIDEWALK'
- - Contains 0 used textures, 0.00 percent of map (107 textures in wad)
-Including Wadfile: /Users/Moto/Documents/NZP_maps/zhlt.wad
- - Contains 0 used textures, 0.00 percent of map (18 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/bo2.wad
+ - Contains 0 used textures, 0.00 percent of map (57 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/chronic.wad
+ - Contains 0 used textures, 0.00 percent of map (83 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/kurok.wad
+ - Contains 0 used textures, 0.00 percent of map (112 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/nuketown.wad
+ - Contains 0 used textures, 0.00 percent of map (34 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/nw.wad
+ - Warning: Larger than expected texture (348972 bytes): 'SILO_WALK_BOT'
+ - Warning: Larger than expected texture (348972 bytes): 'SILO_WALK_TOP'
+ - Warning: Larger than expected texture (348972 bytes): 'GEN_DISK_SPIN'
+ - Warning: Larger than expected texture (348972 bytes): 'WHITE_512_ARC'
+ - Contains 1 used texture, 100.00 percent of map (1326 textures in wad)
+Using Wadfile: /Users/Moto/Documents/xd/waw_HLBSP.wad
+ - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
+Including Wadfile: /Users/Moto/Documents/xd/zhlt.wad
+ - Contains 0 used textures, 0.00 percent of map (19 textures in wad)
 
-Texture usage is at 0.01 mb (of 4.00 mb MAX)
-0.02 seconds elapsed
+added 3 additional animating textures.
+Texture usage is at 0.34 mb (of 4.00 mb MAX)
+0.03 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -106,11 +102,11 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 13 (0.00 seconds)
+SolidBSP [hull 0] 26 (0.00 seconds)
 BSP generation successful, writing portal file 'C:\Users\Moto\Quake\requiem\pc\req\maps\tpt.prt'
-SolidBSP [hull 1] 13 (0.00 seconds)
-SolidBSP [hull 2] 13 (0.00 seconds)
-SolidBSP [hull 3] 13 (0.00 seconds)
+SolidBSP [hull 1] 22 (0.00 seconds)
+SolidBSP [hull 2] 22 (0.00 seconds)
+SolidBSP [hull 3] 22 (0.00 seconds)
 0.02 seconds elapsed
 
 -----   END   hlbsp -----
@@ -124,8 +120,8 @@ Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
 Command line: C:/Users/Moto/Documents/exec/hlvis.exe C:\Users\Moto\Quake\requiem\pc\req\maps\tpt 
-   1 portalleafs
-   0 numportals
+   3 portalleafs
+   2 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -149,7 +145,7 @@ BasePortalVis:
 LeafThread:
  (0.00 seconds)
 average leafs visible: 0
-g_visdatasize:3  compressed from 1
+g_visdatasize:9  compressed from 3
 0.00 seconds elapsed
 
 -----   END   hlvis -----
@@ -219,29 +215,29 @@ custom shadows with bounce light
 rgb transfers        [               off ] [               off ]
 
 
-22 faces
-Create Patches : 304 base patches
+50 faces
+Create Patches : 527 base patches
 0 opaque faces
-5113 square feet [736293.63 square inches]
-1 direct lights
+8764 square feet [1262076.75 square inches]
+2 direct lights
 
 BuildFacelights:
- (0.04 seconds)
+ (0.18 seconds)
 visibility matrix   :   0.0 megs
 BuildVisLeafs:
- (0.01 seconds)
+ (0.04 seconds)
 MakeScales:
- (0.01 seconds)
+ (0.02 seconds)
 SwapTransfers:
  (0.00 seconds)
-Transfer Lists :       74368 :   74.37k transfers
-       Indices :        1952 :    1.91k bytes
-          Data :      297472 :  290.50k bytes
+Transfer Lists :      110358 :  110.36k transfers
+       Indices :       16168 :   15.79k bytes
+          Data :      441432 :  431.09k bytes
 GatherLight:
- (0.00 seconds)
-FinalLightFace:
  (0.01 seconds)
-0.09 seconds elapsed
+FinalLightFace:
+ (0.05 seconds)
+0.32 seconds elapsed
 
 -----   END   hlrad -----
 

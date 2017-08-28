@@ -30,6 +30,8 @@ float usingfizz;
 .float hasray;
 .float raykill;
 
+.string song;
+
 float teddycount;
 
 string soundstyle;

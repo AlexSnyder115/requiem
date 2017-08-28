@@ -743,3 +743,15 @@ void() teddy_song =
 	setorigin(self, self.origin);
 	self.touch = touch_song;
 }
+
+void() playsong =
+{
+	playSoundAtPlayers(self.song);
+}
+
+void() sound_song =
+{
+	self.classname = "sound_song";
+	self.solid = SOLID_TRIGGER;
+	self.touch = playsong;
+}

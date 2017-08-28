@@ -385,12 +385,17 @@ void() PollPlayerPoints =
 
 void() PlayerSpawn =
 {	
-	if (mapname == "ndu" || mapname == "kdt" || mapname == "nuketown") //Nacht, Kino, or Nuketown
+	if (mapname == "ndu" || mapname == "kdt" || mapname == "nuketown") //Nacht, Kino, or Nuketown 
 		soundstyle = "cod";
 	else
 		soundstyle = "nzp";
 	local entity spawnpoint;
 	
+
+	if (mapname == "kdt") {
+		sound (self, CHAN_AUTO, strcat("sounds/music/damned.wav"), 0.7, ATTN_NONE);
+		centerprint(self, "xddddddddddd");
+	}
 	spawnpoint = find(world, classname, "info_player_start");
 	
 	self.spawntime = 2.5 + time;
