@@ -344,6 +344,13 @@ void() PlayerPostThink =
 			soundstyle = "nzp";
 			break;
 	}*/
+
+	if (self.xp == (250 * self.lev))
+	{
+		self.lev += 1;
+		self.xp = 0;
+		centerprint(self, strcat("You have been promoted to level ", ftos(self.lev), "!"));
+	}
 };
 
 void() ClientKill =
@@ -485,8 +492,8 @@ void() PlayerSpawn =
 	PollPlayerPoints();
 	PromptLevelChange(self.nextthink + 3, 1, self);
 
-	float mode;
-	string gm;
+	float mode, level;
+	string gm, lvl;
 	mode = fopen("mode", FILE_READ);
 	gm = fgets(mode);
 	fclose(mode);
@@ -496,6 +503,14 @@ void() PlayerSpawn =
 		self.gamemode = 1;
 		gunnumber++;
 	}
+	level = fopen("level", FILE_READ);
+	lvl = fgets(level);
+	fclose(level);
+	self.lev = stof(lvl);
+	if (!self.lev) {
+		self.lev = 1;
+	}
+	//centerprint(self, ftos(self.lev));
 };
 
 void() SpectatorSpawn =

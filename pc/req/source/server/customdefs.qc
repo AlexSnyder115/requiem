@@ -23,6 +23,14 @@ const float FL_JUMPRELEASED = 4096;
 .float nomoremusic;
 .float ampap;
 .float haspap;
+
+
+//BO3 update 
+.float lev;
+.float xp;
+.float div;
+
+
 float gunnumber;
 float perkdropcount;
 

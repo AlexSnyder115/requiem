@@ -29,6 +29,23 @@ void(string s) playSoundAtPlayers =
 
 void() EndRound =
 {
+	local entity p;
+	local float xpa;
+	if (rounds < 5)
+		xpa = 100;
+	else if (rounds < 10)
+		xpa = 500;
+	else if (rounds < 15)
+		xpa = 1000;
+	else
+		xpa = 5000;
+	p = find (world, classname, "player");
+	givexp(p, xpa);
+	centerprint(p, strcat("Survived round, +", ftos(xpa), " XP"));
+	local float l;
+	l = fopen("level", FILE_WRITE);
+	fputs(l, ftos(p.lev));
+	fclose(l);
 	rounds_change = 4;
 	SetUpdate(self, UT_ROUNDS_CHANGE, rounds_change, 0, 0);
 	playSoundAtPlayers(strcat("sounds/rounds/", soundstyle, "/eround.wav"));

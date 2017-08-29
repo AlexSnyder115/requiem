@@ -151,8 +151,27 @@ void() give0 =
 	addmoney(self, 0, 0);
 }
 
+void(entity who) divinium =
+{
+	local float a, wow;
+	a = random();
+	if (a < 0.3)
+		wow = 2;
+	else
+		wow = 1;
+
+	who.div += wow;
+	if (wow == 1)
+		centerprint(who, "Earned 1 Liquid Divinium! Spend it in Monty's Factory!");
+	else
+		centerprint(who, "Double Divinium! Spend it in Monty's Factory!");
+
+}
+
 void(entity person, float expamt , float doublepoint) addmoney =
 {
+	local float b;
+	b = random();
 	if (person.classname != "player")
 		return;
 
@@ -164,6 +183,13 @@ void(entity person, float expamt , float doublepoint) addmoney =
 	person.pointdif = expamt;
 	person.nextthink = time + 0.4;
 	person.think = give0;
+	if (expamt < 0 && b < 0.1)
+		divinium(person);
 		
 	UpdatePlayerPoints(person.playernum, person.points, person.netname);
 };
+
+void(entity dude, float amount) givexp =
+{
+	dude.xp += amount;
+}
