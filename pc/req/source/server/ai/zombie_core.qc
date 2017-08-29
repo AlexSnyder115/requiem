@@ -613,7 +613,7 @@ void() zombie_attack2 =
 	{
 		if(vlen(self.enemy.origin - self.origin) < 60)
 		{
-			DamageHandler (self.enemy, self, 50, S_ZOMBIE);
+			DamageHandler (self.enemy, self, 35, S_ZOMBIE);
 		}
 	}
 	else return;
