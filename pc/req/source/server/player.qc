@@ -542,6 +542,13 @@ void() SpectatorSpawn =
 //called when a client loads a map
 void() PutClientInServer =
 {
+	local float name;
+	local string n;
+	name = fopen("name", FILE_READ);
+	n = fgets(name);
+	self.netname = n;
+	if (self.netname == "")
+		self.netname = "Player";
 	bprint(PRINT_HIGH, self.netname);
 	bprint(PRINT_HIGH, " has joined the game.\n");
 	PlayerSpawn();
@@ -574,6 +581,11 @@ void(string com) SV_ParseClientCommand =
 	{
 		if(self.isspec)
 		{
+			local float name;
+			local string n;
+			name = fopen("name", FILE_READ);
+			n = fgets(name);
+			self.netname = n;
 			bprint(PRINT_HIGH, self.netname);
 			bprint(PRINT_HIGH, " has joined the game.\n");
 			PlayerSpawn();
@@ -653,6 +665,14 @@ void(string com) SV_ParseClientCommand =
 					else
 						self.flags = self.flags & (~FL_GODMODE);
 					break;
+			case "name":
+				local float wname;
+				local string wn;
+				wname = fopen("name", FILE_WRITE);
+				wn = argv(1);
+				fputs(wname, wn);
+				bprint(PRINT_HIGH, strcat(self.netname, " has changed their name to ", wn));
+				self.netname = wn;
 		}
 	}
 };
