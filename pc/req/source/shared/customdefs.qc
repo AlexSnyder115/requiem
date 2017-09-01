@@ -75,6 +75,7 @@ const float EVENT_BLACKOUT = 26;
 #define W_TESLA  56
 #define W_AL 	57
 #define W_OLYM		   59
+#define W_RC 		   60 //Reaper's Colt
 
 
 #define BASE_FRAME			1

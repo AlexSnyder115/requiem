@@ -2,6 +2,9 @@
 //	Player.qc - Various stuff done for the player, including per-frame functions like PlayerPreThink and PlayerPostThink, also client specific stuff like PutClientInServer etc.
 //
 
+void() WepBurst;
+void(float perk) GivePerk;
+
 // player animations
 
 void() playdown 	 	=[	1,		playdown1	  	] {self.frame = 32;}
@@ -351,6 +354,13 @@ void() PlayerPostThink =
 		self.xp = 0;
 		centerprint(self, strcat("You have been promoted to level ", ftos(self.lev), "!"));
 	}
+
+	if (self.weapon == W_RC && self.button0 && self.btime < time)
+	{
+		WepBurst();
+	}
+	if (self.btime < time)
+		self.shots = 0;
 };
 
 void() ClientKill =
@@ -401,7 +411,6 @@ void() PlayerSpawn =
 
 	if (mapname == "kdt") {
 		sound (self, CHAN_AUTO, strcat("sounds/music/damned.wav"), 0.7, ATTN_NONE);
-		centerprint(self, "xddddddddddd");
 	}
 	spawnpoint = find(world, classname, "info_player_start");
 	
@@ -607,21 +616,36 @@ void(string com) SV_ParseClientCommand =
 		switch(argv(0))
 		{
 			case "give":
-				float wep = stof(argv(1));
+				if (argv(1) == "w")
+				{
+					float wep = stof(argv(2));
 
-				float startframe, endframe;
-				string modelname;
-				self.weapon = wep;
-				self.currentmag = getWeaponMag(self.weapon);
-				self.currentammo = getWeaponAmmo(self.weapon);
-				self.weaponmodel = GetWeaponModel(self.weapon, 0);
-				startframe = GetFrame(self.weapon,TAKE_OUT_START);
-				endframe = GetFrame(self.weapon,TAKE_OUT_END);
-				modelname = GetWeaponModel(wep, 0);	
+					float startframe, endframe;
+					string modelname;
+					self.weapon = wep;
+					self.currentmag = getWeaponMag(self.weapon);
+					self.currentammo = getWeaponAmmo(self.weapon);
+					self.weaponmodel = GetWeaponModel(self.weapon, 0);
+					startframe = GetFrame(self.weapon,TAKE_OUT_START);
+					endframe = GetFrame(self.weapon,TAKE_OUT_END);
+					modelname = GetWeaponModel(wep, 0);	
 
-				SwitchWeapon(self.weapon);
+					SwitchWeapon(self.weapon);
 					
-				Set_W_Frame (startframe, endframe, 0, 0, 0, SUB_Null, modelname, false, S_BOTH);
+					Set_W_Frame (startframe, endframe, 0, 0, 0, SUB_Null, modelname, false, S_BOTH);
+				}
+				if (argv(1) == "r")
+				{
+					float rnd = stof(argv(2));
+					rounds = rnd;
+					centerprint(self, "Round change will be in effect next round.");
+				}
+				if (argv(1) == "p")
+				{
+					float p = stof(argv(2));
+					GivePerk(p);
+					SetPerk(self, self.perks);
+				}
 			break;
 			case "god":
 					if (!(self.flags & FL_GODMODE))

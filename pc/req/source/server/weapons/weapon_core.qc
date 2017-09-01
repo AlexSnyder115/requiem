@@ -950,6 +950,10 @@ void(float side) W_Fire =
 			self.semi2 = TRUE;
 		}
 	}
+	if (firetype == 9)
+	{
+		self.burst = TRUE;
+	}
 
 	if (firetype == 6)//flamethrower
 		FireFlame();
@@ -997,6 +1001,19 @@ void(float side) W_Fire =
 	SetUpdate(self, UT_CROSSHAIR, 5, 0, 0);
 }
 
+void() WepBurst =
+{
+	if (self.shots == 4)
+		return;
+	else
+	{
+		W_Fire(S_RIGHT);
+		self.think = WepBurst;
+		self.nextthink = time + 0.075;
+		self.shots++;
+		self.btime = time + 0.3;
+	}
+}
 
 /******************************
 * W_Knife                     *
@@ -1655,7 +1672,7 @@ void () Weapon_Logic =
 				if (self.iscooling == 0)
 					W_Fire(S_RIGHT);
 			}
-			if (self.weapon != W_M2)
+			if (self.weapon != W_M2 && self.weapon != W_RC)
 				W_Fire(S_RIGHT);
 		} else {
 			self.semi = FALSE;

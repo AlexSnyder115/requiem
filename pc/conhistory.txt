@@ -1,241 +1,135 @@
+fov 65
+fov 65
 map ndu
-give 33
-give 33
 map ndu
-give 33
-give 33
+give w 60
+give p 64
+give w 32
+give w 34
+give p 64
+give p 65
+give p 999
+give p 230
+give p 230
+give p 230
+give p 230
+give p 230
+give p 230
+give p 230
+give p 230
+give p 230
+give p 230
+give p 230
+give p 55
+give p 55
+give p 1
+give p 4
+give p 1
+give p 4
+give p 8
+give p 16
+give p 32
+give p 64
+give p 128
+give p 256
+give p 128
+give p 256
+give p 512
+give p 1024
+give p 2048
+give p 2
 map ndu
-give 33
-map ndu
-give 33
-give 33
-map ndu
-give 33
-give 33
-map ndu
-give 33
-map ndu
-give 33
-map ndu
-give 20
-give 33
-map ndu
-map kino
-map ndu
-give 20
-give 33
-give 33
-map ndu
-give 33
+give p 2
 restart
-give 33
+give p 1
+give p 2
+give p 4
+give p 8
+give p 16
+give p 32
+give p 64
+give p 128
+give p 512
+give p 1024
+give p 2048
+map ndu
+give p 1
+give p 2
+give p 4
+give p 8
+give p 16
+give p 32
+give p 64
+give p 128
+give p 512
+give p 2048
+give r 100
+give w 34
+restart
+give p 1
+give p 2
+give p 4
+give p 8
+give p 16
+give p 32
+give p 64
+give p 128
+give p 512
+give p 2048
+give r 100
+give w 34
+give w 59
+give w 58
+noclip
 god
-map perk
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map kino_der_toten
-map kino_der_toten
-map kino_der_toten
+noclip
+give w 49
+give w 48
+give w 48
+give w 49
+give w 47
+give w 46
+give w 30
+give w 29
+give w 28
 noclip
 noclip
 noclip
 noclip
+give w 28
 noclip
+give r 1
 noclip
-map kino_der_toten
+give r 101
 restart
-restart
-map kino_der_toten
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-mapname
-map nuketown
-map ptest
-map ptest
-restart
-map ptest
-restart
-restart
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-restart
-restart
-restart
-map ptest
-map ptest
-map ptest
-restart
-restart
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map ptest
-map kino
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map fizz
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
+give p 999
+give r 999
+give ray
+give w r
 restart
 restart
 restart
 restart
 restart
-restart
-restart
-restart
-restart
-restart
-restart
-restart
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-noclip
-noclip
-noclip
-noclip
-noclip
-noclip
-map kdt
-map kdt
-map kdt
-map kdt
-god
-god
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-map kdt
-restart
-map kdt
-map kdt
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map kino
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map tpt
-map kdt
-map kdt
-map kdt
-map kdt
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map ndu
-map warehouse
-map warehouse
+map mine
+give p 1
+give p 1
+give p 1
+give p 1
+give p 1
+give p 1
+give p 1
+give p 1
+give p 1
+
+give p 1
+
+
+
+
+
+
+
+
+
+

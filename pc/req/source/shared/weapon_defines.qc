@@ -114,6 +114,8 @@ string(float wep) GetWeaponName =
       		return "Stakeout";
       	case W_OLYM:
       		return "Olympia";
+      	case W_RC:
+      		return "Reaper's Colt";
 		default:
 			return " ";
 	}
@@ -238,6 +240,8 @@ float(float wep) GetFiretype =
 			return 1;
 		case W_BK:
 			return 8;
+		case W_RC:
+			return 9; //Burst
     }
 
     return 0;
@@ -346,6 +350,8 @@ float(float wep) getWeaponMag =
 			return 2;
 		case W_BK:
 			return 1;
+		case W_RC:
+			return 16;
 	}
 	return 0;
 }
@@ -456,6 +462,8 @@ float(float wep) getWeaponAmmo =
 			return 24;
 		case W_BK:
 			return 4;
+		case W_RC:
+			return 160;
 	}
 	return 0;
 }
@@ -466,6 +474,7 @@ float(float wep) getWeaponDamage =
 
 	switch (wep)
 	{
+		case W_RC:
 		case W_COLT:
 			return 20;
 		case W_BIATCH:
@@ -600,6 +609,7 @@ float(float wep, float penetration_times) getWeaponPenetration =
 		return 2;
 	switch (wep)
 	{
+		case W_RC:
 		case W_COLT:
 		case W_BIATCH:
 			if (penetration_times >= 2)
@@ -726,6 +736,7 @@ float(float wep) GetWeaponSpread =
 	float Weapon_Spread, Total_Spread;
 	switch (wep)
 	{
+		case W_RC:
 		case W_COLT:
 			Weapon_Spread = 7.5;
 			break;
@@ -880,6 +891,7 @@ float(float wep, float delaytype) getWeaponDelay =
 
 	switch (wep)
 	{
+		case W_RC:
 		case W_M14:
 		case W_COLT:
 			if (delaytype == RELOAD)
@@ -1092,6 +1104,8 @@ float GetWeaponWalkSpeed (int weapontype)
 		return 1;
 	if (weapontype == W_COLT)
 		return 1;
+	if (weapontype == W_RC)
+		return 1;
 	else if (weapontype == W_KAR)
 		return 0.9;
 	else if (weapontype == W_THOMPSON)
@@ -1200,6 +1214,7 @@ float GetWeaponWalkSpeed (int weapontype)
 
 vector GetWeaponADSPos(float wep) {
 	switch (wep) {
+		case W_RC:
 		case W_COLT:
 			return [-2.99, 2.77, 0.92];
 		case W_KAR:
@@ -1275,6 +1290,7 @@ float(float wep, float frametype) GetFrame =
 {
 	switch (wep)
 	{
+		case W_RC:
 		case W_COLT:
 			switch (frametype)
 			{
@@ -2227,6 +2243,7 @@ string(float wep, float gorvmodel) GetWeaponModel =
 
 	switch (wep)
 	{
+		case W_RC:
 		case W_COLT:
 			if (gorvmodel)
 				return ("models/weapons/m1911/g_colt.mdl");
@@ -2407,6 +2424,7 @@ string(float wep) GetWeaponSound =
 {
 	switch (wep)
 	{
+		case W_RC:
 		case W_BIATCH:
 		case W_COLT:
 			return "sounds/weapons/colt/shoot.wav";
@@ -2697,6 +2715,7 @@ void (float wep, float anim_style, float dualwep, float curweaponframe)	PlayWeap
 
 
 	switch (wep) {
+		case W_RC:
 		case W_COLT:
 			if (curweaponframe == 5) {
 				sound (self ,5, "sounds/weapons/colt/magout.wav", 1, ATTN_NORM);
@@ -2985,6 +3004,7 @@ void (float wep, float anim_style, float dualwep, float curweaponframe)	PlayWeap
 void(float weptype) precache_extra =
 {
 	switch (weptype) {
+		case W_RC:
 		case W_COLT:
 		case W_BIATCH:
 			precache_sound("sounds/weapons/colt/shoot.wav");
@@ -3170,6 +3190,7 @@ float(float wep) getWeaponRecoilReturn =
 {
 	switch (wep)
 	{
+		case W_RC:
 		case W_COLT:
 			return 750;
 			break;
@@ -3318,6 +3339,7 @@ float(float weapon) CrossHairWeapon =
 {
 	switch(weapon)
 	{
+		case W_RC:
 		case W_COLT:
 			return 15;
 			break;
@@ -3471,6 +3493,7 @@ float(float weapon) CrossHairMaxSpread =
 
 	switch(weapon)
 	{
+		case W_RC:
 		case W_COLT:
 			return 30;
 			break;
@@ -3626,6 +3649,7 @@ int(int weapon, int type) GetLowAmmo = // determine what ammo value you should h
 {
 	switch (weapon)
 	{
+		case W_RC: if (type) return 4; else return 40;
 		case W_COLT: if (type) return 2; else return 16; 
 		case W_KAR: if (type) return 1; else return 10;
 		case W_KAR_SCOPE: if (type) return 1; else return 10;

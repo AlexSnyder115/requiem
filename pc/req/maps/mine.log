@@ -4,8 +4,8 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlcsg -----
-Command line: C:/Users/Moto/Documents/exec/hlcsg.exe C:\Users\Moto\Quake\requiem\pc\req\maps\wahnsinn 
-Entering C:\Users\Moto\Quake\requiem\pc\req\maps\wahnsinn.map
+Command line: C:/Users/Moto/Documents/exec/hlcsg.exe C:\Users\Moto\Quake\requiem\pc\req\maps\mine 
+Entering C:\Users\Moto\Quake\requiem\pc\req\maps\mine.map
 
 Current hlcsg Settings
 Name                 |  Setting  |  Default
@@ -36,18 +36,18 @@ Using mapfile wad configuration
 Wadinclude list :
 [zhlt.wad]
 
-51 brushes (totalling 272 sides) discarded from clipping hulls
+0 brushes (totalling 0 sides) discarded from clipping hulls
 CreateBrush:
- (0.54 seconds)
+ (0.17 seconds)
 SetModelCenters:
- (0.00 seconds)
+ (0.03 seconds)
 CSGBrush:
- (1.53 seconds)
+ (0.71 seconds)
 
 Using Wadfile: /Users/Moto/Documents/xd/Example_01.wad
- - Contains 7 used textures, 13.73 percent of map (15 textures in wad)
+ - Contains 2 used textures, 15.38 percent of map (15 textures in wad)
 Using Wadfile: /Users/Moto/Documents/xd/bo2.wad
- - Contains 2 used textures, 3.92 percent of map (57 textures in wad)
+ - Contains 0 used textures, 0.00 percent of map (57 textures in wad)
 Using Wadfile: /Users/Moto/Documents/xd/chronic.wad
  - Contains 0 used textures, 0.00 percent of map (83 textures in wad)
 Using Wadfile: /Users/Moto/Documents/xd/kurok.wad
@@ -69,13 +69,13 @@ Using Wadfile: /Users/Moto/Documents/NZP_maps/Example_01.wad
 Using Wadfile: /Users/Moto/Documents/NZP_maps/GAOL.wad
  - Contains 0 used textures, 0.00 percent of map (32 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/Ju[s]tice_null2.wad
- - Contains 41 used textures, 80.39 percent of map (938 textures in wad)
+ - Contains 11 used textures, 84.62 percent of map (938 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/L4QNewest.wad
  - Contains 0 used textures, 0.00 percent of map (225 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/U-Bahn.wad
  - Contains 0 used textures, 0.00 percent of map (8 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/nzphlwad.wad
- - Contains 1 used texture, 1.96 percent of map (103 textures in wad)
+ - Contains 0 used textures, 0.00 percent of map (103 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/verruckt.wad
  - Warning: Larger than expected texture (348972 bytes): 'WARNING_METAL'
  - Warning: Larger than expected texture (348972 bytes): 'WHITE_ASPHALT'
@@ -89,15 +89,58 @@ Using Wadfile: /Users/Moto/Documents/NZP_maps/verruckt.wad
  - Contains 0 used textures, 0.00 percent of map (107 textures in wad)
 Including Wadfile: /Users/Moto/Documents/NZP_maps/zhlt.wad
  - Contains 0 used textures, 0.00 percent of map (18 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/Example_01.wad
+ - Contains 0 used textures, 0.00 percent of map (15 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/GAOL.wad
+ - Contains 0 used textures, 0.00 percent of map (32 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/Ju[s]tice_null2.wad
+ - Contains 0 used textures, 0.00 percent of map (938 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/L4QNewest.wad
+ - Contains 0 used textures, 0.00 percent of map (225 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/U-Bahn.wad
+ - Contains 0 used textures, 0.00 percent of map (8 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/Wahnsinn_btm.wad
+ - Contains 0 used textures, 0.00 percent of map (32 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/bo2.wad
+ - Contains 0 used textures, 0.00 percent of map (57 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/chronic.wad
+ - Contains 0 used textures, 0.00 percent of map (83 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/kurok.wad
+ - Contains 0 used textures, 0.00 percent of map (112 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/nuketown.wad
+ - Contains 0 used textures, 0.00 percent of map (34 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/nw.wad
+ - Warning: Larger than expected texture (348972 bytes): 'SILO_WALK_BOT'
+ - Warning: Larger than expected texture (348972 bytes): 'SILO_WALK_TOP'
+ - Warning: Larger than expected texture (348972 bytes): 'GEN_DISK_SPIN'
+ - Warning: Larger than expected texture (348972 bytes): 'WHITE_512_ARC'
+ - Contains 0 used textures, 0.00 percent of map (1326 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/nzphlwad.wad
+ - Contains 0 used textures, 0.00 percent of map (103 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/verruckt.wad
+ - Warning: Larger than expected texture (348972 bytes): 'WARNING_METAL'
+ - Warning: Larger than expected texture (348972 bytes): 'WHITE_ASPHALT'
+ - Warning: Larger than expected texture (348972 bytes): 'AABERLIN'
+ - Warning: Larger than expected texture (348972 bytes): 'AALIBERTY'
+ - Warning: Larger than expected texture (348972 bytes): 'AAPARIS'
+ - Warning: Larger than expected texture (348972 bytes): 'ASPHALT'
+ - Warning: Larger than expected texture (348972 bytes): 'FANCY_DOOR_INDE'
+ - Warning: Larger than expected texture (348972 bytes): 'INTRO_IMAGES_IN'
+ - Warning: Larger than expected texture (348972 bytes): 'SIDEWALK'
+ - Contains 0 used textures, 0.00 percent of map (107 textures in wad)
+Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/waw_HLBSP.wad
+ - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
+Including Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/zhlt.wad
+ - Contains 0 used textures, 0.00 percent of map (19 textures in wad)
 
-Warning: More than 8 wadfiles are in use. (16)
+Warning: More than 8 wadfiles are in use. (31)
 This may be harmless, and if no strange side effects are occurring, then
 it can safely be ignored. However, if your map starts exhibiting strange
 or obscure errors, consider this as suspect.
 
 
-Texture usage is at 0.31 mb (of 4.00 mb MAX)
-2.22 seconds elapsed
+Texture usage is at 0.07 mb (of 4.00 mb MAX)
+6.07 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -109,7 +152,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlbsp -----
-Command line: C:/Users/Moto/Documents/exec/hlbsp.exe C:\Users\Moto\Quake\requiem\pc\req\maps\wahnsinn 
+Command line: C:/Users/Moto/Documents/exec/hlbsp.exe C:\Users\Moto\Quake\requiem\pc\req\maps\mine 
 
 Current hlbsp Settings
 Name               |  Setting  |  Default
@@ -132,12 +175,14 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 500...1000...1500...2000...2500...2873 (0.20 seconds)
-BSP generation successful, writing portal file 'C:\Users\Moto\Quake\requiem\pc\req\maps\wahnsinn.prt'
-SolidBSP [hull 1] 500...1000...1500...2000...2500...3000...3500...4000...4208 (0.43 seconds)
-SolidBSP [hull 2] 500...1000...1500...2000...2500...3000...3500...3817 (0.35 seconds)
-SolidBSP [hull 3] 500...1000...1500...2000...2500...3000...3500...4000...4492 (0.49 seconds)
-2.86 seconds elapsed
+SolidBSP [hull 0] 178 (0.01 seconds)
+BSP generation successful, writing portal file 'C:\Users\Moto\Quake\requiem\pc\req\maps\mine.prt'
+SolidBSP [hull 1] 202 (0.01 seconds)
+Warning: No entities exist in hull 1, no filling performed for this hull
+SolidBSP [hull 2] 185 (0.01 seconds)
+Warning: No entities exist in hull 2, no filling performed for this hull
+SolidBSP [hull 3] 207 (0.01 seconds)
+0.24 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -149,9 +194,9 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
-Command line: C:/Users/Moto/Documents/exec/hlvis.exe -fast C:\Users\Moto\Quake\requiem\pc\req\maps\wahnsinn 
-1654 portalleafs
-4825 numportals
+Command line: C:/Users/Moto/Documents/exec/hlvis.exe C:\Users\Moto\Quake\requiem\pc\req\maps\mine 
+ 107 portalleafs
+ 293 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -166,37 +211,17 @@ max texture memory  [ 4194304 ] [ 4194304 ]
 max vis distance    [       0 ] [       0 ]
 priority            [  Normal ] [  Normal ]
 
-fast vis            [      on ] [     off ]
+fast vis            [     off ] [     off ]
 full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (1.79 seconds)
-Warning: Leaf portals saw into leaf
-    Problem at portal between leaves 97 and 96:
-       (936.000 208.000 -456.000)
-    (936.000 208.000 -456.000)
-    (949.408 198.485 -456.589)
-    (948.108 208.000 -451.459)
-
-Warning: Leaf portals saw into leaf
-    Problem at portal between leaves 560 and 559:
-       (696.000 -240.000 -456.000)
-    (528.000 -264.000 -464.000)
-    (528.000 -264.000 -464.000)
-    (544.424 -277.345 -456.000)
-
-Warning: Leaf portals saw into leaf
-    Problem at portal between leaves 1463 and 1462:
-       (-288.000 -480.000 -343.200)
-    (-288.000 -480.000 -336.000)
-    (-288.000 -480.000 -336.000)
-    (-264.000 -520.000 -340.000)
-    (-264.000 -520.000 -350.480)
-
-average leafs visible: 410
-g_visdatasize:237264  compressed from 342378
-1.94 seconds elapsed
+ (0.38 seconds)
+LeafThread:
+ (1.37 seconds)
+average leafs visible: 48
+g_visdatasize:1680  compressed from 1498
+1.93 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -208,7 +233,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlrad -----
-Command line: C:/Users/Moto/Documents/exec/hlrad.exe C:\Users\Moto\Quake\requiem\pc\req\maps\wahnsinn 
+Command line: C:/Users/Moto/Documents/exec/hlrad.exe C:\Users\Moto\Quake\requiem\pc\req\maps\mine 
 
 -= Current hlrad Settings =-
 Name                | Setting             | Default
@@ -265,29 +290,14 @@ custom shadows with bounce light
 rgb transfers        [               off ] [               off ]
 
 
-4220 faces
-Create Patches : 22966 base patches
+555 faces
+Create Patches : 2872 base patches
 0 opaque faces
-161923 square feet [23316960.00 square inches]
-29 direct lights
+40777 square feet [5872000.00 square inches]
+Error: No Lights!
+Description: lighting of map halted (I assume you do not want a pitch black map!)
+Howto Fix: Put some lights in the map.
 
-BuildFacelights:
- (20.20 seconds)
-visibility matrix   :  31.4 megs
-BuildVisLeafs:
- (26.91 seconds)
-MakeScales:
- (9.92 seconds)
-SwapTransfers:
- (0.45 seconds)
-Transfer Lists :     9658294 :    9.66M transfers
-       Indices :     6788032 :    6.47M bytes
-          Data :    38633176 :   36.84M bytes
-GatherLight:
- (0.30 seconds)
-FinalLightFace:
- (0.61 seconds)
-58.74 seconds elapsed
 
 -----   END   hlrad -----
 
