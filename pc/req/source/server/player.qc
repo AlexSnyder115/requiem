@@ -330,7 +330,7 @@ void() PlayerPostThink =
 	}
 	if (self.accomplished < time && self.nomore == 1 && self.amready == 1 && self.nomoremusic == 0)
 	{
-		playSoundAtPlayers("sounds/music/115.mp3");
+		playSoundAtPlayers(world.eesong);
 		self.nomoremusic = 1;
 	}
 	/*switch (mapname)
@@ -520,6 +520,8 @@ void() PlayerSpawn =
 		self.lev = 1;
 	}
 	//centerprint(self, ftos(self.lev));
+
+	self.hudstyle = world.hudstyle; //HUD Type.
 };
 
 void() SpectatorSpawn =
@@ -634,15 +636,31 @@ void(string com) SV_ParseClientCommand =
 
 					float startframe, endframe;
 					string modelname;
-					self.weapon = wep;
-					self.currentmag = getWeaponMag(self.weapon);
-					self.currentammo = getWeaponAmmo(self.weapon);
-					self.weaponmodel = GetWeaponModel(self.weapon, 0);
-					startframe = GetFrame(self.weapon,TAKE_OUT_START);
-					endframe = GetFrame(self.weapon,TAKE_OUT_END);
-					modelname = GetWeaponModel(wep, 0);	
-
-					SwitchWeapon(self.weapon);
+					if (!self.secondaryweapon)
+					{
+						self.secondaryweapon = self.weapon;
+						self.secondarymag = self.currentmag;
+						self.secondaryammo = self.currentammo;
+						self.weapon = wep;
+						self.currentmag = getWeaponMag(self.weapon);
+						self.currentammo = getWeaponAmmo(self.weapon);
+						self.weaponmodel = GetWeaponModel(self.weapon, 0);
+						startframe = GetFrame(self.weapon,TAKE_OUT_START);
+						endframe = GetFrame(self.weapon,TAKE_OUT_END);
+						modelname = GetWeaponModel(wep, 0);
+						SwitchWeapon(self.weapon);	
+					}
+					else
+					{
+						self.weapon = wep;
+						self.currentmag = getWeaponMag(self.weapon);
+						self.currentammo = getWeaponAmmo(self.weapon);
+						self.weaponmodel = GetWeaponModel(self.weapon, 0);
+						startframe = GetFrame(self.weapon,TAKE_OUT_START);
+						endframe = GetFrame(self.weapon,TAKE_OUT_END);
+						modelname = GetWeaponModel(wep, 0);
+						SwitchWeapon(self.weapon);	
+					}
 					
 					Set_W_Frame (startframe, endframe, 0, 0, 0, SUB_Null, modelname, false, S_BOTH);
 				}

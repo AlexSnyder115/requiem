@@ -734,12 +734,17 @@ void() touch_song =
 }
 
 void() teddy_song =
-{
-	precache_model("progs/Props/teddy.mdl");
+{ 
+  	precache_model (self.model);
+  	setmodel (self, self.model);
+  	self.skin = 0;
+	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	self.angles = self.angles;
+	self.solid = SOLID_NOT;
+	self.frame = self.sequence;
 	self.movetype = MOVETYPE_NONE;
 	self.solid = SOLID_TRIGGER;
 	self.classname = "teddy_song";
-	setmodel(self, "progs/Props/teddy.mdl");
 	setorigin(self, self.origin);
 	self.touch = touch_song;
 }

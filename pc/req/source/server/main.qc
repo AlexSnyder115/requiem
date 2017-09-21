@@ -216,6 +216,7 @@ void() worldspawn =
 	clientstat(STAT_BOXWEP, EV_STRING, boxwepname);
 	clientstat(STAT_POINTDIF, EV_FLOAT, pointdif);
 	clientstat(STAT_FLAMECOOL, EV_FLOAT, iscooling);
+	clientstat(STAT_HUDSTYLE, EV_FLOAT, hudstyle);
 
 	mappath = strcat("maps/", mapname);
 	mappath = strzone(mappath);

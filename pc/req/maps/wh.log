@@ -4,8 +4,8 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlcsg -----
-Command line: C:/Users/Moto/Documents/exec/hlcsg.exe C:\Users\Moto\Quake\requiem\pc\req\maps\mine 
-Entering C:\Users\Moto\Quake\requiem\pc\req\maps\mine.map
+Command line: C:/Users/Moto/Documents/exec/hlcsg.exe C:\Users\Moto\Quake\requiem\pc\req\maps\wh 
+Entering C:\Users\Moto\Quake\requiem\pc\req\maps\wh.map
 
 Current hlcsg Settings
 Name                 |  Setting  |  Default
@@ -38,16 +38,16 @@ Wadinclude list :
 
 0 brushes (totalling 0 sides) discarded from clipping hulls
 CreateBrush:
- (0.34 seconds)
+ (0.00 seconds)
 SetModelCenters:
  (0.00 seconds)
 CSGBrush:
- (1.58 seconds)
+ (0.01 seconds)
 
 Using Wadfile: /Users/Moto/Documents/xd/Example_01.wad
- - Contains 2 used textures, 8.00 percent of map (15 textures in wad)
+ - Contains 2 used textures, 40.00 percent of map (15 textures in wad)
 Using Wadfile: /Users/Moto/Documents/xd/bo2.wad
- - Contains 0 used textures, 0.00 percent of map (57 textures in wad)
+ - Contains 1 used texture, 20.00 percent of map (57 textures in wad)
 Using Wadfile: /Users/Moto/Documents/xd/chronic.wad
  - Contains 0 used textures, 0.00 percent of map (83 textures in wad)
 Using Wadfile: /Users/Moto/Documents/xd/kurok.wad
@@ -69,9 +69,9 @@ Using Wadfile: /Users/Moto/Documents/NZP_maps/Example_01.wad
 Using Wadfile: /Users/Moto/Documents/NZP_maps/GAOL.wad
  - Contains 0 used textures, 0.00 percent of map (32 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/Ju[s]tice_null2.wad
- - Contains 23 used textures, 92.00 percent of map (938 textures in wad)
+ - Contains 1 used texture, 20.00 percent of map (938 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/L4QNewest.wad
- - Contains 0 used textures, 0.00 percent of map (225 textures in wad)
+ - Contains 1 used texture, 20.00 percent of map (225 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/U-Bahn.wad
  - Contains 0 used textures, 0.00 percent of map (8 textures in wad)
 Using Wadfile: /Users/Moto/Documents/NZP_maps/nzphlwad.wad
@@ -132,15 +132,17 @@ Using Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/waw_HLBSP.wad
  - Contains 0 used textures, 0.00 percent of map (157 textures in wad)
 Including Wadfile: /Users/Moto/Quake/requiem/pc/req/textures/zhlt.wad
  - Contains 0 used textures, 0.00 percent of map (19 textures in wad)
+Using Wadfile: /Users/Moto/Documents/warehouse.wad
+ - Contains 0 used textures, 0.00 percent of map (4 textures in wad)
 
-Warning: More than 8 wadfiles are in use. (31)
+Warning: More than 8 wadfiles are in use. (32)
 This may be harmless, and if no strange side effects are occurring, then
 it can safely be ignored. However, if your map starts exhibiting strange
 or obscure errors, consider this as suspect.
 
 
-Texture usage is at 0.14 mb (of 4.00 mb MAX)
-4.71 seconds elapsed
+Texture usage is at 0.03 mb (of 4.00 mb MAX)
+0.06 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -152,7 +154,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlbsp -----
-Command line: C:/Users/Moto/Documents/exec/hlbsp.exe C:\Users\Moto\Quake\requiem\pc\req\maps\mine 
+Command line: C:/Users/Moto/Documents/exec/hlbsp.exe C:\Users\Moto\Quake\requiem\pc\req\maps\wh 
 
 Current hlbsp Settings
 Name               |  Setting  |  Default
@@ -175,14 +177,12 @@ subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
 max node size       [    1024 ] [    1024 ] (Min 64) (Max 8192)
 
 
-SolidBSP [hull 0] 500...1000...1500...2000...2364 (0.11 seconds)
-BSP generation successful, writing portal file 'C:\Users\Moto\Quake\requiem\pc\req\maps\mine.prt'
-SolidBSP [hull 1] 500...1000...1500...2000...2202 (0.08 seconds)
-Warning: No entities exist in hull 1, no filling performed for this hull
-SolidBSP [hull 2] 500...1000...1500...1888 (0.07 seconds)
-Warning: No entities exist in hull 2, no filling performed for this hull
-SolidBSP [hull 3] 500...1000...1500...2000...2259 (0.07 seconds)
-1.74 seconds elapsed
+SolidBSP [hull 0] 53 (0.00 seconds)
+BSP generation successful, writing portal file 'C:\Users\Moto\Quake\requiem\pc\req\maps\wh.prt'
+SolidBSP [hull 1] 40 (0.00 seconds)
+SolidBSP [hull 2] 38 (0.00 seconds)
+SolidBSP [hull 3] 42 (0.00 seconds)
+0.03 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -194,9 +194,9 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlvis -----
-Command line: C:/Users/Moto/Documents/exec/hlvis.exe C:\Users\Moto\Quake\requiem\pc\req\maps\mine 
-1375 portalleafs
-4184 numportals
+Command line: C:/Users/Moto/Documents/exec/hlvis.exe C:\Users\Moto\Quake\requiem\pc\req\maps\wh 
+  34 portalleafs
+  76 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -216,12 +216,12 @@ full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (1.30 seconds)
+ (0.00 seconds)
 LeafThread:
- (428.04 seconds)
-average leafs visible: 529
-g_visdatasize:215855  compressed from 236500
-429.46 seconds elapsed [7m 9s]
+ (0.00 seconds)
+average leafs visible: 15
+g_visdatasize:225  compressed from 170
+0.00 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -233,7 +233,7 @@ Based on code modifications by Sean 'Zoner' Cavanaugh
 Based on Valve's version, modified with permission.
 Submit detailed bug reports to (amckern@yahoo.com)
 -----  BEGIN  hlrad -----
-Command line: C:/Users/Moto/Documents/exec/hlrad.exe C:\Users\Moto\Quake\requiem\pc\req\maps\mine 
+Command line: C:/Users/Moto/Documents/exec/hlrad.exe C:\Users\Moto\Quake\requiem\pc\req\maps\wh 
 
 -= Current hlrad Settings =-
 Name                | Setting             | Default
@@ -290,14 +290,29 @@ custom shadows with bounce light
 rgb transfers        [               off ] [               off ]
 
 
-6555 faces
-Create Patches : 34143 base patches
+185 faces
+Create Patches : 1742 base patches
 0 opaque faces
-436376 square feet [62838144.00 square inches]
-Error: No Lights!
-Description: lighting of map halted (I assume you do not want a pitch black map!)
-Howto Fix: Put some lights in the map.
+9562 square feet [1376960.00 square inches]
+1 direct lights
 
+BuildFacelights:
+ (0.17 seconds)
+visibility matrix   :   0.2 megs
+BuildVisLeafs:
+ (0.05 seconds)
+MakeScales:
+ (0.05 seconds)
+SwapTransfers:
+ (0.01 seconds)
+Transfer Lists :      147238 :  147.24k transfers
+       Indices :       43448 :   42.43k bytes
+          Data :      588952 :  575.15k bytes
+GatherLight:
+ (0.02 seconds)
+FinalLightFace:
+ (0.12 seconds)
+0.43 seconds elapsed
 
 -----   END   hlrad -----
 

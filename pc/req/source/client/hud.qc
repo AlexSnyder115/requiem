@@ -849,7 +849,7 @@ void(float width, float height) HUD_Useprint =
 				usestring = strcat("Hold ",usebutton, " to take ", GetPerkName(useprint_weapon));
 				break;
 			default:
-				usestring = "This should not happen you dum fuck";
+				usestring = "This should not happen you dum fuck"; //mean!
 				break;
 		}
 			print_width = stringwidth (usestring, 0, [0.015*width, 0.015*width, 0]);
@@ -867,6 +867,14 @@ int current_perk_order;
 	
 void(float width, float height) HUD_Perks =
 {
+	string hudtype;
+	if (getstatf(STAT_HUDSTYLE) == 0)
+		hudtype = "demo";
+	if (getstatf(STAT_HUDSTYLE) == 1)
+		hudtype = "beta";
+	if (getstatf(STAT_HUDSTYLE) == 2)
+		hudtype = "bo3";
+
 	
 	int i, s;
 	int y = 2/*sb_round[1]->height - 22 //(round height minus perk icon height)*/;
@@ -880,32 +888,32 @@ void(float width, float height) HUD_Perks =
 		{
 			if (perk_order[i] == P_JUG)
 			{
-				drawpic([y,yyy,0], "gfx/hud/jug.tga", [28, 28, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], strcat("gfx/hud/", hudtype, "/jug.tga"), [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_DOUBLE)
 			{
-				drawpic([y,yyy,0], "gfx/hud/double.tga", [28, 28, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], strcat("gfx/hud/", hudtype, "/double.tga"), [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_SPEED)
 			{
-				drawpic([y,yyy,0], "gfx/hud/speed.tga", [28, 28, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], strcat("gfx/hud/", hudtype, "/speed.tga"), [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_REVIVE)
 			{
-				drawpic([y,yyy,0], "gfx/hud/revive.tga", [28, 28, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], strcat("gfx/hud/", hudtype, "/revive.tga"), [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_FLOP)
 			{
-				drawpic([y,yyy,0], "gfx/hud/flopper.tga", [28, 28, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], strcat("gfx/hud/", hudtype, "/flopper.tga"), [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_STAMIN)
 			{
-				drawpic([y,yyy,0], "gfx/hud/stamin.tga", [28, 28, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], strcat("gfx/hud/", hudtype, "/stamin.tga"), [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_CHERRY)
@@ -925,7 +933,7 @@ void(float width, float height) HUD_Perks =
 			}
 			else if (perk_order[i] == P_DEAD)
 			{
-				drawpic([y,yyy,0], "gfx/hud/dead.tga", [28, 28, 1], [1,1,1], 1);
+				drawpic([y,yyy,0], strcat("gfx/hud/", hudtype, "/dead.tga"), [28, 28, 1], [1,1,1], 1);
 				y = y + 30;
 			}
 			else if (perk_order[i] == P_WHO)

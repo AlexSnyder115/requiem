@@ -7,6 +7,9 @@
 
 const float FL_JUMPRELEASED = 4096;
 
+//prone4points
+.float moneyclaimed;
+
 .float teleport_time;
 .float flamecool;
 .float iscooling;
@@ -76,27 +79,16 @@ float buyspeed;
 float buydt;
 
 float spwnn;
+.string eesong;
+.float hudstyle;
 
 float hasknifed;
-
-float who;
 
 .float spawntime; //Used to time how long we've been spawned in
 .float pointdif;
 float framecount;
 float deathmatch;
 float hasprone;
-float rev;
-float jug;
-float spd;
-float dtp;
-float phd;
-float sup;
-float can;
-float cry;
-float amm;
-float muk;
-float ded;
 float coop;
 .float boxwep;
 .vector oldvelocity;

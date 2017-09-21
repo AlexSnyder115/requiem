@@ -1,137 +1,27 @@
-fov 65
-fov 65
-map ndu
-map ndu
-give w 60
-give p 64
-give w 32
-give w 34
-give p 64
-give p 65
-give p 999
-give p 230
-give p 230
-give p 230
-give p 230
-give p 230
-give p 230
-give p 230
-give p 230
-give p 230
-give p 230
-give p 230
-give p 55
-give p 55
-give p 1
-give p 4
-give p 1
-give p 4
-give p 8
-give p 16
-give p 32
-give p 64
-give p 128
-give p 256
-give p 128
-give p 256
-give p 512
-give p 1024
-give p 2048
-give p 2
-map ndu
-give p 2
-restart
-give p 1
-give p 2
-give p 4
-give p 8
-give p 16
-give p 32
-give p 64
-give p 128
-give p 512
-give p 1024
-give p 2048
-map ndu
-give p 1
-give p 2
-give p 4
-give p 8
-give p 16
-give p 32
-give p 64
-give p 128
-give p 512
-give p 2048
-give r 100
-give w 34
-restart
-give p 1
-give p 2
-give p 4
-give p 8
-give p 16
-give p 32
-give p 64
-give p 128
-give p 512
-give p 2048
-give r 100
-give w 34
-give w 59
-give w 58
-noclip
-god
-noclip
-give w 49
-give w 48
-give w 48
-give w 49
-give w 47
-give w 46
-give w 30
-give w 29
-give w 28
-noclip
-noclip
-noclip
-noclip
-give w 28
-noclip
-give r 1
-noclip
-give r 101
-restart
-give p 999
-give r 999
-give ray
-give w r
-restart
-restart
-restart
-restart
-restart
-map mine
-give p 1
-give p 1
-give p 1
-give p 1
-give p 1
-give p 1
-give p 1
-give p 1
-give p 1
-
-give p 1
-
-
-
-
-
-
-
-
-
-
-name xd
-name Player
+cl_bobup 0.02
+cl_sidebobbing
+cl_bobside
+echo xd
+v_kicktime
+v_kickroll
+v_kickpitch
+v_iyaw_cycle
+v_iroll_cycle
+v_ipitch_cycle
+v_idlescale 800
+v_idlescale 4
+v_idlescale 9999999
+v_idlescale 9
+v_idlescale 5
+cl_rollspeed
+cl_rollangle
+cl_bob
+cl_bob 0
+cl_bob 0.02
+cl_bobup
+cl_bobup 0.5
+map perk
+map wh
+map wh
+map wh
+map wh
