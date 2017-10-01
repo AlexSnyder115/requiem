@@ -869,11 +869,17 @@ void(float width, float height) HUD_Perks =
 {
 	string hudtype;
 	if (getstatf(STAT_HUDSTYLE) == 0)
-		hudtype = "demo";
+		hudtype = "bo1";
 	if (getstatf(STAT_HUDSTYLE) == 1)
 		hudtype = "beta";
 	if (getstatf(STAT_HUDSTYLE) == 2)
+		hudtype = "bo1";
+	if (getstatf(STAT_HUDSTYLE) == 3)
+		hudtype = "bo2";
+	if (getstatf(STAT_HUDSTYLE) == 4)
 		hudtype = "bo3";
+	if (getstatf(STAT_HUDSTYLE) == 5)
+		hudtype = "mrbl";
 
 	
 	int i, s;

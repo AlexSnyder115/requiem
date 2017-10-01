@@ -25,3 +25,29 @@ map wh
 map wh
 map wh
 map wh
+map perk
+map
+map shi
+pause
+restart
+restart
+map shi
+map shi
+map shi
+map shi
+map shi
+map shi
+map shi
+map shi
+map shi
+map shi
+map shi
+map shi
+restart
+restart
+map shi
+map shi
+map perk
+god
+map perk
+pause
