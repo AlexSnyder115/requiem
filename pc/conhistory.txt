@@ -51,3 +51,4 @@ map perk
 god
 map perk
 pause
+map verruckt
