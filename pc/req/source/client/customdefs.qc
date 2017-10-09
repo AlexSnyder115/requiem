@@ -77,6 +77,7 @@ float played;
 float rounds;
 float perks;
 float rounds_change;
+.float charchoose;
 
 float playerpoints[4]; 			// player point holders, player 1 points are index 0, player 2 at 1...
 string playernames[4]; 			// player name holders, player 1 name at index 0, player 2 at 1...

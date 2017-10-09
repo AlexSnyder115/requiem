@@ -81,6 +81,8 @@ float buydt;
 float spwnn;
 .string eesong;
 .float hudstyle;
+.float rousounds;
+.float charchoose;
 
 float hasknifed;
 
@@ -370,6 +372,7 @@ float crandom();
 
 //Perk and Power system
 float isPowerOn;
+float perk_power;
 .float isBuying; // naievil -- used for checking if a perk is being consumed, limits glitching
 .float perks;
 .float perk_delay;

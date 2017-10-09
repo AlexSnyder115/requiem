@@ -173,36 +173,96 @@ void(float width, float height) HUD_Points =
 
 void(float width, float height) HUD_PlayerName =
 {
-	float playernum, plroffset;
-	local string pname = "";
-	playernum = getstatf(STAT_PLAYERNAME);
-	if (playernum < 0.125)
-	{
-		pname = "Dempsey";
-		plroffset = .72;
-	}
-	else if (playernum < 0.25)
-	{
-		pname = "Nikolai";
-		plroffset = .715;
-	}
-	else if (playernum < 0.375)
-	{
-		pname = "Takeo";
-		plroffset = .75;
-	}
-	else if (playernum == 420)
-	{
-		pname = "Marine";
-		plroffset = .87;
-	}
-	else
-	{
-		pname = "Richtofen";
-		plroffset = .7;
-	}
-	drawstring([plroffset*width, 0.725*height, 0], pname, [0.012*width, 0.012*width, 0], [1, 1, 1], 1, 1);
-
+    float playername, plroffset, p1o, p2o, p3o, p4o;
+    local string pname, p1, p2, p3, p4;
+    float playernum = getstatf(STAT_PLAYERNAME);
+ 
+    switch(world.charchoose)
+    {
+        case 0:
+            p1 = "Dempsey";
+            p1o = 0.720;
+            p2 = "Nikolai";
+            p2o = 0.715;
+            p3 = "Takeo";
+            p3o = 0.750;
+            p4 = "Richtofen";
+            p4o = 0.700;
+            break;
+        case 1:
+            p1 = "Kennedy";
+            p1o = 0.720;
+            p2 = "McNamara";
+            p2o = 0.715;
+            p3 = "Nixon";
+            p3o = 0.750;
+            p4 = "Castro";
+            p4o = 0.700;
+            break;
+        case 2:
+            p1 = "Marlton";
+            p1o = 0.720;
+            p2 = "Samuel";
+            p2o = 0.715;
+            p3 = "Misty";
+            p3o = 0.750;
+            p4 = "Russman";
+            p4o = 0.700;
+            break;
+        case 3:
+            p1 = "Billy";
+            p1o = 0.720;
+            p2 = "Weasel";
+            p2o = 0.715;
+            p3 = "Sal";
+            p3o = 0.750;
+            p4 = "Finn";
+            p4o = 0.700;
+            break;
+        case 4:
+            p1 = "Jessica";
+            p1o = 0.720;
+            p2 = "Nero";
+            p2o = 0.715;
+            p3 = "Floyd";
+            p3o = 0.750;
+            p4 = "Vincent";
+            p4o = 0.700;
+            break;
+        case 5:
+            p1 = "Sarah";
+            p1o = 0.720;
+            p2 = "Danny";
+            p2o = 0.715;
+            p3 = "Michael";
+            p3o = 0.750;
+            p4 = "Robert";
+            p4o = 0.700;
+            break;
+    }
+ 
+    if (playernum < 0.125)
+    {
+        pname = p1;
+        plroffset = p1o;
+    }
+    else if (playernum < 0.250)
+    {
+        pname = p2;
+        plroffset = p2o;
+    }
+    else if (playernum < 0.375)
+    {
+        pname = p3;
+        plroffset = p3o;
+    }
+    else
+    {
+        pname = p4;
+        plroffset = p4o;
+    }
+ 
+    drawstring([plroffset*width, 0.725*height, 0], pname, [0.012*width, 0.012*width, 0], [1, 1, 1], 1, 1);
 }
 
 /*******************

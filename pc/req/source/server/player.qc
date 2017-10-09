@@ -344,7 +344,7 @@ void() PlayerPostThink =
 		case "nuketown":
 			soundstyle = "cod";
 		default:
-			soundstyle = "nzp";
+			soundstyle = "cod";
 			break;
 	}*/
 
@@ -402,15 +402,17 @@ void() PollPlayerPoints =
 
 void() PlayerSpawn =
 {	
-	if (mapname == "ndu" || mapname == "kdt" || mapname == "nuketown") //Nacht, Kino, or Nuketown 
+	if (world.rousounds == 0) //Nacht, Kino, or Nuketown 
 		soundstyle = "cod";
-	else
+	if (world.rousounds == 1)
 		soundstyle = "nzp";
+	if (world.rousounds == 2)
+		soundstyle = "motd";
 	local entity spawnpoint;
 	
 
-	if (mapname == "kdt") {
-		sound (self, CHAN_AUTO, strcat("sounds/music/damned.wav"), 0.7, ATTN_NONE);
+	if (mapname == "five") {
+		sound (self, CHAN_AUTO, strcat("sounds/computer/power.wav"), 0.7, ATTN_NONE);
 	}
 	spawnpoint = find(world, classname, "info_player_start");
 	
@@ -495,6 +497,11 @@ void() PlayerSpawn =
 		self.playernum = player_count + 1;
 
 	if (rounds < 1) {
+		if (world.rousounds == 0)
+		sound (self, CHAN_AUTO, strcat("sounds/rounds/", soundstyle, "/splash.wav"), 1, ATTN_NONE);//temporarily here.
+		if (world.rousounds == 1)
+		sound (self, CHAN_AUTO, strcat("sounds/rounds/", soundstyle, "/splash.wav"), 1, ATTN_NONE);//temporarily here.
+		if (world.rousounds == 2)
 		sound (self, CHAN_AUTO, strcat("sounds/rounds/", soundstyle, "/splash.wav"), 1, ATTN_NONE);//temporarily here.
 	}
 	

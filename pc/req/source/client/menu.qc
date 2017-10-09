@@ -175,7 +175,7 @@ void() mode_gungame =
 {
 	float mode;
 	mode = fopen("mode", FILE_WRITE);
-	fputs(mode, "1");
+	fputs(mode, "0");
 	fclose(mode);
 	in_menu = MENU_MAPS;
 	time_in_menu = 0;
@@ -198,10 +198,12 @@ var struct
 	{[0.025, 0.325, 0], [0.325, 0.06, 0], " Achievements", -1, menu_main, MENU_MAIN},
 	{[0.025, 0.400, 0], [0.325, 0.06, 0], " Credits", -1, menu_about, MENU_MAIN},
 	{[0.025, 0.475, 0], [0.325, 0.06, 0], " Quit", -1, menu_quit, MENU_MAIN},
+	{[0.025, 0.175, 0], [0.325, 0.06, 0], "Normal", -1, mode_none, MENU_SINGLE},
+	{[0.025, 0.250, 0], [0.325, 0.06, 0], "Gungame", -1, mode_gungame, MENU_SINGLE},
 	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_back, MENU_MAPS + MENU_MULTI + MENU_SETTINGS + MENU_ABOUT},
 	{[0.025, 0.900, 0], [0.325, 0.06, 0], "Back", -1, menu_bs, MENU_CLASSIC + MENU_NZP},
 	{[0.025, 0.175, 0], [0.325, 0.06, 0], "Original", -1, menu_classic, MENU_MAPS},
-	{[0.025, 0.250, 0], [0.325, 0.06, 0], "NZ:P Beta", -1, menu_nzp, MENU_MAPS},
+	{[0.025, 0.250, 0], [0.325, 0.06, 0], "Custom Maps", -1, menu_nzp, MENU_MAPS},
 	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Nacht Der Untoten", -1, menu_loadndu, MENU_CLASSIC},
 	{[0.025, 0.250, 0], [0.425, 0.06, 0], "Kino Der Toten", -1, menu_loadkn, MENU_CLASSIC},
 	{[0.025, 0.175, 0], [0.425, 0.06, 0], "Warehouse", -1, menu_loadwa, MENU_NZP},
@@ -216,8 +218,6 @@ var struct
 	{[0.025, 0.925, 0], [0.250, 0.05, 0], "Back", -1, menu_back2, MENU_IGS},
 	{[0.025, 0.500, 0], [0.250, 0.05, 0], "Yes", -1, menu_resy, MENU_RES},
 	{[0.025, 0.575, 0], [0.250, 0.05, 0], "No", -1, menu_resn, MENU_RES},
-	{[0.025, 0.175, 0], [0.325, 0.06, 0], "Normal", -1, mode_none, MENU_SINGLE},
-	{[0.025, 0.250, 0], [0.325, 0.06, 0], "Gungame", -1, mode_gungame, MENU_SINGLE},
 };
 
 //REMEMBER TO UPDATE THIS CONST IF YOU ADD BUTTONS
@@ -272,34 +272,34 @@ void(float index) Update_Button =
 		}
 		if (buttons[index].text == "Nacht Der Untoten")
 		{
-			drawstring([0.01*g_width, 0.5*g_height, 0], "You drove them deep into the heart of the Reich.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.01*g_width, 0.55*g_height, 0], "You thought they were dead. You were wrong.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.25*g_height, 0], "You drove them deep into the heart of the Reich.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.30*g_height, 0], "You thought they were dead. You were wrong.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
 			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/ndu", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
 		}
 		if (buttons[index].text == "Kino Der Toten")
 		{
-			drawstring([0.01*g_width, 0.50*g_height, 0], "Battle the undead in this theatrical installment", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.01*g_width, 0.55*g_height, 0], "of \"Zombies\". New twists and clues could uncover", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.01*g_width, 0.6*g_height, 0], "the final plan. It's show time!", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.25*g_height, 0], "Battle the undead in the theatrical installment", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.30*g_height, 0], "on Zombies. New twists and clues could uncover", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.35*g_height, 0], "the final plan. It's show time!", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
 			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/kino", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
 		}
 		if (buttons[index].text == "Warehouse")
 		{
-			drawstring([0.01*g_width, 0.50*g_height, 0], "Old warehouse full of zombies! Fight your way to", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.01*g_width, 0.55*g_height, 0], "the power switch through the hordes...", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.25*g_height, 0], "Old warehouse full of zombies! Fight your way to", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.30*g_height, 0], "the power switch through the hordes...", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
 			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/wh", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
 		}
 		if (buttons[index].text == "Christmas Special")
 		{
-			drawstring([0.01*g_width, 0.50*g_height, 0], "No Santa this year, but I'm sure you will get some", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.01*g_width, 0.55*g_height, 0], "presents from the undead. The only question is, will", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.01*g_width, 0.6*g_height, 0], "you accept them?", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.25*g_height, 0], "No Santa this year, but I'm sure you will get some", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.30*g_height, 0], "presents from the undead. The only question is, will", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.35*g_height, 0], "you accept them?", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
 			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/xmas", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
 		}
 		if (buttons[index].text == "Wahnsinn")
 		{
-			drawstring([0.01*g_width, 0.50*g_height, 0], "Abandoned house with some marks of human existence.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
-			drawstring([0.01*g_width, 0.55*g_height, 0], "Teddy is the only thing seperating you from the box!", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.25*g_height, 0], "Abandoned house with some marks of human existence.", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
+			drawstring([0.45*g_width, 0.30*g_height, 0], "Teddy is the only thing seperating you from the box!", [g_height * 0.02, g_height * 0.02, 1], [0.8, 0.8, 0.8], 1, 1);
 			drawpic([0.6*g_width, 0.5*g_height, 0], "menu/maps/wa", [g_height * 0.7, g_height * 0.35, 1], [1, 1, 1], 1);
 		}
 		if (buttons[index].text == "")

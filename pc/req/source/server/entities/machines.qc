@@ -1,6 +1,7 @@
 
 float backupWepSkin;
-float sound_perk_delay; 
+float sound_perk_delay;
+float perk_power = 64; 
 void() W_Switch;
 void() mystery_touch;
 void() maxammo;
@@ -185,8 +186,7 @@ void() touch_perk =
 				DrinkPerk(P_REVIVE);
 				other.revivesoda++;
 				other.perkcount++;
-				if (mapname == "kdt")
-					sound (self, CHAN_ITEM, "sounds/music/revsting.wav", 1, ATTN_NORM);
+				sound (self, CHAN_ITEM, "sounds/music/revsting.wav", 1, ATTN_NORM);
 				if (other.revivesoda == 3)
 					remove (self);
 			}
@@ -194,8 +194,7 @@ void() touch_perk =
 			{
 				addmoney (other, -1500, 0);
 				other.perkcount++;
-				if (mapname == "kdt")
-					sound (self, CHAN_ITEM, "sounds/music/revsting.wav", 1, ATTN_NORM);
+				sound (self, CHAN_ITEM, "sounds/music/revsting.wav", 1, ATTN_NORM);
 				DrinkPerk(P_REVIVE);
 			}
 			else if (other.button7)
@@ -225,8 +224,7 @@ void() touch_perk =
 				addmoney (other, -2500, 0);
 				DrinkPerk(P_JUG);
 				other.perkcount++;
-				if (mapname == "kdt")
-					sound (self, CHAN_ITEM, "sounds/music/jugsting.wav", 1, ATTN_NORM);
+				sound (self, CHAN_ITEM, "sounds/music/jugsting.wav", 1, ATTN_NORM);
 			}
 			else if (other.button7)
 			{
@@ -255,8 +253,7 @@ void() touch_perk =
 				addmoney (other, -3000, 0);
 				DrinkPerk(P_SPEED);
 				other.perkcount++;
-				if (mapname == "kdt")
-					sound (self, CHAN_ITEM, "sounds/music/spdsting.wav", 1, ATTN_NORM);
+				sound (self, CHAN_ITEM, "sounds/music/spdsting.wav", 1, ATTN_NORM);
 
 			}
 			else if (other.button7)
@@ -286,8 +283,7 @@ void() touch_perk =
 				addmoney (other, -2000, 0);
 				DrinkPerk(P_DOUBLE);
 				other.perkcount++;
-				if (mapname == "kdt")
-					sound (self, CHAN_ITEM, "sounds/music/dtsting.wav", 1, ATTN_NORM);
+				sound (self, CHAN_ITEM, "sounds/music/dtsting.wav", 1, ATTN_NORM);
 
 			}
 			else if (other.button7)
@@ -329,6 +325,7 @@ void() touch_perk =
 			if (other.points >= 4000 && other.button7)
 			{
 				other.perkcount++;
+				sound (self, CHAN_ITEM, "sounds/music/mksting.wav", 1, ATTN_NORM);
 				addmoney (other, -4000, 0);
 				DrinkPerk(P_MULE);
 				other.thirdweapon = 0;
@@ -482,13 +479,13 @@ void() playtap =
 
 void() setup_perk =
 {
-	/*if (find (world, classname, "power_switch"))
-	{
-		if (self.classname == "perk_revive" && !coop && !deathmatch)
-			self.effects = EF_BLUE;
-		else
-			self.requirespower = true;
-	}
+    if (find (world, classname, "power_switch"))
+    {
+        if (self.classname == "perk_revive" && !coop && !deathmatch)
+            self.effects;
+        else
+            self.requirespower = true;
+    }/*
 	else
 	{
 		if (self.classname == "perk_revive")
@@ -516,6 +513,7 @@ void() setup_perk =
 	}*/ 
 	
 		// naievil (FIXME) light effects 
+
 }
 void() perk_revive =
 {
@@ -770,6 +768,8 @@ void() Turn_Lights =
 	}  // naievil (FIXME) redo light effects 
 } 
 
+.float requirespower;
+float isPowerOn;
 void() touch_power_Switch =
 {
 	entity tempe;
@@ -792,7 +792,6 @@ void() touch_power_Switch =
 		{
 			local entity starte;
 
-      if (!tempe.targetname)
       {
         if (!tempe.cost)
         {

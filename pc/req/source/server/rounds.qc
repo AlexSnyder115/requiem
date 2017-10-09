@@ -141,10 +141,10 @@ void() NewRound =
 	
 	if ((rounds == 5 || rounds == 10 || rounds == 15) && gotdog) {
 		roundtype = 2;
-		localcmd("fog 0.25\n");
+		localcmd("fog 0\n");
 	} else {
 		roundtype = 1;
-		localcmd(strcat("fog 0.1"));
+		localcmd(strcat("fog 0"));
 	}
 }
 void() Round_Core =

@@ -49,3 +49,57 @@ compiling server/ai/dog_core.qc
 compiling server/items.qc
 Compile finished: ../qwprogs.dat (fte format)
 Done. 0 warnings
+Args: "C:\Program Files\Microsoft Office Windows\requiem-master\pc\req\source\win32-fteqcc.exe"
+FTEQCC: May 23 2017
+Source file: progs.src
+nothing to write
+-------------------------------------
+Source file: csprogs.src
+outputfile: ../csprogs.dat
+compiling client/csdefs.qc
+compiling shared/customdefs.qc
+compiling shared/weapon_defines.qc
+compiling client/math.qc
+compiling client/customdefs.qc
+compiling client/menu.qc
+compiling client/hud.qc
+compiling client/main.qc
+Compile finished: ../csprogs.dat (id format)
+Done. 0 warnings
+-------------------------------------
+Source file: ssprogs.src
+outputfile: ../qwprogs.dat
+compiling server/ssdefs.qc
+compiling shared/customdefs.qc
+compiling shared/weapon_defines.qc
+compiling server/customdefs.qc
+compiling server/clientfuncs.qc
+compiling server/quotes.qc
+server/quotes.qc:179: error: "}" is not a type
+compiling server/dummys.qc
+compiling server/rounds.qc
+compiling server/main.qc
+compiling server/player.qc
+compiling server/damage.qc
+compiling server/entities/sub_functions.qc
+compiling server/entities/triggers.qc
+compiling server/entities/map_entities.qc
+compiling server/entities/lights.qc
+compiling server/entities/doors.qc
+compiling server/entities/window.qc
+compiling server/entities/machines.qc
+compiling server/entities/craft.qc
+compiling server/weapons/frames_core.qc
+compiling server/weapons/weapon_core.qc
+compiling server/entities/powerups.qc
+compiling server/ai/pathfind_code.qc
+compiling server/ai/ai_core.qc
+compiling server/ai/waypoints_core.qc
+compiling server/ai/zombie_core.qc
+compiling server/ai/crawler_core.qc
+compiling server/ai/dog_core.qc
+compiling server/items.qc
+
+************ ERROR ************
+compilation errors
+Error in server/quotes.qc on line 179
