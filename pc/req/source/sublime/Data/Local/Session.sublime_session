@@ -1,14 +1,15 @@
 {
 	"folder_history":
 	[
+		"/D/NZP/requiem-master/pc/req/source",
 		"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source"
 	],
 	"last_version": 3143,
-	"last_window_id": 2,
+	"last_window_id": 3,
 	"log_indexing": false,
 	"settings":
 	{
-		"new_window_height": 480.0,
+		"new_window_height": 479.0,
 		"new_window_settings":
 		{
 			"auto_complete":
@@ -48,12 +49,16 @@
 			},
 			"file_history":
 			[
+				"/C/Program Files/Jackhammer/hl-nzpr.fgd",
+				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server/customdefs.qc",
+				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/client/hud.qc",
+				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server/entities/machines.qc",
 				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/qwprogs.dat",
 				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/csprogs.dat"
 			],
 			"find":
 			{
-				"height": 0.0
+				"height": 40.0
 			},
 			"find_in_files":
 			{
@@ -83,7 +88,7 @@
 			},
 			"incremental_find":
 			{
-				"height": 0.0
+				"height": 23.0
 			},
 			"input":
 			{
@@ -97,7 +102,7 @@
 			"pinned_build_system": "",
 			"replace":
 			{
-				"height": 0.0
+				"height": 42.0
 			},
 			"save_all_on_build": true,
 			"select_file":
@@ -151,10 +156,10 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Program Files/Jackhammer/hl-nzpr.fgd",
+					"file": "/D/NZP/requiem-master/pc/req/source/server/entities/machines.qc",
 					"settings":
 					{
-						"buffer_size": 25241,
+						"buffer_size": 52941,
 						"encoding": "UTF-8",
 						"line_ending": "Unix"
 					}
@@ -192,15 +197,13 @@
 			},
 			"expanded_folders":
 			[
-				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source",
-				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/client",
-				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server",
-				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server/ai",
-				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server/entities",
-				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server/weapons"
+				"/D/NZP/requiem-master/pc/req/source",
+				"/D/NZP/requiem-master/pc/req/source/server",
+				"/D/NZP/requiem-master/pc/req/source/server/entities"
 			],
 			"file_history":
 			[
+				"/C/Program Files/Jackhammer/hl-nzpr.fgd",
 				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server/customdefs.qc",
 				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/client/hud.qc",
 				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server/entities/machines.qc",
@@ -223,6 +226,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"power"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -240,7 +244,7 @@
 			"folders":
 			[
 				{
-					"path": "C:\\Program Files\\Microsoft Office Windows\\requiem-master\\pc\\req\\source"
+					"path": "D:\\NZP\\requiem-master\\pc\\req\\source"
 				}
 			],
 			"groups":
@@ -251,19 +255,19 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Program Files/Jackhammer/hl-nzpr.fgd",
+							"file": "/D/NZP/requiem-master/pc/req/source/server/entities/machines.qc",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 25241,
+								"buffer_size": 52941,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										665,
-										665
+										11245,
+										11245
 									]
 								],
 								"settings":
@@ -272,7 +276,7 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 180.0,
+								"translation.y": 6952.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -317,7 +321,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,2,3,-1,-1,-1,-1,563,25,25,681",
+			"position": "0,2,3,-1,-1,-1,-1,616,78,78,734",
 			"project": "",
 			"replace":
 			{
@@ -364,7 +368,7 @@
 			"template_settings":
 			{
 			},
-			"window_id": 2,
+			"window_id": 3,
 			"workspace_name": ""
 		}
 	],
