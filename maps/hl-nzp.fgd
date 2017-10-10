@@ -21,6 +21,21 @@
 		4: "Black Ops 3"
 		5: "Marble"
 	]
+	charchoose(choices) : "Characters" : 0 =
+	[
+		0: "Kino der Toten"
+		1: "Presidents (Five)"
+		2: "Victis (TranZit)"
+		3: "Nightmare (MoTD)"
+		4: "Cursed (SoE)"
+		5: "Stars (CoTD)"
+	]
+	rousounds(choices) : "Custom Round Music" : 0 =
+	[
+		0: "CoD Zombies"
+		1: "NZP"
+		2: "Mob of the Dead"
+	]
 ]
 
 //
