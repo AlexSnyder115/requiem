@@ -156,11 +156,10 @@
 			"buffers":
 			[
 				{
-					"file": "/D/NZP/requiem-master/pc/req/source/server/entities/machines.qc",
+					"file": "/D/NZP/requiem-master/pc/req/source/server/entities/map_entities.qc",
 					"settings":
 					{
-						"buffer_size": 52941,
-						"encoding": "UTF-8",
+						"buffer_size": 16879,
 						"line_ending": "Unix"
 					}
 				}
@@ -203,6 +202,7 @@
 			],
 			"file_history":
 			[
+				"/D/NZP/requiem-master/pc/req/source/server/entities/machines.qc",
 				"/C/Program Files/Jackhammer/hl-nzpr.fgd",
 				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/server/customdefs.qc",
 				"/C/Program Files/Microsoft Office Windows/requiem-master/pc/req/source/client/hud.qc",
@@ -226,6 +226,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"zapper",
 					"power"
 				],
 				"highlight": true,
@@ -255,19 +256,19 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/D/NZP/requiem-master/pc/req/source/server/entities/machines.qc",
-							"semi_transient": false,
+							"file": "/D/NZP/requiem-master/pc/req/source/server/entities/map_entities.qc",
+							"semi_transient": true,
 							"settings":
 							{
-								"buffer_size": 52941,
+								"buffer_size": 16879,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										11245,
-										11245
+										13733,
+										13739
 									]
 								],
 								"settings":
@@ -276,7 +277,7 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 6952.0,
+								"translation.y": 8467.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
